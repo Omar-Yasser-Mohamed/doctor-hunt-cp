@@ -9,9 +9,12 @@ class AppBackground extends StatelessWidget {
   const AppBackground({
     required this.child,
     super.key,
+    this.showTopDecoration = true,
+    this.showBottomDecoration = true,
   });
-
   final Widget child;
+  final bool showTopDecoration;
+  final bool showBottomDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -22,27 +25,29 @@ class AppBackground extends StatelessWidget {
           color: AppColors.white,
         ),
 
-        Positioned(
-          top: -33.h,
-          left: context.isArabic ? null : -99.w,
-          right: context.isArabic ? -99.w : null,
-          child: _BackgroundCircle(
-            size: 216.w,
-            blur: 269,
-            color: AppColors.topGradient,
+        if (showTopDecoration)
+          Positioned(
+            top: -33.h,
+            left: context.isArabic ? null : -99.w,
+            right: context.isArabic ? -99.w : null,
+            child: _BackgroundCircle(
+              size: 216.w,
+              blur: 269,
+              color: AppColors.topGradient,
+            ),
           ),
-        ),
 
-        Positioned(
-          right: context.isArabic ? null : -90.w,
-          left: context.isArabic ? -90.w : null,
-          bottom: -74.h,
-          child: _BackgroundCircle(
-            size: 257.w,
-            blur: 121,
-            color: AppColors.bottomGradient,
+        if (showBottomDecoration)
+          Positioned(
+            right: context.isArabic ? null : -90.w,
+            left: context.isArabic ? -90.w : null,
+            bottom: -74.h,
+            child: _BackgroundCircle(
+              size: 257.w,
+              blur: 121,
+              color: AppColors.bottomGradient,
+            ),
           ),
-        ),
 
         child,
       ],

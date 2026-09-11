@@ -13,6 +13,7 @@ abstract final class AppColors {
   static const Color textSub = Color(0xFF677294);
   static const Color textPlaceholder = Color(0xFF94A3B8);
   static const Color textBorders = Color(0xFFE2E8F0);
+  static const Color textDark = Color(0xFF222222);
 
   static const Color danger = Color(0xFFBA1A1A);
   static const Color dangerLight = Color(0xFFFEE2E2);
@@ -29,6 +30,7 @@ abstract final class AppColors {
   static const Color boxShadow = Color(0x1A000000);
 
   static const Color skyBlue = Color(0xFF61CEFF);
+  static const Color green = Color(0xFF07D9AD);
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);

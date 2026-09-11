@@ -7,7 +7,19 @@
     "save": "Save",
     "delete": "Delete",
     "retry": "Retry",
-    "search": "Search"
+    "search": "Search",
+    "next": "Next",
+    "skip": "Skip"
+  },
+
+  "onboarding": {
+    "getStarted": "Get Started",
+    "findTrustedDoctors": "Find Trusted Doctors",
+    "findTrustedDoctorsDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
+    "chooseBestDoctors": "Choose Best Doctors",
+    "chooseBestDoctorsDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
+    "easyAppointments": "Easy Appointments",
+    "easyAppointmentsDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.."
   },
 
   "auth": {
@@ -16,12 +28,5 @@
     "email": "Email",
     "password": "Password",
     "forgotPassword": "Forgot Password?"
-  },
-
-  "home": {
-    "welcome": "Welcome",
-    "popularDoctors": "Popular Doctors",
-    "seeAll": "See All",
-    "searchDoctors": "Search doctors..."
   }
 }

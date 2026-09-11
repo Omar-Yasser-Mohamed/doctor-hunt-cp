@@ -46,8 +46,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	String get appName => 'Doctor Hunt';
 
 	late final Translations$common$en common = Translations$common$en.internal(_root);
+	late final Translations$onboarding$en onboarding = Translations$onboarding$en.internal(_root);
 	late final Translations$auth$en auth = Translations$auth$en.internal(_root);
-	late final Translations$home$en home = Translations$home$en.internal(_root);
 }
 
 // Path: common
@@ -75,6 +75,42 @@ class Translations$common$en {
 
 	/// en: 'Search'
 	String get search => 'Search';
+
+	/// en: 'Next'
+	String get next => 'Next';
+
+	/// en: 'Skip'
+	String get skip => 'Skip';
+}
+
+// Path: onboarding
+class Translations$onboarding$en {
+	Translations$onboarding$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Get Started'
+	String get getStarted => 'Get Started';
+
+	/// en: 'Find Trusted Doctors'
+	String get findTrustedDoctors => 'Find Trusted Doctors';
+
+	/// en: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.'
+	String get findTrustedDoctorsDescription => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.';
+
+	/// en: 'Choose Best Doctors'
+	String get chooseBestDoctors => 'Choose Best Doctors';
+
+	/// en: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.'
+	String get chooseBestDoctorsDescription => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.';
+
+	/// en: 'Easy Appointments'
+	String get easyAppointments => 'Easy Appointments';
+
+	/// en: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..'
+	String get easyAppointmentsDescription => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..';
 }
 
 // Path: auth
@@ -101,27 +137,6 @@ class Translations$auth$en {
 	String get forgotPassword => 'Forgot Password?';
 }
 
-// Path: home
-class Translations$home$en {
-	Translations$home$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Welcome'
-	String get welcome => 'Welcome';
-
-	/// en: 'Popular Doctors'
-	String get popularDoctors => 'Popular Doctors';
-
-	/// en: 'See All'
-	String get seeAll => 'See All';
-
-	/// en: 'Search doctors...'
-	String get searchDoctors => 'Search doctors...';
-}
-
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -137,15 +152,20 @@ extension on Translations {
 			'common.delete' => 'Delete',
 			'common.retry' => 'Retry',
 			'common.search' => 'Search',
+			'common.next' => 'Next',
+			'common.skip' => 'Skip',
+			'onboarding.getStarted' => 'Get Started',
+			'onboarding.findTrustedDoctors' => 'Find Trusted Doctors',
+			'onboarding.findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
+			'onboarding.chooseBestDoctors' => 'Choose Best Doctors',
+			'onboarding.chooseBestDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
+			'onboarding.easyAppointments' => 'Easy Appointments',
+			'onboarding.easyAppointmentsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..',
 			'auth.login' => 'Login',
 			'auth.register' => 'Register',
 			'auth.email' => 'Email',
 			'auth.password' => 'Password',
 			'auth.forgotPassword' => 'Forgot Password?',
-			'home.welcome' => 'Welcome',
-			'home.popularDoctors' => 'Popular Doctors',
-			'home.seeAll' => 'See All',
-			'home.searchDoctors' => 'Search doctors...',
 			_ => null,
 		};
 	}

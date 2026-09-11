@@ -41,8 +41,8 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	// Translations
 	@override String get appName => 'دكتور هانت';
 	@override late final _Translations$common$ar common = _Translations$common$ar._(_root);
+	@override late final _Translations$onboarding$ar onboarding = _Translations$onboarding$ar._(_root);
 	@override late final _Translations$auth$ar auth = _Translations$auth$ar._(_root);
-	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
 }
 
 // Path: common
@@ -58,6 +58,24 @@ class _Translations$common$ar extends Translations$common$en {
 	@override String get delete => 'حذف';
 	@override String get retry => 'إعادة المحاولة';
 	@override String get search => 'بحث';
+	@override String get next => 'التالي';
+	@override String get skip => 'تخطي';
+}
+
+// Path: onboarding
+class _Translations$onboarding$ar extends Translations$onboarding$en {
+	_Translations$onboarding$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get getStarted => 'ابدأ';
+	@override String get findTrustedDoctors => 'العثور على أطباء موثوقين';
+	@override String get findTrustedDoctorsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.';
+	@override String get chooseBestDoctors => 'اختر أفضل الأطباء';
+	@override String get chooseBestDoctorsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.';
+	@override String get easyAppointments => 'حجز المواعيد بسهولة';
+	@override String get easyAppointmentsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام..';
 }
 
 // Path: auth
@@ -72,19 +90,6 @@ class _Translations$auth$ar extends Translations$auth$en {
 	@override String get email => 'البريد الإلكتروني';
 	@override String get password => 'كلمة المرور';
 	@override String get forgotPassword => 'هل نسيت كلمة المرور؟';
-}
-
-// Path: home
-class _Translations$home$ar extends Translations$home$en {
-	_Translations$home$ar._(TranslationsAr root) : this._root = root, super.internal(root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get welcome => 'مرحباً';
-	@override String get popularDoctors => 'الأطباء المشهورون';
-	@override String get seeAll => 'عرض الكل';
-	@override String get searchDoctors => 'ابحث عن طبيب...';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -102,15 +107,20 @@ extension on TranslationsAr {
 			'common.delete' => 'حذف',
 			'common.retry' => 'إعادة المحاولة',
 			'common.search' => 'بحث',
+			'common.next' => 'التالي',
+			'common.skip' => 'تخطي',
+			'onboarding.getStarted' => 'ابدأ',
+			'onboarding.findTrustedDoctors' => 'العثور على أطباء موثوقين',
+			'onboarding.findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
+			'onboarding.chooseBestDoctors' => 'اختر أفضل الأطباء',
+			'onboarding.chooseBestDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
+			'onboarding.easyAppointments' => 'حجز المواعيد بسهولة',
+			'onboarding.easyAppointmentsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام..',
 			'auth.login' => 'تسجيل الدخول',
 			'auth.register' => 'إنشاء حساب',
 			'auth.email' => 'البريد الإلكتروني',
 			'auth.password' => 'كلمة المرور',
 			'auth.forgotPassword' => 'هل نسيت كلمة المرور؟',
-			'home.welcome' => 'مرحباً',
-			'home.popularDoctors' => 'الأطباء المشهورون',
-			'home.seeAll' => 'عرض الكل',
-			'home.searchDoctors' => 'ابحث عن طبيب...',
 			_ => null,
 		};
 	}
