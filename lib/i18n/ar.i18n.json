@@ -1,0 +1,27 @@
+{
+  "appName": "دكتور هانت",
+
+  "common": {
+    "continue": "استمرار",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "retry": "إعادة المحاولة",
+    "search": "بحث"
+  },
+
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgotPassword": "هل نسيت كلمة المرور؟"
+  },
+
+  "home": {
+    "welcome": "مرحباً",
+    "popularDoctors": "الأطباء المشهورون",
+    "seeAll": "عرض الكل",
+    "searchDoctors": "ابحث عن طبيب..."
+  }
+}
