@@ -25,7 +25,7 @@ extension SnakeBarExtention on BuildContext {
           Expanded(
             child: Text(
               message,
-              style: semiBold14TextMain,
+              style: semiBold14White,
             ),
           ),
         ],
@@ -54,7 +54,7 @@ extension SnakeBarExtention on BuildContext {
           Expanded(
             child: Text(
               message,
-              style: semiBold14TextMain,
+              style: semiBold14White,
             ),
           ),
         ],

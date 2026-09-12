@@ -95,7 +95,9 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 if (_formKey.currentState!.validate()) {
                   widget.onSuccess();
                 } else {
-                  _autovalidateMode = AutovalidateMode.always;
+                  setState(() {
+                    _autovalidateMode = AutovalidateMode.always;
+                  });
                 }
               },
             ),

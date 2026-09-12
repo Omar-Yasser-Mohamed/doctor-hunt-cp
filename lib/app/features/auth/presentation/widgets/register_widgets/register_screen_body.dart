@@ -35,6 +35,8 @@ class RegisterScreenBody extends StatelessWidget {
           18.height,
 
           const RegisterFooter(),
+
+          (context.bottomPadding + 24).height,
         ],
       ),
     );

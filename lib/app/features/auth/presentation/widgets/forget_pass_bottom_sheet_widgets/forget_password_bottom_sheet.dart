@@ -41,7 +41,9 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
           padding: EdgeInsets.only(
             left: 20.w,
             right: 20.w,
-            bottom: context.bottomPadding + 24,
+            bottom:
+                MediaQuery.viewInsetsOf(context).bottom +
+                (context.bottomPadding + 24),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,

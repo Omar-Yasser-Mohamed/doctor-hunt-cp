@@ -18,8 +18,7 @@ abstract final class AppToasts {
       message: message,
       title: title,
       type: ToastificationType.success,
-      primaryColor: AppColors.success,
-      backgroundColor: AppColors.successLight,
+      color: AppColors.success,
       icon: Icons.check_circle_outline_rounded,
       duration: duration ?? _defaultDuration,
     );
@@ -36,8 +35,7 @@ abstract final class AppToasts {
       message: message,
       title: title,
       type: ToastificationType.error,
-      primaryColor: AppColors.danger,
-      backgroundColor: AppColors.dangerLight,
+      color: AppColors.danger,
       icon: Icons.error_outline_rounded,
       duration: duration ?? _defaultDuration,
     );
@@ -54,8 +52,7 @@ abstract final class AppToasts {
       message: message,
       title: title,
       type: ToastificationType.warning,
-      primaryColor: AppColors.warning,
-      backgroundColor: AppColors.warningLight,
+      color: AppColors.warning,
       icon: Icons.warning_amber_rounded,
       duration: duration ?? _defaultDuration,
     );
@@ -72,8 +69,7 @@ abstract final class AppToasts {
       message: message,
       title: title,
       type: ToastificationType.info,
-      primaryColor: AppColors.primary,
-      backgroundColor: AppColors.primaryLight,
+      color: AppColors.primary,
       icon: Icons.info_outline_rounded,
       duration: duration ?? _defaultDuration,
     );
@@ -92,8 +88,7 @@ abstract final class AppToasts {
     required String message,
     String? title,
     required ToastificationType type,
-    required Color primaryColor,
-    required Color backgroundColor,
+    required Color color,
     required IconData icon,
     required Duration duration,
   }) {
@@ -106,9 +101,9 @@ abstract final class AppToasts {
       alignment: Alignment.topCenter,
 
       // Colors
-      primaryColor: primaryColor,
-      backgroundColor: backgroundColor,
-      foregroundColor: AppColors.textMain,
+      primaryColor: color,
+      backgroundColor: color,
+      foregroundColor: Colors.white,
 
       // Size & Shape
       padding: EdgeInsets.symmetric(
@@ -144,7 +139,7 @@ abstract final class AppToasts {
       // Icon
       icon: Icon(
         icon,
-        color: primaryColor,
+        color: Colors.white,
         size: 22.sp,
       ),
 
@@ -152,14 +147,12 @@ abstract final class AppToasts {
       title: title != null
           ? Text(
               title,
-              style: context.semiBold14TextMain,
+              style: context.semiBold14White,
             )
           : null,
       description: Text(
         message,
-        style: title != null
-            ? context.regular12TextSub
-            : context.medium14TextMain,
+        style: title != null ? context.regular12White : context.medium14White,
       ),
 
       // Progress
@@ -167,7 +160,7 @@ abstract final class AppToasts {
       showProgressBar: true,
 
       progressBarTheme: ProgressIndicatorThemeData(
-        color: primaryColor,
+        color: Colors.white,
         linearTrackColor: Colors.transparent,
         linearMinHeight: 2.h,
         borderRadius: BorderRadius.circular(8.r),
