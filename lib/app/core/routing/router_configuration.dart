@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_screen.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/login_screen.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/register_screen.dart';
 import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/splash/presentation/screens/splash_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +21,14 @@ abstract final class RouterConfiguration {
       GoRoute(
         path: AppRoutes.chooseRoleScreen,
         builder: (context, state) => const ChooseRoleScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.loginScreen,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.registerScreen,
+        builder: (context, state) => const RegisterScreen(),
       ),
     ],
   );

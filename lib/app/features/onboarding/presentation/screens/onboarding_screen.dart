@@ -98,7 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       -104.w, // page 2
     ];
     return AnimatedPositioned(
-      duration: const Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
       top: -20.h,
       left: circlePositions[currentPage],

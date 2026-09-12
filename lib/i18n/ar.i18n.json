@@ -2,6 +2,8 @@
   "appName": "دكتور هانت",
 
   "common": {
+    "patient": "مريض",
+    "admin": "مدير",
     "continue": "استمرار",
     "cancel": "إلغاء",
     "save": "حفظ",
@@ -22,11 +24,44 @@
     "easyAppointmentsDescription": "بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.."
   },
 
+  "chooseRole": {
+    "chooseYourRole": "اختر دورك",
+    "chooseYourRoleDescription": "الدور المحدد يحدد التجربة والميزات المتاحة.",
+    "patientDescription": "ابحث عن الأطباء، احجز المواعيد، وأدر سجلاتك الطبية.",
+    "adminDescription": "إدارة الأطباء والمواعيد والمستخدمين والمنصة."
+  },
+
   "auth": {
     "login": "تسجيل الدخول",
     "register": "إنشاء حساب",
+    "name": "الاسم",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
-    "forgotPassword": "هل نسيت كلمة المرور؟"
+    "forgotPassword": "هل نسيت كلمة المرور",
+    "google": "جوجل",
+    "facebook": "فيسبوك",
+    "welcomeBack": "مرحبا بعودتك",
+    "joinUsToStartSearching": "انضم إلينا للبدء في البحث",
+    "youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies": "يمكنك البحث في الدورات، التقديم للدورات، والعثور على منح دراسية للدراسة في الخارج",
+    "dontHaveAnAccount": "لا تمتلك حساب؟",
+    "joinUs": "انضم إلينا",
+    "haveAnAccount": "هل لديك حساب؟",
+    "logIn": "تسجيل الدخول",
+    "agreeToTerms": "أوافق على شروط الخدمة وسياسة الخصوصية",
+    "signUp": "إنشاء حساب"
+  },
+
+  "validations": {
+    "required": "حقل $fieldName مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صالح",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordMinLength": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    "passwordRequiresUppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+    "passwordRequiresLowercase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+    "passwordRequiresNumber": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+    "passwordRequiresSpecialCharacter": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+    "nameRequired": "الاسم مطلوب",
+    "nameMinLength": "يجب أن يتكون الاسم من 3 أحرف على الأقل"
   }
 }

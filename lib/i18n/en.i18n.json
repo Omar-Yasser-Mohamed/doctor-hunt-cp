@@ -2,6 +2,8 @@
   "appName": "Doctor Hunt",
 
   "common": {
+    "patient": "Patient",
+    "admin": "Admin",
     "continue": "Continue",
     "cancel": "Cancel",
     "save": "Save",
@@ -22,11 +24,44 @@
     "easyAppointmentsDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.."
   },
 
+  "chooseRole": {
+    "chooseYourRole": "Choose Your Role",
+    "chooseYourRoleDescription": "The selected role determines the experience and available features.",
+    "patientDescription": "Find doctors, book appointments, and manage your medical records.",
+    "adminDescription": "Manage doctors, appointments, users, and the platform."
+  },
+
   "auth": {
     "login": "Login",
     "register": "Register",
+    "name": "Name",
     "email": "Email",
     "password": "Password",
-    "forgotPassword": "Forgot Password?"
+    "forgotPassword": "Forgot Password",
+    "google": "Google",
+    "facebook": "Facebook",
+    "welcomeBack": "Welcome back",
+    "joinUsToStartSearching": "Join us to start searching",
+    "youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies": "You can search course, apply course and find scholarship for abroad studies",
+    "dontHaveAnAccount": "Don’t have an account?",
+    "joinUs": "Join us",
+    "haveAnAccount": "Have an account?",
+    "logIn": "Log in",
+    "agreeToTerms": "I agree with the Terms of Service & Privacy Policy",
+    "signUp": "Sign Up"
+  },
+
+  "validations": {
+    "required": "$fieldName is required",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Please enter a valid email",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 8 characters",
+    "passwordRequiresUppercase": "Password must contain at least one uppercase letter",
+    "passwordRequiresLowercase": "Password must contain at least one lowercase letter",
+    "passwordRequiresNumber": "Password must contain at least one number",
+    "passwordRequiresSpecialCharacter": "Password must contain at least one special character",
+    "nameRequired": "Name is required",
+    "nameMinLength": "Name must be at least 3 characters"
   }
 }
