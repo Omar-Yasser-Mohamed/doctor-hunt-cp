@@ -119,6 +119,15 @@ class _Translations$auth$ar extends Translations$auth$en {
 	@override String get logIn => 'تسجيل الدخول';
 	@override String get agreeToTerms => 'أوافق على شروط الخدمة وسياسة الخصوصية';
 	@override String get signUp => 'إنشاء حساب';
+	@override String get forgotPasswordDescription => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.';
+	@override String get enterDigitsCode => 'أدخل رمز التحقق المكون من ٤ أرقام';
+	@override String get enterDigitsDescription => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.';
+	@override String get resetPassword => 'إعادة تعيين كلمة المرور';
+	@override String get newPassword => 'كلمة المرور الجديدة';
+	@override String get reEnterPassword => 'أعد إدخال كلمة المرور';
+	@override String get resetPasswordDescription => 'أدخل كلمة المرور الجديدة لحسابك.';
+	@override String get updatePassword => 'تحديث كلمة المرور';
+	@override String get code => 'الرمز';
 }
 
 // Path: validations
@@ -139,6 +148,8 @@ class _Translations$validations$ar extends Translations$validations$en {
 	@override String get passwordRequiresSpecialCharacter => 'يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل';
 	@override String get nameRequired => 'الاسم مطلوب';
 	@override String get nameMinLength => 'يجب أن يتكون الاسم من 3 أحرف على الأقل';
+	@override String get confirmPasswordRequired => 'يجب إعادة إدخال كلمة المرور';
+	@override String get passwordsDoNotMatch => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -188,6 +199,15 @@ extension on TranslationsAr {
 			'auth.logIn' => 'تسجيل الدخول',
 			'auth.agreeToTerms' => 'أوافق على شروط الخدمة وسياسة الخصوصية',
 			'auth.signUp' => 'إنشاء حساب',
+			'auth.forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.',
+			'auth.enterDigitsCode' => 'أدخل رمز التحقق المكون من ٤ أرقام',
+			'auth.enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.',
+			'auth.resetPassword' => 'إعادة تعيين كلمة المرور',
+			'auth.newPassword' => 'كلمة المرور الجديدة',
+			'auth.reEnterPassword' => 'أعد إدخال كلمة المرور',
+			'auth.resetPasswordDescription' => 'أدخل كلمة المرور الجديدة لحسابك.',
+			'auth.updatePassword' => 'تحديث كلمة المرور',
+			'auth.code' => 'الرمز',
 			'validations.required' => ({required Object fieldName}) => 'حقل ${fieldName} مطلوب',
 			'validations.emailRequired' => 'البريد الإلكتروني مطلوب',
 			'validations.invalidEmail' => 'يرجى إدخال بريد إلكتروني صالح',
@@ -199,6 +219,8 @@ extension on TranslationsAr {
 			'validations.passwordRequiresSpecialCharacter' => 'يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل',
 			'validations.nameRequired' => 'الاسم مطلوب',
 			'validations.nameMinLength' => 'يجب أن يتكون الاسم من 3 أحرف على الأقل',
+			'validations.confirmPasswordRequired' => 'يجب إعادة إدخال كلمة المرور',
+			'validations.passwordsDoNotMatch' => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها',
 			_ => null,
 		};
 	}

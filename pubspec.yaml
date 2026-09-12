@@ -21,6 +21,7 @@ dependencies:
   slang_flutter: ^4.19.0
   toastification: ^3.2.0
   flutter_svg: ^2.3.0
+  pinput: ^6.0.2
 
 dev_dependencies:
   flutter_test:

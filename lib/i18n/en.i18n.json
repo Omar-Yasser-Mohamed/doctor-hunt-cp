@@ -48,7 +48,16 @@
     "haveAnAccount": "Have an account?",
     "logIn": "Log in",
     "agreeToTerms": "I agree with the Terms of Service & Privacy Policy",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "forgotPasswordDescription": "Enter your email for the verification proccesss, we will send 4 digits code to your email.",
+    "enterDigitsCode": "Enter 4 Digits Code",
+    "enterDigitsDescription": "Enter the 4 digits code that you received on your email.",
+    "resetPassword": "Reset Password",
+    "newPassword": "New Password",
+    "reEnterPassword": "Re-enter Password",
+    "updatePassword": "Update Password",
+    "resetPasswordDescription": "Set the new password for your account so you can login and access all the features.",
+    "code": "Code"
   },
 
   "validations": {
@@ -62,6 +71,8 @@
     "passwordRequiresNumber": "Password must contain at least one number",
     "passwordRequiresSpecialCharacter": "Password must contain at least one special character",
     "nameRequired": "Name is required",
-    "nameMinLength": "Name must be at least 3 characters"
+    "nameMinLength": "Name must be at least 3 characters",
+    "confirmPasswordRequired": "Confirm Password is required",
+    "passwordsDoNotMatch": "Passwords do not match"
   }
 }

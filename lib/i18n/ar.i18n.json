@@ -48,7 +48,16 @@
     "haveAnAccount": "هل لديك حساب؟",
     "logIn": "تسجيل الدخول",
     "agreeToTerms": "أوافق على شروط الخدمة وسياسة الخصوصية",
-    "signUp": "إنشاء حساب"
+    "signUp": "إنشاء حساب",
+    "forgotPasswordDescription": "أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.",
+    "enterDigitsCode": "أدخل رمز التحقق المكون من ٤ أرقام",
+    "enterDigitsDescription": "أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "newPassword": "كلمة المرور الجديدة",
+    "reEnterPassword": "أعد إدخال كلمة المرور",
+    "resetPasswordDescription": "أدخل كلمة المرور الجديدة لحسابك.",
+    "updatePassword": "تحديث كلمة المرور",
+    "code": "الرمز"
   },
 
   "validations": {
@@ -62,6 +71,8 @@
     "passwordRequiresNumber": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
     "passwordRequiresSpecialCharacter": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
     "nameRequired": "الاسم مطلوب",
-    "nameMinLength": "يجب أن يتكون الاسم من 3 أحرف على الأقل"
+    "nameMinLength": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
+    "confirmPasswordRequired": "يجب إعادة إدخال كلمة المرور",
+    "passwordsDoNotMatch": "يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها"
   }
 }

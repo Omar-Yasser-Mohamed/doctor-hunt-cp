@@ -200,6 +200,33 @@ class Translations$auth$en {
 
 	/// en: 'Sign Up'
 	String get signUp => 'Sign Up';
+
+	/// en: 'Enter your email for the verification proccesss, we will send 4 digits code to your email.'
+	String get forgotPasswordDescription => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.';
+
+	/// en: 'Enter 4 Digits Code'
+	String get enterDigitsCode => 'Enter 4 Digits Code';
+
+	/// en: 'Enter the 4 digits code that you received on your email.'
+	String get enterDigitsDescription => 'Enter the 4 digits code that you received on your email.';
+
+	/// en: 'Reset Password'
+	String get resetPassword => 'Reset Password';
+
+	/// en: 'New Password'
+	String get newPassword => 'New Password';
+
+	/// en: 'Re-enter Password'
+	String get reEnterPassword => 'Re-enter Password';
+
+	/// en: 'Update Password'
+	String get updatePassword => 'Update Password';
+
+	/// en: 'Set the new password for your account so you can login and access all the features.'
+	String get resetPasswordDescription => 'Set the new password for your account so you can login and access all the features.';
+
+	/// en: 'Code'
+	String get code => 'Code';
 }
 
 // Path: validations
@@ -242,6 +269,12 @@ class Translations$validations$en {
 
 	/// en: 'Name must be at least 3 characters'
 	String get nameMinLength => 'Name must be at least 3 characters';
+
+	/// en: 'Confirm Password is required'
+	String get confirmPasswordRequired => 'Confirm Password is required';
+
+	/// en: 'Passwords do not match'
+	String get passwordsDoNotMatch => 'Passwords do not match';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -291,6 +324,15 @@ extension on Translations {
 			'auth.logIn' => 'Log in',
 			'auth.agreeToTerms' => 'I agree with the Terms of Service & Privacy Policy',
 			'auth.signUp' => 'Sign Up',
+			'auth.forgotPasswordDescription' => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.',
+			'auth.enterDigitsCode' => 'Enter 4 Digits Code',
+			'auth.enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
+			'auth.resetPassword' => 'Reset Password',
+			'auth.newPassword' => 'New Password',
+			'auth.reEnterPassword' => 'Re-enter Password',
+			'auth.updatePassword' => 'Update Password',
+			'auth.resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
+			'auth.code' => 'Code',
 			'validations.required' => ({required Object fieldName}) => '${fieldName} is required',
 			'validations.emailRequired' => 'Email is required',
 			'validations.invalidEmail' => 'Please enter a valid email',
@@ -302,6 +344,8 @@ extension on Translations {
 			'validations.passwordRequiresSpecialCharacter' => 'Password must contain at least one special character',
 			'validations.nameRequired' => 'Name is required',
 			'validations.nameMinLength' => 'Name must be at least 3 characters',
+			'validations.confirmPasswordRequired' => 'Confirm Password is required',
+			'validations.passwordsDoNotMatch' => 'Passwords do not match',
 			_ => null,
 		};
 	}

@@ -1,4 +1,3 @@
-
 import 'package:doctor_hunt/generated/translations.g.dart';
 
 abstract final class AppValidators {
@@ -64,6 +63,22 @@ abstract final class AppValidators {
     return null;
   }
 
+  static String? confirmPassword(
+    String? value,
+    String password,
+    Translations translations,
+  ) {
+    if (value == null || value.isEmpty) {
+      return translations.validations.confirmPasswordRequired;
+    }
+
+    if (value != password) {
+      return translations.validations.passwordsDoNotMatch;
+    }
+
+    return null;
+  }
+
   static String? name(
     String? value,
     Translations translations,
@@ -78,5 +93,4 @@ abstract final class AppValidators {
 
     return null;
   }
-
 }
