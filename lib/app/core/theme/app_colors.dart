@@ -39,6 +39,12 @@ abstract final class AppColors {
   static const Color greenLighter = Color(0xFFE6ECEA);
   static const Color greenSoft = Color(0xFFFAFCFB);
   static const Color graySoft = Color(0xFFE8F0E8);
+  static const Color unselectedIcon = Color(0xFF858EA9);
+  static const Color red200 = Color(0xFFFA002F);
+  static const Color yellow = Color(0xFFF6D060);
+  static const Color gray200 = Color(0xFFE2E5EA);
+
+  static const Color lighterGreen = Color(0xFF0EBE7E);
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);

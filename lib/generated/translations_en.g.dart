@@ -50,6 +50,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$chooseRole$en chooseRole = Translations$chooseRole$en.internal(_root);
 	late final Translations$auth$en auth = Translations$auth$en.internal(_root);
 	late final Translations$validations$en validations = Translations$validations$en.internal(_root);
+	late final Translations$home$en home = Translations$home$en.internal(_root);
 }
 
 // Path: common
@@ -89,6 +90,12 @@ class Translations$common$en {
 
 	/// en: 'Skip'
 	String get skip => 'Skip';
+
+	/// en: 'Live'
+	String get live => 'Live';
+
+	/// en: 'hour'
+	String get hour => 'hour';
 }
 
 // Path: onboarding
@@ -277,6 +284,36 @@ class Translations$validations$en {
 	String get passwordsDoNotMatch => 'Passwords do not match';
 }
 
+// Path: home
+class Translations$home$en {
+	Translations$home$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Hi $name!'
+	String hi({required Object name}) => 'Hi ${name}!';
+
+	/// en: 'Find Your Doctor'
+	String get findYourDoctor => 'Find Your Doctor';
+
+	/// en: 'Search.....'
+	String get search => 'Search.....';
+
+	/// en: 'Live Doctors'
+	String get liveDoctors => 'Live Doctors';
+
+	/// en: 'Popular Doctor'
+	String get popularDoctor => 'Popular Doctor';
+
+	/// en: 'Feature Doctor'
+	String get featureDoctor => 'Feature Doctor';
+
+	/// en: 'See All'
+	String get seeAll => 'See All';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -296,6 +333,8 @@ extension on Translations {
 			'common.search' => 'Search',
 			'common.next' => 'Next',
 			'common.skip' => 'Skip',
+			'common.live' => 'Live',
+			'common.hour' => 'hour',
 			'onboarding.getStarted' => 'Get Started',
 			'onboarding.findTrustedDoctors' => 'Find Trusted Doctors',
 			'onboarding.findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
@@ -346,6 +385,13 @@ extension on Translations {
 			'validations.nameMinLength' => 'Name must be at least 3 characters',
 			'validations.confirmPasswordRequired' => 'Confirm Password is required',
 			'validations.passwordsDoNotMatch' => 'Passwords do not match',
+			'home.hi' => ({required Object name}) => 'Hi ${name}!',
+			'home.findYourDoctor' => 'Find Your Doctor',
+			'home.search' => 'Search.....',
+			'home.liveDoctors' => 'Live Doctors',
+			'home.popularDoctor' => 'Popular Doctor',
+			'home.featureDoctor' => 'Feature Doctor',
+			'home.seeAll' => 'See All',
 			_ => null,
 		};
 	}

@@ -11,10 +11,22 @@ class AppBackground extends StatelessWidget {
     super.key,
     this.showTopDecoration = true,
     this.showBottomDecoration = true,
+    this.topGradientLeftPos,
+    this.topGradientRightPos,
+    this.bottomGradientLeftPos,
+    this.bottomGradientRightPos,
+    this.topPos,
+    this.bottomPos,
   });
   final Widget child;
   final bool showTopDecoration;
   final bool showBottomDecoration;
+  final double? topGradientLeftPos;
+  final double? topGradientRightPos;
+  final double? bottomGradientLeftPos;
+  final double? bottomGradientRightPos;
+  final double? topPos;
+  final double? bottomPos;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +39,9 @@ class AppBackground extends StatelessWidget {
 
         if (showTopDecoration)
           Positioned(
-            top: -33.h,
-            left: context.isArabic ? null : -99.w,
-            right: context.isArabic ? -99.w : null,
+            top: topPos ?? -33.h,
+            left: topGradientLeftPos ?? (context.isArabic ? null : -99.w),
+            right: topGradientRightPos ?? (context.isArabic ? -99.w : null),
             child: _BackgroundCircle(
               size: 216.w,
               blur: 269,
@@ -39,9 +51,9 @@ class AppBackground extends StatelessWidget {
 
         if (showBottomDecoration)
           Positioned(
-            right: context.isArabic ? null : -90.w,
-            left: context.isArabic ? -90.w : null,
-            bottom: -74.h,
+            right:  bottomGradientRightPos ?? (context.isArabic ? null : -90.w),
+            left: bottomGradientLeftPos ?? (context.isArabic ? -90.w : null),
+            bottom: bottomPos ?? -74.h,
             child: _BackgroundCircle(
               size: 257.w,
               blur: 121,

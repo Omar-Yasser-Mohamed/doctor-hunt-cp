@@ -11,7 +11,9 @@
     "retry": "Retry",
     "search": "Search",
     "next": "Next",
-    "skip": "Skip"
+    "skip": "Skip",
+    "live": "Live",
+    "hour": "hour"
   },
 
   "onboarding": {
@@ -74,5 +76,15 @@
     "nameMinLength": "Name must be at least 3 characters",
     "confirmPasswordRequired": "Confirm Password is required",
     "passwordsDoNotMatch": "Passwords do not match"
+  },
+
+  "home": {
+    "hi": "Hi $name!",
+    "findYourDoctor": "Find Your Doctor",
+    "search": "Search.....",
+    "liveDoctors": "Live Doctors",
+    "popularDoctor": "Popular Doctor",
+    "featureDoctor": "Feature Doctor",
+    "seeAll": "See All"
   }
 }

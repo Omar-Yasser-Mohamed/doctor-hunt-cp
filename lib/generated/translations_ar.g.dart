@@ -45,6 +45,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$chooseRole$ar chooseRole = _Translations$chooseRole$ar._(_root);
 	@override late final _Translations$auth$ar auth = _Translations$auth$ar._(_root);
 	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
+	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
 }
 
 // Path: common
@@ -64,6 +65,8 @@ class _Translations$common$ar extends Translations$common$en {
 	@override String get search => 'بحث';
 	@override String get next => 'التالي';
 	@override String get skip => 'تخطي';
+	@override String get live => 'مباشر';
+	@override String get hour => 'ساعة';
 }
 
 // Path: onboarding
@@ -152,6 +155,22 @@ class _Translations$validations$ar extends Translations$validations$en {
 	@override String get passwordsDoNotMatch => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها';
 }
 
+// Path: home
+class _Translations$home$ar extends Translations$home$en {
+	_Translations$home$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String hi({required Object name}) => 'مرحبا ${name}!';
+	@override String get findYourDoctor => 'ابحث عن طبيبك';
+	@override String get search => 'بحث.....';
+	@override String get seeAll => 'عرض الكل';
+	@override String get liveDoctors => 'أطباء مباشرون';
+	@override String get popularDoctor => 'أطباء مشهورون';
+	@override String get featureDoctor => 'أطباء مميزون';
+}
+
 /// The flat map containing all translations for locale <ar>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -171,6 +190,8 @@ extension on TranslationsAr {
 			'common.search' => 'بحث',
 			'common.next' => 'التالي',
 			'common.skip' => 'تخطي',
+			'common.live' => 'مباشر',
+			'common.hour' => 'ساعة',
 			'onboarding.getStarted' => 'ابدأ',
 			'onboarding.findTrustedDoctors' => 'العثور على أطباء موثوقين',
 			'onboarding.findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
@@ -221,6 +242,13 @@ extension on TranslationsAr {
 			'validations.nameMinLength' => 'يجب أن يتكون الاسم من 3 أحرف على الأقل',
 			'validations.confirmPasswordRequired' => 'يجب إعادة إدخال كلمة المرور',
 			'validations.passwordsDoNotMatch' => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها',
+			'home.hi' => ({required Object name}) => 'مرحبا ${name}!',
+			'home.findYourDoctor' => 'ابحث عن طبيبك',
+			'home.search' => 'بحث.....',
+			'home.seeAll' => 'عرض الكل',
+			'home.liveDoctors' => 'أطباء مباشرون',
+			'home.popularDoctor' => 'أطباء مشهورون',
+			'home.featureDoctor' => 'أطباء مميزون',
 			_ => null,
 		};
 	}

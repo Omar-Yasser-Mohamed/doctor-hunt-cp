@@ -11,7 +11,9 @@
     "retry": "إعادة المحاولة",
     "search": "بحث",
     "next": "التالي",
-    "skip": "تخطي"
+    "skip": "تخطي",
+    "live": "مباشر",
+    "hour": "ساعة"
   },
 
   "onboarding": {
@@ -74,5 +76,15 @@
     "nameMinLength": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
     "confirmPasswordRequired": "يجب إعادة إدخال كلمة المرور",
     "passwordsDoNotMatch": "يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها"
+  },
+
+  "home": {
+    "hi": "مرحبا $name!",
+    "findYourDoctor": "ابحث عن طبيبك",
+    "search": "بحث.....",
+    "seeAll": "عرض الكل",
+    "liveDoctors": "أطباء مباشرون",
+    "popularDoctor": "أطباء مشهورون",
+    "featureDoctor": "أطباء مميزون"
   }
 }
