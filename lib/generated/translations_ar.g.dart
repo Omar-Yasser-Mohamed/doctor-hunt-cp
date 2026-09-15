@@ -46,6 +46,8 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$auth$ar auth = _Translations$auth$ar._(_root);
 	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
 	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
+	@override late final _Translations$doctorDetails$ar doctorDetails = _Translations$doctorDetails$ar._(_root);
+	@override late final _Translations$findDoctors$ar findDoctors = _Translations$findDoctors$ar._(_root);
 }
 
 // Path: common
@@ -67,6 +69,7 @@ class _Translations$common$ar extends Translations$common$en {
 	@override String get skip => 'تخطي';
 	@override String get live => 'مباشر';
 	@override String get hour => 'ساعة';
+	@override String get bookNow => 'احجز الآن';
 }
 
 // Path: onboarding
@@ -171,6 +174,34 @@ class _Translations$home$ar extends Translations$home$en {
 	@override String get featureDoctor => 'أطباء مميزون';
 }
 
+// Path: doctorDetails
+class _Translations$doctorDetails$ar extends Translations$doctorDetails$en {
+	_Translations$doctorDetails$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get doctorDetails => 'تفاصيل الطبيب';
+	@override String get runing => 'مباشر';
+	@override String get ongoing => 'مستمر';
+	@override String get patient => 'مرضى';
+	@override String get services => 'الخدمات';
+}
+
+// Path: findDoctors
+class _Translations$findDoctors$ar extends Translations$findDoctors$en {
+	_Translations$findDoctors$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get findDoctors => 'ابحث عن طبيبك';
+	@override String get nextAvailable => 'التالي المتاح';
+	@override String get tomorrow => 'غدا';
+	@override String get yearsExperience => 'سنوات الخبرة';
+	@override String get patientStories => 'قصص المرضى';
+}
+
 /// The flat map containing all translations for locale <ar>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -192,6 +223,7 @@ extension on TranslationsAr {
 			'common.skip' => 'تخطي',
 			'common.live' => 'مباشر',
 			'common.hour' => 'ساعة',
+			'common.bookNow' => 'احجز الآن',
 			'onboarding.getStarted' => 'ابدأ',
 			'onboarding.findTrustedDoctors' => 'العثور على أطباء موثوقين',
 			'onboarding.findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
@@ -249,6 +281,16 @@ extension on TranslationsAr {
 			'home.liveDoctors' => 'أطباء مباشرون',
 			'home.popularDoctor' => 'أطباء مشهورون',
 			'home.featureDoctor' => 'أطباء مميزون',
+			'doctorDetails.doctorDetails' => 'تفاصيل الطبيب',
+			'doctorDetails.runing' => 'مباشر',
+			'doctorDetails.ongoing' => 'مستمر',
+			'doctorDetails.patient' => 'مرضى',
+			'doctorDetails.services' => 'الخدمات',
+			'findDoctors.findDoctors' => 'ابحث عن طبيبك',
+			'findDoctors.nextAvailable' => 'التالي المتاح',
+			'findDoctors.tomorrow' => 'غدا',
+			'findDoctors.yearsExperience' => 'سنوات الخبرة',
+			'findDoctors.patientStories' => 'قصص المرضى',
 			_ => null,
 		};
 	}

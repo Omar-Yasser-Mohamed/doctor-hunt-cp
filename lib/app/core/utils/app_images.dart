@@ -9,4 +9,5 @@ abstract final class AppImages {
   //test
   static const profileTest = "${_path}profile_test.png";
   static const doctorTest = "${_path}doctor_test.png";
+  static const mapTest = "${_path}map_test.png";
 }

@@ -51,6 +51,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$auth$en auth = Translations$auth$en.internal(_root);
 	late final Translations$validations$en validations = Translations$validations$en.internal(_root);
 	late final Translations$home$en home = Translations$home$en.internal(_root);
+	late final Translations$doctorDetails$en doctorDetails = Translations$doctorDetails$en.internal(_root);
+	late final Translations$findDoctors$en findDoctors = Translations$findDoctors$en.internal(_root);
 }
 
 // Path: common
@@ -96,6 +98,9 @@ class Translations$common$en {
 
 	/// en: 'hour'
 	String get hour => 'hour';
+
+	/// en: 'Book Now'
+	String get bookNow => 'Book Now';
 }
 
 // Path: onboarding
@@ -314,6 +319,54 @@ class Translations$home$en {
 	String get seeAll => 'See All';
 }
 
+// Path: doctorDetails
+class Translations$doctorDetails$en {
+	Translations$doctorDetails$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Doctor Details'
+	String get doctorDetails => 'Doctor Details';
+
+	/// en: 'Runing'
+	String get runing => 'Runing';
+
+	/// en: 'Ongoing'
+	String get ongoing => 'Ongoing';
+
+	/// en: 'Patient'
+	String get patient => 'Patient';
+
+	/// en: 'Services'
+	String get services => 'Services';
+}
+
+// Path: findDoctors
+class Translations$findDoctors$en {
+	Translations$findDoctors$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Find Doctors'
+	String get findDoctors => 'Find Doctors';
+
+	/// en: 'Next Available'
+	String get nextAvailable => 'Next Available';
+
+	/// en: 'Tomorrow'
+	String get tomorrow => 'Tomorrow';
+
+	/// en: 'Years experience'
+	String get yearsExperience => 'Years experience';
+
+	/// en: 'Patient Stories'
+	String get patientStories => 'Patient Stories';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -335,6 +388,7 @@ extension on Translations {
 			'common.skip' => 'Skip',
 			'common.live' => 'Live',
 			'common.hour' => 'hour',
+			'common.bookNow' => 'Book Now',
 			'onboarding.getStarted' => 'Get Started',
 			'onboarding.findTrustedDoctors' => 'Find Trusted Doctors',
 			'onboarding.findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
@@ -392,6 +446,16 @@ extension on Translations {
 			'home.popularDoctor' => 'Popular Doctor',
 			'home.featureDoctor' => 'Feature Doctor',
 			'home.seeAll' => 'See All',
+			'doctorDetails.doctorDetails' => 'Doctor Details',
+			'doctorDetails.runing' => 'Runing',
+			'doctorDetails.ongoing' => 'Ongoing',
+			'doctorDetails.patient' => 'Patient',
+			'doctorDetails.services' => 'Services',
+			'findDoctors.findDoctors' => 'Find Doctors',
+			'findDoctors.nextAvailable' => 'Next Available',
+			'findDoctors.tomorrow' => 'Tomorrow',
+			'findDoctors.yearsExperience' => 'Years experience',
+			'findDoctors.patientStories' => 'Patient Stories',
 			_ => null,
 		};
 	}

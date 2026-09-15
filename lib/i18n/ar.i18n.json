@@ -13,7 +13,8 @@
     "next": "التالي",
     "skip": "تخطي",
     "live": "مباشر",
-    "hour": "ساعة"
+    "hour": "ساعة",
+    "bookNow": "احجز الآن"
   },
 
   "onboarding": {
@@ -86,5 +87,21 @@
     "liveDoctors": "أطباء مباشرون",
     "popularDoctor": "أطباء مشهورون",
     "featureDoctor": "أطباء مميزون"
+  },
+
+  "doctorDetails": {
+    "doctorDetails": "تفاصيل الطبيب",
+    "runing": "مباشر",
+    "ongoing": "مستمر",
+    "patient": "مرضى",
+    "services": "الخدمات"
+  },
+
+  "findDoctors": {
+    "findDoctors": "ابحث عن طبيبك",
+    "nextAvailable": "التالي المتاح",
+    "tomorrow": "غدا",
+    "yearsExperience": "سنوات الخبرة",
+    "patientStories": "قصص المرضى"
   }
 }

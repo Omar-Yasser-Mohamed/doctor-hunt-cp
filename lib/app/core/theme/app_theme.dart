@@ -21,12 +21,13 @@ abstract final class AppTheme {
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: Colors.transparent,
 
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       foregroundColor: AppColors.textMain,
       elevation: 0,
       scrolledUnderElevation: 0,
+      leadingWidth: 52.w,
     ),
 
     inputDecorationTheme: InputDecorationTheme(

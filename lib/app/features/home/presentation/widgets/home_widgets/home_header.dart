@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +8,7 @@ import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -112,7 +114,9 @@ class _HomeSearchButton extends StatelessWidget {
             Icons.search_rounded,
             color: AppColors.textSub,
           ),
-          onTap: () {},
+          onTap: () {
+            context.push(AppRoutes.findDoctorsScreen);
+          },
         ),
       ),
     );

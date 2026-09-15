@@ -13,7 +13,8 @@
     "next": "Next",
     "skip": "Skip",
     "live": "Live",
-    "hour": "hour"
+    "hour": "hour",
+    "bookNow": "Book Now"
   },
 
   "onboarding": {
@@ -86,5 +87,21 @@
     "popularDoctor": "Popular Doctor",
     "featureDoctor": "Feature Doctor",
     "seeAll": "See All"
+  },
+
+  "doctorDetails": {
+    "doctorDetails": "Doctor Details",
+    "runing": "Runing",
+    "ongoing": "Ongoing",
+    "patient": "Patient",
+    "services": "Services"
+  },
+
+  "findDoctors": {
+    "findDoctors": "Find Doctors",
+    "nextAvailable": "Next Available",
+    "tomorrow": "Tomorrow",
+    "yearsExperience": "Years experience",
+    "patientStories": "Patient Stories"
   }
 }

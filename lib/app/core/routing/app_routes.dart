@@ -8,4 +8,6 @@ abstract final class AppRoutes {
   static const favoriteScreen = '/favorite';
   static const bookingScreen = '/booking';
   static const conversationsScreen = '/conversations';
+  static const doctorDetailsScreen = '/doctorDetails';
+  static const findDoctorsScreen = '/findDoctors';
 }
