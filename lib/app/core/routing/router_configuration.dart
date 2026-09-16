@@ -14,8 +14,6 @@ import 'package:go_router/go_router.dart';
 
 abstract final class RouterConfiguration {
   static final router = GoRouter(
-    initialLocation:
-        AppRoutes.homeScreen, //TODO:: Change it to splash after finish the task
     routes: [
       GoRoute(
         path: AppRoutes.splashScreen,
