@@ -1,14 +1,14 @@
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/widgets/app_background.dart';
 import 'package:doctor_hunt/app/core/widgets/app_nav_bar.dart';
-import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_screen.dart';
-import 'package:doctor_hunt/app/features/auth/presentation/screens/login_screen.dart';
-import 'package:doctor_hunt/app/features/auth/presentation/screens/register_screen.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/doctor_details_screen.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/find_doctors_screen.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/home_screen.dart';
-import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:doctor_hunt/app/features/splash/presentation/screens/splash_screen.dart';
+import 'package:doctor_hunt/app/features/common/choose_role/presentation/screens/choose_role_screen.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/screens/login_screen.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/screens/register_screen.dart';
+import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
+import 'package:doctor_hunt/app/features/patient/doctor_details/presentation/screens/doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/search/presentation/screens/find_doctors_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

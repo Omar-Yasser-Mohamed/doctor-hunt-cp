@@ -1,24 +1,17 @@
 import 'package:doctor_hunt/generated/translations.g.dart';
 
 abstract final class AppValidators {
-  static String? required(
-    String? value,
-    Translations translations, {
-    String fieldName = 'Field',
-  }) {
+  static String? required(String? value, {String fieldName = 'Field'}) {
     if (value == null || value.trim().isEmpty) {
-      return translations.validations.required(fieldName: fieldName);
+      return t.validations.required(fieldName: fieldName);
     }
 
     return null;
   }
 
-  static String? email(
-    String? value,
-    Translations translations,
-  ) {
+  static String? email(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return translations.validations.emailRequired;
+      return t.validations.emailRequired;
     }
 
     final emailRegex = RegExp(
@@ -26,69 +19,59 @@ abstract final class AppValidators {
     );
 
     if (!emailRegex.hasMatch(value.trim())) {
-      return translations.validations.invalidEmail;
+      return t.validations.invalidEmail;
     }
 
     return null;
   }
 
-  static String? password(
-    String? value,
-    Translations translations,
-  ) {
+  static String? password(String? value) {
     if (value == null || value.isEmpty) {
-      return translations.validations.passwordRequired;
+      return t.validations.passwordRequired;
     }
 
     if (value.length < 8) {
-      return translations.validations.passwordMinLength;
+      return t.validations.passwordMinLength;
     }
 
     if (!RegExp(r'[A-Z]').hasMatch(value)) {
-      return translations.validations.passwordRequiresUppercase;
+      return t.validations.passwordRequiresUppercase;
     }
 
     if (!RegExp(r'[a-z]').hasMatch(value)) {
-      return translations.validations.passwordRequiresLowercase;
+      return t.validations.passwordRequiresLowercase;
     }
 
     if (!RegExp(r'\d').hasMatch(value)) {
-      return translations.validations.passwordRequiresNumber;
+      return t.validations.passwordRequiresNumber;
     }
 
     if (!RegExp(r'[!@#$%^&*(),.?":{}|<>_\-\\[\]/`~;+=]').hasMatch(value)) {
-      return translations.validations.passwordRequiresSpecialCharacter;
+      return t.validations.passwordRequiresSpecialCharacter;
     }
 
     return null;
   }
 
-  static String? confirmPassword(
-    String? value,
-    String password,
-    Translations translations,
-  ) {
+  static String? confirmPassword(String? value, String password) {
     if (value == null || value.isEmpty) {
-      return translations.validations.confirmPasswordRequired;
+      return t.validations.confirmPasswordRequired;
     }
 
     if (value != password) {
-      return translations.validations.passwordsDoNotMatch;
+      return t.validations.passwordsDoNotMatch;
     }
 
     return null;
   }
 
-  static String? name(
-    String? value,
-    Translations translations,
-  ) {
+  static String? name(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return translations.validations.nameRequired;
+      return t.validations.nameRequired;
     }
 
     if (value.trim().length < 3) {
-      return translations.validations.nameMinLength;
+      return t.validations.nameMinLength;
     }
 
     return null;
