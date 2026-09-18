@@ -2,7 +2,7 @@ import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
-import 'package:doctor_hunt/app/core/widgets/app_background.dart';
+import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/widgets/onboarding_actions.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/widgets/onboarding_content.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
@@ -29,10 +29,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
+    return AppScaffold(
       showTopDecoration: false,
-      child: Scaffold(
-        body: Stack(
+      child: Stack(
           children: [
             _buildBackground(),
 
@@ -86,7 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
           ],
-        ),
+        
       ),
     );
   }

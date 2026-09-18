@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class AppNavBar extends StatelessWidget {
-  const AppNavBar({super.key, required this.navigationShell});
+class PatientNavBar extends StatelessWidget {
+  const PatientNavBar({super.key, required this.navigationShell});
 
   final StatefulNavigationShell navigationShell;
 
@@ -73,6 +73,7 @@ class AppNavBar extends StatelessWidget {
                       ),
                       alignment: Alignment.center,
                       child: Icon(
+                        key: ValueKey(_navIcons[index]),
                         _navIcons[index],
                         color: isSelected
                             ? AppColors.white

@@ -115,7 +115,7 @@ class _HomeSearchButton extends StatelessWidget {
             color: AppColors.textSub,
           ),
           onTap: () {
-            context.push(AppRoutes.findDoctorsScreen);
+            context.push(AppRoutes.patientFindDoctorsScreen);
           },
         ),
       ),

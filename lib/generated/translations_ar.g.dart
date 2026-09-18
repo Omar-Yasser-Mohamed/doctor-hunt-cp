@@ -48,6 +48,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
 	@override late final _Translations$doctorDetails$ar doctorDetails = _Translations$doctorDetails$ar._(_root);
 	@override late final _Translations$findDoctors$ar findDoctors = _Translations$findDoctors$ar._(_root);
+	@override late final _Translations$appointment$ar appointment = _Translations$appointment$ar._(_root);
 }
 
 // Path: common
@@ -70,6 +71,9 @@ class _Translations$common$ar extends Translations$common$en {
 	@override String get live => 'مباشر';
 	@override String get hour => 'ساعة';
 	@override String get bookNow => 'احجز الآن';
+	@override String get confirm => 'تأكيد';
+	@override String get or => 'أو';
+	@override String get done => 'تم';
 }
 
 // Path: onboarding
@@ -202,6 +206,26 @@ class _Translations$findDoctors$ar extends Translations$findDoctors$en {
 	@override String get patientStories => 'قصص المرضى';
 }
 
+// Path: appointment
+class _Translations$appointment$ar extends Translations$appointment$en {
+	_Translations$appointment$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get appointment => 'موعد';
+	@override String get availableTime => 'الوقت المتاح';
+	@override String get reminderMeBefore => 'تذكيري قبل الموعد';
+	@override String get minit => 'دقيقة';
+	@override String get noSlotsAvailable => 'لا توجد أوقات متاحة';
+	@override String get nextAvailabilityOn => 'التوفر التالي في';
+	@override String get contactClinic => 'اتصل بالعيادة';
+	@override String get appointmentSuccessful => 'تم حجز موعدك بنجاح';
+	@override String get thankYou => 'شكرا لك !';
+	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
+	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
+}
+
 /// The flat map containing all translations for locale <ar>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -224,6 +248,9 @@ extension on TranslationsAr {
 			'common.live' => 'مباشر',
 			'common.hour' => 'ساعة',
 			'common.bookNow' => 'احجز الآن',
+			'common.confirm' => 'تأكيد',
+			'common.or' => 'أو',
+			'common.done' => 'تم',
 			'onboarding.getStarted' => 'ابدأ',
 			'onboarding.findTrustedDoctors' => 'العثور على أطباء موثوقين',
 			'onboarding.findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
@@ -291,6 +318,17 @@ extension on TranslationsAr {
 			'findDoctors.tomorrow' => 'غدا',
 			'findDoctors.yearsExperience' => 'سنوات الخبرة',
 			'findDoctors.patientStories' => 'قصص المرضى',
+			'appointment.appointment' => 'موعد',
+			'appointment.availableTime' => 'الوقت المتاح',
+			'appointment.reminderMeBefore' => 'تذكيري قبل الموعد',
+			'appointment.minit' => 'دقيقة',
+			'appointment.noSlotsAvailable' => 'لا توجد أوقات متاحة',
+			'appointment.nextAvailabilityOn' => 'التوفر التالي في',
+			'appointment.contactClinic' => 'اتصل بالعيادة',
+			'appointment.appointmentSuccessful' => 'تم حجز موعدك بنجاح',
+			'appointment.thankYou' => 'شكرا لك !',
+			'appointment.appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
+			'appointment.editYourAppointment' => 'تعديل الموعد الخاص بك',
 			_ => null,
 		};
 	}

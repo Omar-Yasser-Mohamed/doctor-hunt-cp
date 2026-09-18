@@ -108,7 +108,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   ? null
                   : () {
                       if (_formKey.currentState!.validate()) {
-                        context.go(AppRoutes.homeScreen);
+                        context.go(AppRoutes.patientHomeScreen);
                       } else {
                         setState(() {
                           _autoValidateMode = AutovalidateMode.always;

@@ -32,7 +32,7 @@ class PopularDoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRoutes.doctorDetailsScreen);
+        context.push(AppRoutes.patientDoctorDetailsScreen);
       },
       child: Container(
         width: 190.w,

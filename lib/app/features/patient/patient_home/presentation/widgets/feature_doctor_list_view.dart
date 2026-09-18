@@ -38,7 +38,7 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRoutes.doctorDetailsScreen);
+        context.push(AppRoutes.patientDoctorDetailsScreen);
       },
       child: Container(
         width: 96.w,

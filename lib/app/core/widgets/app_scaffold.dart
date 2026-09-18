@@ -5,8 +5,8 @@ import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppBackground extends StatelessWidget {
-  const AppBackground({
+class AppScaffold extends StatelessWidget {
+  const AppScaffold({
     required this.child,
     super.key,
     this.showTopDecoration = true,
@@ -17,6 +17,11 @@ class AppBackground extends StatelessWidget {
     this.bottomGradientRightPos,
     this.topPos,
     this.bottomPos,
+    this.appBar,
+    this.bottomNavigationBar,
+    this.floatingActionButton,
+    this.resizeToAvoidBottomInset,
+    this.backgroundColor,
   });
   final Widget child;
   final bool showTopDecoration;
@@ -27,16 +32,20 @@ class AppBackground extends StatelessWidget {
   final double? bottomGradientRightPos;
   final double? topPos;
   final double? bottomPos;
+  final PreferredSizeWidget? appBar;
+  final Widget? bottomNavigationBar;
+  final Widget? floatingActionButton;
+  final bool? resizeToAvoidBottomInset;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [
-        const ColoredBox(
-          color: AppColors.white,
+        ColoredBox(
+          color: backgroundColor ?? AppColors.white,
         ),
-
         if (showTopDecoration)
           Positioned(
             top: topPos ?? -33.h,
@@ -51,7 +60,8 @@ class AppBackground extends StatelessWidget {
 
         if (showBottomDecoration)
           Positioned(
-            right:  bottomGradientRightPos ?? (context.isArabic ? null : -90.w),
+            right:
+                bottomGradientRightPos ?? (context.isArabic ? null : -90.w),
             left: bottomGradientLeftPos ?? (context.isArabic ? -90.w : null),
             bottom: bottomPos ?? -74.h,
             child: _BackgroundCircle(
@@ -61,7 +71,13 @@ class AppBackground extends StatelessWidget {
             ),
           ),
 
-        child,
+        Scaffold(
+          appBar: appBar,
+          bottomNavigationBar: bottomNavigationBar,
+          floatingActionButton: floatingActionButton,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+          body: child,
+        ),
       ],
     );
   }

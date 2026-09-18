@@ -161,6 +161,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.13"
+  date_picker_plus:
+    dependency: "direct main"
+    description:
+      name: date_picker_plus
+      sha256: "68a9b09c31fe9c8dd541923a47ae948f9770c77521af845e22c3323eb9da4c83"
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.0.0"
   equatable:
     dependency: transitive
     description:
@@ -253,6 +261,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "18.0.1"
+  go_router_builder:
+    dependency: "direct dev"
+    description:
+      name: go_router_builder
+      sha256: fbadb18697941b5efaa90c6295e81335e59b97bde83d675b4251e91eac1d4882
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.5.0"
   graphs:
     dependency: transitive
     description:
@@ -286,7 +302,7 @@ packages:
     source: hosted
     version: "4.1.2"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
@@ -514,6 +530,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.19.0"
+  source_gen:
+    dependency: transitive
+    description:
+      name: source_gen
+      sha256: "11b6047da8e4eb6c643ccac3d0fda3f9c9e11651695f7da24a85ade8aff15a44"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.0"
+  source_helper:
+    dependency: transitive
+    description:
+      name: source_helper
+      sha256: "5e6f216fdf6376c9f3852381ae037499797a3385377d388b011dac98d303c67c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.13"
   source_span:
     dependency: transitive
     description:
@@ -684,4 +716,4 @@ packages:
     version: "3.1.4"
 sdks:
   dart: ">=3.13.1 <4.0.0"
-  flutter: ">=3.44.0"
+  flutter: ">=3.47.0"

@@ -3,7 +3,7 @@ import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
-import 'package:doctor_hunt/app/core/widgets/app_background.dart';
+import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,38 +44,39 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     );
-    
+
     _logoFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: const Interval(0.0, 0.6, curve: Curves.easeOut),
       ),
     );
-    
+
     _logoScaleAnimation = Tween<double>(begin: 0.6, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: const Interval(0.0, 0.6, curve: Curves.easeOutBack),
       ),
     );
-    
+
     _textFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: const Interval(0.45, 1.0, curve: Curves.easeOut),
       ),
     );
-    
-    _textSlideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.5),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.45, 1.0, curve: Curves.easeOutCubic),
-      ),
-    );
-    
+
+    _textSlideAnimation =
+        Tween<Offset>(
+          begin: const Offset(0.0, 0.5),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.45, 1.0, curve: Curves.easeOutCubic),
+          ),
+        );
+
     _controller.forward();
   }
 
@@ -87,9 +88,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
-      child: Scaffold(
-        body: Center(
+    return AppScaffold(
+      child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -121,7 +121,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
             ],
-          ),
+          
         ),
       ),
     );

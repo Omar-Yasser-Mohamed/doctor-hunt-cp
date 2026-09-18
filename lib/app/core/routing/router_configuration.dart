@@ -1,14 +1,15 @@
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
-import 'package:doctor_hunt/app/core/widgets/app_background.dart';
-import 'package:doctor_hunt/app/core/widgets/app_nav_bar.dart';
+import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/screens/choose_role_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/register_screen.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
-import 'package:doctor_hunt/app/features/patient/doctor_details/presentation/screens/doctor_details_screen.dart';
-import 'package:doctor_hunt/app/features/patient/search/presentation/screens/find_doctors_screen.dart';
-import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/home_screen.dart';
+import 'package:doctor_hunt/app/features/patient/appointment/presentation/screens/patient_appointment_screen.dart';
+import 'package:doctor_hunt/app/features/patient/doctor_details/presentation/screens/patient_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/search/presentation/screens/patient_find_doctors_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,26 +38,24 @@ abstract final class RouterConfiguration {
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
-          return AppNavBar(navigationShell: navigationShell);
+          return PatientNavBar(navigationShell: navigationShell);
         },
         branches: [
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.homeScreen,
-                builder: (context, state) => const HomeScreen(),
+                path: AppRoutes.patientHomeScreen,
+                builder: (context, state) => const PatientHomeScreen(),
               ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.favoriteScreen,
-                builder: (context, state) => const AppBackground(
-                  child: Scaffold(
-                    body: Center(
-                      child: Text("Favorites"),
-                    ),
+                path: AppRoutes.patientFavoriteScreen,
+                builder: (context, state) => const AppScaffold(
+                  child: Center(
+                    child: Text("Favorites"),
                   ),
                 ),
               ),
@@ -65,12 +64,10 @@ abstract final class RouterConfiguration {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.bookingScreen,
-                builder: (context, state) => const AppBackground(
-                  child: Scaffold(
-                    body: Center(
-                      child: Text("Bookings"),
-                    ),
+                path: AppRoutes.patientBookingScreen,
+                builder: (context, state) => const AppScaffold(
+                  child: Center(
+                    child: Text("Bookings"),
                   ),
                 ),
               ),
@@ -79,12 +76,10 @@ abstract final class RouterConfiguration {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.conversationsScreen,
-                builder: (context, state) => const AppBackground(
-                  child: Scaffold(
-                    body: Center(
-                      child: Text("conversations"),
-                    ),
+                path: AppRoutes.patientConversationsScreen,
+                builder: (context, state) => const AppScaffold(
+                  child: Center(
+                    child: Text("conversations"),
                   ),
                 ),
               ),
@@ -93,12 +88,16 @@ abstract final class RouterConfiguration {
         ],
       ),
       GoRoute(
-        path: AppRoutes.doctorDetailsScreen,
-        builder: (context, state) => const DoctorDetailsScreen(),
+        path: AppRoutes.patientDoctorDetailsScreen,
+        builder: (context, state) => const PatientDoctorDetailsScreen(),
       ),
       GoRoute(
-        path: AppRoutes.findDoctorsScreen,
-        builder: (context, state) => const FindDoctorsScreen(),
+        path: AppRoutes.patientFindDoctorsScreen,
+        builder: (context, state) => const PatientFindDoctorsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.patientAppointmentScreen,
+        builder: (context, state) => const PatientAppointmentScreen(),
       ),
     ],
   );

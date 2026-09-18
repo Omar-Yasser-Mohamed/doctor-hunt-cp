@@ -5,8 +5,8 @@ extension ContextExtention on BuildContext {
   Size get screenSize => MediaQuery.sizeOf(this);
   double get screenHeight => MediaQuery.sizeOf(this).height;
   double get screenWidth => MediaQuery.sizeOf(this).width;
-  double get bottomPadding => MediaQuery.of(this).viewPadding.bottom;
-  double get topPadding => MediaQuery.of(this).viewPadding.top;
+  double get bottomPadding => MediaQuery.viewPaddingOf(this).bottom;
+  double get topPadding => MediaQuery.viewPaddingOf(this).top;
 
   bool get isArabic => Localizations.localeOf(this).languageCode == 'ar';
   bool get isEnglish => Localizations.localeOf(this).languageCode == 'en';

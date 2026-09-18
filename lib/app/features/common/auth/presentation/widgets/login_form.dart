@@ -83,7 +83,7 @@ class _LoginFormState extends State<LoginForm> {
               text: context.t.auth.login,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  context.go(AppRoutes.homeScreen);
+                  context.go(AppRoutes.patientHomeScreen);
                 } else {
                   setState(() {
                     _autovalidateMode = AutovalidateMode.always;

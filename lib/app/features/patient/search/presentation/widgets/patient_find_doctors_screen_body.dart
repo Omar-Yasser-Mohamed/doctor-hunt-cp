@@ -3,8 +3,8 @@ import 'package:doctor_hunt/app/features/patient/search/presentation/widgets/doc
 import 'package:doctor_hunt/app/features/patient/search/presentation/widgets/doctors_list_view.dart';
 import 'package:flutter/material.dart';
 
-class FindDoctorsScreenBody extends StatelessWidget {
-  const FindDoctorsScreenBody({super.key});
+class PatientFindDoctorsScreenBody extends StatelessWidget {
+  const PatientFindDoctorsScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {

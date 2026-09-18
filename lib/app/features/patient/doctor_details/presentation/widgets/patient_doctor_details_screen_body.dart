@@ -7,8 +7,8 @@ import 'package:doctor_hunt/app/features/patient/doctor_details/presentation/wid
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorDetailsScreenBody extends StatelessWidget {
-  const DoctorDetailsScreenBody({super.key});
+class PatientDoctorDetailsScreenBody extends StatelessWidget {
+  const PatientDoctorDetailsScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {

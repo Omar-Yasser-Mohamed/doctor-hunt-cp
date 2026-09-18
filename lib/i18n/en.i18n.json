@@ -14,7 +14,10 @@
     "skip": "Skip",
     "live": "Live",
     "hour": "hour",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "confirm": "Confirm",
+    "or": "OR",
+    "done": "Done"
   },
 
   "onboarding": {
@@ -103,5 +106,19 @@
     "tomorrow": "Tomorrow",
     "yearsExperience": "Years experience",
     "patientStories": "Patient Stories"
+  },
+
+  "appointment": {
+    "appointment": "Appointment",
+    "availableTime": "Available Time",
+    "reminderMeBefore": "Reminder Me Before",
+    "minit": "Minit",
+    "noSlotsAvailable": "No Slots Available",
+    "nextAvailabilityOn": "Next Availability On",
+    "contactClinic": "Contact Clinic",
+    "appointmentSuccessful": "Your Appointment Successful",
+    "thankYou": "Thank You !",
+    "appointmentSuccessfulDescription": "You booked an appointment with Dr. $doctorName on $date, at $time",
+    "editYourAppointment": "Edit your appointment"
   }
 }

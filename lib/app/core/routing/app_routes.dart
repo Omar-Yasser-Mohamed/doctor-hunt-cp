@@ -4,10 +4,11 @@ abstract final class AppRoutes {
   static const loginScreen = '/login';
   static const registerScreen = '/register';
   static const chooseRoleScreen = '/chooseRole';
-  static const homeScreen = '/home';
-  static const favoriteScreen = '/favorite';
-  static const bookingScreen = '/booking';
-  static const conversationsScreen = '/conversations';
-  static const doctorDetailsScreen = '/doctorDetails';
-  static const findDoctorsScreen = '/findDoctors';
+  static const patientHomeScreen = '/patientHome';
+  static const patientFavoriteScreen = '/patientFavorite';
+  static const patientBookingScreen = '/patientBooking';
+  static const patientConversationsScreen = '/patientConversations';
+  static const patientDoctorDetailsScreen = '/patientDoctorDetails';
+  static const patientFindDoctorsScreen = '/patientFindDoctors';
+  static const patientAppointmentScreen = '/patientAppointment';
 }

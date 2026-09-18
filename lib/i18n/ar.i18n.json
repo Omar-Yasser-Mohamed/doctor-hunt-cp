@@ -14,7 +14,10 @@
     "skip": "تخطي",
     "live": "مباشر",
     "hour": "ساعة",
-    "bookNow": "احجز الآن"
+    "bookNow": "احجز الآن",
+    "confirm": "تأكيد",
+    "or": "أو",
+    "done": "تم"
   },
 
   "onboarding": {
@@ -103,5 +106,19 @@
     "tomorrow": "غدا",
     "yearsExperience": "سنوات الخبرة",
     "patientStories": "قصص المرضى"
+  },
+
+  "appointment": {
+    "appointment": "موعد",
+    "availableTime": "الوقت المتاح",
+    "reminderMeBefore": "تذكيري قبل الموعد",
+    "minit": "دقيقة",
+    "noSlotsAvailable": "لا توجد أوقات متاحة",
+    "nextAvailabilityOn": "التوفر التالي في",
+    "contactClinic": "اتصل بالعيادة",
+    "appointmentSuccessful": "تم حجز موعدك بنجاح",
+    "thankYou": "شكرا لك !",
+    "appointmentSuccessfulDescription": "لقد حجزت موعدًا مع الدكتور $doctorName في $date، الساعة $time",
+    "editYourAppointment": "تعديل الموعد الخاص بك"
   }
 }

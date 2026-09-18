@@ -53,6 +53,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$home$en home = Translations$home$en.internal(_root);
 	late final Translations$doctorDetails$en doctorDetails = Translations$doctorDetails$en.internal(_root);
 	late final Translations$findDoctors$en findDoctors = Translations$findDoctors$en.internal(_root);
+	late final Translations$appointment$en appointment = Translations$appointment$en.internal(_root);
 }
 
 // Path: common
@@ -101,6 +102,15 @@ class Translations$common$en {
 
 	/// en: 'Book Now'
 	String get bookNow => 'Book Now';
+
+	/// en: 'Confirm'
+	String get confirm => 'Confirm';
+
+	/// en: 'OR'
+	String get or => 'OR';
+
+	/// en: 'Done'
+	String get done => 'Done';
 }
 
 // Path: onboarding
@@ -367,6 +377,48 @@ class Translations$findDoctors$en {
 	String get patientStories => 'Patient Stories';
 }
 
+// Path: appointment
+class Translations$appointment$en {
+	Translations$appointment$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Appointment'
+	String get appointment => 'Appointment';
+
+	/// en: 'Available Time'
+	String get availableTime => 'Available Time';
+
+	/// en: 'Reminder Me Before'
+	String get reminderMeBefore => 'Reminder Me Before';
+
+	/// en: 'Minit'
+	String get minit => 'Minit';
+
+	/// en: 'No Slots Available'
+	String get noSlotsAvailable => 'No Slots Available';
+
+	/// en: 'Next Availability On'
+	String get nextAvailabilityOn => 'Next Availability On';
+
+	/// en: 'Contact Clinic'
+	String get contactClinic => 'Contact Clinic';
+
+	/// en: 'Your Appointment Successful'
+	String get appointmentSuccessful => 'Your Appointment Successful';
+
+	/// en: 'Thank You !'
+	String get thankYou => 'Thank You !';
+
+	/// en: 'You booked an appointment with Dr. $doctorName on $date, at $time'
+	String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}';
+
+	/// en: 'Edit your appointment'
+	String get editYourAppointment => 'Edit your appointment';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -389,6 +441,9 @@ extension on Translations {
 			'common.live' => 'Live',
 			'common.hour' => 'hour',
 			'common.bookNow' => 'Book Now',
+			'common.confirm' => 'Confirm',
+			'common.or' => 'OR',
+			'common.done' => 'Done',
 			'onboarding.getStarted' => 'Get Started',
 			'onboarding.findTrustedDoctors' => 'Find Trusted Doctors',
 			'onboarding.findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
@@ -456,6 +511,17 @@ extension on Translations {
 			'findDoctors.tomorrow' => 'Tomorrow',
 			'findDoctors.yearsExperience' => 'Years experience',
 			'findDoctors.patientStories' => 'Patient Stories',
+			'appointment.appointment' => 'Appointment',
+			'appointment.availableTime' => 'Available Time',
+			'appointment.reminderMeBefore' => 'Reminder Me Before',
+			'appointment.minit' => 'Minit',
+			'appointment.noSlotsAvailable' => 'No Slots Available',
+			'appointment.nextAvailabilityOn' => 'Next Availability On',
+			'appointment.contactClinic' => 'Contact Clinic',
+			'appointment.appointmentSuccessful' => 'Your Appointment Successful',
+			'appointment.thankYou' => 'Thank You !',
+			'appointment.appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
+			'appointment.editYourAppointment' => 'Edit your appointment',
 			_ => null,
 		};
 	}
