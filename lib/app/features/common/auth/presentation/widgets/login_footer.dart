@@ -3,7 +3,6 @@ import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginFooter extends StatelessWidget {
   const LoginFooter({super.key});
@@ -27,7 +26,7 @@ class LoginFooter extends StatelessWidget {
             text: context.t.auth.joinUs,
             style: context.medium14Primary,
             recognizer: TapGestureRecognizer()..onTap = () {
-              context.push(AppRoutes.registerScreen);
+              const RegisterRoute().push(context);
             },
           ),
         ],

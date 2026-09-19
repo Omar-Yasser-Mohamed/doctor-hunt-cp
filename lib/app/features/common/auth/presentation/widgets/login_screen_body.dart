@@ -4,7 +4,7 @@ import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/forget
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/login_footer.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/login_form.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/login_header.dart';
-import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/o_auth_section.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/o_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +33,7 @@ class LoginScreenBody extends StatelessWidget {
 
                     (68.h).height,
 
-                    const OAuthSection(),
+                    const SignWithGoogleButton(),
 
                     32.height,
 

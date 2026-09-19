@@ -61,8 +61,12 @@ class _ReminderTimesListViewState extends State<_ReminderTimesListView> {
       itemBuilder: (context, index) {
         return _ReminderTimeChip(
           time: _times[index],
-          onTap: () {},
-          isSelected: false,
+          onTap: () {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          isSelected: selectedIndex == index,
         );
       },
     );

@@ -6,7 +6,6 @@ import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class PopularDoctorsListView extends StatelessWidget {
   const PopularDoctorsListView({super.key});
@@ -32,7 +31,7 @@ class PopularDoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRoutes.patientDoctorDetailsScreen);
+        const PatientDoctorDetailsRoute().push(context);
       },
       child: Container(
         width: 190.w,

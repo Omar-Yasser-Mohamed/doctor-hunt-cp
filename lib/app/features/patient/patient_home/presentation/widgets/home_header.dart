@@ -8,7 +8,6 @@ import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -115,7 +114,7 @@ class _HomeSearchButton extends StatelessWidget {
             color: AppColors.textSub,
           ),
           onTap: () {
-            context.push(AppRoutes.patientFindDoctorsScreen);
+            const PatientFindDoctorsRoute().push(context);
           },
         ),
       ),

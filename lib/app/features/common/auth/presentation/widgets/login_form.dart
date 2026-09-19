@@ -7,7 +7,6 @@ import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -83,7 +82,7 @@ class _LoginFormState extends State<LoginForm> {
               text: context.t.auth.login,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  context.go(AppRoutes.patientHomeScreen);
+                  const PatientHomeRoute().go(context);
                 } else {
                   setState(() {
                     _autovalidateMode = AutovalidateMode.always;

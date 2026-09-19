@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/core/routing/router_configuration.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_theme.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class DoctorHuntApp extends StatelessWidget {
           title: 'Doctor Hunt',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
-          routerConfig: RouterConfiguration.router,
+          routerConfig: router,
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
           supportedLocales: AppLocaleUtils.supportedLocales,
           locale: TranslationProvider.of(context).flutterLocale,

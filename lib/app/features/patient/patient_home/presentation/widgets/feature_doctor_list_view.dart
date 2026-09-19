@@ -6,7 +6,6 @@ import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class FeatureDoctorsListView extends StatelessWidget {
   const FeatureDoctorsListView({super.key});
@@ -38,7 +37,7 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRoutes.patientDoctorDetailsScreen);
+        const PatientDoctorDetailsRoute().push(context);
       },
       child: Container(
         width: 96.w,

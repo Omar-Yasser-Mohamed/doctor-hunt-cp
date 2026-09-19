@@ -8,7 +8,6 @@ import 'package:doctor_hunt/app/features/common/onboarding/presentation/widgets/
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -70,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: OnboardingActions(
                 onPressedNext: () {
                   if (currentPage == 2) {
-                    context.go(AppRoutes.chooseRoleScreen);
+                    const ChooseRoleRoute().go(context);
                   } else {
                     pageController.nextPage(
                       duration: const Duration(milliseconds: 500),
@@ -79,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   }
                 },
                 onPressedSkip: () {
-                  context.go(AppRoutes.chooseRoleScreen);
+                  const ChooseRoleRoute().go(context);
                 },
                 currentPage: currentPage,
               ),

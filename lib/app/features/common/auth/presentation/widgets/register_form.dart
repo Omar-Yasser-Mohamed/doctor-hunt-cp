@@ -8,7 +8,6 @@ import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -108,7 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   ? null
                   : () {
                       if (_formKey.currentState!.validate()) {
-                        context.go(AppRoutes.patientHomeScreen);
+                        const PatientHomeRoute().go(context);
                       } else {
                         setState(() {
                           _autoValidateMode = AutovalidateMode.always;

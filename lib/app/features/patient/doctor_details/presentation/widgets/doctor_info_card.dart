@@ -8,7 +8,6 @@ import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class DoctorInfoCard extends StatefulWidget {
   const DoctorInfoCard({super.key});
@@ -136,7 +135,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
             width: 140.w,
             textStyle: context.medium14White,
             onPressed: () {
-              context.push(AppRoutes.patientAppointmentScreen);
+              const PatientAppointmentRoute().push(context);
             },
           ),
         ],
