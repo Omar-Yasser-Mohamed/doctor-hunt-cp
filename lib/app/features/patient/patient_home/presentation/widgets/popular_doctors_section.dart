@@ -12,13 +12,13 @@ class PopularDoctorsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionTitle(title: t.home.popularDoctor),
+        HomeSectionTitle(title: t.popularDoctor),
         22.height,
 
         SizedBox(
           height: 250.h,
           child: const PopularDoctorsListView(),
-        )
+        ),
       ],
     );
   }

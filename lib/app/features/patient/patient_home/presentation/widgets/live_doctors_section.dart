@@ -13,7 +13,7 @@ class LiveDoctorsSection extends StatelessWidget {
     return Column(
       children: [
         HomeSectionTitle(
-          title: t.home.liveDoctors,
+          title: t.liveDoctors,
           showSeeAll: false,
         ),
 
@@ -27,4 +27,3 @@ class LiveDoctorsSection extends StatelessWidget {
     );
   }
 }
-

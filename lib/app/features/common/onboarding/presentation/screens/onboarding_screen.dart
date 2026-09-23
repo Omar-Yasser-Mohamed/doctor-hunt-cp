@@ -31,60 +31,57 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return AppScaffold(
       showTopDecoration: false,
       child: Stack(
-          children: [
-            _buildBackground(),
+        children: [
+          _buildBackground(),
 
-            PageView(
-              controller: pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  currentPage = index;
-                });
-              },
-              children: [
-                OnboardingContent(
-                  image: AppImages.onboardingOne,
-                  title: context.t.onboarding.findTrustedDoctors,
-                  description:
-                      context.t.onboarding.findTrustedDoctorsDescription,
-                ),
-                OnboardingContent(
-                  image: AppImages.onboardingTwo,
-                  title: context.t.onboarding.chooseBestDoctors,
-                  description:
-                      context.t.onboarding.chooseBestDoctorsDescription,
-                ),
-                OnboardingContent(
-                  image: AppImages.onboardingThree,
-                  title: context.t.onboarding.easyAppointments,
-                  description: context.t.onboarding.easyAppointmentsDescription,
-                ),
-              ],
-            ),
-
-            Positioned(
-              left: 40.w,
-              right: 40.w,
-              bottom: context.bottomPadding + 30,
-              child: OnboardingActions(
-                onPressedNext: () {
-                  if (currentPage == 2) {
-                    const ChooseRoleRoute().go(context);
-                  } else {
-                    pageController.nextPage(
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.ease,
-                    );
-                  }
-                },
-                onPressedSkip: () {
-                  const ChooseRoleRoute().go(context);
-                },
-                currentPage: currentPage,
+          PageView(
+            controller: pageController,
+            onPageChanged: (index) {
+              setState(() {
+                currentPage = index;
+              });
+            },
+            children: [
+              OnboardingContent(
+                image: AppImages.onboardingOne,
+                title: t.findTrustedDoctors,
+                description: t.findTrustedDoctorsDescription,
               ),
+              OnboardingContent(
+                image: AppImages.onboardingTwo,
+                title: t.chooseBestDoctors,
+                description: t.chooseBestDoctorsDescription,
+              ),
+              OnboardingContent(
+                image: AppImages.onboardingThree,
+                title: t.easyAppointments,
+                description: t.easyAppointmentsDescription,
+              ),
+            ],
+          ),
+
+          Positioned(
+            left: 40.w,
+            right: 40.w,
+            bottom: context.bottomPadding + 30,
+            child: OnboardingActions(
+              onPressedNext: () {
+                if (currentPage == 2) {
+                  const ChooseRoleRoute().go(context);
+                } else {
+                  pageController.nextPage(
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease,
+                  );
+                }
+              },
+              onPressedSkip: () {
+                const ChooseRoleRoute().go(context);
+              },
+              currentPage: currentPage,
             ),
-          ],
-        
+          ),
+        ],
       ),
     );
   }

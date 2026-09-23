@@ -53,7 +53,7 @@ class LiveDoctorCard extends StatelessWidget {
                   2.width,
 
                   Text(
-                    t.common.live,
+                    t.live,
                     style: context.medium8White,
                   ),
                 ],

@@ -13,7 +13,7 @@ class RegisterFooter extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(
-            text: context.t.auth.haveAnAccount,
+            text: t.haveAnAccount,
             style: context.regular14Primary,
           ),
 
@@ -23,7 +23,7 @@ class RegisterFooter extends StatelessWidget {
           ),
 
           TextSpan(
-            text: context.t.auth.logIn,
+            text: t.logIn,
             style: context.medium14Primary,
             recognizer: TapGestureRecognizer()
               ..onTap = () {

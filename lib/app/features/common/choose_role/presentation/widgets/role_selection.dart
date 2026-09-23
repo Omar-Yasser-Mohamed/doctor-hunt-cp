@@ -3,15 +3,8 @@ import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/widgets/role_card.dart';
 import 'package:flutter/material.dart';
 
-class RoleSelection extends StatefulWidget {
+class RoleSelection extends StatelessWidget {
   const RoleSelection({super.key});
-
-  @override
-  State<RoleSelection> createState() => _RoleSelectionState();
-}
-
-class _RoleSelectionState extends State<RoleSelection> {
-  UserRole selectedRole = UserRole.patient;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +18,6 @@ class _RoleSelectionState extends State<RoleSelection> {
         final role = UserRole.values[index];
         return RoleCard(
           role: role,
-          isSelected: selectedRole == role,
-          onTap: () {
-            setState(() {
-              selectedRole = role;
-            });
-          },
         );
       },
     );

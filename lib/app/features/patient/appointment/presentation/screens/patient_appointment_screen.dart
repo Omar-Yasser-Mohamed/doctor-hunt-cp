@@ -16,7 +16,7 @@ class PatientAppointmentScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: Text(
-          t.appointment.appointment,
+          t.appointment,
           style: context.medium18TextMain,
         ),
       ),

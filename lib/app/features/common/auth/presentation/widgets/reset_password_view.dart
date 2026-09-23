@@ -13,8 +13,8 @@ class ResetPasswordView extends StatelessWidget {
     return Column(
       children: [
         BottomSheetHeader(
-          title: context.t.auth.resetPassword,
-          description: context.t.auth.resetPasswordDescription,
+          title: t.resetPassword,
+          description: t.resetPasswordDescription,
         ),
 
         27.height,

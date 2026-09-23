@@ -60,8 +60,9 @@ class PatientAppointmentScreenBody extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 40.w),
                           child: AppButton(
-                            text: t.common.confirm,
-                            onPressed: () => AppointmentSuccessDialog.show(context),
+                            text: t.confirm,
+                            onPressed: () =>
+                                AppointmentSuccessDialog.show(context),
                           ),
                         ),
                       ],

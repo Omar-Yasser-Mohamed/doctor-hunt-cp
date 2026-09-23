@@ -15,7 +15,7 @@ class ForgetPasswordButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          context.t.auth.forgotPassword,
+          t.forgotPassword,
           style: context.regular14Primary,
         ),
       ),

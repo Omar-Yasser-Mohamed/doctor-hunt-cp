@@ -75,7 +75,7 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
                     ),
                   ),
                 ),
-      
+
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -84,9 +84,9 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
                       color: AppColors.yellow,
                       size: 16,
                     ),
-      
+
                     3.width,
-      
+
                     Text(
                       "4.8",
                       style: context.medium11Black.copyWith(
@@ -97,9 +97,9 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
                 ),
               ],
             ),
-      
+
             8.height,
-      
+
             ClipOval(
               child: Image.asset(
                 AppImages.doctorTest,
@@ -108,9 +108,9 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
                 fit: BoxFit.cover,
               ),
             ),
-      
+
             8.height,
-      
+
             Text(
               "Dr. Crick",
               textAlign: TextAlign.center,
@@ -118,9 +118,9 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
               overflow: TextOverflow.ellipsis,
               style: context.medium12TextMain,
             ),
-      
+
             2.height,
-      
+
             Text.rich(
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
@@ -135,7 +135,7 @@ class _FeatureDoctorCardState extends State<FeatureDoctorCard> {
                     ),
                   ),
                   TextSpan(
-                    text: "25,00/ ${t.common.hour}",
+                    text: "25,00/ ${t.hour}",
                     style: context.light11TextSub.copyWith(
                       fontSize: 10.sp,
                     ),

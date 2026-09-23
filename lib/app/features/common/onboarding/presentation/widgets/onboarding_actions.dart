@@ -21,9 +21,7 @@ class OnboardingActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         AppButton(
-          text: currentPage == 2
-              ? context.t.onboarding.getStarted
-              : context.t.common.next,
+          text: currentPage == 2 ? t.getStarted : t.next,
           onPressed: onPressedNext,
         ),
 
@@ -34,7 +32,7 @@ class OnboardingActions extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              context.t.common.skip,
+              t.skip,
               style: context.regular14TextSub,
             ),
           ),

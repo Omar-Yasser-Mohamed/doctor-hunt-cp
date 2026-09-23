@@ -5,14 +5,25 @@ enum UserRole {
   patient,
   admin;
 
-  String label(BuildContext context) => switch (this) {
-    UserRole.admin => context.t.common.admin,
-    UserRole.patient => context.t.common.patient,
+  String get value => switch (this) {
+    UserRole.admin => 'admin',
+    UserRole.patient => 'patient',
   };
 
-  String description(BuildContext context) => switch (this) {
-    UserRole.admin => context.t.chooseRole.adminDescription,
-    UserRole.patient => context.t.chooseRole.patientDescription,
+  static UserRole fromValue(String value) => switch (value) {
+    'admin' => UserRole.admin,
+    'patient' => UserRole.patient,
+    _ => throw UnimplementedError(),
+  };
+
+  String get label => switch (this) {
+    UserRole.admin => t.admin,
+    UserRole.patient => t.patient,
+  };
+
+  String get description => switch (this) {
+    UserRole.admin => t.adminDescription,
+    UserRole.patient => t.patientDescription,
   };
 
   IconData get unselectedIcon => switch (this) {

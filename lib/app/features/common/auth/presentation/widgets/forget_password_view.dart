@@ -13,8 +13,8 @@ class ForgetPasswordView extends StatelessWidget {
     return Column(
       children: [
         BottomSheetHeader(
-          title: context.t.auth.forgotPassword,
-          description: context.t.auth.forgotPasswordDescription,
+          title: t.forgotPassword,
+          description: t.forgotPasswordDescription,
         ),
 
         36.height,

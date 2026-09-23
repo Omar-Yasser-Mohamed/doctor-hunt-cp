@@ -86,7 +86,7 @@ class _OtpFormState extends State<OtpForm> {
             onTapOutside: (_) => FocusScope.of(context).unfocus(),
             validator: (value) => AppValidators.required(
               value,
-              fieldName: context.t.auth.code,
+              fieldName: t.code,
             ),
           ),
 
@@ -95,7 +95,7 @@ class _OtpFormState extends State<OtpForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: AppButton(
-              text: context.t.common.kContinue,
+              text: t.kContinue,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   widget.onContinue();

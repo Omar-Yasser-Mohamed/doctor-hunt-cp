@@ -1,4 +1,6 @@
+import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/gestures.dart';
@@ -13,7 +15,7 @@ class LoginFooter extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(
-            text: context.t.auth.dontHaveAnAccount,
+            text: t.dontHaveAnAccount,
             style: context.regular14Primary,
           ),
 
@@ -23,11 +25,13 @@ class LoginFooter extends StatelessWidget {
           ),
 
           TextSpan(
-            text: context.t.auth.joinUs,
+            text: t.joinUs,
             style: context.medium14Primary,
-            recognizer: TapGestureRecognizer()..onTap = () {
-              const RegisterRoute().push(context);
-            },
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                final userRole = context.extra<UserRole>();
+                RegisterRoute($extra: userRole).push(context);
+              },
           ),
         ],
       ),

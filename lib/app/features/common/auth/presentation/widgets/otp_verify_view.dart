@@ -13,8 +13,8 @@ class OtpVerifyView extends StatelessWidget {
     return Column(
       children: [
         BottomSheetHeader(
-          title: context.t.auth.enterDigitsCode,
-          description: context.t.auth.enterDigitsDescription,
+          title: t.enterDigitsCode,
+          description: t.enterDigitsDescription,
         ),
 
         27.height,

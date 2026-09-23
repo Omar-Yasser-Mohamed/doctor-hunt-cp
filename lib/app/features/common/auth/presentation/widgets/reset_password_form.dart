@@ -41,7 +41,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
         children: [
           AppTextField(
             controller: _passwordController,
-            hintText: context.t.auth.newPassword,
+            hintText: t.newPassword,
             validator: AppValidators.password,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.visiblePassword,
@@ -63,7 +63,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
           AppTextField(
             controller: _confirmPasswordController,
-            hintText: context.t.auth.reEnterPassword,
+            hintText: t.reEnterPassword,
             validator: (value) => AppValidators.confirmPassword(
               value,
               _passwordController.text,
@@ -89,7 +89,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: AppButton(
-              text: context.t.auth.updatePassword,
+              text: t.updatePassword,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   widget.onSuccess();

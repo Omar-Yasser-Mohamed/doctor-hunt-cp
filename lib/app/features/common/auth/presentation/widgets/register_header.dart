@@ -14,7 +14,7 @@ class RegisterHeader extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            context.t.auth.joinUsToStartSearching,
+            t.joinUsToStartSearching,
             style: context.semiBold24Black.copyWith(
               letterSpacing: -0.3,
             ),
@@ -23,10 +23,7 @@ class RegisterHeader extends StatelessWidget {
           14.height,
 
           Text(
-            context
-                .t
-                .auth
-                .youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies,
+            t.youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies,
             style: context.regular14TextSub,
             textAlign: TextAlign.center,
           ),

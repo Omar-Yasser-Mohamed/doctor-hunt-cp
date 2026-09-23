@@ -1,12 +1,16 @@
+import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
-import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
+import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -52,7 +56,7 @@ class _RegisterFormState extends State<RegisterForm> {
         children: [
           AppTextField(
             controller: _nameController,
-            hintText: context.t.auth.name,
+            hintText: t.name,
             validator: AppValidators.name,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.text,
@@ -62,7 +66,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
           AppTextField(
             controller: _emailController,
-            hintText: context.t.auth.email,
+            hintText: t.email,
             validator: AppValidators.email,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -72,7 +76,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
           AppTextField(
             controller: _passwordController,
-            hintText: context.t.auth.password,
+            hintText: t.password,
             validator: AppValidators.password,
             textInputAction: TextInputAction.done,
             keyboardType: TextInputType.visiblePassword,
@@ -101,19 +105,42 @@ class _RegisterFormState extends State<RegisterForm> {
 
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AppButton(
-              text: context.t.auth.signUp,
-              onPressed: !_isAgreed
-                  ? null
-                  : () {
-                      if (_formKey.currentState!.validate()) {
-                        const PatientHomeRoute().go(context);
-                      } else {
-                        setState(() {
-                          _autoValidateMode = AutovalidateMode.always;
-                        });
-                      }
-                    },
+            child: BlocConsumer<RegisterBloc, RegisterState>(
+              listenWhen: (previous, current) =>
+                  current is RegisterSuccess || current is RegisterFailure,
+              listener: (context, state) {
+                if (state is RegisterSuccess) {
+                  // const PatientHomeRoute().go(context);
+                  context.showSuccessSnakbar(message: "Registration Success");
+                } else if (state is RegisterFailure) {
+                  context.showErrorSnakbar(message: state.failure);
+                }
+              },
+              builder: (context, state) {
+                return AppButton(
+                  text: t.signUp,
+                  isLoading: state is RegisterLoading,
+                  onPressed: !_isAgreed
+                      ? null
+                      : () {
+                          if (_formKey.currentState!.validate()) {
+                            final userRole = context.extra<UserRole>();
+                            context.read<RegisterBloc>().add(
+                              RegisterSubmitted(
+                                name: _nameController.text.trim(),
+                                userRole: userRole,
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text.trim(),
+                              ),
+                            );
+                          } else {
+                            setState(() {
+                              _autoValidateMode = AutovalidateMode.always;
+                            });
+                          }
+                        },
+                );
+              },
             ),
           ),
         ],
@@ -166,7 +193,7 @@ class TermsAgreeButton extends StatelessWidget {
             12.width,
 
             Text(
-              context.t.auth.agreeToTerms,
+              t.agreeToTerms,
               style: context.regular12TextSub,
             ),
           ],

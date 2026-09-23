@@ -27,19 +27,19 @@ class DoctorStatsCard extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: _StatItem(value: "100", title: t.doctorDetails.runing),
+            child: _StatItem(value: "100", title: t.runing),
           ),
 
           8.width,
 
           Expanded(
-            child: _StatItem(value: "500", title: t.doctorDetails.ongoing),
+            child: _StatItem(value: "500", title: t.ongoing),
           ),
 
           8.width,
 
           Expanded(
-            child: _StatItem(value: "700", title: t.doctorDetails.patient),
+            child: _StatItem(value: "700", title: t.patient),
           ),
         ],
       ),

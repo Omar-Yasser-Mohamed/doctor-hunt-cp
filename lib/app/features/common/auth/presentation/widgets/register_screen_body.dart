@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
-import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/o_auth_button.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/sigin_with_google_button.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/register_footer.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/register_form.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/register_header.dart';

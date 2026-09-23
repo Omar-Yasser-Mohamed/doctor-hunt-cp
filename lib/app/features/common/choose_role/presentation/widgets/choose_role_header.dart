@@ -23,7 +23,7 @@ class ChooseRoleHeader extends StatelessWidget {
         12.height,
 
         Text(
-          context.t.appName,
+          t.appName,
           style: context.bold24TextMain.copyWith(
             color: AppColors.textDark,
             letterSpacing: -0.3,
@@ -33,7 +33,7 @@ class ChooseRoleHeader extends StatelessWidget {
         50.height,
 
         Text(
-          context.t.chooseRole.chooseYourRole,
+          t.chooseYourRole,
           textAlign: TextAlign.center,
           style: context.regular28.copyWith(
             color: AppColors.darkBlue,
@@ -43,7 +43,7 @@ class ChooseRoleHeader extends StatelessWidget {
         8.height,
 
         Text(
-          context.t.chooseRole.chooseYourRoleDescription,
+          t.chooseYourRoleDescription,
           textAlign: TextAlign.center,
           style: context.regular14.copyWith(
             color: AppColors.deepBlue,

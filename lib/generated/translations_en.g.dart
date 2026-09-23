@@ -45,25 +45,6 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Doctor Hunt'
 	String get appName => 'Doctor Hunt';
 
-	late final Translations$common$en common = Translations$common$en.internal(_root);
-	late final Translations$onboarding$en onboarding = Translations$onboarding$en.internal(_root);
-	late final Translations$chooseRole$en chooseRole = Translations$chooseRole$en.internal(_root);
-	late final Translations$auth$en auth = Translations$auth$en.internal(_root);
-	late final Translations$validations$en validations = Translations$validations$en.internal(_root);
-	late final Translations$home$en home = Translations$home$en.internal(_root);
-	late final Translations$doctorDetails$en doctorDetails = Translations$doctorDetails$en.internal(_root);
-	late final Translations$findDoctors$en findDoctors = Translations$findDoctors$en.internal(_root);
-	late final Translations$appointment$en appointment = Translations$appointment$en.internal(_root);
-}
-
-// Path: common
-class Translations$common$en {
-	Translations$common$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
 	/// en: 'Patient'
 	String get patient => 'Patient';
 
@@ -111,15 +92,6 @@ class Translations$common$en {
 
 	/// en: 'Done'
 	String get done => 'Done';
-}
-
-// Path: onboarding
-class Translations$onboarding$en {
-	Translations$onboarding$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
 
 	/// en: 'Get Started'
 	String get getStarted => 'Get Started';
@@ -139,17 +111,8 @@ class Translations$onboarding$en {
 	/// en: 'Easy Appointments'
 	String get easyAppointments => 'Easy Appointments';
 
-	/// en: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..'
-	String get easyAppointmentsDescription => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..';
-}
-
-// Path: chooseRole
-class Translations$chooseRole$en {
-	Translations$chooseRole$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
+	/// en: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.'
+	String get easyAppointmentsDescription => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.';
 
 	/// en: 'Choose Your Role'
 	String get chooseYourRole => 'Choose Your Role';
@@ -162,15 +125,6 @@ class Translations$chooseRole$en {
 
 	/// en: 'Manage doctors, appointments, users, and the platform.'
 	String get adminDescription => 'Manage doctors, appointments, users, and the platform.';
-}
-
-// Path: auth
-class Translations$auth$en {
-	Translations$auth$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
 
 	/// en: 'Login'
 	String get login => 'Login';
@@ -249,6 +203,86 @@ class Translations$auth$en {
 
 	/// en: 'Code'
 	String get code => 'Code';
+
+	late final Translations$validations$en validations = Translations$validations$en.internal(_root);
+
+	/// en: 'Hi $name!'
+	String hi({required Object name}) => 'Hi ${name}!';
+
+	/// en: 'Find Your Doctor'
+	String get findYourDoctor => 'Find Your Doctor';
+
+	/// en: 'Live Doctors'
+	String get liveDoctors => 'Live Doctors';
+
+	/// en: 'Popular Doctor'
+	String get popularDoctor => 'Popular Doctor';
+
+	/// en: 'Feature Doctor'
+	String get featureDoctor => 'Feature Doctor';
+
+	/// en: 'See All'
+	String get seeAll => 'See All';
+
+	/// en: 'Doctor Details'
+	String get doctorDetails => 'Doctor Details';
+
+	/// en: 'Runing'
+	String get runing => 'Runing';
+
+	/// en: 'Ongoing'
+	String get ongoing => 'Ongoing';
+
+	/// en: 'Services'
+	String get services => 'Services';
+
+	/// en: 'Find Doctors'
+	String get findDoctors => 'Find Doctors';
+
+	/// en: 'Next Available'
+	String get nextAvailable => 'Next Available';
+
+	/// en: 'Tomorrow'
+	String get tomorrow => 'Tomorrow';
+
+	/// en: 'Years experience'
+	String get yearsExperience => 'Years experience';
+
+	/// en: 'Patient Stories'
+	String get patientStories => 'Patient Stories';
+
+	/// en: 'Appointment'
+	String get appointment => 'Appointment';
+
+	/// en: 'Available Time'
+	String get availableTime => 'Available Time';
+
+	/// en: 'Reminder Me Before'
+	String get reminderMeBefore => 'Reminder Me Before';
+
+	/// en: 'Minit'
+	String get minit => 'Minit';
+
+	/// en: 'No Slots Available'
+	String get noSlotsAvailable => 'No Slots Available';
+
+	/// en: 'Next Availability On'
+	String get nextAvailabilityOn => 'Next Availability On';
+
+	/// en: 'Contact Clinic'
+	String get contactClinic => 'Contact Clinic';
+
+	/// en: 'Your Appointment Successful'
+	String get appointmentSuccessful => 'Your Appointment Successful';
+
+	/// en: 'Thank You !'
+	String get thankYou => 'Thank You !';
+
+	/// en: 'You booked an appointment with Dr. $doctorName on $date, at $time'
+	String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}';
+
+	/// en: 'Edit your appointment'
+	String get editYourAppointment => 'Edit your appointment';
 }
 
 // Path: validations
@@ -299,126 +333,6 @@ class Translations$validations$en {
 	String get passwordsDoNotMatch => 'Passwords do not match';
 }
 
-// Path: home
-class Translations$home$en {
-	Translations$home$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Hi $name!'
-	String hi({required Object name}) => 'Hi ${name}!';
-
-	/// en: 'Find Your Doctor'
-	String get findYourDoctor => 'Find Your Doctor';
-
-	/// en: 'Search.....'
-	String get search => 'Search.....';
-
-	/// en: 'Live Doctors'
-	String get liveDoctors => 'Live Doctors';
-
-	/// en: 'Popular Doctor'
-	String get popularDoctor => 'Popular Doctor';
-
-	/// en: 'Feature Doctor'
-	String get featureDoctor => 'Feature Doctor';
-
-	/// en: 'See All'
-	String get seeAll => 'See All';
-}
-
-// Path: doctorDetails
-class Translations$doctorDetails$en {
-	Translations$doctorDetails$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Doctor Details'
-	String get doctorDetails => 'Doctor Details';
-
-	/// en: 'Runing'
-	String get runing => 'Runing';
-
-	/// en: 'Ongoing'
-	String get ongoing => 'Ongoing';
-
-	/// en: 'Patient'
-	String get patient => 'Patient';
-
-	/// en: 'Services'
-	String get services => 'Services';
-}
-
-// Path: findDoctors
-class Translations$findDoctors$en {
-	Translations$findDoctors$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Find Doctors'
-	String get findDoctors => 'Find Doctors';
-
-	/// en: 'Next Available'
-	String get nextAvailable => 'Next Available';
-
-	/// en: 'Tomorrow'
-	String get tomorrow => 'Tomorrow';
-
-	/// en: 'Years experience'
-	String get yearsExperience => 'Years experience';
-
-	/// en: 'Patient Stories'
-	String get patientStories => 'Patient Stories';
-}
-
-// Path: appointment
-class Translations$appointment$en {
-	Translations$appointment$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Appointment'
-	String get appointment => 'Appointment';
-
-	/// en: 'Available Time'
-	String get availableTime => 'Available Time';
-
-	/// en: 'Reminder Me Before'
-	String get reminderMeBefore => 'Reminder Me Before';
-
-	/// en: 'Minit'
-	String get minit => 'Minit';
-
-	/// en: 'No Slots Available'
-	String get noSlotsAvailable => 'No Slots Available';
-
-	/// en: 'Next Availability On'
-	String get nextAvailabilityOn => 'Next Availability On';
-
-	/// en: 'Contact Clinic'
-	String get contactClinic => 'Contact Clinic';
-
-	/// en: 'Your Appointment Successful'
-	String get appointmentSuccessful => 'Your Appointment Successful';
-
-	/// en: 'Thank You !'
-	String get thankYou => 'Thank You !';
-
-	/// en: 'You booked an appointment with Dr. $doctorName on $date, at $time'
-	String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}';
-
-	/// en: 'Edit your appointment'
-	String get editYourAppointment => 'Edit your appointment';
-}
-
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -428,59 +342,59 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'appName' => 'Doctor Hunt',
-			'common.patient' => 'Patient',
-			'common.admin' => 'Admin',
-			'common.kContinue' => 'Continue',
-			'common.cancel' => 'Cancel',
-			'common.save' => 'Save',
-			'common.delete' => 'Delete',
-			'common.retry' => 'Retry',
-			'common.search' => 'Search',
-			'common.next' => 'Next',
-			'common.skip' => 'Skip',
-			'common.live' => 'Live',
-			'common.hour' => 'hour',
-			'common.bookNow' => 'Book Now',
-			'common.confirm' => 'Confirm',
-			'common.or' => 'OR',
-			'common.done' => 'Done',
-			'onboarding.getStarted' => 'Get Started',
-			'onboarding.findTrustedDoctors' => 'Find Trusted Doctors',
-			'onboarding.findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
-			'onboarding.chooseBestDoctors' => 'Choose Best Doctors',
-			'onboarding.chooseBestDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
-			'onboarding.easyAppointments' => 'Easy Appointments',
-			'onboarding.easyAppointmentsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old..',
-			'chooseRole.chooseYourRole' => 'Choose Your Role',
-			'chooseRole.chooseYourRoleDescription' => 'The selected role determines the experience and available features.',
-			'chooseRole.patientDescription' => 'Find doctors, book appointments, and manage your medical records.',
-			'chooseRole.adminDescription' => 'Manage doctors, appointments, users, and the platform.',
-			'auth.login' => 'Login',
-			'auth.register' => 'Register',
-			'auth.name' => 'Name',
-			'auth.email' => 'Email',
-			'auth.password' => 'Password',
-			'auth.forgotPassword' => 'Forgot Password',
-			'auth.google' => 'Google',
-			'auth.facebook' => 'Facebook',
-			'auth.welcomeBack' => 'Welcome back',
-			'auth.joinUsToStartSearching' => 'Join us to start searching',
-			'auth.youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies' => 'You can search course, apply course and find scholarship for abroad studies',
-			'auth.dontHaveAnAccount' => 'Don’t have an account?',
-			'auth.joinUs' => 'Join us',
-			'auth.haveAnAccount' => 'Have an account?',
-			'auth.logIn' => 'Log in',
-			'auth.agreeToTerms' => 'I agree with the Terms of Service & Privacy Policy',
-			'auth.signUp' => 'Sign Up',
-			'auth.forgotPasswordDescription' => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.',
-			'auth.enterDigitsCode' => 'Enter 4 Digits Code',
-			'auth.enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
-			'auth.resetPassword' => 'Reset Password',
-			'auth.newPassword' => 'New Password',
-			'auth.reEnterPassword' => 'Re-enter Password',
-			'auth.updatePassword' => 'Update Password',
-			'auth.resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
-			'auth.code' => 'Code',
+			'patient' => 'Patient',
+			'admin' => 'Admin',
+			'kContinue' => 'Continue',
+			'cancel' => 'Cancel',
+			'save' => 'Save',
+			'delete' => 'Delete',
+			'retry' => 'Retry',
+			'search' => 'Search',
+			'next' => 'Next',
+			'skip' => 'Skip',
+			'live' => 'Live',
+			'hour' => 'hour',
+			'bookNow' => 'Book Now',
+			'confirm' => 'Confirm',
+			'or' => 'OR',
+			'done' => 'Done',
+			'getStarted' => 'Get Started',
+			'findTrustedDoctors' => 'Find Trusted Doctors',
+			'findTrustedDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
+			'chooseBestDoctors' => 'Choose Best Doctors',
+			'chooseBestDoctorsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
+			'easyAppointments' => 'Easy Appointments',
+			'easyAppointmentsDescription' => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
+			'chooseYourRole' => 'Choose Your Role',
+			'chooseYourRoleDescription' => 'The selected role determines the experience and available features.',
+			'patientDescription' => 'Find doctors, book appointments, and manage your medical records.',
+			'adminDescription' => 'Manage doctors, appointments, users, and the platform.',
+			'login' => 'Login',
+			'register' => 'Register',
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'forgotPassword' => 'Forgot Password',
+			'google' => 'Google',
+			'facebook' => 'Facebook',
+			'welcomeBack' => 'Welcome back',
+			'joinUsToStartSearching' => 'Join us to start searching',
+			'youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies' => 'You can search course, apply course and find scholarship for abroad studies',
+			'dontHaveAnAccount' => 'Don’t have an account?',
+			'joinUs' => 'Join us',
+			'haveAnAccount' => 'Have an account?',
+			'logIn' => 'Log in',
+			'agreeToTerms' => 'I agree with the Terms of Service & Privacy Policy',
+			'signUp' => 'Sign Up',
+			'forgotPasswordDescription' => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.',
+			'enterDigitsCode' => 'Enter 4 Digits Code',
+			'enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
+			'resetPassword' => 'Reset Password',
+			'newPassword' => 'New Password',
+			'reEnterPassword' => 'Re-enter Password',
+			'updatePassword' => 'Update Password',
+			'resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
+			'code' => 'Code',
 			'validations.required' => ({required Object fieldName}) => '${fieldName} is required',
 			'validations.emailRequired' => 'Email is required',
 			'validations.invalidEmail' => 'Please enter a valid email',
@@ -494,34 +408,32 @@ extension on Translations {
 			'validations.nameMinLength' => 'Name must be at least 3 characters',
 			'validations.confirmPasswordRequired' => 'Confirm Password is required',
 			'validations.passwordsDoNotMatch' => 'Passwords do not match',
-			'home.hi' => ({required Object name}) => 'Hi ${name}!',
-			'home.findYourDoctor' => 'Find Your Doctor',
-			'home.search' => 'Search.....',
-			'home.liveDoctors' => 'Live Doctors',
-			'home.popularDoctor' => 'Popular Doctor',
-			'home.featureDoctor' => 'Feature Doctor',
-			'home.seeAll' => 'See All',
-			'doctorDetails.doctorDetails' => 'Doctor Details',
-			'doctorDetails.runing' => 'Runing',
-			'doctorDetails.ongoing' => 'Ongoing',
-			'doctorDetails.patient' => 'Patient',
-			'doctorDetails.services' => 'Services',
-			'findDoctors.findDoctors' => 'Find Doctors',
-			'findDoctors.nextAvailable' => 'Next Available',
-			'findDoctors.tomorrow' => 'Tomorrow',
-			'findDoctors.yearsExperience' => 'Years experience',
-			'findDoctors.patientStories' => 'Patient Stories',
-			'appointment.appointment' => 'Appointment',
-			'appointment.availableTime' => 'Available Time',
-			'appointment.reminderMeBefore' => 'Reminder Me Before',
-			'appointment.minit' => 'Minit',
-			'appointment.noSlotsAvailable' => 'No Slots Available',
-			'appointment.nextAvailabilityOn' => 'Next Availability On',
-			'appointment.contactClinic' => 'Contact Clinic',
-			'appointment.appointmentSuccessful' => 'Your Appointment Successful',
-			'appointment.thankYou' => 'Thank You !',
-			'appointment.appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
-			'appointment.editYourAppointment' => 'Edit your appointment',
+			'hi' => ({required Object name}) => 'Hi ${name}!',
+			'findYourDoctor' => 'Find Your Doctor',
+			'liveDoctors' => 'Live Doctors',
+			'popularDoctor' => 'Popular Doctor',
+			'featureDoctor' => 'Feature Doctor',
+			'seeAll' => 'See All',
+			'doctorDetails' => 'Doctor Details',
+			'runing' => 'Runing',
+			'ongoing' => 'Ongoing',
+			'services' => 'Services',
+			'findDoctors' => 'Find Doctors',
+			'nextAvailable' => 'Next Available',
+			'tomorrow' => 'Tomorrow',
+			'yearsExperience' => 'Years experience',
+			'patientStories' => 'Patient Stories',
+			'appointment' => 'Appointment',
+			'availableTime' => 'Available Time',
+			'reminderMeBefore' => 'Reminder Me Before',
+			'minit' => 'Minit',
+			'noSlotsAvailable' => 'No Slots Available',
+			'nextAvailabilityOn' => 'Next Availability On',
+			'contactClinic' => 'Contact Clinic',
+			'appointmentSuccessful' => 'Your Appointment Successful',
+			'thankYou' => 'Thank You !',
+			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
+			'editYourAppointment' => 'Edit your appointment',
 			_ => null,
 		};
 	}

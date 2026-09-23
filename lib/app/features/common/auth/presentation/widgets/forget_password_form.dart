@@ -35,7 +35,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
         children: [
           AppTextField(
             controller: _emailController,
-            hintText: context.t.auth.email,
+            hintText: t.email,
             validator: AppValidators.email,
             textInputAction: TextInputAction.done,
             keyboardType: TextInputType.emailAddress,
@@ -46,7 +46,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: AppButton(
-              text: context.t.common.kContinue,
+              text: t.kContinue,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   widget.onContinue();

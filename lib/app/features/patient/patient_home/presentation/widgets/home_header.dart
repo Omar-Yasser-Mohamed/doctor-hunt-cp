@@ -48,14 +48,14 @@ class HomeHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      t.home.hi(name: "Omar"),
+                      t.hi(name: "Omar"),
                       style: context.light20White,
                     ),
 
                     2.height,
 
                     Text(
-                      t.home.findYourDoctor,
+                      t.findYourDoctor,
                       style: context.bold24White,
                     ),
                   ],
@@ -99,7 +99,7 @@ class _HomeSearchButton extends StatelessWidget {
           ],
         ),
         child: AppTextField(
-          hintText: t.home.search,
+          hintText: t.search,
           readOnly: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6.r),

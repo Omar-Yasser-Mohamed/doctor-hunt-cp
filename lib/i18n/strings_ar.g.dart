@@ -39,24 +39,6 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override String get appName => 'دكتور هانت';
-	@override late final _Translations$common$ar common = _Translations$common$ar._(_root);
-	@override late final _Translations$onboarding$ar onboarding = _Translations$onboarding$ar._(_root);
-	@override late final _Translations$chooseRole$ar chooseRole = _Translations$chooseRole$ar._(_root);
-	@override late final _Translations$auth$ar auth = _Translations$auth$ar._(_root);
-	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
-	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
-	@override late final _Translations$doctorDetails$ar doctorDetails = _Translations$doctorDetails$ar._(_root);
-	@override late final _Translations$findDoctors$ar findDoctors = _Translations$findDoctors$ar._(_root);
-	@override late final _Translations$appointment$ar appointment = _Translations$appointment$ar._(_root);
-}
-
-// Path: common
-class _Translations$common$ar implements Translations$common$en {
-	_Translations$common$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
 	@override String get patient => 'مريض';
 	@override String get admin => 'مدير';
 	@override String get kContinue => 'استمرار';
@@ -73,15 +55,6 @@ class _Translations$common$ar implements Translations$common$en {
 	@override String get confirm => 'تأكيد';
 	@override String get or => 'أو';
 	@override String get done => 'تم';
-}
-
-// Path: onboarding
-class _Translations$onboarding$ar implements Translations$onboarding$en {
-	_Translations$onboarding$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
 	@override String get getStarted => 'ابدأ';
 	@override String get findTrustedDoctors => 'العثور على أطباء موثوقين';
 	@override String get findTrustedDoctorsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.';
@@ -89,28 +62,10 @@ class _Translations$onboarding$ar implements Translations$onboarding$en {
 	@override String get chooseBestDoctorsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.';
 	@override String get easyAppointments => 'حجز المواعيد بسهولة';
 	@override String get easyAppointmentsDescription => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام..';
-}
-
-// Path: chooseRole
-class _Translations$chooseRole$ar implements Translations$chooseRole$en {
-	_Translations$chooseRole$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
 	@override String get chooseYourRole => 'اختر دورك';
 	@override String get chooseYourRoleDescription => 'الدور المحدد يحدد التجربة والميزات المتاحة.';
 	@override String get patientDescription => 'ابحث عن الأطباء، احجز المواعيد، وأدر سجلاتك الطبية.';
 	@override String get adminDescription => 'إدارة الأطباء والمواعيد والمستخدمين والمنصة.';
-}
-
-// Path: auth
-class _Translations$auth$ar implements Translations$auth$en {
-	_Translations$auth$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
 	@override String get login => 'تسجيل الدخول';
 	@override String get register => 'إنشاء حساب';
 	@override String get name => 'الاسم';
@@ -137,6 +92,33 @@ class _Translations$auth$ar implements Translations$auth$en {
 	@override String get resetPasswordDescription => 'أدخل كلمة المرور الجديدة لحسابك.';
 	@override String get updatePassword => 'تحديث كلمة المرور';
 	@override String get code => 'الرمز';
+	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
+	@override String hi({required Object name}) => 'مرحبا ${name}!';
+	@override String get findYourDoctor => 'ابحث عن طبيبك';
+	@override String get seeAll => 'عرض الكل';
+	@override String get liveDoctors => 'أطباء مباشرون';
+	@override String get popularDoctor => 'أطباء مشهورون';
+	@override String get featureDoctor => 'أطباء مميزون';
+	@override String get doctorDetails => 'تفاصيل الطبيب';
+	@override String get runing => 'مباشر';
+	@override String get ongoing => 'مستمر';
+	@override String get services => 'الخدمات';
+	@override String get findDoctors => 'ابحث عن طبيبك';
+	@override String get nextAvailable => 'التالي المتاح';
+	@override String get tomorrow => 'غدا';
+	@override String get yearsExperience => 'سنوات الخبرة';
+	@override String get patientStories => 'قصص المرضى';
+	@override String get appointment => 'موعد';
+	@override String get availableTime => 'الوقت المتاح';
+	@override String get reminderMeBefore => 'تذكيري قبل الموعد';
+	@override String get minit => 'دقيقة';
+	@override String get noSlotsAvailable => 'لا توجد أوقات متاحة';
+	@override String get nextAvailabilityOn => 'التوفر التالي في';
+	@override String get contactClinic => 'اتصل بالعيادة';
+	@override String get appointmentSuccessful => 'تم حجز موعدك بنجاح';
+	@override String get thankYou => 'شكرا لك !';
+	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
+	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
 }
 
 // Path: validations
@@ -161,70 +143,6 @@ class _Translations$validations$ar implements Translations$validations$en {
 	@override String get passwordsDoNotMatch => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها';
 }
 
-// Path: home
-class _Translations$home$ar implements Translations$home$en {
-	_Translations$home$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String hi({required Object name}) => 'مرحبا ${name}!';
-	@override String get findYourDoctor => 'ابحث عن طبيبك';
-	@override String get search => 'بحث.....';
-	@override String get seeAll => 'عرض الكل';
-	@override String get liveDoctors => 'أطباء مباشرون';
-	@override String get popularDoctor => 'أطباء مشهورون';
-	@override String get featureDoctor => 'أطباء مميزون';
-}
-
-// Path: doctorDetails
-class _Translations$doctorDetails$ar implements Translations$doctorDetails$en {
-	_Translations$doctorDetails$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get doctorDetails => 'تفاصيل الطبيب';
-	@override String get runing => 'مباشر';
-	@override String get ongoing => 'مستمر';
-	@override String get patient => 'مرضى';
-	@override String get services => 'الخدمات';
-}
-
-// Path: findDoctors
-class _Translations$findDoctors$ar implements Translations$findDoctors$en {
-	_Translations$findDoctors$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get findDoctors => 'ابحث عن طبيبك';
-	@override String get nextAvailable => 'التالي المتاح';
-	@override String get tomorrow => 'غدا';
-	@override String get yearsExperience => 'سنوات الخبرة';
-	@override String get patientStories => 'قصص المرضى';
-}
-
-// Path: appointment
-class _Translations$appointment$ar implements Translations$appointment$en {
-	_Translations$appointment$ar._(this._root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get appointment => 'موعد';
-	@override String get availableTime => 'الوقت المتاح';
-	@override String get reminderMeBefore => 'تذكيري قبل الموعد';
-	@override String get minit => 'دقيقة';
-	@override String get noSlotsAvailable => 'لا توجد أوقات متاحة';
-	@override String get nextAvailabilityOn => 'التوفر التالي في';
-	@override String get contactClinic => 'اتصل بالعيادة';
-	@override String get appointmentSuccessful => 'تم حجز موعدك بنجاح';
-	@override String get thankYou => 'شكرا لك !';
-	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
-	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
-}
-
 /// The flat map containing all translations for locale <ar>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -234,59 +152,59 @@ extension on TranslationsAr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'appName' => 'دكتور هانت',
-			'common.patient' => 'مريض',
-			'common.admin' => 'مدير',
-			'common.kContinue' => 'استمرار',
-			'common.cancel' => 'إلغاء',
-			'common.save' => 'حفظ',
-			'common.delete' => 'حذف',
-			'common.retry' => 'إعادة المحاولة',
-			'common.search' => 'بحث',
-			'common.next' => 'التالي',
-			'common.skip' => 'تخطي',
-			'common.live' => 'مباشر',
-			'common.hour' => 'ساعة',
-			'common.bookNow' => 'احجز الآن',
-			'common.confirm' => 'تأكيد',
-			'common.or' => 'أو',
-			'common.done' => 'تم',
-			'onboarding.getStarted' => 'ابدأ',
-			'onboarding.findTrustedDoctors' => 'العثور على أطباء موثوقين',
-			'onboarding.findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
-			'onboarding.chooseBestDoctors' => 'اختر أفضل الأطباء',
-			'onboarding.chooseBestDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
-			'onboarding.easyAppointments' => 'حجز المواعيد بسهولة',
-			'onboarding.easyAppointmentsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام..',
-			'chooseRole.chooseYourRole' => 'اختر دورك',
-			'chooseRole.chooseYourRoleDescription' => 'الدور المحدد يحدد التجربة والميزات المتاحة.',
-			'chooseRole.patientDescription' => 'ابحث عن الأطباء، احجز المواعيد، وأدر سجلاتك الطبية.',
-			'chooseRole.adminDescription' => 'إدارة الأطباء والمواعيد والمستخدمين والمنصة.',
-			'auth.login' => 'تسجيل الدخول',
-			'auth.register' => 'إنشاء حساب',
-			'auth.name' => 'الاسم',
-			'auth.email' => 'البريد الإلكتروني',
-			'auth.password' => 'كلمة المرور',
-			'auth.forgotPassword' => 'هل نسيت كلمة المرور',
-			'auth.google' => 'جوجل',
-			'auth.facebook' => 'فيسبوك',
-			'auth.welcomeBack' => 'مرحبا بعودتك',
-			'auth.joinUsToStartSearching' => 'انضم إلينا للبدء في البحث',
-			'auth.youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies' => 'يمكنك البحث في الدورات، التقديم للدورات، والعثور على منح دراسية للدراسة في الخارج',
-			'auth.dontHaveAnAccount' => 'لا تمتلك حساب؟',
-			'auth.joinUs' => 'انضم إلينا',
-			'auth.haveAnAccount' => 'هل لديك حساب؟',
-			'auth.logIn' => 'تسجيل الدخول',
-			'auth.agreeToTerms' => 'أوافق على شروط الخدمة وسياسة الخصوصية',
-			'auth.signUp' => 'إنشاء حساب',
-			'auth.forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.',
-			'auth.enterDigitsCode' => 'أدخل رمز التحقق المكون من ٤ أرقام',
-			'auth.enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.',
-			'auth.resetPassword' => 'إعادة تعيين كلمة المرور',
-			'auth.newPassword' => 'كلمة المرور الجديدة',
-			'auth.reEnterPassword' => 'أعد إدخال كلمة المرور',
-			'auth.resetPasswordDescription' => 'أدخل كلمة المرور الجديدة لحسابك.',
-			'auth.updatePassword' => 'تحديث كلمة المرور',
-			'auth.code' => 'الرمز',
+			'patient' => 'مريض',
+			'admin' => 'مدير',
+			'kContinue' => 'استمرار',
+			'cancel' => 'إلغاء',
+			'save' => 'حفظ',
+			'delete' => 'حذف',
+			'retry' => 'إعادة المحاولة',
+			'search' => 'بحث',
+			'next' => 'التالي',
+			'skip' => 'تخطي',
+			'live' => 'مباشر',
+			'hour' => 'ساعة',
+			'bookNow' => 'احجز الآن',
+			'confirm' => 'تأكيد',
+			'or' => 'أو',
+			'done' => 'تم',
+			'getStarted' => 'ابدأ',
+			'findTrustedDoctors' => 'العثور على أطباء موثوقين',
+			'findTrustedDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
+			'chooseBestDoctors' => 'اختر أفضل الأطباء',
+			'chooseBestDoctorsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام.',
+			'easyAppointments' => 'حجز المواعيد بسهولة',
+			'easyAppointmentsDescription' => 'بدلاً من الاعتقاد الشائع، فإن لوريم إيبسوم ليس مجرد نص عشوائي. بل له جذور في قطعة من الفلسفة الكلاسيكية تعود إلى أكثر من ٢٠٠٠ عام..',
+			'chooseYourRole' => 'اختر دورك',
+			'chooseYourRoleDescription' => 'الدور المحدد يحدد التجربة والميزات المتاحة.',
+			'patientDescription' => 'ابحث عن الأطباء، احجز المواعيد، وأدر سجلاتك الطبية.',
+			'adminDescription' => 'إدارة الأطباء والمواعيد والمستخدمين والمنصة.',
+			'login' => 'تسجيل الدخول',
+			'register' => 'إنشاء حساب',
+			'name' => 'الاسم',
+			'email' => 'البريد الإلكتروني',
+			'password' => 'كلمة المرور',
+			'forgotPassword' => 'هل نسيت كلمة المرور',
+			'google' => 'جوجل',
+			'facebook' => 'فيسبوك',
+			'welcomeBack' => 'مرحبا بعودتك',
+			'joinUsToStartSearching' => 'انضم إلينا للبدء في البحث',
+			'youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies' => 'يمكنك البحث في الدورات، التقديم للدورات، والعثور على منح دراسية للدراسة في الخارج',
+			'dontHaveAnAccount' => 'لا تمتلك حساب؟',
+			'joinUs' => 'انضم إلينا',
+			'haveAnAccount' => 'هل لديك حساب؟',
+			'logIn' => 'تسجيل الدخول',
+			'agreeToTerms' => 'أوافق على شروط الخدمة وسياسة الخصوصية',
+			'signUp' => 'إنشاء حساب',
+			'forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.',
+			'enterDigitsCode' => 'أدخل رمز التحقق المكون من ٤ أرقام',
+			'enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.',
+			'resetPassword' => 'إعادة تعيين كلمة المرور',
+			'newPassword' => 'كلمة المرور الجديدة',
+			'reEnterPassword' => 'أعد إدخال كلمة المرور',
+			'resetPasswordDescription' => 'أدخل كلمة المرور الجديدة لحسابك.',
+			'updatePassword' => 'تحديث كلمة المرور',
+			'code' => 'الرمز',
 			'validations.required' => ({required Object fieldName}) => 'حقل ${fieldName} مطلوب',
 			'validations.emailRequired' => 'البريد الإلكتروني مطلوب',
 			'validations.invalidEmail' => 'يرجى إدخال بريد إلكتروني صالح',
@@ -300,34 +218,32 @@ extension on TranslationsAr {
 			'validations.nameMinLength' => 'يجب أن يتكون الاسم من 3 أحرف على الأقل',
 			'validations.confirmPasswordRequired' => 'يجب إعادة إدخال كلمة المرور',
 			'validations.passwordsDoNotMatch' => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها',
-			'home.hi' => ({required Object name}) => 'مرحبا ${name}!',
-			'home.findYourDoctor' => 'ابحث عن طبيبك',
-			'home.search' => 'بحث.....',
-			'home.seeAll' => 'عرض الكل',
-			'home.liveDoctors' => 'أطباء مباشرون',
-			'home.popularDoctor' => 'أطباء مشهورون',
-			'home.featureDoctor' => 'أطباء مميزون',
-			'doctorDetails.doctorDetails' => 'تفاصيل الطبيب',
-			'doctorDetails.runing' => 'مباشر',
-			'doctorDetails.ongoing' => 'مستمر',
-			'doctorDetails.patient' => 'مرضى',
-			'doctorDetails.services' => 'الخدمات',
-			'findDoctors.findDoctors' => 'ابحث عن طبيبك',
-			'findDoctors.nextAvailable' => 'التالي المتاح',
-			'findDoctors.tomorrow' => 'غدا',
-			'findDoctors.yearsExperience' => 'سنوات الخبرة',
-			'findDoctors.patientStories' => 'قصص المرضى',
-			'appointment.appointment' => 'موعد',
-			'appointment.availableTime' => 'الوقت المتاح',
-			'appointment.reminderMeBefore' => 'تذكيري قبل الموعد',
-			'appointment.minit' => 'دقيقة',
-			'appointment.noSlotsAvailable' => 'لا توجد أوقات متاحة',
-			'appointment.nextAvailabilityOn' => 'التوفر التالي في',
-			'appointment.contactClinic' => 'اتصل بالعيادة',
-			'appointment.appointmentSuccessful' => 'تم حجز موعدك بنجاح',
-			'appointment.thankYou' => 'شكرا لك !',
-			'appointment.appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
-			'appointment.editYourAppointment' => 'تعديل الموعد الخاص بك',
+			'hi' => ({required Object name}) => 'مرحبا ${name}!',
+			'findYourDoctor' => 'ابحث عن طبيبك',
+			'seeAll' => 'عرض الكل',
+			'liveDoctors' => 'أطباء مباشرون',
+			'popularDoctor' => 'أطباء مشهورون',
+			'featureDoctor' => 'أطباء مميزون',
+			'doctorDetails' => 'تفاصيل الطبيب',
+			'runing' => 'مباشر',
+			'ongoing' => 'مستمر',
+			'services' => 'الخدمات',
+			'findDoctors' => 'ابحث عن طبيبك',
+			'nextAvailable' => 'التالي المتاح',
+			'tomorrow' => 'غدا',
+			'yearsExperience' => 'سنوات الخبرة',
+			'patientStories' => 'قصص المرضى',
+			'appointment' => 'موعد',
+			'availableTime' => 'الوقت المتاح',
+			'reminderMeBefore' => 'تذكيري قبل الموعد',
+			'minit' => 'دقيقة',
+			'noSlotsAvailable' => 'لا توجد أوقات متاحة',
+			'nextAvailabilityOn' => 'التوفر التالي في',
+			'contactClinic' => 'اتصل بالعيادة',
+			'appointmentSuccessful' => 'تم حجز موعدك بنجاح',
+			'thankYou' => 'شكرا لك !',
+			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
+			'editYourAppointment' => 'تعديل الموعد الخاص بك',
 			_ => null,
 		};
 	}

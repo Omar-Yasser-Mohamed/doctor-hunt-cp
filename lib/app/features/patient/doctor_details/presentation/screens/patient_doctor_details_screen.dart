@@ -17,7 +17,7 @@ class PatientDoctorDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: Text(
-          t.doctorDetails.doctorDetails,
+          t.doctorDetails,
           style: context.medium18TextMain,
         ),
         actions: [

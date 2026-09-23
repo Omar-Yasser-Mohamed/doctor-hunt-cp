@@ -20,7 +20,7 @@ class NoSlotsAvailableWidget extends StatelessWidget {
           16.height,
 
           Text(
-            t.appointment.noSlotsAvailable,
+            t.noSlotsAvailable,
             style: context.regular14TextSub,
           ),
 
@@ -28,7 +28,7 @@ class NoSlotsAvailableWidget extends StatelessWidget {
 
           AppButton(
             text:
-                "${t.appointment.nextAvailabilityOn} "
+                "${t.nextAvailabilityOn} "
                 "${DateFormat("EE, dd MMM").format(DateTime.now().add(const Duration(days: 1)))}",
             onPressed: () {},
           ),
@@ -36,14 +36,14 @@ class NoSlotsAvailableWidget extends StatelessWidget {
           14.height,
 
           Text(
-            t.common.or,
+            t.or,
             style: context.regular14TextSub,
           ),
 
           14.height,
 
           AppOutlineButton(
-            text: t.appointment.contactClinic,
+            text: t.contactClinic,
             onPressed: () {},
           ),
         ],

@@ -21,7 +21,7 @@ class DoctorsSearchBar extends StatelessWidget {
         ],
       ),
       child: AppTextField(
-        hintText: t.home.search,
+        hintText: t.search,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6.r),
           borderSide: BorderSide.none,

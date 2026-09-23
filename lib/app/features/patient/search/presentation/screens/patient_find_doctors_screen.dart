@@ -14,7 +14,7 @@ class PatientFindDoctorsScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: Text(
-          t.findDoctors.findDoctors,
+          t.findDoctors,
           style: context.medium18TextMain,
         ),
       ),

@@ -36,7 +36,7 @@ class HomeSectionTitle extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    t.home.seeAll,
+                    t.seeAll,
                     style: context.light12TextSub,
                   ),
 

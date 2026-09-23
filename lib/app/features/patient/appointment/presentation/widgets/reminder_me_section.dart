@@ -16,7 +16,7 @@ class ReminderMeSection extends StatelessWidget {
         Padding(
           padding: EdgeInsetsDirectional.only(start: 20.w),
           child: Text(
-            t.appointment.reminderMeBefore,
+            t.reminderMeBefore,
             style: context.medium16TextMain,
           ),
         ),
@@ -104,7 +104,7 @@ class _ReminderTimeChip extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "${time.inMinutes}\n${t.appointment.minit}",
+              "${time.inMinutes}\n${t.minit}",
               textAlign: TextAlign.center,
               style: context.medium12.copyWith(
                 color: isSelected ? Colors.white : AppColors.primary,

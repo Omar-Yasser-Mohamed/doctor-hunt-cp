@@ -92,7 +92,7 @@ class _DoctorCardState extends State<DoctorCard> {
                     2.height,
 
                     Text(
-                      "7 ${t.findDoctors.yearsExperience}",
+                      "7 ${t.yearsExperience}",
                       style: context.light12TextSub,
                     ),
 
@@ -105,7 +105,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         17.width,
 
                         _buildRowItem(
-                          value: "69 ${t.findDoctors.patientStories}",
+                          value: "69 ${t.patientStories}",
                         ),
                       ],
                     ),
@@ -124,7 +124,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      t.findDoctors.nextAvailable,
+                      t.nextAvailable,
                       style: context.medium.primary.copyWith(
                         fontSize: 13.sp,
                       ),
@@ -141,7 +141,7 @@ class _DoctorCardState extends State<DoctorCard> {
                           ),
 
                           TextSpan(
-                            text: " AM ${t.findDoctors.tomorrow}",
+                            text: " AM ${t.tomorrow}",
                             style: context.light12TextSub,
                           ),
                         ],
@@ -154,7 +154,7 @@ class _DoctorCardState extends State<DoctorCard> {
               12.width,
 
               AppButton(
-                text: t.common.bookNow,
+                text: t.bookNow,
                 onPressed: () {},
                 width: 112.w,
                 height: 34.h,

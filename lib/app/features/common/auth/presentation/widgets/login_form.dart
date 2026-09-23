@@ -1,11 +1,13 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
-import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginForm extends StatefulWidget {
@@ -78,16 +80,36 @@ class _LoginFormState extends State<LoginForm> {
 
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AppButton(
-              text: context.t.auth.login,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  const PatientHomeRoute().go(context);
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
+            child: BlocConsumer<LoginBloc, LoginState>(
+              listenWhen: (previous, current) =>
+                  current is LoginSuccess || current is LoginFailure,
+              listener: (context, state) {
+                if (state is LoginSuccess) {
+                  // const PatientHomeRoute().go(context);
+                  context.showSuccessSnakbar(message: "Login Success");
+                } else if (state is LoginFailure) {
+                  context.showErrorSnakbar(message: state.failure);
                 }
+              },
+              builder: (context, state) {
+                return AppButton(
+                  text: t.login,
+                  isLoading: state is LoginLoading,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.read<LoginBloc>().add(
+                        LoginSubmitted(
+                          email: _emailController.text.trim(),
+                          password: _passwordController.text.trim(),
+                        ),
+                      );
+                    } else {
+                      setState(() {
+                        _autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
+                );
               },
             ),
           ),

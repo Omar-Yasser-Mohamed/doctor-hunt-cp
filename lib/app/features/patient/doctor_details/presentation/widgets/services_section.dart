@@ -13,7 +13,7 @@ class ServicesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(t.doctorDetails.services, style: context.medium18TextMain),
+        Text(t.services, style: context.medium18TextMain),
 
         16.height,
         const ServicesList(),

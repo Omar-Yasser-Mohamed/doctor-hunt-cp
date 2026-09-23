@@ -60,8 +60,7 @@ class AppScaffold extends StatelessWidget {
 
         if (showBottomDecoration)
           Positioned(
-            right:
-                bottomGradientRightPos ?? (context.isArabic ? null : -90.w),
+            right: bottomGradientRightPos ?? (context.isArabic ? null : -90.w),
             left: bottomGradientLeftPos ?? (context.isArabic ? -90.w : null),
             bottom: bottomPos ?? -74.h,
             child: _BackgroundCircle(

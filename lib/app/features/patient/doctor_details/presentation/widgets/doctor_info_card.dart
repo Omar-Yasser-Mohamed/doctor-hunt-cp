@@ -111,7 +111,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
                                   style: context.medium16Primary,
                                 ),
                                 TextSpan(
-                                  text: "25,00/ ${t.common.hour}",
+                                  text: "25,00/ ${t.hour}",
                                   style: context.light16TextSub,
                                 ),
                               ],
@@ -129,7 +129,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
           15.height,
 
           AppButton(
-            text: t.common.bookNow,
+            text: t.bookNow,
             radius: 4.r,
             height: 32.h,
             width: 140.w,

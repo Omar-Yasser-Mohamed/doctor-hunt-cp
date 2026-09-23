@@ -12,7 +12,7 @@ class FeatureDoctorsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionTitle(title: t.home.featureDoctor),
+        HomeSectionTitle(title: t.featureDoctor),
 
         22.height,
 

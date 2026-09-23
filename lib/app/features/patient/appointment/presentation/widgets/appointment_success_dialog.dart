@@ -59,7 +59,7 @@ class AppointmentSuccessDialog extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    t.appointment.thankYou,
+                    t.thankYou,
                     style: context.bold36TextMain.copyWith(
                       letterSpacing: -0.3,
                     ),
@@ -69,7 +69,7 @@ class AppointmentSuccessDialog extends StatelessWidget {
                   4.height,
 
                   Text(
-                    t.appointment.appointmentSuccessful,
+                    t.appointmentSuccessful,
                     style: context.regular20TextSub.copyWith(
                       letterSpacing: -0.3,
                     ),
@@ -83,7 +83,7 @@ class AppointmentSuccessDialog extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Text(
-                t.appointment.appointmentSuccessfulDescription(
+                t.appointmentSuccessfulDescription(
                   doctorName: "Omar Yasser",
                   date: "February 21",
                   time: "02:00 PM",
@@ -96,7 +96,7 @@ class AppointmentSuccessDialog extends StatelessWidget {
             28.height,
 
             AppButton(
-              text: t.common.done,
+              text: t.done,
               radius: 6.r,
               onPressed: () => context.pop(),
             ),
@@ -109,7 +109,7 @@ class AppointmentSuccessDialog extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
                 child: Text(
-                  t.appointment.editYourAppointment,
+                  t.editYourAppointment,
                   style: context.regular14TextSub,
                   textAlign: TextAlign.center,
                 ),

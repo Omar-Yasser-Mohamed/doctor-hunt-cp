@@ -16,7 +16,7 @@ class AppointmentTimeSection extends StatelessWidget {
         Padding(
           padding: EdgeInsetsDirectional.only(start: 20.w),
           child: Text(
-            t.appointment.availableTime,
+            t.availableTime,
             style: context.medium16TextMain,
           ),
         ),

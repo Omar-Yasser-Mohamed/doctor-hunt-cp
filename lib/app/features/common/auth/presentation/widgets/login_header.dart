@@ -14,7 +14,7 @@ class LoginHeader extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            context.t.auth.welcomeBack,
+            t.welcomeBack,
             style: context.semiBold24Black.copyWith(
               letterSpacing: -0.3,
             ),
@@ -23,10 +23,7 @@ class LoginHeader extends StatelessWidget {
           8.height,
 
           Text(
-            context
-                .t
-                .auth
-                .youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies,
+            t.youCanSearchCourseApplyCourseAndFindScholarshipForAbroadStudies,
             style: context.regular14TextSub,
             textAlign: TextAlign.center,
           ),
