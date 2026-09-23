@@ -5,8 +5,7 @@ import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 
 class ResetPasswordView extends StatelessWidget {
-  const ResetPasswordView({super.key, required this.onSuccess});
-  final VoidCallback onSuccess;
+  const ResetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class ResetPasswordView extends StatelessWidget {
 
         27.height,
 
-        ResetPasswordForm(onSuccess: onSuccess),
+        const ResetPasswordForm(),
       ],
     );
   }

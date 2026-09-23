@@ -3,13 +3,14 @@ import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResetPasswordForm extends StatefulWidget {
-  const ResetPasswordForm({super.key, required this.onSuccess});
-  final VoidCallback onSuccess;
+  const ResetPasswordForm({super.key});
 
   @override
   State<ResetPasswordForm> createState() => _ResetPasswordFormState();
@@ -88,16 +89,25 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AppButton(
-              text: t.updatePassword,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  widget.onSuccess();
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
+            child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
+              builder: (context, state) {
+                return AppButton(
+                  isLoading: state is ResetPasswordLoading,
+                  text: t.updatePassword,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.read<ForgetPasswordBloc>().add(
+                        ResetPasswordRequested(
+                          password: _passwordController.text.trim(),
+                        ),
+                      );
+                    } else {
+                      setState(() {
+                        _autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
+                );
               },
             ),
           ),

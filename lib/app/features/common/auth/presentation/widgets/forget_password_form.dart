@@ -2,13 +2,14 @@ import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgetPasswordForm extends StatefulWidget {
-  const ForgetPasswordForm({super.key, required this.onContinue});
-  final VoidCallback onContinue;
+  const ForgetPasswordForm({super.key});
 
   @override
   State<ForgetPasswordForm> createState() => _ForgetPasswordFormState();
@@ -45,16 +46,23 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
 
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AppButton(
-              text: t.kContinue,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  widget.onContinue();
-                } else {
-                  setState(() {
-                    autovalidateMode = AutovalidateMode.always;
-                  });
-                }
+            child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
+              builder: (context, state) {
+                return AppButton(
+                  isLoading: state is ForgetPasswordLoading,
+                  text: t.kContinue,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.read<ForgetPasswordBloc>().add(
+                        ForgetPasswordRequested(_emailController.text.trim()),
+                      );
+                    } else {
+                      setState(() {
+                        autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
+                );
               },
             ),
           ),

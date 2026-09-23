@@ -6,4 +6,7 @@ abstract class AuthRepo {
   Future<Either<String, void>> login(LoginRequest request);
   Future<Either<String, void>> signUp(RegisterRequest request);
   Future<Either<String, void>> signInWithGoogle();
+  Future<Either<String, void>> forgetPassword(String email);
+  Future<Either<String, void>> verifyOtp(String email, String otp);
+  Future<Either<String, void>> resetPassword(String password);
 }

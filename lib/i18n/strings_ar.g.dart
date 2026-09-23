@@ -83,9 +83,9 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get logIn => 'تسجيل الدخول';
 	@override String get agreeToTerms => 'أوافق على شروط الخدمة وسياسة الخصوصية';
 	@override String get signUp => 'إنشاء حساب';
-	@override String get forgotPasswordDescription => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.';
-	@override String get enterDigitsCode => 'أدخل رمز التحقق المكون من ٤ أرقام';
-	@override String get enterDigitsDescription => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.';
+	@override String get forgotPasswordDescription => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رمز التحقق المكون من ٦ أرقام.';
+	@override String get enterDigitsCode => 'أدخل رمز التحقق المكون من ٦ أرقام';
+	@override String get enterDigitsDescription => 'أدخل رمز التحقق المكون من ٦ أرقام الذي تلقيته على بريدك الإلكتروني.';
 	@override String get resetPassword => 'إعادة تعيين كلمة المرور';
 	@override String get newPassword => 'كلمة المرور الجديدة';
 	@override String get reEnterPassword => 'أعد إدخال كلمة المرور';
@@ -196,9 +196,9 @@ extension on TranslationsAr {
 			'logIn' => 'تسجيل الدخول',
 			'agreeToTerms' => 'أوافق على شروط الخدمة وسياسة الخصوصية',
 			'signUp' => 'إنشاء حساب',
-			'forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.',
-			'enterDigitsCode' => 'أدخل رمز التحقق المكون من ٤ أرقام',
-			'enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.',
+			'forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رمز التحقق المكون من ٦ أرقام.',
+			'enterDigitsCode' => 'أدخل رمز التحقق المكون من ٦ أرقام',
+			'enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٦ أرقام الذي تلقيته على بريدك الإلكتروني.',
 			'resetPassword' => 'إعادة تعيين كلمة المرور',
 			'newPassword' => 'كلمة المرور الجديدة',
 			'reEnterPassword' => 'أعد إدخال كلمة المرور',

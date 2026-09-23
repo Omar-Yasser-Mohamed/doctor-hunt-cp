@@ -44,9 +44,9 @@
   "logIn": "Log in",
   "agreeToTerms": "I agree with the Terms of Service & Privacy Policy",
   "signUp": "Sign Up",
-  "forgotPasswordDescription": "Enter your email for the verification proccesss, we will send 4 digits code to your email.",
-  "enterDigitsCode": "Enter 4 Digits Code",
-  "enterDigitsDescription": "Enter the 4 digits code that you received on your email.",
+  "forgotPasswordDescription": "Enter your email for the verification proccesss, we will send 6 digits code to your email.",
+  "enterDigitsCode": "Enter 6 Digits Code",
+  "enterDigitsDescription": "Enter the 6 digits code that you received on your email.",
   "resetPassword": "Reset Password",
   "newPassword": "New Password",
   "reEnterPassword": "Re-enter Password",
@@ -95,5 +95,6 @@
   "appointmentSuccessful": "Your Appointment Successful",
   "thankYou": "Thank You !",
   "appointmentSuccessfulDescription": "You booked an appointment with Dr. $doctorName on $date, at $time",
-  "editYourAppointment": "Edit your appointment"
+  "editYourAppointment": "Edit your appointment",
+  "passwordResetSuccess": "Password reset successfully"
 }

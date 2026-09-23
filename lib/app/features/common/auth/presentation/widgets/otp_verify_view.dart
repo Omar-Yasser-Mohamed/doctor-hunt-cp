@@ -5,8 +5,7 @@ import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 
 class OtpVerifyView extends StatelessWidget {
-  const OtpVerifyView({super.key, required this.onContinue});
-  final VoidCallback onContinue;
+  const OtpVerifyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +18,7 @@ class OtpVerifyView extends StatelessWidget {
 
         27.height,
 
-        OtpForm(
-          onContinue: onContinue,
-        ),
+        const OtpForm(),
       ],
     );
   }

@@ -84,9 +84,9 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get logIn => 'تسجيل الدخول';
 	@override String get agreeToTerms => 'أوافق على شروط الخدمة وسياسة الخصوصية';
 	@override String get signUp => 'إنشاء حساب';
-	@override String get forgotPasswordDescription => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.';
-	@override String get enterDigitsCode => 'أدخل رمز التحقق المكون من ٤ أرقام';
-	@override String get enterDigitsDescription => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.';
+	@override String get forgotPasswordDescription => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رمز التحقق المكون من ٦ أرقام.';
+	@override String get enterDigitsCode => 'أدخل رمز التحقق المكون من ٦ أرقام';
+	@override String get enterDigitsDescription => 'أدخل رمز التحقق المكون من ٦ أرقام الذي تلقيته على بريدك الإلكتروني.';
 	@override String get resetPassword => 'إعادة تعيين كلمة المرور';
 	@override String get newPassword => 'كلمة المرور الجديدة';
 	@override String get reEnterPassword => 'أعد إدخال كلمة المرور';
@@ -120,6 +120,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get thankYou => 'شكرا لك !';
 	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
 	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
+	@override String get passwordResetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
 }
 
 // Path: validations
@@ -197,9 +198,9 @@ extension on TranslationsAr {
 			'logIn' => 'تسجيل الدخول',
 			'agreeToTerms' => 'أوافق على شروط الخدمة وسياسة الخصوصية',
 			'signUp' => 'إنشاء حساب',
-			'forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.',
-			'enterDigitsCode' => 'أدخل رمز التحقق المكون من ٤ أرقام',
-			'enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.',
+			'forgotPasswordDescription' => 'أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رمز التحقق المكون من ٦ أرقام.',
+			'enterDigitsCode' => 'أدخل رمز التحقق المكون من ٦ أرقام',
+			'enterDigitsDescription' => 'أدخل رمز التحقق المكون من ٦ أرقام الذي تلقيته على بريدك الإلكتروني.',
 			'resetPassword' => 'إعادة تعيين كلمة المرور',
 			'newPassword' => 'كلمة المرور الجديدة',
 			'reEnterPassword' => 'أعد إدخال كلمة المرور',
@@ -245,6 +246,7 @@ extension on TranslationsAr {
 			'thankYou' => 'شكرا لك !',
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
 			'editYourAppointment' => 'تعديل الموعد الخاص بك',
+			'passwordResetSuccess' => 'تم إعادة تعيين كلمة المرور بنجاح',
 			_ => null,
 		};
 	}

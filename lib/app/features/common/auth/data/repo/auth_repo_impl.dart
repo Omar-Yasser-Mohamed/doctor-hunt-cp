@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:doctor_hunt/app/core/utils/either.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/login_request.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/register_request.dart';
@@ -34,6 +36,37 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<String, void>> signInWithGoogle() async {
     try {
       await _authService.googleSignUp();
+      return const Right(null);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, void>> forgetPassword(String email) async {
+    try {
+      await _authService.forgetPassword(email);
+      return const Right(null);
+    } catch (e) {
+      log(e.toString());
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, void>> verifyOtp(String email, String otp) async {
+    try {
+      await _authService.verifyOtp(email, otp);
+      return const Right(null);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, void>> resetPassword(String password) async {
+    try {
+      await _authService.resetPassword(password);
       return const Right(null);
     } catch (e) {
       return Left(e.toString());

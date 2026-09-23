@@ -177,14 +177,14 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Sign Up'
 	String get signUp => 'Sign Up';
 
-	/// en: 'Enter your email for the verification proccesss, we will send 4 digits code to your email.'
-	String get forgotPasswordDescription => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.';
+	/// en: 'Enter your email for the verification proccesss, we will send 6 digits code to your email.'
+	String get forgotPasswordDescription => 'Enter your email for the verification proccesss, we will send 6 digits code to your email.';
 
-	/// en: 'Enter 4 Digits Code'
-	String get enterDigitsCode => 'Enter 4 Digits Code';
+	/// en: 'Enter 6 Digits Code'
+	String get enterDigitsCode => 'Enter 6 Digits Code';
 
-	/// en: 'Enter the 4 digits code that you received on your email.'
-	String get enterDigitsDescription => 'Enter the 4 digits code that you received on your email.';
+	/// en: 'Enter the 6 digits code that you received on your email.'
+	String get enterDigitsDescription => 'Enter the 6 digits code that you received on your email.';
 
 	/// en: 'Reset Password'
 	String get resetPassword => 'Reset Password';
@@ -386,9 +386,9 @@ extension on Translations {
 			'logIn' => 'Log in',
 			'agreeToTerms' => 'I agree with the Terms of Service & Privacy Policy',
 			'signUp' => 'Sign Up',
-			'forgotPasswordDescription' => 'Enter your email for the verification proccesss, we will send 4 digits code to your email.',
-			'enterDigitsCode' => 'Enter 4 Digits Code',
-			'enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
+			'forgotPasswordDescription' => 'Enter your email for the verification proccesss, we will send 6 digits code to your email.',
+			'enterDigitsCode' => 'Enter 6 Digits Code',
+			'enterDigitsDescription' => 'Enter the 6 digits code that you received on your email.',
 			'resetPassword' => 'Reset Password',
 			'newPassword' => 'New Password',
 			'reEnterPassword' => 'Re-enter Password',

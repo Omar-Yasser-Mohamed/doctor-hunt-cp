@@ -5,8 +5,7 @@ import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordView extends StatelessWidget {
-  const ForgetPasswordView({super.key, required this.onContinue});
-  final VoidCallback onContinue;
+  const ForgetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +18,7 @@ class ForgetPasswordView extends StatelessWidget {
 
         36.height,
 
-        ForgetPasswordForm(
-          onContinue: onContinue,
-        ),
+        const ForgetPasswordForm(),
       ],
     );
   }

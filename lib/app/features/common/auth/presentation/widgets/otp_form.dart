@@ -3,14 +3,15 @@ import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpForm extends StatefulWidget {
-  const OtpForm({super.key, required this.onContinue});
-  final VoidCallback onContinue;
+  const OtpForm({super.key});
 
   @override
   State<OtpForm> createState() => _OtpFormState();
@@ -78,11 +79,12 @@ class _OtpFormState extends State<OtpForm> {
         children: [
           Pinput(
             controller: _otpController,
-            length: 4,
+            length: 6,
             defaultPinTheme: defaultPinTheme,
             focusedPinTheme: focusedPinTheme,
             submittedPinTheme: submittedPinTheme,
-            separatorBuilder: (_) => 16.width,
+            errorPinTheme: errorPinTheme,
+            separatorBuilder: (_) => 12.width,
             onTapOutside: (_) => FocusScope.of(context).unfocus(),
             validator: (value) => AppValidators.required(
               value,
@@ -94,16 +96,23 @@ class _OtpFormState extends State<OtpForm> {
 
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AppButton(
-              text: t.kContinue,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  widget.onContinue();
-                } else {
-                  setState(() {
-                    autovalidateMode = AutovalidateMode.always;
-                  });
-                }
+            child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
+              builder: (context, state) {
+                return AppButton(
+                  isLoading: state is VerifyOtpLoading,
+                  text: t.kContinue,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.read<ForgetPasswordBloc>().add(
+                        OtpVerified(otp: _otpController.text),
+                      );
+                    } else {
+                      setState(() {
+                        autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
+                );
               },
             ),
           ),

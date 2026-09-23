@@ -1,8 +1,13 @@
+import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
+import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/forget_password_view.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/otp_verify_view.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/reset_password_view.dart';
+import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +19,10 @@ class ForgetPasswordBottomSheet extends StatefulWidget {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      builder: (_) => const ForgetPasswordBottomSheet(),
+      builder: (context) => BlocProvider(
+        create: (context) => getIt<ForgetPasswordBloc>(),
+        child: const ForgetPasswordBottomSheet(),
+      ),
     );
   }
 
@@ -50,33 +58,36 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
             children: [
               const _BottomSheetNotice(),
 
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: switch (currentPage) {
-                  0 => ForgetPasswordView(
-                    key: const ValueKey('forget_password'),
-                    onContinue: () {
-                      setState(() {
-                        currentPage = 1;
-                      });
-                    },
-                  ),
-                  1 => OtpVerifyView(
-                    key: const ValueKey('otp_verify'),
-                    onContinue: () {
-                      setState(() {
-                        currentPage = 2;
-                      });
-                    },
-                  ),
-                  2 => ResetPasswordView(
-                    key: const ValueKey('reset_password'),
-                    onSuccess: () {
-                      context.pop();
-                    },
-                  ),
-                  _ => const SizedBox(),
+              BlocListener<ForgetPasswordBloc, ForgetPasswordState>(
+                listener: (context, state) {
+                  if (state is ForgetPasswordSuccess) {
+                    setState(() {
+                      currentPage = 1;
+                    });
+                  } else if (state is VerifyOtpSuccess) {
+                    setState(() {
+                      currentPage = 2;
+                    });
+                  } else if (state is ResetPasswordSuccess) {
+                    AppToasts.showSuccess(context, t.passwordResetSuccess);
+                    context.pop();
+                  } else if (state is ForgetPasswordFailure) {
+                    AppToasts.showError(context, state.failure);
+                  }
                 },
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: switch (currentPage) {
+                    0 => const ForgetPasswordView(
+                      key: ValueKey('forget_password'),
+                    ),
+                    1 => const OtpVerifyView(key: ValueKey('otp_verify')),
+                    2 => const ResetPasswordView(
+                      key: ValueKey('reset_password'),
+                    ),
+                    _ => const SizedBox(),
+                  },
+                ),
               ),
             ],
           ),

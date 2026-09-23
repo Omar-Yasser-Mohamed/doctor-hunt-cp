@@ -44,9 +44,9 @@
   "logIn": "تسجيل الدخول",
   "agreeToTerms": "أوافق على شروط الخدمة وسياسة الخصوصية",
   "signUp": "إنشاء حساب",
-  "forgotPasswordDescription": "أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رابط إعادة تعيين كلمة المرور.",
-  "enterDigitsCode": "أدخل رمز التحقق المكون من ٤ أرقام",
-  "enterDigitsDescription": "أدخل رمز التحقق المكون من ٤ أرقام الذي تلقيته على بريدك الإلكتروني.",
+  "forgotPasswordDescription": "أدخل عنوان بريدك الإلكتروني المسجل. سنرسل لك رمز التحقق المكون من ٦ أرقام.",
+  "enterDigitsCode": "أدخل رمز التحقق المكون من ٦ أرقام",
+  "enterDigitsDescription": "أدخل رمز التحقق المكون من ٦ أرقام الذي تلقيته على بريدك الإلكتروني.",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "newPassword": "كلمة المرور الجديدة",
   "reEnterPassword": "أعد إدخال كلمة المرور",
@@ -95,5 +95,6 @@
   "appointmentSuccessful": "تم حجز موعدك بنجاح",
   "thankYou": "شكرا لك !",
   "appointmentSuccessfulDescription": "لقد حجزت موعدًا مع الدكتور $doctorName في $date، الساعة $time",
-  "editYourAppointment": "تعديل الموعد الخاص بك"
+  "editYourAppointment": "تعديل الموعد الخاص بك",
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
 }

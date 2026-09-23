@@ -9,6 +9,9 @@ abstract class AuthService {
   Future<void> login(LoginRequest request);
   Future<void> signUp(RegisterRequest request);
   Future<void> googleSignUp();
+  Future<void> forgetPassword(String email);
+  Future<void> verifyOtp(String email, String otp);
+  Future<void> resetPassword(String password);
 }
 
 @LazySingleton(as: AuthService)
@@ -61,6 +64,25 @@ class AuthServiceImpl implements AuthService {
       provider: OAuthProvider.google,
       idToken: idToken,
       accessToken: authorization.accessToken,
+    );
+  }
+
+  @override
+  Future<void> forgetPassword(String email) async {
+    await _supabase.auth.resetPasswordForEmail(email);
+  }
+
+  @override
+  Future<void> resetPassword(String password) async {
+    await _supabase.auth.updateUser(UserAttributes(password: password));
+  }
+
+  @override
+  Future<void> verifyOtp(String email, String otp) async {
+    await _supabase.auth.verifyOTP(
+      email: email,
+      token: otp,
+      type: OtpType.recovery,
     );
   }
 }
