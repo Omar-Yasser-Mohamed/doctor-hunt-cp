@@ -1,3 +1,5 @@
+import 'package:doctor_hunt/app/core/error/failure.dart';
+import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
@@ -21,9 +23,7 @@ class GoogleBloc extends Bloc<GoogleEvent, GoogleState> {
 
     result.fold(
       (failure) => emit(GoogleFailure(failure: failure)),
-      (_) {
-        emit(GoogleSuccess());
-      },
+      (user) => emit(GoogleSuccess(user)),
     );
   }
 }

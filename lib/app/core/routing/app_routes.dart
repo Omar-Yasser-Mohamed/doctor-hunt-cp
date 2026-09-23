@@ -2,6 +2,7 @@ import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
+import 'package:doctor_hunt/app/features/admin/admin_test_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
@@ -217,4 +218,16 @@ class PatientAppointmentRoute extends GoRouteData
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const PatientAppointmentScreen();
+}
+
+/// Admin Routes
+@TypedGoRoute<AdminTestRoute>(
+  path: '/adminTest',
+)
+class AdminTestRoute extends GoRouteData with $AdminTestRoute {
+  const AdminTestRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AdminTestScreen();
 }

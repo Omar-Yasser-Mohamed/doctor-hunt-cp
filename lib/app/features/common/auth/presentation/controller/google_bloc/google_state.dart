@@ -6,9 +6,12 @@ final class GoogleInitial extends GoogleState {}
 
 final class GoogleLoading extends GoogleState {}
 
-final class GoogleSuccess extends GoogleState {}
+final class GoogleSuccess extends GoogleState {
+  final UserModel user;
+  GoogleSuccess(this.user);
+}
 
 final class GoogleFailure extends GoogleState {
-  final String failure;
+  final Failure failure;
   GoogleFailure({required this.failure});
 }

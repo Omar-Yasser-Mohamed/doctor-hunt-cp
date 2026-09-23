@@ -205,6 +205,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	String get code => 'Code';
 
 	late final Translations$validations$en validations = Translations$validations$en._(_root);
+	late final Translations$errors$en errors = Translations$errors$en._(_root);
 
 	/// en: 'Hi $name!'
 	String hi({required Object name}) => 'Hi ${name}!';
@@ -283,6 +284,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Edit your appointment'
 	String get editYourAppointment => 'Edit your appointment';
+
+	/// en: 'Password reset successfully'
+	String get passwordResetSuccess => 'Password reset successfully';
 }
 
 // Path: validations
@@ -331,6 +335,78 @@ class Translations$validations$en {
 
 	/// en: 'Passwords do not match'
 	String get passwordsDoNotMatch => 'Passwords do not match';
+}
+
+// Path: errors
+class Translations$errors$en {
+	Translations$errors$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Something went wrong, please try again.'
+	String get unknown => 'Something went wrong, please try again.';
+
+	/// en: 'No internet, please try again.'
+	String get network => 'No internet, please try again.';
+
+	/// en: 'Request timed out, please try again.'
+	String get timeout => 'Request timed out, please try again.';
+
+	/// en: 'Invalid request, please try again.'
+	String get badRequest => 'Invalid request, please try again.';
+
+	/// en: 'Please sign in and try again.'
+	String get unauthorized => 'Please sign in and try again.';
+
+	/// en: 'You don't have permission to do this.'
+	String get forbidden => 'You don\'t have permission to do this.';
+
+	/// en: 'The requested item was not found.'
+	String get notFound => 'The requested item was not found.';
+
+	/// en: 'This action could not be completed.'
+	String get conflict => 'This action could not be completed.';
+
+	/// en: 'Too many attempts, please try again later.'
+	String get tooManyRequests => 'Too many attempts, please try again later.';
+
+	/// en: 'Something went wrong, please try again.'
+	String get serverError => 'Something went wrong, please try again.';
+
+	/// en: 'Service is unavailable, please try again later.'
+	String get serviceUnavailable => 'Service is unavailable, please try again later.';
+
+	/// en: 'Invalid email or password.'
+	String get invalidCredentials => 'Invalid email or password.';
+
+	/// en: 'Email already exists.'
+	String get emailAlreadyExists => 'Email already exists.';
+
+	/// en: 'Please confirm your email.'
+	String get emailNotConfirmed => 'Please confirm your email.';
+
+	/// en: 'Password is too weak.'
+	String get weakPassword => 'Password is too weak.';
+
+	/// en: 'Account not found.'
+	String get userNotFound => 'Account not found.';
+
+	/// en: 'Your session has expired. Please sign in again.'
+	String get sessionExpired => 'Your session has expired. Please sign in again.';
+
+	/// en: 'Code expired, please try again.'
+	String get otpExpired => 'Code expired, please try again.';
+
+	/// en: 'Something went wrong, please try again.'
+	String get databaseError => 'Something went wrong, please try again.';
+
+	/// en: 'You don't have permission to do this.'
+	String get permissionDenied => 'You don\'t have permission to do this.';
+
+	/// en: 'Google sign-in failed, please try again.'
+	String get googleSignInFailed => 'Google sign-in failed, please try again.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -408,6 +484,27 @@ extension on Translations {
 			'validations.nameMinLength' => 'Name must be at least 3 characters',
 			'validations.confirmPasswordRequired' => 'Confirm Password is required',
 			'validations.passwordsDoNotMatch' => 'Passwords do not match',
+			'errors.unknown' => 'Something went wrong, please try again.',
+			'errors.network' => 'No internet, please try again.',
+			'errors.timeout' => 'Request timed out, please try again.',
+			'errors.badRequest' => 'Invalid request, please try again.',
+			'errors.unauthorized' => 'Please sign in and try again.',
+			'errors.forbidden' => 'You don\'t have permission to do this.',
+			'errors.notFound' => 'The requested item was not found.',
+			'errors.conflict' => 'This action could not be completed.',
+			'errors.tooManyRequests' => 'Too many attempts, please try again later.',
+			'errors.serverError' => 'Something went wrong, please try again.',
+			'errors.serviceUnavailable' => 'Service is unavailable, please try again later.',
+			'errors.invalidCredentials' => 'Invalid email or password.',
+			'errors.emailAlreadyExists' => 'Email already exists.',
+			'errors.emailNotConfirmed' => 'Please confirm your email.',
+			'errors.weakPassword' => 'Password is too weak.',
+			'errors.userNotFound' => 'Account not found.',
+			'errors.sessionExpired' => 'Your session has expired. Please sign in again.',
+			'errors.otpExpired' => 'Code expired, please try again.',
+			'errors.databaseError' => 'Something went wrong, please try again.',
+			'errors.permissionDenied' => 'You don\'t have permission to do this.',
+			'errors.googleSignInFailed' => 'Google sign-in failed, please try again.',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',
@@ -434,6 +531,7 @@ extension on Translations {
 			'thankYou' => 'Thank You !',
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
 			'editYourAppointment' => 'Edit your appointment',
+			'passwordResetSuccess' => 'Password reset successfully',
 			_ => null,
 		};
 	}

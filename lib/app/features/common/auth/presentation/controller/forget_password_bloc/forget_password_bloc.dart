@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

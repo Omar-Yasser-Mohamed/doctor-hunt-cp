@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
@@ -85,10 +87,14 @@ class _LoginFormState extends State<LoginForm> {
                   current is LoginSuccess || current is LoginFailure,
               listener: (context, state) {
                 if (state is LoginSuccess) {
-                  // const PatientHomeRoute().go(context);
-                  context.showSuccessSnakbar(message: "Login Success");
+                  final userRole = state.user.userRole;
+                  if (userRole == UserRole.patient) {
+                    const PatientHomeRoute().go(context);
+                  } else if (userRole == UserRole.admin) {
+                    const AdminTestRoute().go(context);
+                  }
                 } else if (state is LoginFailure) {
-                  context.showErrorSnakbar(message: state.failure);
+                  context.showErrorSnakbar(message: state.failure.message);
                 }
               },
               builder: (context, state) {

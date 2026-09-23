@@ -72,7 +72,7 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
                     AppToasts.showSuccess(context, t.passwordResetSuccess);
                     context.pop();
                   } else if (state is ForgetPasswordFailure) {
-                    AppToasts.showError(context, state.failure);
+                    AppToasts.showError(context, state.failure.message);
                   }
                 },
                 child: AnimatedSwitcher(

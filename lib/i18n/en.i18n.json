@@ -70,6 +70,34 @@
     "passwordsDoNotMatch": "Passwords do not match"
   },
 
+  "errors": {
+    "unknown": "Something went wrong, please try again.",
+    "network": "No internet, please try again.",
+    "timeout": "Request timed out, please try again.",
+
+    "badRequest": "Invalid request, please try again.",
+    "unauthorized": "Please sign in and try again.",
+    "forbidden": "You don't have permission to do this.",
+    "notFound": "The requested item was not found.",
+    "conflict": "This action could not be completed.",
+    "tooManyRequests": "Too many attempts, please try again later.",
+    "serverError": "Something went wrong, please try again.",
+    "serviceUnavailable": "Service is unavailable, please try again later.",
+
+    "invalidCredentials": "Invalid email or password.",
+    "emailAlreadyExists": "Email already exists.",
+    "emailNotConfirmed": "Please confirm your email.",
+    "weakPassword": "Password is too weak.",
+    "userNotFound": "Account not found.",
+    "sessionExpired": "Your session has expired. Please sign in again.",
+    "otpExpired": "Code expired, please try again.",
+
+    "databaseError": "Something went wrong, please try again.",
+    "permissionDenied": "You don't have permission to do this.",
+
+    "googleSignInFailed": "Google sign-in failed, please try again."
+  },
+
   "hi": "Hi $name!",
   "findYourDoctor": "Find Your Doctor",
   "liveDoctors": "Live Doctors",

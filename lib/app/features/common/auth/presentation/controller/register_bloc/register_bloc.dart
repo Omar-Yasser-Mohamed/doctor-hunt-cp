@@ -1,4 +1,6 @@
+import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/register_request.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +27,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     );
     result.fold(
       (failure) => emit(RegisterFailure(failure)),
-      (_) => emit(RegisterSuccess()),
+      (user) => emit(RegisterSuccess(user)),
     );
   }
 }

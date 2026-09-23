@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
@@ -18,9 +20,14 @@ class SignWithGoogleButton extends StatelessWidget {
     return BlocConsumer<GoogleBloc, GoogleState>(
       listener: (context, state) {
         if (state is GoogleSuccess) {
-          context.showSuccessSnakbar(message: "Registration Success");
+          final userRole = state.user.userRole;
+          if (userRole == UserRole.patient) {
+            const PatientHomeRoute().go(context);
+          } else if (userRole == UserRole.admin) {
+            const AdminTestRoute().go(context);
+          }
         } else if (state is GoogleFailure) {
-          context.showErrorSnakbar(message: state.failure);
+          context.showErrorSnakbar(message: state.failure.message);
         }
       },
       builder: (context, state) {

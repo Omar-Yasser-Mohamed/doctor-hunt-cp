@@ -16,6 +16,7 @@ List<RouteBase> get $appRoutes => [
   $patientDoctorDetailsRoute,
   $patientFindDoctorsRoute,
   $patientAppointmentRoute,
+  $adminTestRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -357,6 +358,33 @@ mixin $PatientAppointmentRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/patientAppointment');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $adminTestRoute => GoRouteData.$route(
+  path: '/adminTest',
+  hasOverriddenOnExit: false,
+  factory: $AdminTestRoute._fromState,
+);
+
+mixin $AdminTestRoute on GoRouteData {
+  static AdminTestRoute _fromState(GoRouterState state) =>
+      const AdminTestRoute();
+
+  @override
+  String get location => GoRouteData.$location('/adminTest');
 
   @override
   void go(BuildContext context) => context.go(location);

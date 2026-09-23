@@ -94,6 +94,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get updatePassword => 'تحديث كلمة المرور';
 	@override String get code => 'الرمز';
 	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
+	@override late final _Translations$errors$ar errors = _Translations$errors$ar._(_root);
 	@override String hi({required Object name}) => 'مرحبا ${name}!';
 	@override String get findYourDoctor => 'ابحث عن طبيبك';
 	@override String get seeAll => 'عرض الكل';
@@ -143,6 +144,36 @@ class _Translations$validations$ar extends Translations$validations$en {
 	@override String get nameMinLength => 'يجب أن يتكون الاسم من 3 أحرف على الأقل';
 	@override String get confirmPasswordRequired => 'يجب إعادة إدخال كلمة المرور';
 	@override String get passwordsDoNotMatch => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها';
+}
+
+// Path: errors
+class _Translations$errors$ar extends Translations$errors$en {
+	_Translations$errors$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get unknown => 'حدث خطأ ما، حاول مرة أخرى.';
+	@override String get network => 'لا يوجد إنترنت، حاول مرة أخرى.';
+	@override String get timeout => 'انتهت مهلة الطلب، حاول مرة أخرى.';
+	@override String get badRequest => 'طلب غير صالح، حاول مرة أخرى.';
+	@override String get unauthorized => 'يرجى تسجيل الدخول والمحاولة مرة أخرى.';
+	@override String get forbidden => 'ليس لديك صلاحية للقيام بذلك.';
+	@override String get notFound => 'العنصر المطلوب غير موجود.';
+	@override String get conflict => 'تعذر إتمام هذا الإجراء.';
+	@override String get tooManyRequests => 'محاولات كثيرة، حاول مرة أخرى لاحقًا.';
+	@override String get serverError => 'حدث خطأ ما، حاول مرة أخرى.';
+	@override String get serviceUnavailable => 'الخدمة غير متاحة، حاول مرة أخرى لاحقًا.';
+	@override String get invalidCredentials => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+	@override String get emailAlreadyExists => 'البريد الإلكتروني مستخدم بالفعل.';
+	@override String get emailNotConfirmed => 'يرجى تأكيد البريد الإلكتروني.';
+	@override String get weakPassword => 'كلمة المرور ضعيفة.';
+	@override String get userNotFound => 'الحساب غير موجود.';
+	@override String get sessionExpired => 'انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى.';
+	@override String get otpExpired => 'انتهت صلاحية الكود، حاول مرة أخرى.';
+	@override String get databaseError => 'حدث خطأ ما، حاول مرة أخرى.';
+	@override String get permissionDenied => 'ليس لديك صلاحية للقيام بذلك.';
+	@override String get googleSignInFailed => 'فشل تسجيل الدخول، حاول مرة أخرى.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -220,6 +251,27 @@ extension on TranslationsAr {
 			'validations.nameMinLength' => 'يجب أن يتكون الاسم من 3 أحرف على الأقل',
 			'validations.confirmPasswordRequired' => 'يجب إعادة إدخال كلمة المرور',
 			'validations.passwordsDoNotMatch' => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها',
+			'errors.unknown' => 'حدث خطأ ما، حاول مرة أخرى.',
+			'errors.network' => 'لا يوجد إنترنت، حاول مرة أخرى.',
+			'errors.timeout' => 'انتهت مهلة الطلب، حاول مرة أخرى.',
+			'errors.badRequest' => 'طلب غير صالح، حاول مرة أخرى.',
+			'errors.unauthorized' => 'يرجى تسجيل الدخول والمحاولة مرة أخرى.',
+			'errors.forbidden' => 'ليس لديك صلاحية للقيام بذلك.',
+			'errors.notFound' => 'العنصر المطلوب غير موجود.',
+			'errors.conflict' => 'تعذر إتمام هذا الإجراء.',
+			'errors.tooManyRequests' => 'محاولات كثيرة، حاول مرة أخرى لاحقًا.',
+			'errors.serverError' => 'حدث خطأ ما، حاول مرة أخرى.',
+			'errors.serviceUnavailable' => 'الخدمة غير متاحة، حاول مرة أخرى لاحقًا.',
+			'errors.invalidCredentials' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
+			'errors.emailAlreadyExists' => 'البريد الإلكتروني مستخدم بالفعل.',
+			'errors.emailNotConfirmed' => 'يرجى تأكيد البريد الإلكتروني.',
+			'errors.weakPassword' => 'كلمة المرور ضعيفة.',
+			'errors.userNotFound' => 'الحساب غير موجود.',
+			'errors.sessionExpired' => 'انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى.',
+			'errors.otpExpired' => 'انتهت صلاحية الكود، حاول مرة أخرى.',
+			'errors.databaseError' => 'حدث خطأ ما، حاول مرة أخرى.',
+			'errors.permissionDenied' => 'ليس لديك صلاحية للقيام بذلك.',
+			'errors.googleSignInFailed' => 'فشل تسجيل الدخول، حاول مرة أخرى.',
 			'hi' => ({required Object name}) => 'مرحبا ${name}!',
 			'findYourDoctor' => 'ابحث عن طبيبك',
 			'seeAll' => 'عرض الكل',

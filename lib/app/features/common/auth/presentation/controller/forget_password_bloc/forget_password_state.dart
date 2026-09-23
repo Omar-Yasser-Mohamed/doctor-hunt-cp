@@ -12,7 +12,7 @@ final class ForgetPasswordSuccess extends ForgetPasswordState {
 }
 
 final class ForgetPasswordFailure extends ForgetPasswordState {
-  final String failure;
+  final Failure failure;
   ForgetPasswordFailure(this.failure);
 }
 

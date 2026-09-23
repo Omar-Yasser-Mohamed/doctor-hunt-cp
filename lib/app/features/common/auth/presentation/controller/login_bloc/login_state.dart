@@ -6,9 +6,12 @@ final class LoginInitial extends LoginState {}
 
 final class LoginLoading extends LoginState {}
 
-final class LoginSuccess extends LoginState {}
+final class LoginSuccess extends LoginState {
+  final UserModel user;
+  LoginSuccess(this.user);
+}
 
 final class LoginFailure extends LoginState {
-  final String failure;
+  final Failure failure;
   LoginFailure(this.failure);
 }
