@@ -1,4 +1,6 @@
-abstract class Either<L, R> {
+import 'package:equatable/equatable.dart';
+
+abstract class Either<L, R> extends Equatable {
   const Either();
 
   T fold<T>(
@@ -28,6 +30,9 @@ class Left<L, R> extends Either<L, R> {
 
   @override
   bool get isRight => false;
+
+  @override
+  List<Object?> get props => [value];
 }
 
 class Right<L, R> extends Either<L, R> {
@@ -48,4 +53,7 @@ class Right<L, R> extends Either<L, R> {
 
   @override
   bool get isRight => true;
+
+  @override
+  List<Object?> get props => [value];
 }
