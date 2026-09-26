@@ -21,7 +21,19 @@ class UserModel extends Equatable {
     required this.updatedAt,
   });
 
-  factory UserModel.fromAuth(User user) {
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['id'] as String,
+      email: json['email'] as String,
+      name: json['name'] as String,
+      userRole: UserRole.fromValue(json['user_role'] as String),
+      image: json['image'] as String?,
+      createdAt: DateTime.parse(json['created_at'] as String),
+      updatedAt: DateTime.parse(json['updated_at'] as String),
+    );
+  }
+
+  factory UserModel.fromAuthSupabase(User user) {
     final metadata = user.userMetadata ?? {};
 
     return UserModel(

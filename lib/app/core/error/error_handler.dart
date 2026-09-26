@@ -42,6 +42,13 @@ class ErrorHandler {
       );
     }
 
+    if (error is InvalidRoleException) {
+      return AppFailure(
+        code: FailureCode.invalidRole,
+        message: t.errors.invalidRole,
+      );
+    }
+
     // Supabase Auth
     if (error is AuthException) {
       return _handleAuthException(error);

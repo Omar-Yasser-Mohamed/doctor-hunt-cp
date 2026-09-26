@@ -3,6 +3,7 @@ enum FailureCode {
   unknown,
   network,
   timeout,
+  invalidRole,
 
   // HTTP / Supabase
   badRequest,          // 400

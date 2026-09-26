@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/error/exceptions.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ enum UserRole {
   static UserRole fromValue(String value) => switch (value) {
     'admin' => UserRole.admin,
     'patient' => UserRole.patient,
-    _ => throw UnimplementedError(),
+    _ => throw InvalidRoleException(),
   };
 
   String get label => switch (this) {

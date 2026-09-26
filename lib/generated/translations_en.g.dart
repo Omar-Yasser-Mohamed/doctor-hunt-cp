@@ -407,6 +407,9 @@ class Translations$errors$en {
 
 	/// en: 'Google sign-in failed, please try again.'
 	String get googleSignInFailed => 'Google sign-in failed, please try again.';
+
+	/// en: 'Invalid user role, please sign in again.'
+	String get invalidRole => 'Invalid user role, please sign in again.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -505,6 +508,7 @@ extension on Translations {
 			'errors.databaseError' => 'Something went wrong, please try again.',
 			'errors.permissionDenied' => 'You don\'t have permission to do this.',
 			'errors.googleSignInFailed' => 'Google sign-in failed, please try again.',
+			'errors.invalidRole' => 'Invalid user role, please sign in again.',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',

@@ -95,7 +95,8 @@
     "databaseError": "Something went wrong, please try again.",
     "permissionDenied": "You don't have permission to do this.",
 
-    "googleSignInFailed": "Google sign-in failed, please try again."
+    "googleSignInFailed": "Google sign-in failed, please try again.",
+    "invalidRole": "Invalid user role, please sign in again."
   },
 
   "hi": "Hi $name!",

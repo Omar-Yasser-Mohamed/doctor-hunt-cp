@@ -37,7 +37,7 @@ class AuthServiceImpl implements AuthService {
       );
     }
 
-    return UserModel.fromAuth(user);
+    return UserModel.fromAuthSupabase(user);
   }
 
   @override
@@ -60,7 +60,7 @@ class AuthServiceImpl implements AuthService {
       );
     }
 
-    return UserModel.fromAuth(user);
+    return UserModel.fromAuthSupabase(user);
   }
 
   @override
@@ -100,7 +100,7 @@ class AuthServiceImpl implements AuthService {
       );
     }
 
-    return UserModel.fromAuth(user);
+    return UserModel.fromAuthSupabase(user);
   }
 
   @override
