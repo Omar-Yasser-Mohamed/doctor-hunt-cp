@@ -410,6 +410,9 @@ class Translations$errors$en {
 
 	/// en: 'Invalid user role, please sign in again.'
 	String get invalidRole => 'Invalid user role, please sign in again.';
+
+	/// en: 'New password is the same as the old password'
+	String get samePassword => 'New password is the same as the old password';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -509,6 +512,7 @@ extension on Translations {
 			'errors.permissionDenied' => 'You don\'t have permission to do this.',
 			'errors.googleSignInFailed' => 'Google sign-in failed, please try again.',
 			'errors.invalidRole' => 'Invalid user role, please sign in again.',
+			'errors.samePassword' => 'New password is the same as the old password',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',

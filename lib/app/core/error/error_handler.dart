@@ -69,46 +69,49 @@ class ErrorHandler {
   static Failure _handleAuthException(AuthException error) {
     return switch (error.code) {
       'invalid_credentials' => AppFailure(
-          code: FailureCode.invalidCredentials,
-          message: t.errors.invalidCredentials,
-        ),
+        code: FailureCode.invalidCredentials,
+        message: t.errors.invalidCredentials,
+      ),
 
-      'email_exists' ||
-      'user_already_exists' => AppFailure(
-          code: FailureCode.emailAlreadyExists,
-          message: t.errors.emailAlreadyExists,
-        ),
+      'email_exists' || 'user_already_exists' => AppFailure(
+        code: FailureCode.emailAlreadyExists,
+        message: t.errors.emailAlreadyExists,
+      ),
 
       'email_not_confirmed' => AppFailure(
-          code: FailureCode.emailNotConfirmed,
-          message: t.errors.emailNotConfirmed,
-        ),
+        code: FailureCode.emailNotConfirmed,
+        message: t.errors.emailNotConfirmed,
+      ),
 
       'weak_password' => AppFailure(
-          code: FailureCode.weakPassword,
-          message: t.errors.weakPassword,
-        ),
+        code: FailureCode.weakPassword,
+        message: t.errors.weakPassword,
+      ),
 
       'user_not_found' => AppFailure(
-          code: FailureCode.userNotFound,
-          message: t.errors.userNotFound,
-        ),
+        code: FailureCode.userNotFound,
+        message: t.errors.userNotFound,
+      ),
 
       'session_expired' => AppFailure(
-          code: FailureCode.sessionExpired,
-          message: t.errors.sessionExpired,
-        ),
+        code: FailureCode.sessionExpired,
+        message: t.errors.sessionExpired,
+      ),
 
       'otp_expired' => AppFailure(
-          code: FailureCode.otpExpired,
-          message: t.errors.otpExpired,
-        ),
+        code: FailureCode.otpExpired,
+        message: t.errors.otpExpired,
+      ),
 
-      'over_request_rate_limit' ||
-      'over_email_send_rate_limit' => AppFailure(
-          code: FailureCode.tooManyRequests,
-          message: t.errors.tooManyRequests,
-        ),
+      'over_request_rate_limit' || 'over_email_send_rate_limit' => AppFailure(
+        code: FailureCode.tooManyRequests,
+        message: t.errors.tooManyRequests,
+      ),
+
+      'same_password' => AppFailure(
+        code: FailureCode.samePassword,
+        message: t.errors.samePassword,
+      ),
 
       _ => _handleStatusCode(error.statusCode),
     };
@@ -120,15 +123,15 @@ class ErrorHandler {
     return switch (error.code) {
       // PostgreSQL: insufficient privilege
       '42501' => AppFailure(
-          code: FailureCode.permissionDenied,
-          message: t.errors.permissionDenied,
-        ),
+        code: FailureCode.permissionDenied,
+        message: t.errors.permissionDenied,
+      ),
 
       // PostgreSQL: unique violation
       '23505' => AppFailure(
-          code: FailureCode.conflict,
-          message: t.errors.conflict,
-        ),
+        code: FailureCode.conflict,
+        message: t.errors.conflict,
+      ),
 
       _ => _handleStatusCode(error.code),
     };
@@ -137,49 +140,49 @@ class ErrorHandler {
   static Failure _handleStatusCode(String? statusCode) {
     return switch (statusCode) {
       '400' => AppFailure(
-          code: FailureCode.badRequest,
-          message: t.errors.badRequest,
-        ),
+        code: FailureCode.badRequest,
+        message: t.errors.badRequest,
+      ),
 
       '401' => AppFailure(
-          code: FailureCode.unauthorized,
-          message: t.errors.unauthorized,
-        ),
+        code: FailureCode.unauthorized,
+        message: t.errors.unauthorized,
+      ),
 
       '403' => AppFailure(
-          code: FailureCode.forbidden,
-          message: t.errors.forbidden,
-        ),
+        code: FailureCode.forbidden,
+        message: t.errors.forbidden,
+      ),
 
       '404' => AppFailure(
-          code: FailureCode.notFound,
-          message: t.errors.notFound,
-        ),
+        code: FailureCode.notFound,
+        message: t.errors.notFound,
+      ),
 
       '409' => AppFailure(
-          code: FailureCode.conflict,
-          message: t.errors.conflict,
-        ),
+        code: FailureCode.conflict,
+        message: t.errors.conflict,
+      ),
 
       '429' => AppFailure(
-          code: FailureCode.tooManyRequests,
-          message: t.errors.tooManyRequests,
-        ),
+        code: FailureCode.tooManyRequests,
+        message: t.errors.tooManyRequests,
+      ),
 
       '500' => AppFailure(
-          code: FailureCode.serverError,
-          message: t.errors.serverError,
-        ),
+        code: FailureCode.serverError,
+        message: t.errors.serverError,
+      ),
 
       '503' => AppFailure(
-          code: FailureCode.serviceUnavailable,
-          message: t.errors.serviceUnavailable,
-        ),
+        code: FailureCode.serviceUnavailable,
+        message: t.errors.serviceUnavailable,
+      ),
 
       _ => AppFailure(
-          code: FailureCode.unknown,
-          message: t.errors.unknown,
-        ),
+        code: FailureCode.unknown,
+        message: t.errors.unknown,
+      ),
     };
   }
 }

@@ -1,6 +1,6 @@
 part of 'register_bloc.dart';
 
-sealed class RegisterEvent {}
+abstract class RegisterEvent extends Equatable {}
 
 final class RegisterSubmitted extends RegisterEvent {
   RegisterSubmitted({
@@ -13,5 +13,13 @@ final class RegisterSubmitted extends RegisterEvent {
   final String email;
   final String password;
   final UserRole userRole;
+
+  @override
+  List<Object?> get props => [
+    name,
+    email,
+    password,
+    userRole,
+  ];
 }
   

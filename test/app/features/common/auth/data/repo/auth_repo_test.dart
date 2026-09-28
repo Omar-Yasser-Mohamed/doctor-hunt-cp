@@ -11,6 +11,7 @@ import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.da
 import 'package:doctor_hunt/app/features/common/auth/data/service/auth_service.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -143,34 +144,146 @@ void main() {
       const otp = "111111";
       const newPassword = "Omar123!";
 
-      test("forget password success", () async {
-        when(
-          () => mockAuthService.forgetPassword(email),
-        ).thenAnswer((_) async => ());
+      group("forget password", () {
+        test("forget password success", () async {
+          when(
+            () => mockAuthService.forgetPassword(email),
+          ).thenAnswer((_) async => ());
 
-        final result = await authRepo.forgetPassword(email);
+          final result = await authRepo.forgetPassword(email);
 
-        expect(result, const Right<Failure, void>(null));
+          expect(result, const Right<Failure, void>(null));
+        });
+
+        test("forget password failure", () async {
+          when(
+            () => mockAuthService.forgetPassword(email),
+          ).thenThrow(
+            const AuthException("message", code: "user_not_found"),
+          );
+
+          final result = await authRepo.forgetPassword(email);
+
+          expect(
+            result,
+            Left<Failure, void>(
+              AppFailure(
+                message: t.errors.userNotFound,
+                code: FailureCode.userNotFound,
+              ),
+            ),
+          );
+        });
       });
 
-      test("verify otp success", () async {
-        when(
-          () => mockAuthService.verifyOtp(email, otp),
-        ).thenAnswer((_) async => ());
+      group("verify otp", () {
+        test("verify otp success", () async {
+          when(
+            () => mockAuthService.verifyOtp(email, otp),
+          ).thenAnswer((_) async => ());
 
-        final result = await authRepo.verifyOtp(email, otp);
+          final result = await authRepo.verifyOtp(email, otp);
 
-        expect(result, const Right<Failure, void>(null));
+          expect(result, const Right<Failure, void>(null));
+        });
+
+        test("verify otp failure", () async {
+          when(
+            () => mockAuthService.verifyOtp(email, otp),
+          ).thenThrow(
+            const AuthException("message", code: "otp_expired"),
+          );
+
+          final result = await authRepo.verifyOtp(email, otp);
+
+          expect(
+            result,
+            Left<Failure, void>(
+              AppFailure(
+                message: t.errors.otpExpired,
+                code: FailureCode.otpExpired,
+              ),
+            ),
+          );
+        });
       });
 
-      test("reset password success", () async {
+      group("reset password", () {
+        test("reset password success", () async {
+          when(
+            () => mockAuthService.resetPassword(newPassword),
+          ).thenAnswer((_) async => ());
+
+          final result = await authRepo.resetPassword(newPassword);
+
+          expect(result, const Right<Failure, void>(null));
+        });
+
+        test("reset password failure", () async {
+          when(
+            () => mockAuthService.resetPassword(newPassword),
+          ).thenThrow(
+            const AuthException("message", code: "same_password"),
+          );
+
+          final result = await authRepo.resetPassword(newPassword);
+
+          expect(
+            result,
+            Left<Failure, void>(
+              AppFailure(
+                message: t.errors.samePassword,
+                code: FailureCode.samePassword,
+              ),
+            ),
+          );
+        });
+      });
+    });
+
+    group("google testing", () {
+      test("google login success", () async {
+        final user = UserModel(
+          id: "1",
+          email: "omar@gmail.com",
+          name: "omar",
+          userRole: UserRole.patient,
+          image: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+
         when(
-          () => mockAuthService.resetPassword(newPassword),
-        ).thenAnswer((_) async => ());
+          () => mockAuthService.googleSignUp(),
+        ).thenAnswer(
+          (_) async => user,
+        );
 
-        final result = await authRepo.resetPassword(newPassword);
+        final result = await authRepo.signInWithGoogle();
 
-        expect(result, const Right<Failure, void>(null));
+        expect(result, Right<Failure, UserModel>(user));
+      });
+
+      test("google login failure", () async {
+        when(
+          () => mockAuthService.googleSignUp(),
+        ).thenThrow(
+          const GoogleSignInException(
+            code: GoogleSignInExceptionCode.unknownError,
+          ),
+        );
+
+        final result = await authRepo.signInWithGoogle();
+
+        expect(
+          result,
+          Left<Failure, UserModel>(
+            AppFailure(
+              message: t.errors.googleSignInFailed,
+              code: FailureCode.googleSignInFailed,
+            ),
+          ),
+        );
       });
     });
   });

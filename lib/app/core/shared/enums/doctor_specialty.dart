@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -10,42 +11,22 @@ enum DoctorSpecialty {
   LinearGradient get linarGradient {
     switch (this) {
       case DoctorSpecialty.dentist:
-        return const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFF2753F3),
-            Color(0xFF765AFC),
-          ],
-        );
+        return _buildGradient(AppColors.dentalGradientColors);
       case DoctorSpecialty.cardiologist:
-        return const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFF0EBE7E),
-            Color(0xFF07D9AD),
-          ],
-        );
+        return _buildGradient(AppColors.cardiologyGradientColors);
       case DoctorSpecialty.ophthalmologist:
-        return const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFFE7F44),
-            Color(0xFFFFCF68),
-          ],
-        );
+        return _buildGradient(AppColors.ophthalmologyGradientColors);
       case DoctorSpecialty.dermatologist:
-        return const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFFF484C),
-            Color(0xFFFF6C60),
-          ],
-        );
+        return _buildGradient(AppColors.dermatologyGradientColors);
     }
+  }
+
+  LinearGradient _buildGradient(List<Color> colors) {
+    return LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: colors,
+    );
   }
 
   String get svgIcon {

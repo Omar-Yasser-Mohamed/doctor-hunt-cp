@@ -23,6 +23,7 @@ enum FailureCode {
   userNotFound,
   sessionExpired,
   otpExpired,
+  samePassword,
 
   // Supabase Database
   databaseError,

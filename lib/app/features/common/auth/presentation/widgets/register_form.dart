@@ -197,9 +197,11 @@ class TermsAgreeButton extends StatelessWidget {
 
             12.width,
 
-            Text(
-              t.agreeToTerms,
-              style: context.regular12TextSub,
+            Expanded(
+              child: Text(
+                t.agreeToTerms,
+                style: context.regular12TextSub,
+              ),
             ),
           ],
         ),

@@ -34,7 +34,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _implementNavigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      const OnboardingRoute().push(context);
+      if (!mounted) return;
+      const OnboardingRoute().go(context);
     });
   }
 
@@ -89,38 +90,37 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return AppScaffold(
       child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FadeTransition(
-                opacity: _logoFadeAnimation,
-                child: ScaleTransition(
-                  scale: _logoScaleAnimation,
-                  child: SvgPicture.asset(
-                    AppImages.appLogo,
-                    width: 70.w,
-                    height: 70.h,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FadeTransition(
+              opacity: _logoFadeAnimation,
+              child: ScaleTransition(
+                scale: _logoScaleAnimation,
+                child: SvgPicture.asset(
+                  AppImages.appLogo,
+                  width: 70.w,
+                  height: 70.h,
+                ),
+              ),
+            ),
+
+            12.height,
+
+            SlideTransition(
+              position: _textSlideAnimation,
+              child: FadeTransition(
+                opacity: _textFadeAnimation,
+                child: Text(
+                  context.t.appName,
+                  style: context.bold24TextMain.copyWith(
+                    color: AppColors.textDark,
+                    letterSpacing: -0.3,
                   ),
                 ),
               ),
-
-              12.height,
-
-              SlideTransition(
-                position: _textSlideAnimation,
-                child: FadeTransition(
-                  opacity: _textFadeAnimation,
-                  child: Text(
-                    context.t.appName,
-                    style: context.bold24TextMain.copyWith(
-                      color: AppColors.textDark,
-                      letterSpacing: -0.3,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          
+            ),
+          ],
         ),
       ),
     );

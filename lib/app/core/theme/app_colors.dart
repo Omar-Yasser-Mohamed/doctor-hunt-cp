@@ -50,4 +50,30 @@ abstract final class AppColors {
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);
+
+  // doctor hunt specific
+  static const Color dental = Color(0xFF2753F3);
+  static const Color dentalLight = Color(0xFF765AFC);
+  static const List<Color> dentalGradientColors = [dental, dentalLight];
+
+  static const Color cardiology = Color(0xFF0EBE7F);
+  static const Color cardiologyLight = Color(0xFF07D9AD);
+  static const List<Color> cardiologyGradientColors = [
+    cardiology,
+    cardiologyLight,
+  ];
+
+  static const Color ophthalmology = Color(0xFFFE7F44);
+  static const Color ophthalmologyLight = Color(0xFFFFCF68);
+  static const List<Color> ophthalmologyGradientColors = [
+    ophthalmology,
+    ophthalmologyLight,
+  ];
+
+  static const Color dermatology = Color(0xFFFF484C);
+  static const Color dermatologyLight = Color(0xFFFF6C60);
+  static const List<Color> dermatologyGradientColors = [
+    dermatology,
+    dermatologyLight,
+  ];
 }

@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +25,6 @@ class PatientNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
 
     return Scaffold(
       extendBody: true,
@@ -34,7 +34,7 @@ class PatientNavBar extends StatelessWidget {
           top: 12,
           left: 20.w,
           right: 20.w,
-          bottom: bottomPadding + 6,
+          bottom: context.bottomPadding + 6,
         ),
         decoration: BoxDecoration(
           color: AppColors.white,
