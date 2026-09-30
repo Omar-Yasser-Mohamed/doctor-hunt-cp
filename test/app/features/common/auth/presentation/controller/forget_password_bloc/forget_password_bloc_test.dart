@@ -16,6 +16,7 @@ void main() {
 
   setUpAll(() {
     authRepo = MockAuthRepo();
+    LocaleSettings.setLocale(AppLocale.en);
   });
 
   setUp(() {

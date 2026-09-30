@@ -3,6 +3,10 @@ import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+
+  setUpAll((){
+    LocaleSettings.setLocale(AppLocale.en);
+  });
   group('AppValidators Test', () {
     //Email
     group('Email test', () {

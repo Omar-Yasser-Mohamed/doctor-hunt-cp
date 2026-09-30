@@ -65,6 +65,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(FakeRegisterRequest());
+    LocaleSettings.setLocale(AppLocale.en);
   });
 
   tearDown(() {

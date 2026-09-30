@@ -24,6 +24,7 @@ void main() {
   setUp(() {
     mockAuthService = MockAuthService();
     authRepo = AuthRepoImpl(mockAuthService);
+    LocaleSettings.setLocale(AppLocale.en);
   });
 
   group("auth repo testing", () {
