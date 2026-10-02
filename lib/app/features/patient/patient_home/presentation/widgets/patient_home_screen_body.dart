@@ -2,7 +2,6 @@ import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/categories_list_view.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/feature_doctors_section.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/home_header.dart';
-import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/live_doctors_section.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/popular_doctors_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,9 +17,7 @@ class PatientHomeScreenBody extends StatelessWidget {
         children: [
           const HomeHeader(),
 
-          const LiveDoctorsSection(),
-
-          30.height,
+          12.height,
 
           SizedBox(
             height: 90.h,

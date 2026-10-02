@@ -1,11 +1,11 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
-import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,11 +20,11 @@ class SignWithGoogleButton extends StatelessWidget {
     return BlocConsumer<GoogleBloc, GoogleState>(
       listener: (context, state) {
         if (state is GoogleSuccess) {
-          final userRole = state.user.userRole;
-          if (userRole == UserRole.patient) {
+          context.read<UserBloc>().add(const GetUserEvent());
+          if (state.user.isPatient) {
             const PatientHomeRoute().go(context);
-          } else if (userRole == UserRole.admin) {
-            const AdminTestRoute().go(context);
+          } else if (state.user.isAdmin) {
+            const AdminDoctorsRoute().go(context);
           }
         } else if (state is GoogleFailure) {
           context.showErrorSnakbar(message: state.failure.message);

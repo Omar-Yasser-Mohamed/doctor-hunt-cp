@@ -126,5 +126,9 @@
   "thankYou": "Thank You !",
   "appointmentSuccessfulDescription": "You booked an appointment with Dr. $doctorName on $date, at $time",
   "editYourAppointment": "Edit your appointment",
-  "passwordResetSuccess": "Password reset successfully"
+  "passwordResetSuccess": "Password reset successfully",
+  "doctors": "Doctors",
+  "settings": "Settings",
+  "appointments": "Appointments",
+  "addDoctor": "Add Doctor"
 }

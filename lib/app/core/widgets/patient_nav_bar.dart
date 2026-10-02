@@ -1,7 +1,9 @@
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
+import 'package:doctor_hunt/app/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class PatientNavBar extends StatelessWidget {
@@ -9,11 +11,11 @@ class PatientNavBar extends StatelessWidget {
 
   final StatefulNavigationShell navigationShell;
 
-  static const List<IconData> _navIcons = [
-    Icons.home_rounded,
-    Icons.favorite_rounded,
-    Icons.menu_book_rounded,
-    Icons.sms_rounded,
+  static const List<String> _navIcons = [
+    AppIcons.homeOutline,
+    AppIcons.favorite,
+    AppIcons.appointments,
+    AppIcons.settings,
   ];
 
   void _onItemTapped(int index) {
@@ -25,7 +27,6 @@ class PatientNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       extendBody: true,
       body: navigationShell,
@@ -72,13 +73,17 @@ class PatientNavBar extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       alignment: Alignment.center,
-                      child: Icon(
+                      child: SvgPicture.asset(
                         key: ValueKey(_navIcons[index]),
                         _navIcons[index],
-                        color: isSelected
-                            ? AppColors.white
-                            : AppColors.unselectedIcon,
-                        size: 24.w,
+                        colorFilter: ColorFilter.mode(
+                          isSelected
+                              ? AppColors.white
+                              : AppColors.unselectedIcon,
+                          BlendMode.srcIn,
+                        ),
+                        width: 24,
+                        height: 24,
                       ),
                     ),
                   ),

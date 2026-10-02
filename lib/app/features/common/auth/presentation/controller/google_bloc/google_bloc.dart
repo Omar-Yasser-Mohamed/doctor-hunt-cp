@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/app/core/error/failure.dart';
-import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

@@ -10,7 +10,7 @@ final class GoogleInitial extends GoogleState {}
 final class GoogleLoading extends GoogleState {}
 
 final class GoogleSuccess extends GoogleState {
-  final UserModel user;
+  final CurrentUserModel user;
   GoogleSuccess(this.user);
 
   @override

@@ -121,6 +121,10 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
 	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
 	@override String get passwordResetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
+	@override String get doctors => 'الأطباء';
+	@override String get settings => 'الإعدادات';
+	@override String get appointments => 'المواعيد';
+	@override String get addDoctor => 'إضافة طبيب';
 }
 
 // Path: validations
@@ -173,6 +177,8 @@ class _Translations$errors$ar implements Translations$errors$en {
 	@override String get databaseError => 'حدث خطأ ما، حاول مرة أخرى.';
 	@override String get permissionDenied => 'ليس لديك صلاحية للقيام بذلك.';
 	@override String get googleSignInFailed => 'فشل تسجيل الدخول، حاول مرة أخرى.';
+	@override String get invalidRole => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى';
+	@override String get samePassword => 'كلمة المرور الجديدة نفس كلمة المرور القديمة';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -271,6 +277,8 @@ extension on TranslationsAr {
 			'errors.databaseError' => 'حدث خطأ ما، حاول مرة أخرى.',
 			'errors.permissionDenied' => 'ليس لديك صلاحية للقيام بذلك.',
 			'errors.googleSignInFailed' => 'فشل تسجيل الدخول، حاول مرة أخرى.',
+			'errors.invalidRole' => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى',
+			'errors.samePassword' => 'كلمة المرور الجديدة نفس كلمة المرور القديمة',
 			'hi' => ({required Object name}) => 'مرحبا ${name}!',
 			'findYourDoctor' => 'ابحث عن طبيبك',
 			'seeAll' => 'عرض الكل',
@@ -298,6 +306,10 @@ extension on TranslationsAr {
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
 			'editYourAppointment' => 'تعديل الموعد الخاص بك',
 			'passwordResetSuccess' => 'تم إعادة تعيين كلمة المرور بنجاح',
+			'doctors' => 'الأطباء',
+			'settings' => 'الإعدادات',
+			'appointments' => 'المواعيد',
+			'addDoctor' => 'إضافة طبيب',
 			_ => null,
 		};
 	}

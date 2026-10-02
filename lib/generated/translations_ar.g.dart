@@ -122,6 +122,10 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
 	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
 	@override String get passwordResetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
+	@override String get doctors => 'الأطباء';
+	@override String get settings => 'الإعدادات';
+	@override String get appointments => 'المواعيد';
+	@override String get addDoctor => 'إضافة طبيب';
 }
 
 // Path: validations
@@ -303,6 +307,10 @@ extension on TranslationsAr {
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
 			'editYourAppointment' => 'تعديل الموعد الخاص بك',
 			'passwordResetSuccess' => 'تم إعادة تعيين كلمة المرور بنجاح',
+			'doctors' => 'الأطباء',
+			'settings' => 'الإعدادات',
+			'appointments' => 'المواعيد',
+			'addDoctor' => 'إضافة طبيب',
 			_ => null,
 		};
 	}

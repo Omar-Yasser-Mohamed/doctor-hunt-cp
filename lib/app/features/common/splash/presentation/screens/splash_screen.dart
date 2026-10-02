@@ -3,9 +3,11 @@ import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
-import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,7 +37,16 @@ class _SplashScreenState extends State<SplashScreen>
   void _implementNavigation() {
     Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
-      const OnboardingRoute().go(context);
+      final user = context.read<UserBloc>().user;
+      if (user == null) {
+        const OnboardingRoute().go(context);
+      } else {
+        if (user.isAdmin) {
+          const AdminDoctorsRoute().go(context);
+        } else {
+          const PatientHomeRoute().go(context);
+        }
+      }
     });
   }
 

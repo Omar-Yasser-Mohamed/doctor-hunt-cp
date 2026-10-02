@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/core/utils/either.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
@@ -25,14 +26,16 @@ void main() {
     googleBloc = GoogleBloc(authRepo);
   });
 
-  final user = UserModel(
-    id: '1',
-    email: 'omar@gmail.com',
-    name: 'name',
-    userRole: UserRole.patient,
-    image: null,
-    createdAt: DateTime.now(),
-    updatedAt: DateTime.now(),
+  final user = CurrentUserModel(
+    user: UserModel(
+      id: '1',
+      email: 'omar@gmail.com',
+      name: 'name',
+      userRole: UserRole.patient,
+      image: null,
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    ),
   );
 
   final failure = AppFailure(

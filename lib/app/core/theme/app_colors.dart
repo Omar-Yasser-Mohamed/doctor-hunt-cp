@@ -47,9 +47,12 @@ abstract final class AppColors {
   static const Color lighterGreen = Color(0xFF0EBE7E);
   static const Color lightGray = Color(0xFFF9F8F8);
   static const Color lightGray2 = Color(0xFFEDEDED);
+  static const Color adminNavBorder = Color(0xFFF1F5F9);
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);
+
+  static const Color adminBackground = Color(0xFFF7FAF8);
 
   // doctor hunt specific
   static const Color dental = Color(0xFF2753F3);

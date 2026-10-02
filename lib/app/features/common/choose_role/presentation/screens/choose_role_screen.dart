@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/widgets/choose_role_screen_body.dart';
 import 'package:flutter/material.dart';
 

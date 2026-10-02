@@ -287,6 +287,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Password reset successfully'
 	String get passwordResetSuccess => 'Password reset successfully';
+
+	/// en: 'Doctors'
+	String get doctors => 'Doctors';
+
+	/// en: 'Settings'
+	String get settings => 'Settings';
+
+	/// en: 'Appointments'
+	String get appointments => 'Appointments';
+
+	/// en: 'Add Doctor'
+	String get addDoctor => 'Add Doctor';
 }
 
 // Path: validations
@@ -407,6 +419,12 @@ class Translations$errors$en {
 
 	/// en: 'Google sign-in failed, please try again.'
 	String get googleSignInFailed => 'Google sign-in failed, please try again.';
+
+	/// en: 'Invalid user role, please sign in again.'
+	String get invalidRole => 'Invalid user role, please sign in again.';
+
+	/// en: 'New password is the same as the old password'
+	String get samePassword => 'New password is the same as the old password';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -505,6 +523,8 @@ extension on Translations {
 			'errors.databaseError' => 'Something went wrong, please try again.',
 			'errors.permissionDenied' => 'You don\'t have permission to do this.',
 			'errors.googleSignInFailed' => 'Google sign-in failed, please try again.',
+			'errors.invalidRole' => 'Invalid user role, please sign in again.',
+			'errors.samePassword' => 'New password is the same as the old password',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',
@@ -532,6 +552,10 @@ extension on Translations {
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
 			'editYourAppointment' => 'Edit your appointment',
 			'passwordResetSuccess' => 'Password reset successfully',
+			'doctors' => 'Doctors',
+			'settings' => 'Settings',
+			'appointments' => 'Appointments',
+			'addDoctor' => 'Add Doctor',
 			_ => null,
 		};
 	}

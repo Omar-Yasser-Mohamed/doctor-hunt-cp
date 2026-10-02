@@ -2,6 +2,7 @@ import 'package:doctor_hunt/app/core/error/exceptions.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/core/utils/either.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/login_request.dart';
@@ -10,6 +11,7 @@ import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/service/auth_service.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
+import 'package:doctor_hunt/app/features/common/user/data/services/user_local_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mocktail/mocktail.dart';
@@ -17,13 +19,24 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MockAuthService extends Mock implements AuthService {}
 
+class MockUserLocalService extends Mock implements UserLocalService {}
+
+class FakeCurrentUserModel extends Fake implements CurrentUserModel {}
+
 void main() {
   late MockAuthService mockAuthService;
+  late MockUserLocalService mockUserLocalService;
   late AuthRepo authRepo;
+
+  setUpAll(() {
+    registerFallbackValue(FakeCurrentUserModel());
+  });
 
   setUp(() {
     mockAuthService = MockAuthService();
-    authRepo = AuthRepoImpl(mockAuthService);
+    mockUserLocalService = MockUserLocalService();
+    when(() => mockUserLocalService.saveUser(any())).thenAnswer((_) async {});
+    authRepo = AuthRepoImpl(mockAuthService, mockUserLocalService);
     LocaleSettings.setLocale(AppLocale.en);
   });
 
@@ -38,14 +51,16 @@ void main() {
             password: "Omar@1212",
           );
 
-          final user = UserModel(
-            id: "1",
-            email: email,
-            name: "omar",
-            userRole: UserRole.patient,
-            image: null,
-            createdAt: DateTime.now(),
-            updatedAt: DateTime.now(),
+          final user = CurrentUserModel(
+            user: UserModel(
+              id: "1",
+              email: email,
+              name: "omar",
+              userRole: UserRole.patient,
+              image: null,
+              createdAt: DateTime.now(),
+              updatedAt: DateTime.now(),
+            ),
           );
 
           when(
@@ -56,7 +71,7 @@ void main() {
 
           final result = await authRepo.login(loginRequest);
 
-          expect(result, Right<Failure, UserModel>(user));
+          expect(result, Right<Failure, CurrentUserModel>(user));
         },
       );
 
@@ -82,7 +97,7 @@ void main() {
 
           expect(
             result,
-            Left<Failure, UserModel>(
+            Left<Failure, CurrentUserModel>(
               AppFailure(
                 message: t.errors.invalidCredentials,
                 code: FailureCode.invalidCredentials,
@@ -102,21 +117,23 @@ void main() {
           password: "Omar123!",
         );
 
-        final user = UserModel(
-          id: "1",
-          name: "name",
-          userRole: UserRole.admin,
-          email: "omar@gmail.com",
-          image: null,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now(),
+        final user = CurrentUserModel(
+          user: UserModel(
+            id: "1",
+            name: "name",
+            userRole: UserRole.admin,
+            email: "omar@gmail.com",
+            image: null,
+            createdAt: DateTime.now(),
+            updatedAt: DateTime.now(),
+          ),
         );
 
         when(
           () => mockAuthService.signUp(request),
         ).thenAnswer((_) async => user);
 
-        expect(await authRepo.signUp(request), Right<Failure, UserModel>(user));
+        expect(await authRepo.signUp(request), Right<Failure, CurrentUserModel>(user));
       });
 
       test("register failure", () async {
@@ -133,7 +150,7 @@ void main() {
 
         expect(
           await authRepo.signUp(request),
-          Left<Failure, UserModel>(
+          Left<Failure, CurrentUserModel>(
             AppFailure(message: t.errors.network, code: FailureCode.network),
           ),
         );
@@ -244,14 +261,16 @@ void main() {
 
     group("google testing", () {
       test("google login success", () async {
-        final user = UserModel(
-          id: "1",
-          email: "omar@gmail.com",
-          name: "omar",
-          userRole: UserRole.patient,
-          image: null,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now(),
+        final user = CurrentUserModel(
+          user: UserModel(
+            id: "1",
+            email: "omar@gmail.com",
+            name: "omar",
+            userRole: UserRole.patient,
+            image: null,
+            createdAt: DateTime.now(),
+            updatedAt: DateTime.now(),
+          ),
         );
 
         when(
@@ -262,7 +281,7 @@ void main() {
 
         final result = await authRepo.signInWithGoogle();
 
-        expect(result, Right<Failure, UserModel>(user));
+        expect(result, Right<Failure, CurrentUserModel>(user));
       });
 
       test("google login failure", () async {
@@ -278,7 +297,7 @@ void main() {
 
         expect(
           result,
-          Left<Failure, UserModel>(
+          Left<Failure, CurrentUserModel>(
             AppFailure(
               message: t.errors.googleSignInFailed,
               code: FailureCode.googleSignInFailed,

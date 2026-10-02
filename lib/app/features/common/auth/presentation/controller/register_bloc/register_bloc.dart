@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
-import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/register_request.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart';
 import 'package:equatable/equatable.dart';

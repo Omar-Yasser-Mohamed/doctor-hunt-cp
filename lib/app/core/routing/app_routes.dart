@@ -1,8 +1,10 @@
 import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
-import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
-import 'package:doctor_hunt/app/features/admin/admin_test_screen.dart';
+import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
+import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
@@ -105,9 +107,9 @@ class RegisterRoute extends GoRouteData with $RegisterRoute {
         TypedGoRoute<PatientBookingRoute>(path: '/patientBooking'),
       ],
     ),
-    TypedStatefulShellBranch<PatientConversationsBranchData>(
+    TypedStatefulShellBranch<PatientSettingsBranchData>(
       routes: <TypedRoute<RouteData>>[
-        TypedGoRoute<PatientConversationsRoute>(path: '/patientConversations'),
+        TypedGoRoute<PatientSettingsRoute>(path: '/patientSettings'),
       ],
     ),
   ],
@@ -167,18 +169,17 @@ class PatientBookingRoute extends GoRouteData with $PatientBookingRoute {
   );
 }
 
-class PatientConversationsBranchData extends StatefulShellBranchData {
-  const PatientConversationsBranchData();
+class PatientSettingsBranchData extends StatefulShellBranchData {
+  const PatientSettingsBranchData();
 }
 
-class PatientConversationsRoute extends GoRouteData
-    with $PatientConversationsRoute {
-  const PatientConversationsRoute();
+class PatientSettingsRoute extends GoRouteData with $PatientSettingsRoute {
+  const PatientSettingsRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) => const AppScaffold(
     child: Center(
-      child: Text("conversations"),
+      child: Text("Settings"),
     ),
   );
 }
@@ -221,13 +222,79 @@ class PatientAppointmentRoute extends GoRouteData
 }
 
 /// Admin Routes
-@TypedGoRoute<AdminTestRoute>(
-  path: '/adminTest',
+
+@TypedStatefulShellRoute<AdminShellRouteData>(
+  branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
+    TypedStatefulShellBranch<AdminDoctorsBranchData>(
+      routes: <TypedRoute<RouteData>>[
+        TypedGoRoute<AdminDoctorsRoute>(path: '/adminDoctors'),
+      ],
+    ),
+    TypedStatefulShellBranch<AdminAppointmentsBranchData>(
+      routes: <TypedRoute<RouteData>>[
+        TypedGoRoute<AdminAppointmentsRoute>(path: '/adminAppointments'),
+      ],
+    ),
+    TypedStatefulShellBranch<AdminSettingsBranchData>(
+      routes: <TypedRoute<RouteData>>[
+        TypedGoRoute<AdminSettingsRoute>(path: '/adminSettings'),
+      ],
+    ),
+  ],
 )
-class AdminTestRoute extends GoRouteData with $AdminTestRoute {
-  const AdminTestRoute();
+class AdminShellRouteData extends StatefulShellRouteData {
+  const AdminShellRouteData();
+
+  @override
+  Widget builder(
+    BuildContext context,
+    GoRouterState state,
+    StatefulNavigationShell navigationShell,
+  ) {
+    return AdminNavBar(navigationShell: navigationShell);
+  }
+}
+
+class AdminDoctorsBranchData extends StatefulShellBranchData {
+  const AdminDoctorsBranchData();
+}
+
+class AdminDoctorsRoute extends GoRouteData with $AdminDoctorsRoute {
+  const AdminDoctorsRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const AdminTestScreen();
+      const AdminDoctorsScreen();
+}
+
+class AdminAppointmentsBranchData extends StatefulShellBranchData {
+  const AdminAppointmentsBranchData();
+}
+
+class AdminAppointmentsRoute extends GoRouteData with $AdminAppointmentsRoute {
+  const AdminAppointmentsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AdminScaffold(
+        body: Center(
+          child: Text('Appointments'),
+        ),
+      );
+}
+
+class AdminSettingsBranchData extends StatefulShellBranchData {
+  const AdminSettingsBranchData();
+}
+
+class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
+  const AdminSettingsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AdminScaffold(
+        body: Center(
+          child: Text('Settings'),
+        ),
+      );
 }

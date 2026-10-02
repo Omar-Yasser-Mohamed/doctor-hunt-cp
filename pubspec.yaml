@@ -31,6 +31,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   google_sign_in: ^7.2.0
   equatable: ^2.1.0
+  font_awesome_flutter: ^11.0.0
+  hive_ce_flutter: ^2.4.0
+  hive_ce: ^2.20.1
 
 dev_dependencies:
   flutter_test:

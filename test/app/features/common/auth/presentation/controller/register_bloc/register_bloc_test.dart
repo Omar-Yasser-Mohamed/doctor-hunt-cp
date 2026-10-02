@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/core/utils/either.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/register_request.dart';
@@ -31,7 +32,7 @@ void main() {
 
   final password = 'Omar123!';
 
-  final user = UserModel(
+  final userModel = UserModel(
     id: '1',
     email: 'omar@gmail.com',
     name: 'name',
@@ -39,6 +40,10 @@ void main() {
     image: null,
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
+  );
+
+  final user = CurrentUserModel(
+    user: userModel,
   );
 
   final failure = AppFailure(
@@ -60,10 +65,10 @@ void main() {
       act: (bloc) {
         bloc.add(
           RegisterSubmitted(
-            email: user.email,
-            name: user.name,
+            email: userModel.email,
+            name: userModel.name,
             password: password,
-            userRole: user.userRole,
+            userRole: userModel.userRole,
           ),
         );
       },
@@ -91,10 +96,10 @@ void main() {
       act: (bloc) {
         bloc.add(
           RegisterSubmitted(
-            email: user.email,
-            name: user.name,
+            email: userModel.email,
+            name: userModel.name,
             password: password,
-            userRole: user.userRole,
+            userRole: userModel.userRole,
           ),
         );
       },

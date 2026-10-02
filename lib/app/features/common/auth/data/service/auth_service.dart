@@ -1,4 +1,7 @@
 import 'package:doctor_hunt/app/core/constants/supabase_constants.dart';
+import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/admin_model.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/login_request.dart';
 import 'package:doctor_hunt/app/features/common/auth/data/models/register_request.dart';
@@ -7,12 +10,13 @@ import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class AuthService {
-  Future<UserModel> login(LoginRequest request);
-  Future<UserModel> signUp(RegisterRequest request);
-  Future<UserModel> googleSignUp();
+  Future<CurrentUserModel> login(LoginRequest request);
+  Future<CurrentUserModel> signUp(RegisterRequest request);
+  Future<CurrentUserModel> googleSignUp();
   Future<void> forgetPassword(String email);
   Future<void> verifyOtp(String email, String otp);
   Future<void> resetPassword(String password);
+  Future<CurrentUserModel> getCurrentUserProfile();
 }
 
 @LazySingleton(as: AuthService)
@@ -22,49 +26,31 @@ class AuthServiceImpl implements AuthService {
   final GoogleSignIn googleSignIn;
 
   @override
-  Future<UserModel> login(LoginRequest request) async {
+  Future<CurrentUserModel> login(LoginRequest request) async {
     await _supabase.auth.signInWithPassword(
       email: request.email,
       password: request.password,
     );
 
-    final user = _supabase.auth.currentUser;
-
-    if (user == null) {
-      throw const AuthException(
-        'User not found',
-        code: 'user_not_found',
-      );
-    }
-
-    return UserModel.fromAuthSupabase(user);
+    return _fetchCurrentUserProfile();
   }
 
   @override
-  Future<UserModel> signUp(RegisterRequest request) async {
+  Future<CurrentUserModel> signUp(RegisterRequest request) async {
     await _supabase.auth.signUp(
       email: request.email,
       password: request.password,
       data: {
         'name': request.name,
-        'user_role': request.userRole.name,
+        'user_role': UserRole.patient.value,
       },
     );
 
-    final user = _supabase.auth.currentUser;
-
-    if (user == null) {
-      throw const AuthException(
-        'User not found',
-        code: 'user_not_found',
-      );
-    }
-
-    return UserModel.fromAuthSupabase(user);
+    return _fetchCurrentUserProfile();
   }
 
   @override
-  Future<UserModel> googleSignUp() async {
+  Future<CurrentUserModel> googleSignUp() async {
     await googleSignIn.initialize(
       serverClientId: SupabaseConstants.googleWebClientId,
       clientId: SupabaseConstants.iosClientId,
@@ -73,6 +59,7 @@ class AuthServiceImpl implements AuthService {
     final googleUser = await googleSignIn.authenticate();
 
     const scopes = ['email', 'profile'];
+
     final authorization =
         await googleUser.authorizationClient.authorizationForScopes(scopes) ??
         await googleUser.authorizationClient.authorizeScopes(scopes);
@@ -91,26 +78,12 @@ class AuthServiceImpl implements AuthService {
       accessToken: authorization.accessToken,
     );
 
-    final user = _supabase.auth.currentUser;
-
-    if (user == null) {
-      throw const AuthException(
-        'User not found',
-        code: 'user_not_found',
-      );
-    }
-
-    return UserModel.fromAuthSupabase(user);
+    return _fetchCurrentUserProfile();
   }
 
   @override
   Future<void> forgetPassword(String email) async {
     await _supabase.auth.resetPasswordForEmail(email);
-  }
-
-  @override
-  Future<void> resetPassword(String password) async {
-    await _supabase.auth.updateUser(UserAttributes(password: password));
   }
 
   @override
@@ -120,5 +93,50 @@ class AuthServiceImpl implements AuthService {
       token: otp,
       type: OtpType.recovery,
     );
+  }
+
+  @override
+  Future<void> resetPassword(String password) async {
+    await _supabase.auth.updateUser(
+      UserAttributes(password: password),
+    );
+  }
+
+  @override
+  Future<CurrentUserModel> getCurrentUserProfile() {
+    return _fetchCurrentUserProfile();
+  }
+
+  Future<CurrentUserModel> _fetchCurrentUserProfile() async {
+    final authUser = _supabase.auth.currentUser;
+
+    if (authUser == null) {
+      throw const AuthException(
+        'User is not authenticated',
+        code: 'user_not_authenticated',
+      );
+    }
+
+    final response = await _supabase
+        .from(SupabaseConstants.usersTable)
+        .select('''
+          *,
+          admins (
+            user_id,
+            address,
+            latitude,
+            longitude
+          )
+        ''')
+        .eq('id', authUser.id)
+        .single();
+
+    final user = UserModel.fromJson(response);
+
+    final adminJson = response['admins'] as Map<String, dynamic>?;
+
+    final admin = adminJson == null ? null : AdminModel.fromJson(adminJson);
+
+    return CurrentUserModel(user: user, admin: admin);
   }
 }

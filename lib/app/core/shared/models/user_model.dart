@@ -1,6 +1,5 @@
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:equatable/equatable.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel extends Equatable {
   final String id;
@@ -16,7 +15,7 @@ class UserModel extends Equatable {
     required this.email,
     required this.name,
     required this.userRole,
-    required this.image,
+    this.image,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -24,30 +23,12 @@ class UserModel extends Equatable {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'] as String,
-      email: json['email'] as String,
-      name: json['name'] as String,
+      email: json['email'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       userRole: UserRole.fromValue(json['user_role'] as String),
       image: json['image'] as String?,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
-    );
-  }
-
-  factory UserModel.fromAuthSupabase(User user) {
-    final metadata = user.userMetadata ?? {};
-
-    return UserModel(
-      id: user.id,
-      email: user.email ?? '',
-      name: metadata['name'] ?? '',
-      userRole: UserRole.fromValue(
-        metadata['user_role'] ?? '',
-      ),
-      image: metadata['image'],
-      createdAt: DateTime.parse(user.createdAt),
-      updatedAt: DateTime.parse(
-        metadata['updated_at'] ?? user.createdAt,
-      ),
     );
   }
 
@@ -60,6 +41,26 @@ class UserModel extends Equatable {
     'created_at': createdAt.toIso8601String(),
     'updated_at': updatedAt.toIso8601String(),
   };
+
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? name,
+    UserRole? userRole,
+    String? image,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      userRole: userRole ?? this.userRole,
+      image: image ?? this.image,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
 
   @override
   List<Object?> get props => [

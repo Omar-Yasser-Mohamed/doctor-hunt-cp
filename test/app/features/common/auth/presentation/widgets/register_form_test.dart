@@ -2,10 +2,11 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
+import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
-import 'package:doctor_hunt/app/features/admin/admin_test_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/register_form.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_home_screen.dart';
@@ -52,9 +53,9 @@ void main() {
           },
         ),
         GoRoute(
-          path: '/adminTest',
+          path: '/adminDoctors',
           builder: (context, state) {
-            return const AdminTestScreen();
+            return const AdminDoctorsScreen();
           },
         ),
       ],
@@ -221,14 +222,16 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      final user = UserModel(
-        id: '1',
-        email: 'omar@gmail.com',
-        name: 'Omar',
-        userRole: UserRole.patient,
-        image: null,
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
+      final user = CurrentUserModel(
+        user: UserModel(
+          id: '1',
+          email: 'omar@gmail.com',
+          name: 'Omar',
+          userRole: UserRole.patient,
+          image: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        ),
       );
 
       whenListen(
@@ -263,14 +266,16 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      final user = UserModel(
-        id: '1',
-        email: 'omar@gmail.com',
-        name: 'Omar',
-        userRole: UserRole.admin,
-        image: null,
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
+      final user = CurrentUserModel(
+        user: UserModel(
+          id: '1',
+          email: 'omar@gmail.com',
+          name: 'Omar',
+          userRole: UserRole.admin,
+          image: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        ),
       );
 
       whenListen(
@@ -291,7 +296,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(
-        find.byType(AdminTestScreen),
+        find.byType(AdminDoctorsScreen),
         findsOneWidget,
       );
     },

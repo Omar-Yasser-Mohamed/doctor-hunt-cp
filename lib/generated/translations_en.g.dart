@@ -287,6 +287,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Password reset successfully'
 	String get passwordResetSuccess => 'Password reset successfully';
+
+	/// en: 'Doctors'
+	String get doctors => 'Doctors';
+
+	/// en: 'Settings'
+	String get settings => 'Settings';
+
+	/// en: 'Appointments'
+	String get appointments => 'Appointments';
+
+	/// en: 'Add Doctor'
+	String get addDoctor => 'Add Doctor';
 }
 
 // Path: validations
@@ -540,6 +552,10 @@ extension on Translations {
 			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
 			'editYourAppointment' => 'Edit your appointment',
 			'passwordResetSuccess' => 'Password reset successfully',
+			'doctors' => 'Doctors',
+			'settings' => 'Settings',
+			'appointments' => 'Appointments',
+			'addDoctor' => 'Add Doctor',
 			_ => null,
 		};
 	}

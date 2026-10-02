@@ -9,6 +9,7 @@ import 'package:doctor_hunt/app/core/utils/app_validators.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -111,11 +112,11 @@ class _RegisterFormState extends State<RegisterForm> {
                   current is RegisterSuccess || current is RegisterFailure,
               listener: (context, state) {
                 if (state is RegisterSuccess) {
-                  final userRole = state.user.userRole;
-                  if (userRole == UserRole.patient) {
+                  context.read<UserBloc>().add(const GetUserEvent());
+                  if (state.user.isPatient) {
                     const PatientHomeRoute().go(context);
-                  } else if (userRole == UserRole.admin) {
-                    const AdminTestRoute().go(context);
+                  } else if (state.user.isAdmin) {
+                    const AdminDoctorsRoute().go(context);
                   }
                 } else if (state is RegisterFailure) {
                   context.showErrorSnakbar(message: state.failure.message);

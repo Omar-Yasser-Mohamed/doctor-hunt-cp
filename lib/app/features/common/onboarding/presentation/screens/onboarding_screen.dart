@@ -2,7 +2,7 @@ import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
-import 'package:doctor_hunt/app/core/widgets/app_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/widgets/onboarding_actions.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/widgets/onboarding_content.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
