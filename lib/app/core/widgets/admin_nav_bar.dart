@@ -25,7 +25,7 @@ class AdminNavBar extends StatelessWidget {
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(
-            top: BorderSide(color: AppColors.adminNavBorder, width: 1),
+            top: BorderSide(color: AppColors.border, width: 1),
           ),
         ),
         child: BottomNavigationBar(

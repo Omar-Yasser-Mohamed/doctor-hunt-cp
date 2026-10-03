@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
+import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 
 enum DoctorSpecialty {
@@ -7,6 +8,15 @@ enum DoctorSpecialty {
   cardiologist,
   ophthalmologist,
   dermatologist;
+
+  String get title{
+    return switch (this) {
+      DoctorSpecialty.dentist => t.dentist,
+      DoctorSpecialty.cardiologist => t.cardiologist,
+      DoctorSpecialty.ophthalmologist => t.ophthalmologist,
+      DoctorSpecialty.dermatologist => t.dermatologist,
+    };
+  }
 
   LinearGradient get linarGradient {
     switch (this) {

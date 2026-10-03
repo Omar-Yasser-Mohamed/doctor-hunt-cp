@@ -126,6 +126,24 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get settings => 'الإعدادات';
 	@override String get appointments => 'المواعيد';
 	@override String get addDoctor => 'إضافة طبيب';
+	@override String get totalDoctors => 'إجمالي الأطباء';
+	@override String get activeDoctors => 'الأطباء النشطين';
+	@override String get searchDoctors => 'ابحث عن الأطباء...';
+	@override String get active => 'نشط';
+	@override String get inactive => 'غير نشط';
+	@override String get reviews => 'التقييمات';
+	@override String get dentist => 'طبيب أسنان';
+	@override String get cardiologist => 'طبيب قلب';
+	@override String get ophthalmologist => 'طبيب عيون';
+	@override String get dermatologist => 'طبيب جلدية';
+	@override String get all => 'الكل';
+	@override String get noDoctorsFound => 'لا يوجد أطباء';
+	@override String get noDoctorsFoundDescription => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.';
+	@override String get specialty => 'التخصص';
+	@override String get consultationFee => 'رسوم الاستشارة';
+	@override String get rating => 'التقييم';
+	@override String get editDoctor => 'تعديل الطبيب';
+	@override String get manageAvailability => 'إدارة التوافر';
 }
 
 // Path: validations
@@ -311,6 +329,24 @@ extension on TranslationsAr {
 			'settings' => 'الإعدادات',
 			'appointments' => 'المواعيد',
 			'addDoctor' => 'إضافة طبيب',
+			'totalDoctors' => 'إجمالي الأطباء',
+			'activeDoctors' => 'الأطباء النشطين',
+			'searchDoctors' => 'ابحث عن الأطباء...',
+			'active' => 'نشط',
+			'inactive' => 'غير نشط',
+			'reviews' => 'التقييمات',
+			'dentist' => 'طبيب أسنان',
+			'cardiologist' => 'طبيب قلب',
+			'ophthalmologist' => 'طبيب عيون',
+			'dermatologist' => 'طبيب جلدية',
+			'all' => 'الكل',
+			'noDoctorsFound' => 'لا يوجد أطباء',
+			'noDoctorsFoundDescription' => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.',
+			'specialty' => 'التخصص',
+			'consultationFee' => 'رسوم الاستشارة',
+			'rating' => 'التقييم',
+			'editDoctor' => 'تعديل الطبيب',
+			'manageAvailability' => 'إدارة التوافر',
 			_ => null,
 		};
 	}

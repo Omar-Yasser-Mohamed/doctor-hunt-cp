@@ -299,6 +299,45 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Add Doctor'
 	String get addDoctor => 'Add Doctor';
+
+	/// en: 'Total Doctors'
+	String get totalDoctors => 'Total Doctors';
+
+	/// en: 'Active Doctors'
+	String get activeDoctors => 'Active Doctors';
+
+	/// en: 'Search Doctors...'
+	String get searchDoctors => 'Search Doctors...';
+
+	/// en: 'Active'
+	String get active => 'Active';
+
+	/// en: 'Inactive'
+	String get inactive => 'Inactive';
+
+	/// en: 'Reviews'
+	String get reviews => 'Reviews';
+
+	/// en: 'Dentist'
+	String get dentist => 'Dentist';
+
+	/// en: 'Cardiologist'
+	String get cardiologist => 'Cardiologist';
+
+	/// en: 'Ophthalmologist'
+	String get ophthalmologist => 'Ophthalmologist';
+
+	/// en: 'Dermatologist'
+	String get dermatologist => 'Dermatologist';
+
+	/// en: 'All'
+	String get all => 'All';
+
+	/// en: 'No Doctors Found'
+	String get noDoctorsFound => 'No Doctors Found';
+
+	/// en: 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.'
+	String get noDoctorsFoundDescription => 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.';
 }
 
 // Path: validations
@@ -556,6 +595,19 @@ extension on Translations {
 			'settings' => 'Settings',
 			'appointments' => 'Appointments',
 			'addDoctor' => 'Add Doctor',
+			'totalDoctors' => 'Total Doctors',
+			'activeDoctors' => 'Active Doctors',
+			'searchDoctors' => 'Search Doctors...',
+			'active' => 'Active',
+			'inactive' => 'Inactive',
+			'reviews' => 'Reviews',
+			'dentist' => 'Dentist',
+			'cardiologist' => 'Cardiologist',
+			'ophthalmologist' => 'Ophthalmologist',
+			'dermatologist' => 'Dermatologist',
+			'all' => 'All',
+			'noDoctorsFound' => 'No Doctors Found',
+			'noDoctorsFoundDescription' => 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.',
 			_ => null,
 		};
 	}

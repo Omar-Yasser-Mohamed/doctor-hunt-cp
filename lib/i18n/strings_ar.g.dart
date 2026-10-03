@@ -125,6 +125,19 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get settings => 'الإعدادات';
 	@override String get appointments => 'المواعيد';
 	@override String get addDoctor => 'إضافة طبيب';
+	@override String get totalDoctors => 'إجمالي الأطباء';
+	@override String get activeDoctors => 'الأطباء النشطين';
+	@override String get searchDoctors => 'ابحث عن الأطباء...';
+	@override String get active => 'نشط';
+	@override String get inactive => 'غير نشط';
+	@override String get reviews => 'التقييمات';
+	@override String get dentist => 'طبيب أسنان';
+	@override String get cardiologist => 'طبيب قلب';
+	@override String get ophthalmologist => 'طبيب عيون';
+	@override String get dermatologist => 'طبيب جلدية';
+	@override String get all => 'الكل';
+	@override String get noDoctorsFound => 'لا يوجد أطباء';
+	@override String get noDoctorsFoundDescription => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.';
 }
 
 // Path: validations
@@ -310,6 +323,19 @@ extension on TranslationsAr {
 			'settings' => 'الإعدادات',
 			'appointments' => 'المواعيد',
 			'addDoctor' => 'إضافة طبيب',
+			'totalDoctors' => 'إجمالي الأطباء',
+			'activeDoctors' => 'الأطباء النشطين',
+			'searchDoctors' => 'ابحث عن الأطباء...',
+			'active' => 'نشط',
+			'inactive' => 'غير نشط',
+			'reviews' => 'التقييمات',
+			'dentist' => 'طبيب أسنان',
+			'cardiologist' => 'طبيب قلب',
+			'ophthalmologist' => 'طبيب عيون',
+			'dermatologist' => 'طبيب جلدية',
+			'all' => 'الكل',
+			'noDoctorsFound' => 'لا يوجد أطباء',
+			'noDoctorsFoundDescription' => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.',
 			_ => null,
 		};
 	}

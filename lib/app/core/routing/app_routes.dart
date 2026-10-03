@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/screens/admin_doctor_details_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
@@ -222,7 +223,6 @@ class PatientAppointmentRoute extends GoRouteData
 }
 
 /// Admin Routes
-
 @TypedStatefulShellRoute<AdminShellRouteData>(
   branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
     TypedStatefulShellBranch<AdminDoctorsBranchData>(
@@ -297,4 +297,14 @@ class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
           child: Text('Settings'),
         ),
       );
+}
+
+@TypedGoRoute<AdminDoctorDetailsRoute>(path: '/adminDoctorDetails')
+class AdminDoctorDetailsRoute extends GoRouteData
+    with $AdminDoctorDetailsRoute {
+  const AdminDoctorDetailsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AdminDoctorDetailsScreen();
 }

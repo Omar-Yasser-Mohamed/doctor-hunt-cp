@@ -15,6 +15,9 @@ abstract final class AppColors {
   static const Color textBorders = Color(0xFFE2E8F0);
   static const Color textDark = Color(0xFF222222);
 
+  static const Color border = Color(0xFFF1F5F9);
+  static const Color borderGreenSoft = Color(0xFFD1FAE5);
+  
   static const Color danger = Color(0xFFBA1A1A);
   static const Color dangerLight = Color(0xFFFEE2E2);
 
@@ -23,6 +26,11 @@ abstract final class AppColors {
 
   static const Color warning = Color(0xFFE9B02C);
   static const Color warningLight = Color(0xFFFFF7D6);
+
+  static const Color inactive = Color(0xFFF15B5D);
+  static const Color inactiveLight = Color(0xFFFFF0F0);
+  
+  static const Color activeLight = Color(0xFFE8F8F3);
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
@@ -47,7 +55,7 @@ abstract final class AppColors {
   static const Color lighterGreen = Color(0xFF0EBE7E);
   static const Color lightGray = Color(0xFFF9F8F8);
   static const Color lightGray2 = Color(0xFFEDEDED);
-  static const Color adminNavBorder = Color(0xFFF1F5F9);
+  static const Color successSoft = Color(0xFF059669);
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);
