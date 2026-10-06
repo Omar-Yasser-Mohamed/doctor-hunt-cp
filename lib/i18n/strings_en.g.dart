@@ -386,6 +386,36 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Please select doctor image'
 	String get pleaseSelectDoctorImage => 'Please select doctor image';
+
+	/// en: 'Save Changes'
+	String get saveChanges => 'Save Changes';
+
+	/// en: 'Delete Doctor'
+	String get deleteDoctor => 'Delete Doctor';
+
+	/// en: 'Delete Doctor?'
+	String get deleteDoctorConfirmationTitle => 'Delete Doctor?';
+
+	/// en: 'Are you sure you want to delete this doctor? This action cannot be undone.'
+	String get deleteDoctorConfirmationMessage => 'Are you sure you want to delete this doctor? This action cannot be undone.';
+
+	/// en: 'Doctor Status'
+	String get doctorStatus => 'Doctor Status';
+
+	/// en: 'Active & Available'
+	String get activeAndAvailable => 'Active & Available';
+
+	/// en: 'Inactive & Unavailable'
+	String get inactiveAndUnavailable => 'Inactive & Unavailable';
+
+	/// en: 'Tap photo to change'
+	String get tapPhotoToChange => 'Tap photo to change';
+
+	/// en: 'Doctor updated successfully!'
+	String get doctorUpdatedSuccessfully => 'Doctor updated successfully!';
+
+	/// en: 'Doctor deleted successfully!'
+	String get doctorDeletedSuccessfully => 'Doctor deleted successfully!';
 }
 
 // Path: validations
@@ -680,6 +710,16 @@ extension on Translations {
 			'takeAPhoto' => 'Take a photo',
 			'fromGallery' => 'From Gallery',
 			'pleaseSelectDoctorImage' => 'Please select doctor image',
+			'saveChanges' => 'Save Changes',
+			'deleteDoctor' => 'Delete Doctor',
+			'deleteDoctorConfirmationTitle' => 'Delete Doctor?',
+			'deleteDoctorConfirmationMessage' => 'Are you sure you want to delete this doctor? This action cannot be undone.',
+			'doctorStatus' => 'Doctor Status',
+			'activeAndAvailable' => 'Active & Available',
+			'inactiveAndUnavailable' => 'Inactive & Unavailable',
+			'tapPhotoToChange' => 'Tap photo to change',
+			'doctorUpdatedSuccessfully' => 'Doctor updated successfully!',
+			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
 			_ => null,
 		};
 	}

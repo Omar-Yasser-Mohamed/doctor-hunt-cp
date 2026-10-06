@@ -132,6 +132,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );
+    gh.factory<_i1051.AdminDoctorDetailsBloc>(
+      () => _i1051.AdminDoctorDetailsBloc(
+        gh<_i648.AdminDoctorDetailsRepo>(),
+        gh<_i275.AppEventBus>(),
+      ),
+    );
     gh.lazySingleton<_i892.AdminDoctorsRepo>(
       () => _i319.AdminDoctorsRepoImpl(gh<_i154.AdminDoctorsService>()),
     );
@@ -146,9 +152,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i716.UserBloc>(
       () => _i716.UserBloc(gh<_i347.UserRepo>()),
-    );
-    gh.factory<_i1051.AdminDoctorDetailsBloc>(
-      () => _i1051.AdminDoctorDetailsBloc(gh<_i648.AdminDoctorDetailsRepo>()),
     );
     gh.factory<_i325.AdminDoctorsBloc>(
       () => _i325.AdminDoctorsBloc(

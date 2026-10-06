@@ -14,3 +14,11 @@ class GetDoctorDetailsEvent extends AdminDoctorDetailsEvent {
   @override
   List<Object> get props => [doctorId];
 }
+
+class DoctorUpdatedDetailsEvent extends AdminDoctorDetailsEvent {
+  const DoctorUpdatedDetailsEvent({required this.doctor});
+  final DoctorModel doctor;
+
+  @override
+  List<Object> get props => [doctor];
+}

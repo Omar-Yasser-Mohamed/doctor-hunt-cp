@@ -154,6 +154,16 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get takeAPhoto => 'التقاط صورة';
 	@override String get fromGallery => 'من المعرض';
 	@override String get pleaseSelectDoctorImage => 'يرجى اختيار صورة الطبيب';
+	@override String get saveChanges => 'حفظ التغييرات';
+	@override String get deleteDoctor => 'حذف الطبيب';
+	@override String get deleteDoctorConfirmationTitle => 'حذف الطبيب؟';
+	@override String get deleteDoctorConfirmationMessage => 'هل أنت متأكد من رغبتك في حذف هذا الطبيب؟ لا يمكن التراجع عن هذا الإجراء.';
+	@override String get doctorStatus => 'حالة الطبيب';
+	@override String get activeAndAvailable => 'نشط ومتاح';
+	@override String get inactiveAndUnavailable => 'غير نشط وغير متاح';
+	@override String get tapPhotoToChange => 'اضغط لتغيير الصورة';
+	@override String get doctorUpdatedSuccessfully => 'تم تحديث بيانات الطبيب بنجاح!';
+	@override String get doctorDeletedSuccessfully => 'تم حذف الطبيب بنجاح!';
 }
 
 // Path: validations
@@ -372,6 +382,16 @@ extension on TranslationsAr {
 			'takeAPhoto' => 'التقاط صورة',
 			'fromGallery' => 'من المعرض',
 			'pleaseSelectDoctorImage' => 'يرجى اختيار صورة الطبيب',
+			'saveChanges' => 'حفظ التغييرات',
+			'deleteDoctor' => 'حذف الطبيب',
+			'deleteDoctorConfirmationTitle' => 'حذف الطبيب؟',
+			'deleteDoctorConfirmationMessage' => 'هل أنت متأكد من رغبتك في حذف هذا الطبيب؟ لا يمكن التراجع عن هذا الإجراء.',
+			'doctorStatus' => 'حالة الطبيب',
+			'activeAndAvailable' => 'نشط ومتاح',
+			'inactiveAndUnavailable' => 'غير نشط وغير متاح',
+			'tapPhotoToChange' => 'اضغط لتغيير الصورة',
+			'doctorUpdatedSuccessfully' => 'تم تحديث بيانات الطبيب بنجاح!',
+			'doctorDeletedSuccessfully' => 'تم حذف الطبيب بنجاح!',
 			_ => null,
 		};
 	}

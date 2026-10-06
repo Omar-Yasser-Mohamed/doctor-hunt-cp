@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
@@ -22,7 +23,7 @@ class DoctorDetailsActions extends StatelessWidget {
           height: 52.h,
           radius: 12.r,
           onPressed: () {
-            // Edit doctor action
+            EditDoctorRoute(doctor).push(context);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

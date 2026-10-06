@@ -39,3 +39,22 @@ class CreateDoctor extends DoctorManagementEvent {
   @override
   List<Object> get props => [name, fees];
 }
+
+class UpdateDoctor extends DoctorManagementEvent {
+  final UpdateDoctorRequest request;
+
+  const UpdateDoctor({required this.request});
+
+  @override
+  List<Object> get props => [request];
+}
+
+class DeleteDoctor extends DoctorManagementEvent {
+  final String doctorId;
+
+  const DeleteDoctor({required this.doctorId});
+
+  @override
+  List<Object> get props => [doctorId];
+}
+

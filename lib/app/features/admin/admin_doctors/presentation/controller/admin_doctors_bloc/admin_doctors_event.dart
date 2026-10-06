@@ -49,3 +49,26 @@ class DoctorCreatedBlocEvent extends AdminDoctorsEvent {
   @override
   List<Object?> get props => [doctor];
 }
+
+class DoctorUpdatedBlocEvent extends AdminDoctorsEvent {
+  final DoctorModel doctor;
+
+  const DoctorUpdatedBlocEvent({
+    required this.doctor,
+  });
+
+  @override
+  List<Object?> get props => [doctor];
+}
+
+class DoctorDeletedBlocEvent extends AdminDoctorsEvent {
+  final String doctorId;
+
+  const DoctorDeletedBlocEvent({
+    required this.doctorId,
+  });
+
+  @override
+  List<Object?> get props => [doctorId];
+}
+

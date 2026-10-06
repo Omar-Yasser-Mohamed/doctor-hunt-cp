@@ -27,13 +27,23 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
     on<LoadMoreDoctorsEvent>(_onLoadMoreDoctors);
     on<SearchDoctorsEvent>(_onSearchDoctors);
     on<DoctorCreatedBlocEvent>(_onDoctorCreated);
+    on<DoctorUpdatedBlocEvent>(_onDoctorUpdated);
+    on<DoctorDeletedBlocEvent>(_onDoctorDeleted);
 
     _doctorCreatedSubscription = _appEventBus.on<DoctorCreatedEvent>().listen(
       (event) => add(DoctorCreatedBlocEvent(doctor: event.doctor)),
     );
+    _doctorUpdatedSubscription = _appEventBus.on<DoctorUpdatedEvent>().listen(
+      (event) => add(DoctorUpdatedBlocEvent(doctor: event.doctor)),
+    );
+    _doctorDeletedSubscription = _appEventBus.on<DoctorDeletedEvent>().listen(
+      (event) => add(DoctorDeletedBlocEvent(doctorId: event.doctorId)),
+    );
   }
 
   late final StreamSubscription<DoctorCreatedEvent> _doctorCreatedSubscription;
+  late final StreamSubscription<DoctorUpdatedEvent> _doctorUpdatedSubscription;
+  late final StreamSubscription<DoctorDeletedEvent> _doctorDeletedSubscription;
 
   String? _search;
   int _page = 1;
@@ -229,9 +239,63 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
     );
   }
 
+  void _onDoctorUpdated(
+    DoctorUpdatedBlocEvent event,
+    Emitter<AdminDoctorsState> emit,
+  ) {
+    final doctor = event.doctor;
+    final oldDoctor = _doctors[doctor.id];
+    _doctors[doctor.id] = doctor;
+
+    if (oldDoctor != null) {
+      int activeDiff = 0;
+      if (oldDoctor.isActive && !doctor.isActive) activeDiff = -1;
+      if (!oldDoctor.isActive && doctor.isActive) activeDiff = 1;
+      _stats = _stats.copyWith(
+        activeDoctors: _stats.activeDoctors + activeDiff,
+      );
+    }
+
+    emit(
+      AdminDoctorsSuccess(
+        stats: _stats,
+        specialtyCounts: _specialtyCounts,
+        doctors: _doctors.values.toList(),
+      ),
+    );
+  }
+
+  void _onDoctorDeleted(
+    DoctorDeletedBlocEvent event,
+    Emitter<AdminDoctorsState> emit,
+  ) {
+    final oldDoctor = _doctors.remove(event.doctorId);
+    if (oldDoctor != null) {
+      final newTotal = _stats.totalDoctors > 0 ? _stats.totalDoctors - 1 : 0;
+      final newActive = oldDoctor.isActive && _stats.activeDoctors > 0
+          ? _stats.activeDoctors - 1
+          : _stats.activeDoctors;
+      _stats = _stats.copyWith(
+        totalDoctors: newTotal,
+        activeDoctors: newActive,
+      );
+    }
+
+    emit(
+      AdminDoctorsSuccess(
+        stats: _stats,
+        specialtyCounts: _specialtyCounts,
+        doctors: _doctors.values.toList(),
+      ),
+    );
+  }
+
   @override
   Future<void> close() {
     _doctorCreatedSubscription.cancel();
+    _doctorUpdatedSubscription.cancel();
+    _doctorDeletedSubscription.cancel();
     return super.close();
   }
 }
+

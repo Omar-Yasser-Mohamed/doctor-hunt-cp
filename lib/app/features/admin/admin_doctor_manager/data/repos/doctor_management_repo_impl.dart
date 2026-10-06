@@ -3,6 +3,7 @@ import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/utils/either.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/models/create_doctor_request.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/models/update_doctor_request.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/repos/doctor_management_repo.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/services/doctor_management_service.dart';
 import 'package:injectable/injectable.dart';
@@ -19,6 +20,30 @@ final class DoctorManagementRepoImpl implements DoctorManagementRepo {
     try {
       final doctor = await _doctorManagementService.createDoctor(request);
       return Right(doctor);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, DoctorModel>> updateDoctor(
+    UpdateDoctorRequest request,
+  ) async {
+    try {
+      final doctor = await _doctorManagementService.updateDoctor(request);
+      return Right(doctor);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteDoctor(
+    String doctorId,
+  ) async {
+    try {
+      await _doctorManagementService.deleteDoctor(doctorId);
+      return const Right(null);
     } catch (e) {
       return Left(ErrorHandler.handle(e));
     }

@@ -51,3 +51,24 @@ class DoctorManagementImageRemoved extends DoctorManagementState {
   @override
   List<Object> get props => [];
 }
+
+final class DoctorManagementUpdateLoading extends DoctorManagementState {}
+
+final class DoctorManagementUpdateSuccess extends DoctorManagementState {
+  final DoctorModel doctor;
+
+  const DoctorManagementUpdateSuccess({required this.doctor});
+
+  @override
+  List<Object> get props => [doctor];
+}
+
+final class DoctorManagementDeleteLoading extends DoctorManagementState {}
+
+final class DoctorManagementDeleteSuccess extends DoctorManagementState {
+  const DoctorManagementDeleteSuccess();
+
+  @override
+  List<Object> get props => [];
+}
+

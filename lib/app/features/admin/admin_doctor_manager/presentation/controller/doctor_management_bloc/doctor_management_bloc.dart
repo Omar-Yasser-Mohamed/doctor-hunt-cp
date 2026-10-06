@@ -3,6 +3,7 @@ import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart';
 import 'package:doctor_hunt/app/core/app_events/app_events.dart';
 import 'package:doctor_hunt/app/core/shared/services/image_picker_service.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/models/create_doctor_request.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/models/update_doctor_request.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/repos/doctor_management_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
@@ -31,6 +32,8 @@ class DoctorManagementBloc
     on<RemoveDoctorProfileImage>(_removeDoctorImage);
     on<SelectDoctorSpecialty>(_selectDoctorSpecialty);
     on<CreateDoctor>(_createDoctor);
+    on<UpdateDoctor>(_updateDoctor);
+    on<DeleteDoctor>(_deleteDoctor);
   }
 
   File? _doctorImage;
@@ -99,5 +102,39 @@ class DoctorManagementBloc
       _appEventBus.fire(DoctorCreatedEvent(doctor: doctor));
       emit(DoctorManagementSuccess(doctor: doctor));
     });
+  }
+
+  Future<void> _updateDoctor(
+    UpdateDoctor event,
+    Emitter<DoctorManagementState> emit,
+  ) async {
+    emit(DoctorManagementUpdateLoading());
+
+    final result = await _doctorManagementRepo.updateDoctor(event.request);
+
+    result.fold(
+      (failure) => emit(DoctorManagementFailure(failure: failure)),
+      (doctor) {
+        _appEventBus.fire(DoctorUpdatedEvent(doctor: doctor));
+        emit(DoctorManagementUpdateSuccess(doctor: doctor));
+      },
+    );
+  }
+
+  Future<void> _deleteDoctor(
+    DeleteDoctor event,
+    Emitter<DoctorManagementState> emit,
+  ) async {
+    emit(DoctorManagementDeleteLoading());
+
+    final result = await _doctorManagementRepo.deleteDoctor(event.doctorId);
+
+    result.fold(
+      (failure) => emit(DoctorManagementFailure(failure: failure)),
+      (_) {
+        _appEventBus.fire(DoctorDeletedEvent(doctorId: event.doctorId));
+        emit(const DoctorManagementDeleteSuccess());
+      },
+    );
   }
 }

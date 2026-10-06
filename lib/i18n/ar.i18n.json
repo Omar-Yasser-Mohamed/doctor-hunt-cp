@@ -161,5 +161,17 @@
   "doctorCreatedSuccessfullyDescription": "تمت إضافة ملف الطبيب إلى دكتور هانت.",
   "takeAPhoto": "التقاط صورة",
   "fromGallery": "من المعرض",
-  "pleaseSelectDoctorImage": "يرجى اختيار صورة الطبيب"
+  "pleaseSelectDoctorImage": "يرجى اختيار صورة الطبيب",
+  "saveChanges": "حفظ التغييرات",
+  "deleteDoctor": "حذف الطبيب",
+  "deleteDoctorConfirmationTitle": "حذف الطبيب؟",
+  "deleteDoctorConfirmationMessage": "هل أنت متأكد من رغبتك في حذف هذا الطبيب؟ لا يمكن التراجع عن هذا الإجراء.",
+  "cancel": "إلغاء",
+  "delete": "حذف",
+  "doctorStatus": "حالة الطبيب",
+  "activeAndAvailable": "نشط ومتاح",
+  "inactiveAndUnavailable": "غير نشط وغير متاح",
+  "tapPhotoToChange": "اضغط لتغيير الصورة",
+  "doctorUpdatedSuccessfully": "تم تحديث بيانات الطبيب بنجاح!",
+  "doctorDeletedSuccessfully": "تم حذف الطبيب بنجاح!"
 }
