@@ -484,10 +484,17 @@ RouteBase get $adminDoctorDetailsRoute => GoRouteData.$route(
 
 mixin $AdminDoctorDetailsRoute on GoRouteData {
   static AdminDoctorDetailsRoute _fromState(GoRouterState state) =>
-      const AdminDoctorDetailsRoute();
+      AdminDoctorDetailsRoute(
+        doctorId: state.uri.queryParameters['doctor-id']!,
+      );
+
+  AdminDoctorDetailsRoute get _self => this as AdminDoctorDetailsRoute;
 
   @override
-  String get location => GoRouteData.$location('/adminDoctorDetails');
+  String get location => GoRouteData.$location(
+    '/adminDoctorDetails',
+    queryParams: {'doctor-id': _self.doctorId},
+  );
 
   @override
   void go(BuildContext context) => context.go(location);

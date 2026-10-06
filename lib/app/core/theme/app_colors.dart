@@ -56,6 +56,7 @@ abstract final class AppColors {
   static const Color lightGray = Color(0xFFF9F8F8);
   static const Color lightGray2 = Color(0xFFEDEDED);
   static const Color successSoft = Color(0xFF059669);
+  static const Color bottomSheetNotice = Color(0xffC4C4C4);
 
   static Color topGradient = skyBlue.withValues(alpha: .72);
   static Color bottomGradient = primary.withValues(alpha: .3);

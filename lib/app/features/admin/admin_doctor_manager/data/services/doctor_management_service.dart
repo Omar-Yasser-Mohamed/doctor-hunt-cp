@@ -23,13 +23,13 @@ final class DoctorManagementServiceImpl implements DoctorManagementService {
     final adminId = _supabaseClient.auth.currentUser?.id;
     if (adminId == null) throw const AuthException('User is not authenticated');
 
-    String? uploadedImagePath;
+    String? imageUrl;
     try {
       if (request.photo != null) {
-        uploadedImagePath =
+        final uploadedImagePath =
             '$adminId/${DateTime.now().millisecondsSinceEpoch}.jpg';
 
-        await _supabaseStorageService.uploadImage(
+        imageUrl = await _supabaseStorageService.uploadImage(
           file: request.photo!,
           path: uploadedImagePath,
           bucket: SupabaseConstants.doctorPhotosBucket,
@@ -39,17 +39,17 @@ final class DoctorManagementServiceImpl implements DoctorManagementService {
       final response = await _supabaseClient
           .from(SupabaseConstants.doctorsTable)
           .insert(
-            request.toJson(adminId: adminId, photoPath: uploadedImagePath),
+            request.toJson(adminId: adminId, photoPath: imageUrl),
           )
           .select()
           .single();
 
       return DoctorModel.fromJson(response);
     } catch (_) {
-      if (uploadedImagePath != null) {
+      if (imageUrl != null) {
         try {
           await _supabaseStorageService.deleteImage(
-            path: uploadedImagePath,
+            path: imageUrl,
             bucket: SupabaseConstants.doctorPhotosBucket,
           );
         } catch (_) {

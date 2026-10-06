@@ -4,8 +4,10 @@ import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/controller/bloc/admin_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/screens/admin_doctor_details_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/controller/doctor_management_bloc/doctor_management_bloc.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/screens/create_doctor_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
@@ -253,7 +255,11 @@ class AdminShellRouteData extends StatefulShellRouteData {
     GoRouterState state,
     StatefulNavigationShell navigationShell,
   ) {
-    return AdminNavBar(navigationShell: navigationShell);
+    return BlocProvider(
+      create: (context) =>
+          getIt<AdminDoctorsBloc>()..add(const LoadAdminDoctorsEvent()),
+      child: AdminNavBar(navigationShell: navigationShell),
+    );
   }
 }
 
@@ -304,11 +310,16 @@ class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
 @TypedGoRoute<AdminDoctorDetailsRoute>(path: '/adminDoctorDetails')
 class AdminDoctorDetailsRoute extends GoRouteData
     with $AdminDoctorDetailsRoute {
-  const AdminDoctorDetailsRoute();
+  const AdminDoctorDetailsRoute({required this.doctorId});
+  final String doctorId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const AdminDoctorDetailsScreen();
+      BlocProvider(
+        create: (context) => getIt<AdminDoctorDetailsBloc>()
+          ..add(GetDoctorDetailsEvent(doctorId: doctorId)),
+        child: const AdminDoctorDetailsScreen(),
+      );
 }
 
 @TypedGoRoute<CreateDoctorRoute>(path: '/adminCreateDoctor')

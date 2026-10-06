@@ -11,6 +11,8 @@ class DoctorModel extends Equatable {
   final String? title;
   final double fees;
   final bool isActive;
+  final int reviewsCount;
+  final double rating;
   final DateTime createdAt;
 
   final AdminModel? admin;
@@ -24,6 +26,8 @@ class DoctorModel extends Equatable {
     this.title,
     required this.fees,
     required this.isActive,
+    required this.reviewsCount,
+    required this.rating,
     required this.createdAt,
     this.admin,
   });
@@ -42,6 +46,8 @@ class DoctorModel extends Equatable {
       title: json['title'] as String?,
       fees: (json['fees'] as num).toDouble(),
       isActive: json['is_active'] as bool,
+      reviewsCount: (json['reviews_count'] as num?)?.toInt() ?? 0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
       createdAt: DateTime.parse(json['created_at'] as String),
       admin: json['admin'] != null
           ? AdminModel.fromJson(json['admin'] as Map<String, dynamic>)
@@ -58,6 +64,8 @@ class DoctorModel extends Equatable {
     'title': title,
     'fees': fees,
     'is_active': isActive,
+    'reviews_count': reviewsCount,
+    'rating': rating,
     'created_at': createdAt.toIso8601String(),
     'admin': admin?.toJson(),
   };
@@ -72,7 +80,39 @@ class DoctorModel extends Equatable {
     title,
     fees,
     isActive,
+    reviewsCount,
+    rating,
     createdAt,
     admin,
   ];
+
+  DoctorModel copyWith({
+    String? id,
+    String? adminId,
+    String? name,
+    DoctorSpecialty? specialty,
+    String? photo,
+    String? title,
+    double? fees,
+    bool? isActive,
+    int? reviewsCount,
+    double? rating,
+    DateTime? createdAt,
+    AdminModel? admin,
+  }) {
+    return DoctorModel(
+      id: id ?? this.id,
+      adminId: adminId ?? this.adminId,
+      name: name ?? this.name,
+      specialty: specialty ?? this.specialty,
+      photo: photo ?? this.photo,
+      title: title ?? this.title,
+      fees: fees ?? this.fees,
+      isActive: isActive ?? this.isActive,
+      reviewsCount: reviewsCount ?? this.reviewsCount,
+      rating: rating ?? this.rating,
+      createdAt: createdAt ?? this.createdAt,
+      admin: admin ?? this.admin,
+    );
+  }
 }

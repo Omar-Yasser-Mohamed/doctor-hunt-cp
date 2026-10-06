@@ -159,7 +159,7 @@
   "addPhoto": "Add photo",
   "doctorCreatedSuccessfully": "Doctor Created Successfully!",
   "doctorCreatedSuccessfullyDescription": "Doctor profile has been added to Doctor Hunt.",
-  "camera": "Camera",
-  "gallery": "Gallery",
+  "takeAPhoto": "Take a photo",
+  "fromGallery": "From Gallery",
   "pleaseSelectDoctorImage": "Please select doctor image"
 }

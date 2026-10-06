@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/controller/doctor_management_bloc/doctor_management_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -179,22 +180,64 @@ class _ImageSourceBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 8.w,
+        right: 8.w,
+        bottom: context.bottomPadding + 8,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ListTile(
-            leading: const Icon(Icons.camera_alt_outlined),
-            title: Text(t.camera),
-            onTap: () => context.pop(ImageSource.camera),
+          Container(
+            width: 130,
+            height: 5,
+            margin: const EdgeInsets.only(top: 16, bottom: 8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: AppColors.bottomSheetNotice,
+            ),
           ),
-          ListTile(
-            leading: const Icon(Icons.photo_library),
-            title: Text(t.gallery),
+
+          _CustomListTile(
+            icon: Icons.photo_library,
+            title: t.fromGallery,
             onTap: () => context.pop(ImageSource.gallery),
+          ),
+
+          _CustomListTile(
+            icon: Icons.camera_alt_outlined,
+            title: t.takeAPhoto,
+            onTap: () => context.pop(ImageSource.camera),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _CustomListTile extends StatelessWidget {
+  const _CustomListTile({
+    required this.icon,
+    required this.title,
+    required this.onTap,
+  });
+  final IconData icon;
+  final String title;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        color: AppColors.primaryDark,
+      ),
+      title: Text(
+        title,
+        style: context.medium14TextMain,
+      ),
+      onTap: onTap,
     );
   }
 }

@@ -10,13 +10,20 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart' as _i275;
 import 'package:doctor_hunt/app/core/di/di_module.dart' as _i984;
 import 'package:doctor_hunt/app/core/shared/services/image_picker_service.dart'
     as _i873;
 import 'package:doctor_hunt/app/core/shared/services/storage_service.dart'
     as _i755;
 import 'package:doctor_hunt/app/core/shared/services/supabase_storage_service.dart'
-    as _i154;
+    as _i155;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/data/repos/admin_doctor_details_repo.dart'
+    as _i648;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/data/services/admin_doctor_details_service.dart'
+    as _i636;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/controller/bloc/admin_doctor_details_bloc.dart'
+    as _i1051;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/repos/doctor_management_repo.dart'
     as _i488;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/repos/doctor_management_repo_impl.dart'
@@ -25,6 +32,14 @@ import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/service
     as _i40;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/controller/doctor_management_bloc/doctor_management_bloc.dart'
     as _i248;
+import 'package:doctor_hunt/app/features/admin/admin_doctors/data/repos/admin_doctors_repo.dart'
+    as _i892;
+import 'package:doctor_hunt/app/features/admin/admin_doctors/data/repos/admin_doctors_repo_impl.dart'
+    as _i319;
+import 'package:doctor_hunt/app/features/admin/admin_doctors/data/services/admin_doctors_service.dart'
+    as _i154;
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart'
+    as _i325;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart'
     as _i619;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart'
@@ -64,12 +79,16 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final appModule = _$AppModule();
     gh.factory<_i737.ChooseRoleBloc>(() => _i737.ChooseRoleBloc());
+    gh.singleton<_i275.AppEventBus>(() => _i275.AppEventBus());
     gh.lazySingleton<_i454.SupabaseClient>(() => appModule.supabaseClient);
     gh.lazySingleton<_i116.GoogleSignIn>(() => appModule.googleSignIn);
     gh.lazySingleton<_i183.ImagePicker>(() => appModule.imagePicker);
     await gh.lazySingletonAsync<_i755.StorageService>(
       () => _i755.StorageService.create(),
       preResolve: true,
+    );
+    gh.lazySingleton<_i636.AdminDoctorDetailsService>(
+      () => _i636.AdminDoctorDetailsServiceImpl(gh<_i454.SupabaseClient>()),
     );
     gh.lazySingleton<_i208.UserLocalService>(
       () => _i208.UserLocalServiceImpl(gh<_i755.StorageService>()),
@@ -80,8 +99,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i116.GoogleSignIn>(),
       ),
     );
-    gh.lazySingleton<_i154.SupabaseStorageService>(
-      () => _i154.SupabaseStorageService(gh<_i454.SupabaseClient>()),
+    gh.lazySingleton<_i154.AdminDoctorsService>(
+      () => _i154.AdminDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i155.SupabaseStorageService>(
+      () => _i155.SupabaseStorageService(gh<_i454.SupabaseClient>()),
     );
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
@@ -95,6 +117,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i347.UserRepo>(
       () => _i597.UserRepoImpl(gh<_i208.UserLocalService>()),
     );
+    gh.lazySingleton<_i648.AdminDoctorDetailsRepo>(
+      () => _i648.AdminDoctorDetailsRepoImpl(
+        gh<_i636.AdminDoctorDetailsService>(),
+      ),
+    );
     gh.factory<_i378.ForgetPasswordBloc>(
       () => _i378.ForgetPasswordBloc(gh<_i619.AuthRepo>()),
     );
@@ -105,23 +132,36 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );
+    gh.lazySingleton<_i892.AdminDoctorsRepo>(
+      () => _i319.AdminDoctorsRepoImpl(gh<_i154.AdminDoctorsService>()),
+    );
     gh.lazySingleton<_i40.DoctorManagementService>(
       () => _i40.DoctorManagementServiceImpl(
         gh<_i454.SupabaseClient>(),
-        gh<_i154.SupabaseStorageService>(),
+        gh<_i155.SupabaseStorageService>(),
       ),
     );
     gh.lazySingleton<_i488.DoctorManagementRepo>(
       () => _i528.DoctorManagementRepoImpl(gh<_i40.DoctorManagementService>()),
     );
+    gh.lazySingleton<_i716.UserBloc>(
+      () => _i716.UserBloc(gh<_i347.UserRepo>()),
+    );
+    gh.factory<_i1051.AdminDoctorDetailsBloc>(
+      () => _i1051.AdminDoctorDetailsBloc(gh<_i648.AdminDoctorDetailsRepo>()),
+    );
+    gh.factory<_i325.AdminDoctorsBloc>(
+      () => _i325.AdminDoctorsBloc(
+        gh<_i892.AdminDoctorsRepo>(),
+        gh<_i275.AppEventBus>(),
+      ),
+    );
     gh.factory<_i248.DoctorManagementBloc>(
       () => _i248.DoctorManagementBloc(
         gh<_i488.DoctorManagementRepo>(),
         gh<_i873.ImagePickerService>(),
+        gh<_i275.AppEventBus>(),
       ),
-    );
-    gh.lazySingleton<_i716.UserBloc>(
-      () => _i716.UserBloc(gh<_i347.UserRepo>()),
     );
     return this;
   }

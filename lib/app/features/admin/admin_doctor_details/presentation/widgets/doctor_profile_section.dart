@@ -1,17 +1,19 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
-import 'package:doctor_hunt/app/core/shared/enums/doctor_status.dart';
+import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
+import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorProfileSection extends StatelessWidget {
-  const DoctorProfileSection({super.key});
+  const DoctorProfileSection({super.key, required this.doctor});
+  final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
-    const status = DoctorStatus.active;
+    final isActive = doctor.isActive;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -34,10 +36,15 @@ class DoctorProfileSection extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Image.asset(
-                AppImages.doctorTest,
-                fit: BoxFit.cover,
-              ),
+              child: doctor.photo != null && doctor.photo!.trim().isNotEmpty
+                  ? CustomNetworkImage(
+                      imageUrl: doctor.photo!,
+                      fit: BoxFit.cover,
+                      radius: 9999,
+                      width: 112.w,
+                      height: 112.w,
+                    )
+                  : const SizedBox.shrink(),
             ),
 
             Positioned.directional(
@@ -63,7 +70,7 @@ class DoctorProfileSection extends StatelessWidget {
         16.height,
 
         Text(
-          "Dr. Ahmed Ali",
+          doctor.name,
           textAlign: TextAlign.center,
           style: context.bold24TextMain,
         ),
@@ -73,7 +80,7 @@ class DoctorProfileSection extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           decoration: BoxDecoration(
-            color: status.backgroundColor,
+            color: isActive ? AppColors.activeLight : AppColors.inactiveLight,
             borderRadius: BorderRadius.circular(9999),
           ),
           child: Row(
@@ -83,14 +90,16 @@ class DoctorProfileSection extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: status.color,
+                  color: isActive ? AppColors.cardiology : AppColors.inactive,
                   shape: BoxShape.circle,
                 ),
               ),
               6.width,
               Text(
-                status.title,
-                style: context.semiBold12Primary,
+                isActive ? t.active : t.inactive,
+                style: context.semiBold12.copyWith(
+                  color: isActive ? AppColors.cardiology : AppColors.inactive,
+                ),
               ),
             ],
           ),

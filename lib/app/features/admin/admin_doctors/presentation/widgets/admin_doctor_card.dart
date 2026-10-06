@@ -1,23 +1,24 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
-import 'package:doctor_hunt/app/core/shared/enums/doctor_status.dart';
+import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdminDoctorCard extends StatelessWidget {
-  const AdminDoctorCard({super.key});
+  const AdminDoctorCard({super.key, required this.doctor});
+  final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
-    final doctorStatus = DoctorStatus.active;
+    final isActive = doctor.isActive;
     return GestureDetector(
       onTap: () {
-        const AdminDoctorDetailsRoute().push(context);
+        AdminDoctorDetailsRoute(doctorId: doctor.id).push(context);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
@@ -42,14 +43,12 @@ class AdminDoctorCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: AppColors.border),
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  AppImages.doctorTest,
-                  width: 51.w,
-                  height: 51.w,
-                  fit: BoxFit.cover,
-                ),
+              child: CustomNetworkImage(
+                imageUrl: doctor.photo!,
+                fit: BoxFit.cover,
+                radius: 12,
+                width: 51.w,
+                height: 51.w,
               ),
             ),
 
@@ -60,7 +59,7 @@ class AdminDoctorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Dr. Sara Mohamed",
+                    doctor.name,
                     overflow: TextOverflow.ellipsis,
                     style: context.medium16TextMain,
                   ),
@@ -68,24 +67,25 @@ class AdminDoctorCard extends StatelessWidget {
                   4.height,
 
                   Text(
-                    "Orthopedic",
+                    doctor.specialty.title,
                     overflow: TextOverflow.ellipsis,
                     style: context.regular12TextSub,
                   ),
 
-                  4.height,
+                  2.height,
 
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      const DynamicRatingStars(
-                        rating: 4.7,
-                        size: 16,
+                      DynamicRatingStars(
+                        rating: doctor.rating,
+                        size: 18,
                       ),
 
                       4.width,
 
                       Text(
-                        "4.7 • 86 ${t.reviews}",
+                        "${doctor.rating} • ${doctor.reviewsCount} ${t.reviews}",
                         style: context.regular11TextSub.copyWith(
                           fontSize: 10.sp,
                         ),
@@ -99,7 +99,9 @@ class AdminDoctorCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
               decoration: BoxDecoration(
-                color: doctorStatus.backgroundColor,
+                color: isActive
+                    ? AppColors.activeLight
+                    : AppColors.inactiveLight,
                 borderRadius: BorderRadius.circular(9999),
               ),
               child: Row(
@@ -109,7 +111,9 @@ class AdminDoctorCard extends StatelessWidget {
                     height: 6,
                     width: 6,
                     decoration: BoxDecoration(
-                      color: doctorStatus.color,
+                      color: isActive
+                          ? AppColors.cardiology
+                          : AppColors.inactive,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -117,10 +121,12 @@ class AdminDoctorCard extends StatelessWidget {
                   5.width,
 
                   Text(
-                    doctorStatus.title,
+                    isActive ? t.active : t.inactive,
                     style: TextStyle(
                       fontSize: 9.sp,
-                      color: doctorStatus.color,
+                      color: isActive
+                          ? AppColors.cardiology
+                          : AppColors.inactive,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

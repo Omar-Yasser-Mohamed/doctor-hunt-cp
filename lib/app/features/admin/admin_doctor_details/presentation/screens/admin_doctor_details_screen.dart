@@ -1,8 +1,11 @@
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/app_circular_indicator.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/controller/bloc/admin_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/widgets/admin_doctor_details_screen_body.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdminDoctorDetailsScreen extends StatelessWidget {
   const AdminDoctorDetailsScreen({super.key});
@@ -25,7 +28,18 @@ class AdminDoctorDetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const AdminDoctorDetailsScreenBody(),
+      body: BlocBuilder<AdminDoctorDetailsBloc, AdminDoctorDetailsState>(
+        builder: (context, state) {
+          if (state is AdminDoctorDetailsSuccess) {
+            return AdminDoctorDetailsScreenBody(doctor: state.doctor);
+          } else if (state is AdminDoctorDetailsFailure) {
+            return Center(
+              child: Text(state.failure.message),
+            );
+          }
+          return const AppCircularIndicator();
+        },
+      ),
     );
   }
 }

@@ -159,7 +159,7 @@
   "addPhoto": "إضافة صورة",
   "doctorCreatedSuccessfully": "تم إضافة الطبيب بنجاح!",
   "doctorCreatedSuccessfullyDescription": "تمت إضافة ملف الطبيب إلى دكتور هانت.",
-  "camera": "الكاميرا",
-  "gallery": "المعرض",
+  "takeAPhoto": "التقاط صورة",
+  "fromGallery": "من المعرض",
   "pleaseSelectDoctorImage": "يرجى اختيار صورة الطبيب"
 }

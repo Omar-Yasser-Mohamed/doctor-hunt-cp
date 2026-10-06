@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
+import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
@@ -9,7 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DoctorSummaryCard extends StatelessWidget {
-  const DoctorSummaryCard({super.key});
+  const DoctorSummaryCard({super.key, required this.doctor});
+  final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class DoctorSummaryCard extends StatelessWidget {
             ),
             label: t.specialty,
             valueChild: Text(
-              "Cardiology",
+              doctor.specialty.title,
               style: context.semiBold14TextMain,
             ),
           ),
@@ -61,13 +63,13 @@ class DoctorSummaryCard extends StatelessWidget {
             valueChild: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const DynamicRatingStars(
-                  rating: 4.8,
-                  size: 14,
+                DynamicRatingStars(
+                  rating: doctor.rating,
+                  size: 16,
                 ),
                 6.width,
                 Text(
-                  "4.8 • 128 ${t.reviews}",
+                  "${doctor.rating} • ${doctor.reviewsCount} ${t.reviews}",
                   style: context.regular11TextSub.copyWith(
                     fontSize: 10.sp,
                   ),
@@ -89,7 +91,7 @@ class DoctorSummaryCard extends StatelessWidget {
             ),
             label: t.consultationFee,
             valueChild: Text(
-              r"$28.00",
+              "\$${doctor.fees.toStringAsFixed(2)}",
               style: context.semiBold14TextMain,
             ),
           ),

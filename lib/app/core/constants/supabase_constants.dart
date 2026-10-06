@@ -13,4 +13,8 @@ abstract final class SupabaseConstants {
 
   // Storage bucket
   static const String doctorPhotosBucket = 'doctor-photos';
+
+  // Procedures
+  static const String getDoctorStatsProcedure = 'get_doctor_stats';
+  static const String getDoctorSpecialtyCountsProcedure = 'get_doctor_specialty_counts';
 }

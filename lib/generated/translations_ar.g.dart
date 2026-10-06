@@ -152,8 +152,8 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get addPhoto => 'إضافة صورة';
 	@override String get doctorCreatedSuccessfully => 'تم إضافة الطبيب بنجاح!';
 	@override String get doctorCreatedSuccessfullyDescription => 'تمت إضافة ملف الطبيب إلى دكتور هانت.';
-	@override String get camera => 'الكاميرا';
-	@override String get gallery => 'المعرض';
+	@override String get takeAPhoto => 'التقاط صورة';
+	@override String get fromGallery => 'من المعرض';
 	@override String get pleaseSelectDoctorImage => 'يرجى اختيار صورة الطبيب';
 }
 
@@ -370,8 +370,8 @@ extension on TranslationsAr {
 			'addPhoto' => 'إضافة صورة',
 			'doctorCreatedSuccessfully' => 'تم إضافة الطبيب بنجاح!',
 			'doctorCreatedSuccessfullyDescription' => 'تمت إضافة ملف الطبيب إلى دكتور هانت.',
-			'camera' => 'الكاميرا',
-			'gallery' => 'المعرض',
+			'takeAPhoto' => 'التقاط صورة',
+			'fromGallery' => 'من المعرض',
 			'pleaseSelectDoctorImage' => 'يرجى اختيار صورة الطبيب',
 			_ => null,
 		};

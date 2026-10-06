@@ -378,11 +378,11 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Doctor profile has been added to Doctor Hunt.'
 	String get doctorCreatedSuccessfullyDescription => 'Doctor profile has been added to Doctor Hunt.';
 
-	/// en: 'Camera'
-	String get camera => 'Camera';
+	/// en: 'Take a photo'
+	String get takeAPhoto => 'Take a photo';
 
-	/// en: 'Gallery'
-	String get gallery => 'Gallery';
+	/// en: 'From Gallery'
+	String get fromGallery => 'From Gallery';
 
 	/// en: 'Please select doctor image'
 	String get pleaseSelectDoctorImage => 'Please select doctor image';
@@ -677,8 +677,8 @@ extension on Translations {
 			'addPhoto' => 'Add photo',
 			'doctorCreatedSuccessfully' => 'Doctor Created Successfully!',
 			'doctorCreatedSuccessfullyDescription' => 'Doctor profile has been added to Doctor Hunt.',
-			'camera' => 'Camera',
-			'gallery' => 'Gallery',
+			'takeAPhoto' => 'Take a photo',
+			'fromGallery' => 'From Gallery',
 			'pleaseSelectDoctorImage' => 'Please select doctor image',
 			_ => null,
 		};

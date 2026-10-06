@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart';
+import 'package:doctor_hunt/app/core/app_events/app_events.dart';
 import 'package:doctor_hunt/app/core/shared/services/image_picker_service.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/models/create_doctor_request.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/data/repos/doctor_management_repo.dart';
@@ -18,9 +20,13 @@ class DoctorManagementBloc
     extends Bloc<DoctorManagementEvent, DoctorManagementState> {
   final DoctorManagementRepo _doctorManagementRepo;
   final ImagePickerService _imagePickerService;
+  final AppEventBus _appEventBus;
 
-  DoctorManagementBloc(this._doctorManagementRepo, this._imagePickerService)
-    : super(DoctorManagementInitial()) {
+  DoctorManagementBloc(
+    this._doctorManagementRepo,
+    this._imagePickerService,
+    this._appEventBus,
+  ) : super(DoctorManagementInitial()) {
     on<PickDoctorProfileImage>(_pickDoctorImage);
     on<RemoveDoctorProfileImage>(_removeDoctorImage);
     on<SelectDoctorSpecialty>(_selectDoctorSpecialty);
@@ -87,9 +93,11 @@ class DoctorManagementBloc
       ),
     );
 
-    result.fold(
-      (failure) => emit(DoctorManagementFailure(failure: failure)),
-      (doctor) => emit(DoctorManagementSuccess(doctor: doctor)),
-    );
+    result.fold((failure) => emit(DoctorManagementFailure(failure: failure)), (
+      doctor,
+    ) {
+      _appEventBus.fire(DoctorCreatedEvent(doctor: doctor));
+      emit(DoctorManagementSuccess(doctor: doctor));
+    });
   }
 }
