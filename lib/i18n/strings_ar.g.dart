@@ -138,6 +138,22 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get all => 'الكل';
 	@override String get noDoctorsFound => 'لا يوجد أطباء';
 	@override String get noDoctorsFoundDescription => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.';
+	@override String get specialty => 'التخصص';
+	@override String get consultationFee => 'رسوم الاستشارة';
+	@override String get rating => 'التقييم';
+	@override String get editDoctor => 'تعديل الطبيب';
+	@override String get manageAvailability => 'إدارة التوافر';
+	@override String get createDoctor => 'إضافة طبيب';
+	@override String get doctorName => 'اسم الطبيب';
+	@override String get doctorNameHint => 'مثال: د. أحمد علي';
+	@override String get selectSpecialty => 'اختر التخصص';
+	@override String get consultationFeeHint => 'مثال: \$28.00';
+	@override String get addPhoto => 'إضافة صورة';
+	@override String get doctorCreatedSuccessfully => 'تم إضافة الطبيب بنجاح!';
+	@override String get doctorCreatedSuccessfullyDescription => 'تمت إضافة ملف الطبيب إلى دكتور هانت.';
+	@override String get camera => 'الكاميرا';
+	@override String get gallery => 'المعرض';
+	@override String get pleaseSelectDoctorImage => 'يرجى اختيار صورة الطبيب';
 }
 
 // Path: validations
@@ -160,6 +176,7 @@ class _Translations$validations$ar implements Translations$validations$en {
 	@override String get nameMinLength => 'يجب أن يتكون الاسم من 3 أحرف على الأقل';
 	@override String get confirmPasswordRequired => 'يجب إعادة إدخال كلمة المرور';
 	@override String get passwordsDoNotMatch => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها';
+	@override String greaterThanZero({required Object fieldName}) => 'يجب أن تكون قيمة ${fieldName} أكبر من 0';
 }
 
 // Path: errors
@@ -192,6 +209,7 @@ class _Translations$errors$ar implements Translations$errors$en {
 	@override String get googleSignInFailed => 'فشل تسجيل الدخول، حاول مرة أخرى.';
 	@override String get invalidRole => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى';
 	@override String get samePassword => 'كلمة المرور الجديدة نفس كلمة المرور القديمة';
+	@override String get imagePickerFailed => 'فشل اختيار الصورة، حاول مرة أخرى.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -269,6 +287,7 @@ extension on TranslationsAr {
 			'validations.nameMinLength' => 'يجب أن يتكون الاسم من 3 أحرف على الأقل',
 			'validations.confirmPasswordRequired' => 'يجب إعادة إدخال كلمة المرور',
 			'validations.passwordsDoNotMatch' => 'يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها',
+			'validations.greaterThanZero' => ({required Object fieldName}) => 'يجب أن تكون قيمة ${fieldName} أكبر من 0',
 			'errors.unknown' => 'حدث خطأ ما، حاول مرة أخرى.',
 			'errors.network' => 'لا يوجد إنترنت، حاول مرة أخرى.',
 			'errors.timeout' => 'انتهت مهلة الطلب، حاول مرة أخرى.',
@@ -292,6 +311,7 @@ extension on TranslationsAr {
 			'errors.googleSignInFailed' => 'فشل تسجيل الدخول، حاول مرة أخرى.',
 			'errors.invalidRole' => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى',
 			'errors.samePassword' => 'كلمة المرور الجديدة نفس كلمة المرور القديمة',
+			'errors.imagePickerFailed' => 'فشل اختيار الصورة، حاول مرة أخرى.',
 			'hi' => ({required Object name}) => 'مرحبا ${name}!',
 			'findYourDoctor' => 'ابحث عن طبيبك',
 			'seeAll' => 'عرض الكل',
@@ -336,6 +356,22 @@ extension on TranslationsAr {
 			'all' => 'الكل',
 			'noDoctorsFound' => 'لا يوجد أطباء',
 			'noDoctorsFoundDescription' => 'لا يوجد أطباء مسجلين في منصة دكتور هانت في الوقت الحالي. أضف طبيبك الأول للبدء.',
+			'specialty' => 'التخصص',
+			'consultationFee' => 'رسوم الاستشارة',
+			'rating' => 'التقييم',
+			'editDoctor' => 'تعديل الطبيب',
+			'manageAvailability' => 'إدارة التوافر',
+			'createDoctor' => 'إضافة طبيب',
+			'doctorName' => 'اسم الطبيب',
+			'doctorNameHint' => 'مثال: د. أحمد علي',
+			'selectSpecialty' => 'اختر التخصص',
+			'consultationFeeHint' => 'مثال: \$28.00',
+			'addPhoto' => 'إضافة صورة',
+			'doctorCreatedSuccessfully' => 'تم إضافة الطبيب بنجاح!',
+			'doctorCreatedSuccessfullyDescription' => 'تمت إضافة ملف الطبيب إلى دكتور هانت.',
+			'camera' => 'الكاميرا',
+			'gallery' => 'المعرض',
+			'pleaseSelectDoctorImage' => 'يرجى اختيار صورة الطبيب',
 			_ => null,
 		};
 	}

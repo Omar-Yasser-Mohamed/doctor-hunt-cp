@@ -9,13 +9,28 @@ enum DoctorSpecialty {
   ophthalmologist,
   dermatologist;
 
-  String get title{
+  String get title {
     return switch (this) {
       DoctorSpecialty.dentist => t.dentist,
       DoctorSpecialty.cardiologist => t.cardiologist,
       DoctorSpecialty.ophthalmologist => t.ophthalmologist,
       DoctorSpecialty.dermatologist => t.dermatologist,
     };
+  }
+
+  factory DoctorSpecialty.fromValue(String value) {
+    switch (value) {
+      case 'dentist':
+        return DoctorSpecialty.dentist;
+      case 'cardiologist':
+        return DoctorSpecialty.cardiologist;
+      case 'ophthalmologist':
+        return DoctorSpecialty.ophthalmologist;
+      case 'dermatologist':
+        return DoctorSpecialty.dermatologist;
+      default:
+        throw Exception('Unknown specialty: $value');
+    }
   }
 
   LinearGradient get linarGradient {

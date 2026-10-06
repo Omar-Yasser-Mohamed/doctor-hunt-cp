@@ -67,7 +67,8 @@
     "nameRequired": "الاسم مطلوب",
     "nameMinLength": "يجب أن يتكون الاسم من 3 أحرف على الأقل",
     "confirmPasswordRequired": "يجب إعادة إدخال كلمة المرور",
-    "passwordsDoNotMatch": "يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها"
+    "passwordsDoNotMatch": "يجب أن تتطابق كلمة المرور مع كلمة المرور المعاد إدخالها",
+    "greaterThanZero": "يجب أن تكون قيمة $fieldName أكبر من 0"
   },
 
   "errors": {
@@ -97,7 +98,8 @@
 
     "googleSignInFailed": "فشل تسجيل الدخول، حاول مرة أخرى.",
     "invalidRole": "الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى",
-    "samePassword": "كلمة المرور الجديدة نفس كلمة المرور القديمة"
+    "samePassword": "كلمة المرور الجديدة نفس كلمة المرور القديمة",
+    "imagePickerFailed": "فشل اختيار الصورة، حاول مرة أخرى."
   },
 
   "hi": "مرحبا $name!",
@@ -148,5 +150,16 @@
   "consultationFee": "رسوم الاستشارة",
   "rating": "التقييم",
   "editDoctor": "تعديل الطبيب",
-  "manageAvailability": "إدارة التوافر"
+  "manageAvailability": "إدارة التوافر",
+  "createDoctor": "إضافة طبيب",
+  "doctorName": "اسم الطبيب",
+  "doctorNameHint": "مثال: د. أحمد علي",
+  "selectSpecialty": "اختر التخصص",
+  "consultationFeeHint": "مثال: \\$28.00",
+  "addPhoto": "إضافة صورة",
+  "doctorCreatedSuccessfully": "تم إضافة الطبيب بنجاح!",
+  "doctorCreatedSuccessfullyDescription": "تمت إضافة ملف الطبيب إلى دكتور هانت.",
+  "camera": "الكاميرا",
+  "gallery": "المعرض",
+  "pleaseSelectDoctorImage": "يرجى اختيار صورة الطبيب"
 }

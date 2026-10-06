@@ -6,6 +6,7 @@ import 'package:doctor_hunt/app/core/error/failure.dart';
 import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -23,6 +24,13 @@ class ErrorHandler {
       return AppFailure(
         code: FailureCode.network,
         message: t.errors.network,
+      );
+    }
+
+    if (error is PlatformException){
+      return AppFailure(
+        code: FailureCode.imagePickerFailed,
+        message: t.errors.imagePickerFailed,
       );
     }
 

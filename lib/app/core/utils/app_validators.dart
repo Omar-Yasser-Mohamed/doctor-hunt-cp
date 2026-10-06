@@ -76,4 +76,18 @@ abstract final class AppValidators {
 
     return null;
   }
+
+  static String? positiveNumber(String? value, {String fieldName = 'Field'}) {
+    final requiredCheck = required(value, fieldName: fieldName);
+    if (requiredCheck != null) {
+      return requiredCheck;
+    }
+
+    final number = double.tryParse(value!.trim());
+    if (number == null || number <= 0) {
+      return t.validations.greaterThanZero(fieldName: fieldName);
+    }
+
+    return null;
+  }
 }

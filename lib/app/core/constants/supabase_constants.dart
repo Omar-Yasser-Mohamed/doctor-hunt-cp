@@ -8,4 +8,9 @@ abstract final class SupabaseConstants {
   // tables name
   static const String usersTable = 'users';
   static const String adminsTable = 'admins';
+  static const String doctorsTable = 'doctors';
+  static const String doctorAvailabilityTable = 'doctors_availability';
+
+  // Storage bucket
+  static const String doctorPhotosBucket = 'doctor-photos';
 }

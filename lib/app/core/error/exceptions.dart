@@ -1,3 +1,7 @@
-class NoInternetException implements Exception {}
+class NoInternetException implements Exception {
+  const NoInternetException();
+}
 
-class InvalidRoleException implements Exception {}
+class InvalidRoleException implements Exception {
+  const InvalidRoleException();
+}

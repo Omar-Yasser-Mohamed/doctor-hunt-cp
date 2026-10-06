@@ -14,7 +14,7 @@ enum UserRole {
   static UserRole fromValue(String value) => switch (value) {
     'admin' => UserRole.admin,
     'patient' => UserRole.patient,
-    _ => throw InvalidRoleException(),
+    _ => throw const InvalidRoleException(),
   };
 
   String get label => switch (this) {

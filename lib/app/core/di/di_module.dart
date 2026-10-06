@@ -1,4 +1,5 @@
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -9,4 +10,7 @@ abstract class AppModule {
 
   @lazySingleton
   GoogleSignIn get googleSignIn => GoogleSignIn.instance;
+
+  @lazySingleton
+  ImagePicker get imagePicker => ImagePicker(); 
 }

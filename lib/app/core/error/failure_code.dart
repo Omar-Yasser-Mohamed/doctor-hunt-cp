@@ -4,6 +4,7 @@ enum FailureCode {
   network,
   timeout,
   invalidRole,
+  imagePickerFailed,
 
   // HTTP / Supabase
   badRequest,          // 400

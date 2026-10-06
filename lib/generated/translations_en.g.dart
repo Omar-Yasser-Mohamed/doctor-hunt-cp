@@ -353,6 +353,39 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Manage Availability'
 	String get manageAvailability => 'Manage Availability';
+
+	/// en: 'Create Doctor'
+	String get createDoctor => 'Create Doctor';
+
+	/// en: 'Doctor Name'
+	String get doctorName => 'Doctor Name';
+
+	/// en: 'e.g. Dr. Ahmed Ali'
+	String get doctorNameHint => 'e.g. Dr. Ahmed Ali';
+
+	/// en: 'Select specialty'
+	String get selectSpecialty => 'Select specialty';
+
+	/// en: 'e.g. \$28.00'
+	String get consultationFeeHint => 'e.g. \$28.00';
+
+	/// en: 'Add photo'
+	String get addPhoto => 'Add photo';
+
+	/// en: 'Doctor Created Successfully!'
+	String get doctorCreatedSuccessfully => 'Doctor Created Successfully!';
+
+	/// en: 'Doctor profile has been added to Doctor Hunt.'
+	String get doctorCreatedSuccessfullyDescription => 'Doctor profile has been added to Doctor Hunt.';
+
+	/// en: 'Camera'
+	String get camera => 'Camera';
+
+	/// en: 'Gallery'
+	String get gallery => 'Gallery';
+
+	/// en: 'Please select doctor image'
+	String get pleaseSelectDoctorImage => 'Please select doctor image';
 }
 
 // Path: validations
@@ -401,6 +434,9 @@ class Translations$validations$en {
 
 	/// en: 'Passwords do not match'
 	String get passwordsDoNotMatch => 'Passwords do not match';
+
+	/// en: '$fieldName must be greater than 0'
+	String greaterThanZero({required Object fieldName}) => '${fieldName} must be greater than 0';
 }
 
 // Path: errors
@@ -479,6 +515,9 @@ class Translations$errors$en {
 
 	/// en: 'New password is the same as the old password'
 	String get samePassword => 'New password is the same as the old password';
+
+	/// en: 'Failed to pick image, please try again.'
+	String get imagePickerFailed => 'Failed to pick image, please try again.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -556,6 +595,7 @@ extension on Translations {
 			'validations.nameMinLength' => 'Name must be at least 3 characters',
 			'validations.confirmPasswordRequired' => 'Confirm Password is required',
 			'validations.passwordsDoNotMatch' => 'Passwords do not match',
+			'validations.greaterThanZero' => ({required Object fieldName}) => '${fieldName} must be greater than 0',
 			'errors.unknown' => 'Something went wrong, please try again.',
 			'errors.network' => 'No internet, please try again.',
 			'errors.timeout' => 'Request timed out, please try again.',
@@ -579,6 +619,7 @@ extension on Translations {
 			'errors.googleSignInFailed' => 'Google sign-in failed, please try again.',
 			'errors.invalidRole' => 'Invalid user role, please sign in again.',
 			'errors.samePassword' => 'New password is the same as the old password',
+			'errors.imagePickerFailed' => 'Failed to pick image, please try again.',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',
@@ -628,6 +669,17 @@ extension on Translations {
 			'rating' => 'Rating',
 			'editDoctor' => 'Edit Doctor',
 			'manageAvailability' => 'Manage Availability',
+			'createDoctor' => 'Create Doctor',
+			'doctorName' => 'Doctor Name',
+			'doctorNameHint' => 'e.g. Dr. Ahmed Ali',
+			'selectSpecialty' => 'Select specialty',
+			'consultationFeeHint' => 'e.g. \$28.00',
+			'addPhoto' => 'Add photo',
+			'doctorCreatedSuccessfully' => 'Doctor Created Successfully!',
+			'doctorCreatedSuccessfullyDescription' => 'Doctor profile has been added to Doctor Hunt.',
+			'camera' => 'Camera',
+			'gallery' => 'Gallery',
+			'pleaseSelectDoctorImage' => 'Please select doctor image',
 			_ => null,
 		};
 	}

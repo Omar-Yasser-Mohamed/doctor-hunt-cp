@@ -32,6 +32,13 @@ Do NOT make every dimension responsive blindly. Over-scaling causes components t
 - **Icon Container Sizing**: Instead of hardcoding responsive container dimensions (e.g. `width: 40.w, height: 40.w`), wrap the icon with fixed inner padding (e.g., `padding: const EdgeInsets.all(10)` or `8` or `12`) and fixed border radius (e.g. `10`).
 - **Dividers & Hairlines**: Line thickness should remain fixed (`height: 1`, border `width: 1`), not `1.h` or `1.w`.
 - **Card Internal Padding**: While outer screen margins use `.w`, standard inner card padding is often best kept fixed (e.g., `padding: const EdgeInsets.all(16)`).
+- **TextField Content Padding**: Always keep `AppTextField` `contentPadding` fixed numbers (e.g., `const EdgeInsets.symmetric(horizontal: 16, vertical: 14)`), **NEVER** responsive `.w` or `.h`.
+- **Screen Body Padding (`SingleChildScrollView`)**:
+  - Use `EdgeInsets.only(...)` with responsive horizontal sides and fixed vertical:
+    - `left: 20.w, right: 20.w`
+    - `top: 16` (fixed, not `.h`)
+    - `bottom: context.bottomPadding + 16` (adapts cleanly to system navigation bars on Android/iOS).
+  - Keep `crossAxisAlignment: CrossAxisAlignment.stretch` on parent `Column`s.
 
 ---
 
@@ -137,3 +144,24 @@ Before implementing custom components, **always** reuse shared core widgets loca
   - Do not hardcode user-facing strings.
 - **Routing**:
   - Use GoRouter type-safe route definitions from `package:doctor_hunt/app/core/routing/app_routes.dart` (e.g. `const AdminDoctorDetailsRoute().push(context);`).
+
+---
+
+## 7. Form Validation (`AppValidators`)
+
+- **ALWAYS reuse `AppValidators`**: Import `package:doctor_hunt/app/core/utils/app_validators.dart`.
+  - Standard fields: `AppValidators.required(...)`, `AppValidators.name(...)`, `AppValidators.email(...)`, `AppValidators.password(...)`.
+  - Numeric / Fee fields: `AppValidators.positiveNumber(...)` (ensures number is > 0, avoiding negative or zero values).
+  - Do **NOT** write manual inline validation regexes or logic when `AppValidators` provides them.
+- **Internalizing State-Dependent Validators**:
+  - When a custom input component (e.g. `CreateDoctorSpecialtyField`) has internal selection state, keep its validation logic inside the widget rather than exposing it up as an external parameter.
+
+---
+
+## 8. UI Prototyping Guidelines (No Fake Business Logic)
+
+- When implementing UI screens before connecting actual business logic (Cubit/Bloc/Data Sources):
+  - **Do NOT** simulate mock asynchronous operations (e.g., `Future.delayed`, mock `isLoading` switches, simulated toast notifications, or fake navigation pops).
+  - Keep submission handlers clean (e.g., executing only `_formKey.currentState!.validate()`).
+  - Do **NOT** expose unnecessary callbacks up the widget tree for actions that do not yet have external business requirements (e.g. photo picker taps). Keep them as clean internal placeholder methods (e.g., `void _onAddPhoto() {}`).
+

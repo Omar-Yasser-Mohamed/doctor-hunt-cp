@@ -5,7 +5,9 @@ import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/screens/admin_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/controller/doctor_management_bloc/doctor_management_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/screens/create_doctor_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
@@ -307,4 +309,15 @@ class AdminDoctorDetailsRoute extends GoRouteData
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const AdminDoctorDetailsScreen();
+}
+
+@TypedGoRoute<CreateDoctorRoute>(path: '/adminCreateDoctor')
+class CreateDoctorRoute extends GoRouteData with $CreateDoctorRoute {
+  const CreateDoctorRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<DoctorManagementBloc>(),
+    child: const CreateDoctorScreen(),
+  );
 }

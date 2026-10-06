@@ -146,7 +146,7 @@ void main() {
 
         when(
           () => mockAuthService.signUp(request),
-        ).thenThrow(NoInternetException());
+        ).thenThrow(const NoInternetException());
 
         expect(
           await authRepo.signUp(request),

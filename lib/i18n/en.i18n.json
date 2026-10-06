@@ -67,7 +67,8 @@
     "nameRequired": "Name is required",
     "nameMinLength": "Name must be at least 3 characters",
     "confirmPasswordRequired": "Confirm Password is required",
-    "passwordsDoNotMatch": "Passwords do not match"
+    "passwordsDoNotMatch": "Passwords do not match",
+    "greaterThanZero": "$fieldName must be greater than 0"
   },
 
   "errors": {
@@ -97,7 +98,8 @@
 
     "googleSignInFailed": "Google sign-in failed, please try again.",
     "invalidRole": "Invalid user role, please sign in again.",
-    "samePassword": "New password is the same as the old password"
+    "samePassword": "New password is the same as the old password",
+    "imagePickerFailed": "Failed to pick image, please try again."
   },
 
   "hi": "Hi $name!",
@@ -148,5 +150,16 @@
   "consultationFee": "Consultation Fee",
   "rating": "Rating",
   "editDoctor": "Edit Doctor",
-  "manageAvailability": "Manage Availability"
+  "manageAvailability": "Manage Availability",
+  "createDoctor": "Create Doctor",
+  "doctorName": "Doctor Name",
+  "doctorNameHint": "e.g. Dr. Ahmed Ali",
+  "selectSpecialty": "Select specialty",
+  "consultationFeeHint": "e.g. \\$28.00",
+  "addPhoto": "Add photo",
+  "doctorCreatedSuccessfully": "Doctor Created Successfully!",
+  "doctorCreatedSuccessfullyDescription": "Doctor profile has been added to Doctor Hunt.",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "pleaseSelectDoctorImage": "Please select doctor image"
 }
