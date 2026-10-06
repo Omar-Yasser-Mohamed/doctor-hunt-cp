@@ -23,7 +23,7 @@ class DoctorDetailsActions extends StatelessWidget {
           height: 52.h,
           radius: 12.r,
           onPressed: () {
-            EditDoctorRoute(doctor).push(context);
+            EditDoctorRoute($extra: doctor).push(context);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

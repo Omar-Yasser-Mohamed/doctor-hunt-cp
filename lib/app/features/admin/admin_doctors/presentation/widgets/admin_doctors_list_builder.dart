@@ -1,6 +1,6 @@
-import 'package:doctor_hunt/app/core/widgets/app_circular_indicator.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/widgets/admin_doctors_list_view.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/widgets/admin_doctors_shimmer.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/widgets/no_doctors_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,10 +36,7 @@ class AdminDoctorsListSection extends StatelessWidget {
             sliver: AdminDoctorsListView(doctors: doctors),
           );
         } else if (state is AdminDoctorsListLoading) {
-          return const SliverFillRemaining(
-            hasScrollBody: false,
-            child: AppCircularIndicator(),
-          );
+          return const AdminDoctorsListSliverShimmer();
         }
         return const SizedBox.shrink();
       },

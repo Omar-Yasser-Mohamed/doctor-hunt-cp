@@ -18,7 +18,7 @@ class AdminDoctorCard extends StatelessWidget {
     final isActive = doctor.isActive;
     return GestureDetector(
       onTap: () {
-        AdminDoctorDetailsRoute(doctorId: doctor.id).push(context);
+        AdminDoctorDetailsRoute($extra: doctor.id).push(context);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),

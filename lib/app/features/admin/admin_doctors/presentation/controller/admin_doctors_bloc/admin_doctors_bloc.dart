@@ -230,6 +230,8 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
           : _stats.activeDoctors,
     );
 
+    _incrementSpecialtyCount(doctor.specialty);
+
     emit(
       AdminDoctorsSuccess(
         stats: _stats,
@@ -254,6 +256,11 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
       _stats = _stats.copyWith(
         activeDoctors: _stats.activeDoctors + activeDiff,
       );
+
+      if (oldDoctor.specialty != doctor.specialty) {
+        _decrementSpecialtyCount(oldDoctor.specialty);
+        _incrementSpecialtyCount(doctor.specialty);
+      }
     }
 
     emit(
@@ -279,6 +286,8 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
         totalDoctors: newTotal,
         activeDoctors: newActive,
       );
+
+      _decrementSpecialtyCount(oldDoctor.specialty);
     }
 
     emit(
@@ -288,6 +297,19 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
         doctors: _doctors.values.toList(),
       ),
     );
+  }
+
+  void _incrementSpecialtyCount(DoctorSpecialty specialty) {
+    _specialtyCounts = Map<String, int>.from(_specialtyCounts);
+    final key = specialty.name;
+    _specialtyCounts[key] = (_specialtyCounts[key] ?? 0) + 1;
+  }
+
+  void _decrementSpecialtyCount(DoctorSpecialty specialty) {
+    _specialtyCounts = Map<String, int>.from(_specialtyCounts);
+    final key = specialty.name;
+    final current = _specialtyCounts[key] ?? 0;
+    _specialtyCounts[key] = current > 0 ? current - 1 : 0;
   }
 
   @override

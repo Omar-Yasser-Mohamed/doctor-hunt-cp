@@ -105,6 +105,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i155.SupabaseStorageService>(
       () => _i155.SupabaseStorageService(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i40.DoctorManagementService>(
+      () => _i40.DoctorManagementServiceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i488.DoctorManagementRepo>(
+      () => _i528.DoctorManagementRepoImpl(gh<_i40.DoctorManagementService>()),
+    );
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
     );
@@ -141,14 +147,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i892.AdminDoctorsRepo>(
       () => _i319.AdminDoctorsRepoImpl(gh<_i154.AdminDoctorsService>()),
     );
-    gh.lazySingleton<_i40.DoctorManagementService>(
-      () => _i40.DoctorManagementServiceImpl(
-        gh<_i454.SupabaseClient>(),
-        gh<_i155.SupabaseStorageService>(),
+    gh.factory<_i248.DoctorManagementBloc>(
+      () => _i248.DoctorManagementBloc(
+        gh<_i488.DoctorManagementRepo>(),
+        gh<_i873.ImagePickerService>(),
+        gh<_i275.AppEventBus>(),
       ),
-    );
-    gh.lazySingleton<_i488.DoctorManagementRepo>(
-      () => _i528.DoctorManagementRepoImpl(gh<_i40.DoctorManagementService>()),
     );
     gh.lazySingleton<_i716.UserBloc>(
       () => _i716.UserBloc(gh<_i347.UserRepo>()),
@@ -156,13 +160,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i325.AdminDoctorsBloc>(
       () => _i325.AdminDoctorsBloc(
         gh<_i892.AdminDoctorsRepo>(),
-        gh<_i275.AppEventBus>(),
-      ),
-    );
-    gh.factory<_i248.DoctorManagementBloc>(
-      () => _i248.DoctorManagementBloc(
-        gh<_i488.DoctorManagementRepo>(),
-        gh<_i873.ImagePickerService>(),
         gh<_i275.AppEventBus>(),
       ),
     );

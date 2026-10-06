@@ -128,6 +128,9 @@ Before implementing custom components, **always** reuse shared core widgets loca
 - **Scaffolds & Navigation**:
   - `AdminScaffold` / `PatientScaffold`: Preconfigured scaffolds with appropriate background colors and navigation bars.
   - `AdminNavBar` / `PatientNavBar`: Bottom navigation bars.
+- **Error & Failure Display**:
+  - `AppErrorWidget` / `AppFailureWidget`: Standardized error and failure widget with intelligent `FailureCode` icon mapping, typography styling, and conditional retry/reload button.
+  - `AppErrorSliver`: Sliver variant (`SliverFillRemaining`) of `AppErrorWidget` for use inside `CustomScrollView`.
 - **Specialized**:
   - `DynamicRatingStars`: Star ratings widget.
   - `ProfileImage`: Circular profile avatar.
@@ -164,4 +167,42 @@ Before implementing custom components, **always** reuse shared core widgets loca
   - **Do NOT** simulate mock asynchronous operations (e.g., `Future.delayed`, mock `isLoading` switches, simulated toast notifications, or fake navigation pops).
   - Keep submission handlers clean (e.g., executing only `_formKey.currentState!.validate()`).
   - Do **NOT** expose unnecessary callbacks up the widget tree for actions that do not yet have external business requirements (e.g. photo picker taps). Keep them as clean internal placeholder methods (e.g., `void _onAddPhoto() {}`).
+
+---
+
+## 9. Loading States & Shimmer Guidelines (`AppShimmer`)
+
+- **Always use `AppShimmer` for loading states**:
+  - **NEVER** use generic circular indicators (`AppCircularIndicator`) for screen, list, or card content loading states where structured data is expected.
+  - **ALWAYS** use the shared core widget `AppShimmer` / `AppShimmerBox` from `package:doctor_hunt/app/core/widgets/app_shimmer.dart`.
+- **Mirror the real screen & component UI structure**:
+  - Design shimmer skeleton placeholders to accurately match the geometry, padding, spacing, border radiuses, and layout of the real widgets (app bars, stats cards, search bars, filter tabs, item cards, profile sections, action buttons).
+  - This provides a natural, eye-friendly transition and superior UX by previewing the layout before data loads.
+- **Single Co-located Shimmer File per Feature / Domain**:
+  - Keep related shimmer widgets consolidated in a dedicated file within the feature's `presentation/widgets/` directory (e.g., `admin_doctors_shimmer.dart`).
+  - Break down the shimmer components modularly inside that file:
+    1. **Item Card Shimmer** (e.g. `AdminDoctorCardShimmer`): Reusable for list building, pagination loading, etc.
+    2. **List / Sliver Shimmer** (e.g. `AdminDoctorsListSliverShimmer`): Reusable for list section loading.
+    3. **Full Screen Shimmer** (e.g. `AdminDoctorsScreenShimmer`): Composes the app bar, header, filters, and list shimmers for initial full-screen loading.
+  - All call sites should import and reuse the appropriate shimmer component directly from that single file.
+
+---
+
+## 10. Error & Failure States Guidelines (`AppErrorWidget`)
+
+- **Always use `AppErrorWidget` (or `AppFailureWidget`) for error/failure states**:
+  - **NEVER** use raw `Center(child: Text(state.failure.message))` or ad-hoc error widgets.
+  - **ALWAYS** reuse `package:doctor_hunt/app/core/widgets/app_error_widget.dart`.
+  - Pass the state's `failure` directly: `AppErrorWidget.fromFailure(failure: state.failure, onRetry: ...)` or use custom message: `AppErrorWidget(message: '...', onRetry: ...)`.
+- **Intelligent Icon & Theming Resolution**:
+  - Icons automatically match `FailureCode` (e.g., `wifi_off_rounded` for network/timeout, `search_off_rounded` for not found, `lock_outline_rounded` for unauthorized/forbidden, `error_outline_rounded` as default).
+  - Can be overridden using the `icon:` parameter when a specialized icon is desired.
+- **Conditional Reload / Retry Button (`onRetry`)**:
+  - When the screen or section can be retried (e.g., re-fetching list or details), pass `onRetry: () => bloc.add(...)`.
+  - When retry is not supported or not applicable, omit or pass `null` to `onRetry` — the button will automatically be hidden.
+  - Custom button label can be passed via `retryText` (defaults to localized `t.retry`).
+- **Sliver Contexts (`AppErrorSliver`)**:
+  - Inside `CustomScrollView` or sliver lists, use `AppErrorSliver.fromFailure(...)` or `AppErrorSliver(...)` instead of raw wrappers.
+
+
 

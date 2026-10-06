@@ -312,16 +312,16 @@ class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
 @TypedGoRoute<AdminDoctorDetailsRoute>(path: '/adminDoctorDetails')
 class AdminDoctorDetailsRoute extends GoRouteData
     with $AdminDoctorDetailsRoute {
-  const AdminDoctorDetailsRoute({required this.doctorId});
-  final String doctorId;
+  const AdminDoctorDetailsRoute({required this.$extra});
+  final String $extra;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      BlocProvider(
-        create: (context) => getIt<AdminDoctorDetailsBloc>()
-          ..add(GetDoctorDetailsEvent(doctorId: doctorId)),
-        child: const AdminDoctorDetailsScreen(),
-      );
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) =>
+        getIt<AdminDoctorDetailsBloc>()
+          ..add(GetDoctorDetailsEvent(doctorId: $extra)),
+    child: const AdminDoctorDetailsScreen(),
+  );
 }
 
 @TypedGoRoute<CreateDoctorRoute>(path: '/adminCreateDoctor')
@@ -337,7 +337,7 @@ class CreateDoctorRoute extends GoRouteData with $CreateDoctorRoute {
 
 @TypedGoRoute<EditDoctorRoute>(path: '/adminEditDoctor')
 class EditDoctorRoute extends GoRouteData with $EditDoctorRoute {
-  const EditDoctorRoute(this.$extra);
+  const EditDoctorRoute({required this.$extra});
   final DoctorModel $extra;
 
   @override
@@ -346,4 +346,3 @@ class EditDoctorRoute extends GoRouteData with $EditDoctorRoute {
     child: EditDoctorScreen(doctor: $extra),
   );
 }
-
