@@ -1,11 +1,14 @@
+import 'package:doctor_hunt/app/core/utils/time_utils.dart';
 import 'package:equatable/equatable.dart';
+import 'package:doctor_hunt/app/core/shared/enums/week_day.dart';
+import 'package:flutter/material.dart';
 
 class DoctorAvailabilityModel extends Equatable {
   final String id;
   final String doctorId;
-  final List<String> workingDays;
-  final String startTime;
-  final String endTime;
+  final List<WeekDay> workingDays;
+  final TimeOfDay startTime;
+  final TimeOfDay endTime;
   final int slotDuration;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -21,40 +24,27 @@ class DoctorAvailabilityModel extends Equatable {
     required this.updatedAt,
   });
 
-  factory DoctorAvailabilityModel.fromJson(
-    Map<String, dynamic> json,
-  ) {
+  factory DoctorAvailabilityModel.fromJson(Map<String, dynamic> json) {
     return DoctorAvailabilityModel(
       id: json['id'] as String,
       doctorId: json['doctor_id'] as String,
-      workingDays: List<String>.from(
-        json['working_days'] as List,
+      workingDays: WeekDay.listFromString(
+        (json['working_days'] as List).map((e) => e.toString()).toList(),
       ),
-      startTime: json['start_time'] as String,
-      endTime: json['end_time'] as String,
+      startTime: TimeUtils.fromSupabaseFormat(json['start_time'] as String),
+      endTime: TimeUtils.fromSupabaseFormat(json['end_time'] as String),
       slotDuration: json['slot_duration'] as int,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'doctor_id': doctorId,
-    'working_days': workingDays,
-    'start_time': startTime,
-    'end_time': endTime,
-    'slot_duration': slotDuration,
-    'created_at': createdAt.toIso8601String(),
-    'updated_at': updatedAt.toIso8601String(),
-  };
-
   DoctorAvailabilityModel copyWith({
     String? id,
     String? doctorId,
-    List<String>? workingDays,
-    String? startTime,
-    String? endTime,
+    List<WeekDay>? workingDays,
+    TimeOfDay? startTime,
+    TimeOfDay? endTime,
     int? slotDuration,
     DateTime? createdAt,
     DateTime? updatedAt,

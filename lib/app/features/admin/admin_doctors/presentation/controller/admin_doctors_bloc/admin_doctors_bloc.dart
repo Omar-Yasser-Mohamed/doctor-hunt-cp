@@ -11,9 +11,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_hunt/app/core/shared/enums/doctor_specialty.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:stream_transform/stream_transform.dart';
 
 part 'admin_doctors_event.dart';
 part 'admin_doctors_state.dart';
+
+EventTransformer<E> searchTransformer<E>({
+  Duration duration = const Duration(milliseconds: 300),
+}) {
+  return (events, mapper) {
+    return restartable<E>()(
+      events.debounce(duration),
+      mapper,
+    );
+  };
+}
 
 @injectable
 class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
@@ -25,7 +38,10 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
     on<ChangeSpecialtyEvent>(_onChangeSpecialty);
     on<LoadAdminDoctorsEvent>(_onLoadAdminDoctors);
     on<LoadMoreDoctorsEvent>(_onLoadMoreDoctors);
-    on<SearchDoctorsEvent>(_onSearchDoctors);
+    on<SearchDoctorsEvent>(
+      _onSearchDoctors,
+      transformer: searchTransformer(),
+    );
     on<DoctorCreatedBlocEvent>(_onDoctorCreated);
     on<DoctorUpdatedBlocEvent>(_onDoctorUpdated);
     on<DoctorDeletedBlocEvent>(_onDoctorDeleted);
@@ -320,4 +336,3 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
     return super.close();
   }
 }
-

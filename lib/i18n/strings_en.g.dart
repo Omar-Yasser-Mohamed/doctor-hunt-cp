@@ -416,6 +416,63 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Doctor deleted successfully!'
 	String get doctorDeletedSuccessfully => 'Doctor deleted successfully!';
+
+	/// en: 'Monday'
+	String get monday => 'Monday';
+
+	/// en: 'Tuesday'
+	String get tuesday => 'Tuesday';
+
+	/// en: 'Wednesday'
+	String get wednesday => 'Wednesday';
+
+	/// en: 'Thursday'
+	String get thursday => 'Thursday';
+
+	/// en: 'Friday'
+	String get friday => 'Friday';
+
+	/// en: 'Saturday'
+	String get saturday => 'Saturday';
+
+	/// en: 'Sunday'
+	String get sunday => 'Sunday';
+
+	/// en: 'Doctor Availability'
+	String get doctorAvailability => 'Doctor Availability';
+
+	/// en: 'Working Days'
+	String get workingDays => 'Working Days';
+
+	/// en: '$count days enabled'
+	String daysEnabled({required Object count}) => '${count} days enabled';
+
+	/// en: 'Working Hours'
+	String get workingHours => 'Working Hours';
+
+	/// en: 'Start Time'
+	String get startTime => 'Start Time';
+
+	/// en: 'End Time'
+	String get endTime => 'End Time';
+
+	/// en: 'Slot Duration'
+	String get slotDuration => 'Slot Duration';
+
+	/// en: 'Save Availability'
+	String get saveAvailability => 'Save Availability';
+
+	/// en: 'Doctor availability updated successfully!'
+	String get availabilityUpdatedSuccessfully => 'Doctor availability updated successfully!';
+
+	/// en: 'At least one working day must be selected'
+	String get atLeastOneDayRequired => 'At least one working day must be selected';
+
+	/// en: 'Start time must be before end time'
+	String get startTimeMustBeBeforeEndTime => 'Start time must be before end time';
+
+	/// en: '$minutes Minutes'
+	String minutesDuration({required Object minutes}) => '${minutes} Minutes';
 }
 
 // Path: validations
@@ -720,6 +777,25 @@ extension on Translations {
 			'tapPhotoToChange' => 'Tap photo to change',
 			'doctorUpdatedSuccessfully' => 'Doctor updated successfully!',
 			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
+			'monday' => 'Monday',
+			'tuesday' => 'Tuesday',
+			'wednesday' => 'Wednesday',
+			'thursday' => 'Thursday',
+			'friday' => 'Friday',
+			'saturday' => 'Saturday',
+			'sunday' => 'Sunday',
+			'doctorAvailability' => 'Doctor Availability',
+			'workingDays' => 'Working Days',
+			'daysEnabled' => ({required Object count}) => '${count} days enabled',
+			'workingHours' => 'Working Hours',
+			'startTime' => 'Start Time',
+			'endTime' => 'End Time',
+			'slotDuration' => 'Slot Duration',
+			'saveAvailability' => 'Save Availability',
+			'availabilityUpdatedSuccessfully' => 'Doctor availability updated successfully!',
+			'atLeastOneDayRequired' => 'At least one working day must be selected',
+			'startTimeMustBeBeforeEndTime' => 'Start time must be before end time',
+			'minutesDuration' => ({required Object minutes}) => '${minutes} Minutes',
 			_ => null,
 		};
 	}

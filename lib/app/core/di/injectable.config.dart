@@ -18,6 +18,14 @@ import 'package:doctor_hunt/app/core/shared/services/storage_service.dart'
     as _i755;
 import 'package:doctor_hunt/app/core/shared/services/supabase_storage_service.dart'
     as _i155;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/data/repos/admin_doctor_availability_repo.dart'
+    as _i563;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/data/repos/admin_doctor_availability_repo_impl.dart'
+    as _i198;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/data/services/admin_doctor_availability_service.dart'
+    as _i562;
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/presentation/controller/doctor_availability_bloc/doctor_availability_bloc.dart'
+    as _i804;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/data/repos/admin_doctor_details_repo.dart'
     as _i648;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/data/services/admin_doctor_details_service.dart'
@@ -93,6 +101,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i208.UserLocalService>(
       () => _i208.UserLocalServiceImpl(gh<_i755.StorageService>()),
     );
+    gh.lazySingleton<_i562.AdminDoctorAvailabilityService>(
+      () =>
+          _i562.AdminDoctorAvailabilityServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i722.AuthService>(
       () => _i722.AuthServiceImpl(
         gh<_i454.SupabaseClient>(),
@@ -138,6 +150,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );
+    gh.lazySingleton<_i563.AdminDoctorAvailabilityRepo>(
+      () => _i198.AdminDoctorAvailabilityRepoImpl(
+        gh<_i562.AdminDoctorAvailabilityService>(),
+      ),
+    );
     gh.factory<_i1051.AdminDoctorDetailsBloc>(
       () => _i1051.AdminDoctorDetailsBloc(
         gh<_i648.AdminDoctorDetailsRepo>(),
@@ -156,6 +173,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i716.UserBloc>(
       () => _i716.UserBloc(gh<_i347.UserRepo>()),
+    );
+    gh.factory<_i804.DoctorAvailabilityBloc>(
+      () =>
+          _i804.DoctorAvailabilityBloc(gh<_i563.AdminDoctorAvailabilityRepo>()),
     );
     gh.factory<_i325.AdminDoctorsBloc>(
       () => _i325.AdminDoctorsBloc(

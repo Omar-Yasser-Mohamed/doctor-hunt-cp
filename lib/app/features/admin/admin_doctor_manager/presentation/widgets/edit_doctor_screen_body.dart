@@ -20,7 +20,6 @@ class EditDoctorScreenBody extends StatelessWidget {
         bottom: context.bottomPadding + 16,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           EditDoctorPhotoPicker(doctor: doctor),
 

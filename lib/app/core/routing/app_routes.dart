@@ -5,6 +5,8 @@ import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/presentation/controller/doctor_availability_bloc/doctor_availability_bloc.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/presentation/screens/admin_doctor_availability_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/controller/bloc/admin_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_details/presentation/screens/admin_doctor_details_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/controller/doctor_management_bloc/doctor_management_bloc.dart';
@@ -12,6 +14,7 @@ import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/screens/create_doctor_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_settings/presentation/screens/admin_settings_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
@@ -302,11 +305,7 @@ class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const AdminScaffold(
-        body: Center(
-          child: Text('Settings'),
-        ),
-      );
+      const AdminSettingsScreen();
 }
 
 @TypedGoRoute<AdminDoctorDetailsRoute>(path: '/adminDoctorDetails')
@@ -344,5 +343,22 @@ class EditDoctorRoute extends GoRouteData with $EditDoctorRoute {
   Widget build(BuildContext context, GoRouterState state) => BlocProvider(
     create: (context) => getIt<DoctorManagementBloc>(),
     child: EditDoctorScreen(doctor: $extra),
+  );
+}
+
+@TypedGoRoute<AdminDoctorAvailabilityRoute>(
+  path: '/adminDoctorAvailability',
+)
+class AdminDoctorAvailabilityRoute extends GoRouteData
+    with $AdminDoctorAvailabilityRoute {
+  const AdminDoctorAvailabilityRoute({required this.$extra});
+  final DoctorModel $extra;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) =>
+        getIt<DoctorAvailabilityBloc>()
+          ..add(GetDoctorAvailabilityEvent($extra.id)),
+    child: const AdminDoctorAvailabilityScreen(),
   );
 }

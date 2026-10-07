@@ -164,6 +164,25 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get tapPhotoToChange => 'اضغط لتغيير الصورة';
 	@override String get doctorUpdatedSuccessfully => 'تم تحديث بيانات الطبيب بنجاح!';
 	@override String get doctorDeletedSuccessfully => 'تم حذف الطبيب بنجاح!';
+	@override String get monday => 'الاثنين';
+	@override String get tuesday => 'الثلاثاء';
+	@override String get wednesday => 'الاربعاء';
+	@override String get thursday => 'الخميس';
+	@override String get friday => 'الجمعة';
+	@override String get saturday => 'السبت';
+	@override String get sunday => 'الاحد';
+	@override String get doctorAvailability => 'مواعيد عمل الطبيب';
+	@override String get workingDays => 'أيام العمل';
+	@override String daysEnabled({required Object count}) => '${count} أيام مفعلة';
+	@override String get workingHours => 'ساعات العمل';
+	@override String get startTime => 'وقت البدء';
+	@override String get endTime => 'وقت الانتهاء';
+	@override String get slotDuration => 'مدة الكشف';
+	@override String get saveAvailability => 'حفظ المواعيد';
+	@override String get availabilityUpdatedSuccessfully => 'تم تحديث مواعيد عمل الطبيب بنجاح!';
+	@override String get atLeastOneDayRequired => 'يجب اختيار يوم عمل واحد على الأقل';
+	@override String get startTimeMustBeBeforeEndTime => 'يجب أن يكون وقت البدء قبل وقت الانتهاء';
+	@override String minutesDuration({required Object minutes}) => '${minutes} دقيقة';
 }
 
 // Path: validations
@@ -392,6 +411,25 @@ extension on TranslationsAr {
 			'tapPhotoToChange' => 'اضغط لتغيير الصورة',
 			'doctorUpdatedSuccessfully' => 'تم تحديث بيانات الطبيب بنجاح!',
 			'doctorDeletedSuccessfully' => 'تم حذف الطبيب بنجاح!',
+			'monday' => 'الاثنين',
+			'tuesday' => 'الثلاثاء',
+			'wednesday' => 'الاربعاء',
+			'thursday' => 'الخميس',
+			'friday' => 'الجمعة',
+			'saturday' => 'السبت',
+			'sunday' => 'الاحد',
+			'doctorAvailability' => 'مواعيد عمل الطبيب',
+			'workingDays' => 'أيام العمل',
+			'daysEnabled' => ({required Object count}) => '${count} أيام مفعلة',
+			'workingHours' => 'ساعات العمل',
+			'startTime' => 'وقت البدء',
+			'endTime' => 'وقت الانتهاء',
+			'slotDuration' => 'مدة الكشف',
+			'saveAvailability' => 'حفظ المواعيد',
+			'availabilityUpdatedSuccessfully' => 'تم تحديث مواعيد عمل الطبيب بنجاح!',
+			'atLeastOneDayRequired' => 'يجب اختيار يوم عمل واحد على الأقل',
+			'startTimeMustBeBeforeEndTime' => 'يجب أن يكون وقت البدء قبل وقت الانتهاء',
+			'minutesDuration' => ({required Object minutes}) => '${minutes} دقيقة',
 			_ => null,
 		};
 	}

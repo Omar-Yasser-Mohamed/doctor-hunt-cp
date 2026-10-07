@@ -14,14 +14,19 @@ class AdminDoctorsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLoadingMore = context.watch<AdminDoctorsBloc>().state is AdminDoctorsPaginationLoading;
+    final isLoadingMore =
+        context.watch<AdminDoctorsBloc>().state
+            is AdminDoctorsPaginationLoading;
     return SliverList.builder(
       itemCount: doctors.length + (isLoadingMore ? 1 : 0),
       itemBuilder: (context, index) {
-        if(isLoadingMore && index == doctors.length){
+        if (isLoadingMore && index == doctors.length) {
           return const AdminDoctorCardShimmer();
         }
-        return AdminDoctorCard(doctor: doctors[index]);
+        return AdminDoctorCard(
+          key: ValueKey(doctors[index].id),
+          doctor: doctors[index],
+        );
       },
     );
   }

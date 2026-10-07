@@ -227,7 +227,7 @@ class _AdminDoctorsFiltersShimmer extends StatelessWidget {
 class AdminDoctorsListSliverShimmer extends StatelessWidget {
   const AdminDoctorsListSliverShimmer({
     super.key,
-    this.itemCount = 3,
+    this.itemCount = 5,
   });
 
   final int itemCount;

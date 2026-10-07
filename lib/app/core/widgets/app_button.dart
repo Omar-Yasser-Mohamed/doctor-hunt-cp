@@ -18,6 +18,7 @@ class AppButton extends StatelessWidget {
     this.backgroundColor,
     this.shape,
     this.indicatorColor,
+    this.isDisabled = false,
   });
   final String text;
   final Widget? child;
@@ -30,11 +31,12 @@ class AppButton extends StatelessWidget {
   final Color? backgroundColor;
   final OutlinedBorder? shape;
   final Color? indicatorColor;
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
+      onPressed: isLoading || isDisabled ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor ?? AppColors.primary,
         disabledBackgroundColor: backgroundColor != null
@@ -47,6 +49,7 @@ class AppButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(radius ?? 12.r),
             ),
         elevation: 0,
+        shadowColor: Colors.transparent,
         minimumSize: Size(width ?? context.screenWidth, height ?? 54.h),
       ),
       child: AnimatedSwitcher(

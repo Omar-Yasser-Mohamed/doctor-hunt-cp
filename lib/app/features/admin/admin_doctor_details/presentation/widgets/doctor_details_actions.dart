@@ -53,7 +53,7 @@ class DoctorDetailsActions extends StatelessWidget {
           backgroundColor: AppColors.white,
           borderColor: AppColors.borderGreenSoft,
           onPressed: () {
-            // Manage availability action
+            AdminDoctorAvailabilityRoute($extra: doctor).push(context);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
