@@ -12,11 +12,19 @@ class ProfileImage extends StatelessWidget {
     this.imageUrl,
     required this.name,
     this.avatarTextStyle,
+    this.backgroundColor,
+    this.boxShadow,
+    this.decoration,
+    this.border,
   });
   final String name;
   final String? imageUrl;
   final double? size;
   final TextStyle? avatarTextStyle;
+  final Color? backgroundColor;
+  final List<BoxShadow>? boxShadow;
+  final Decoration? decoration;
+  final BoxBorder? border;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +32,13 @@ class ProfileImage extends StatelessWidget {
       height: size ?? 36.w,
       width: size ?? 36.w,
       alignment: Alignment.center,
-      decoration: const BoxDecoration(
-        color: AppColors.primary,
-        shape: BoxShape.circle,
-      ),
+      decoration: decoration ??
+          BoxDecoration(
+            color: backgroundColor ?? AppColors.primary,
+            shape: BoxShape.circle,
+            border: border,
+            boxShadow: boxShadow,
+          ),
       child: imageUrl != null
           ? CustomNetworkImage(
               imageUrl: imageUrl!,

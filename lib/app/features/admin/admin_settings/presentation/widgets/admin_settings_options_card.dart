@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/features/admin/admin_settings/presentation/widgets/admin_settings_option_tile.dart';
@@ -39,7 +40,7 @@ class AdminSettingsOptionsCard extends StatelessWidget {
             icon: Icons.manage_accounts_outlined,
             title: t.adminProfile,
             subtitle: t.adminProfileSubtitle,
-            onTap: () {},
+            onTap: () => const AdminEditProfileRoute().push(context),
           ),
 
           _buildDivider(),

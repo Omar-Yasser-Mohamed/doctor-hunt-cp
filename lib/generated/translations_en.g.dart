@@ -216,11 +216,11 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Live Doctors'
 	String get liveDoctors => 'Live Doctors';
 
-	/// en: 'Popular Doctor'
-	String get popularDoctor => 'Popular Doctor';
+	/// en: 'Popular Doctors'
+	String get popularDoctors => 'Popular Doctors';
 
-	/// en: 'Feature Doctor'
-	String get featureDoctor => 'Feature Doctor';
+	/// en: 'Top Rated Doctors'
+	String get topRatedDoctors => 'Top Rated Doctors';
 
 	/// en: 'See All'
 	String get seeAll => 'See All';
@@ -503,6 +503,42 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Logout'
 	String get logout => 'Logout';
+
+	/// en: 'Log Out'
+	String get logOut => 'Log Out';
+
+	/// en: 'Edit Profile'
+	String get editProfile => 'Edit Profile';
+
+	/// en: 'Full Name'
+	String get fullName => 'Full Name';
+
+	/// en: 'Email Address'
+	String get emailAddress => 'Email Address';
+
+	/// en: 'Clinic Location'
+	String get clinicLocation => 'Clinic Location';
+
+	/// en: 'Ok'
+	String get ok => 'Ok';
+
+	/// en: 'Are you sure you want to logout?'
+	String get logoutConfirmationMessage => 'Are you sure you want to logout?';
+
+	/// en: 'Home'
+	String get home => 'Home';
+
+	/// en: 'Favorites'
+	String get favorites => 'Favorites';
+
+	/// en: 'My Appointments'
+	String get myAppointments => 'My Appointments';
+
+	/// en: 'Specialist'
+	String get Specialist => 'Specialist';
+
+	/// en: 'We couldn't find any doctors matching your search. Try searching with a different name or specialty.'
+	String get noDoctorsSearchDescription => 'We couldn\'t find any doctors matching your search. Try searching with a different name or specialty.';
 }
 
 // Path: validations
@@ -740,8 +776,8 @@ extension on Translations {
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',
-			'popularDoctor' => 'Popular Doctor',
-			'featureDoctor' => 'Feature Doctor',
+			'popularDoctors' => 'Popular Doctors',
+			'topRatedDoctors' => 'Top Rated Doctors',
 			'seeAll' => 'See All',
 			'doctorDetails' => 'Doctor Details',
 			'runing' => 'Runing',
@@ -836,6 +872,18 @@ extension on Translations {
 			'appInformation' => 'App Information',
 			'buildVersion' => 'Build version',
 			'logout' => 'Logout',
+			'logOut' => 'Log Out',
+			'editProfile' => 'Edit Profile',
+			'fullName' => 'Full Name',
+			'emailAddress' => 'Email Address',
+			'clinicLocation' => 'Clinic Location',
+			'ok' => 'Ok',
+			'logoutConfirmationMessage' => 'Are you sure you want to logout?',
+			'home' => 'Home',
+			'favorites' => 'Favorites',
+			'myAppointments' => 'My Appointments',
+			'Specialist' => 'Specialist',
+			'noDoctorsSearchDescription' => 'We couldn\'t find any doctors matching your search. Try searching with a different name or specialty.',
 			_ => null,
 		};
 	}

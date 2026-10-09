@@ -13,4 +13,9 @@ abstract final class AppIcons {
   static const homeFill = "${_path}home_fill.svg";
   static const homeOutline = "${_path}home_outline.svg";
   static const favorite = "${_path}favorite.svg";
+  static const drawerprofile = "${_path}drawer_profile.svg";
+  static const drawerFavorite = "${_path}drawer_favorite.svg";
+  static const drawerAppointments = "${_path}drawer_appointments.svg";
+  static const drawerSettings = "${_path}drawer_settings.svg";
+  static const logout = "${_path}logout.svg";
 }

@@ -17,6 +17,7 @@ abstract class AuthService {
   Future<void> verifyOtp(String email, String otp);
   Future<void> resetPassword(String password);
   Future<CurrentUserModel> getCurrentUserProfile();
+  Future<void> logout();
 }
 
 @LazySingleton(as: AuthService)
@@ -138,5 +139,10 @@ class AuthServiceImpl implements AuthService {
     final admin = adminJson == null ? null : AdminModel.fromJson(adminJson);
 
     return CurrentUserModel(user: user, admin: admin);
+  }
+
+  @override
+  Future<void> logout() async {
+    await _supabase.auth.signOut();
   }
 }

@@ -17,7 +17,7 @@ abstract final class AppColors {
 
   static const Color border = Color(0xFFF1F5F9);
   static const Color borderGreenSoft = Color(0xFFD1FAE5);
-  
+
   static const Color danger = Color(0xFFBA1A1A);
   static const Color dangerLight = Color(0xFFFEE2E2);
 
@@ -29,7 +29,7 @@ abstract final class AppColors {
 
   static const Color inactive = Color(0xFFF15B5D);
   static const Color inactiveLight = Color(0xFFFFF0F0);
-  
+
   static const Color activeLight = Color(0xFFE8F8F3);
 
   static const Color white = Color(0xFFFFFFFF);
@@ -88,4 +88,9 @@ abstract final class AppColors {
     dermatology,
     dermatologyLight,
   ];
+
+  // drawer colors
+  static const Color drawerPrimary = Color(0xFF6F7FA1);
+  static const Color drawerSecondary = Color(0xFF536184);
+  static const List<Color> drawerColors = [drawerPrimary, drawerSecondary];
 }

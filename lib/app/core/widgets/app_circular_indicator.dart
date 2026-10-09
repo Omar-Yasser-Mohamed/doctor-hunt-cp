@@ -6,16 +6,22 @@ class AppCircularIndicator extends StatelessWidget {
     super.key,
     this.color,
     this.strokeWidth,
+    this.size,
   });
   final Color? color;
   final double? strokeWidth;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(
-        color: color ?? AppColors.primary,
-        strokeWidth: strokeWidth ?? 2,
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: CircularProgressIndicator(
+          color: color ?? AppColors.primary,
+          strokeWidth: strokeWidth ?? 2,
+        ),
       ),
     );
   }

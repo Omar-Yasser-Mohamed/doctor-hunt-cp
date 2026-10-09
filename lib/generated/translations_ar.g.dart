@@ -99,8 +99,8 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get findYourDoctor => 'ابحث عن طبيبك';
 	@override String get seeAll => 'عرض الكل';
 	@override String get liveDoctors => 'أطباء مباشرون';
-	@override String get popularDoctor => 'أطباء مشهورون';
-	@override String get featureDoctor => 'أطباء مميزون';
+	@override String get popularDoctors => 'أطباء مشهورون';
+	@override String get topRatedDoctors => 'الأطباء الأعلى تقييمًا';
 	@override String get doctorDetails => 'تفاصيل الطبيب';
 	@override String get runing => 'مباشر';
 	@override String get ongoing => 'مستمر';
@@ -194,6 +194,18 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get appInformation => 'معلومات التطبيق';
 	@override String get buildVersion => 'إصدار التطبيق';
 	@override String get logout => 'تسجيل الخروج';
+	@override String get logOut => 'تسجيل الخروج';
+	@override String get editProfile => 'تعديل الملف الشخصي';
+	@override String get fullName => 'الاسم بالكامل';
+	@override String get emailAddress => 'البريد الإلكتروني';
+	@override String get clinicLocation => 'موقع العيادة';
+	@override String get ok => 'موافق';
+	@override String get logoutConfirmationMessage => 'هل أنت متأكد من رغبتك في تسجيل الخروج؟';
+	@override String get home => 'الرئيسية';
+	@override String get favorites => 'المفضلة';
+	@override String get myAppointments => 'المواعيد الخاصة بي';
+	@override String get Specialist => 'أخصائي';
+	@override String get noDoctorsSearchDescription => 'لم نتمكن من العثور على أي أطباء يطابقون بحثك. حاول البحث باسم أو تخصص آخر.';
 }
 
 // Path: validations
@@ -356,8 +368,8 @@ extension on TranslationsAr {
 			'findYourDoctor' => 'ابحث عن طبيبك',
 			'seeAll' => 'عرض الكل',
 			'liveDoctors' => 'أطباء مباشرون',
-			'popularDoctor' => 'أطباء مشهورون',
-			'featureDoctor' => 'أطباء مميزون',
+			'popularDoctors' => 'أطباء مشهورون',
+			'topRatedDoctors' => 'الأطباء الأعلى تقييمًا',
 			'doctorDetails' => 'تفاصيل الطبيب',
 			'runing' => 'مباشر',
 			'ongoing' => 'مستمر',
@@ -451,6 +463,18 @@ extension on TranslationsAr {
 			'appInformation' => 'معلومات التطبيق',
 			'buildVersion' => 'إصدار التطبيق',
 			'logout' => 'تسجيل الخروج',
+			'logOut' => 'تسجيل الخروج',
+			'editProfile' => 'تعديل الملف الشخصي',
+			'fullName' => 'الاسم بالكامل',
+			'emailAddress' => 'البريد الإلكتروني',
+			'clinicLocation' => 'موقع العيادة',
+			'ok' => 'موافق',
+			'logoutConfirmationMessage' => 'هل أنت متأكد من رغبتك في تسجيل الخروج؟',
+			'home' => 'الرئيسية',
+			'favorites' => 'المفضلة',
+			'myAppointments' => 'المواعيد الخاصة بي',
+			'Specialist' => 'أخصائي',
+			'noDoctorsSearchDescription' => 'لم نتمكن من العثور على أي أطباء يطابقون بحثك. حاول البحث باسم أو تخصص آخر.',
 			_ => null,
 		};
 	}

@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/shared/enums/doctor_specialty.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/params/doctors_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,41 +29,51 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80.w,
-      decoration: BoxDecoration(
-        gradient: specialty.linarGradient,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            right: -33.w,
-            child: _notice(size: 67.w, alpha: 0.08),
+    return GestureDetector(
+      onTap: () {
+        PatientDoctorsListRoute(
+          $extra: DoctorsFilter(
+            category: specialty,
+            type: DoctorsListType.category,
           ),
-          Positioned(
-            bottom: -30.h,
-            child: _notice(size: 80.w, alpha: 0.06),
-          ),
+        ).push(context);
+      },
+      child: Container(
+        width: 80.w,
+        decoration: BoxDecoration(
+          gradient: specialty.linarGradient,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              right: -33.w,
+              child: _notice(size: 67.w, alpha: 0.08),
+            ),
+            Positioned(
+              bottom: -30.h,
+              child: _notice(size: 80.w, alpha: 0.06),
+            ),
 
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: SvgPicture.asset(
-              specialty.svgIcon,
-              width: 34.w,
-              height: 34.h,
-              fit: BoxFit.scaleDown,
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: SvgPicture.asset(
+                specialty.svgIcon,
+                width: 34.w,
+                height: 34.h,
+                fit: BoxFit.scaleDown,
+                colorFilter: const ColorFilter.mode(
+                  Colors.white,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

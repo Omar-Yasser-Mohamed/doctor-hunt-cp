@@ -48,6 +48,8 @@ import 'package:doctor_hunt/app/features/admin/admin_doctors/data/services/admin
     as _i154;
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart'
     as _i325;
+import 'package:doctor_hunt/app/features/admin/admin_profile/data/services/admin_profile_service.dart'
+    as _i561;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart'
     as _i619;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart'
@@ -60,6 +62,8 @@ import 'package:doctor_hunt/app/features/common/auth/presentation/controller/goo
     as _i1039;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart'
     as _i672;
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/logout_bloc/logout_bloc.dart'
+    as _i357;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart'
     as _i525;
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/controller/choose_role_bloc/choose_role_bloc.dart'
@@ -72,6 +76,16 @@ import 'package:doctor_hunt/app/features/common/user/data/services/user_local_se
     as _i208;
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart'
     as _i716;
+import 'package:doctor_hunt/app/features/patient/patient_home/data/repos/patient_home_repo.dart'
+    as _i356;
+import 'package:doctor_hunt/app/features/patient/patient_home/data/repos/patient_home_repo_impl.dart'
+    as _i906;
+import 'package:doctor_hunt/app/features/patient/patient_home/data/services/patient_home_service.dart'
+    as _i756;
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_doctors_list_bloc/patient_doctors_list_bloc.dart'
+    as _i461;
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart'
+    as _i656;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
 import 'package:image_picker/image_picker.dart' as _i183;
@@ -94,6 +108,15 @@ extension GetItInjectableX on _i174.GetIt {
     await gh.lazySingletonAsync<_i755.StorageService>(
       () => _i755.StorageService.create(),
       preResolve: true,
+    );
+    gh.lazySingleton<_i756.PatientHomeService>(
+      () => _i756.PatientHomeServiceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i561.AdminProfileService>(
+      () => _i561.AdminProfileServiceImpl(),
+    );
+    gh.lazySingleton<_i356.PatientHomeRepo>(
+      () => _i906.PatientHomeRepoImpl(gh<_i756.PatientHomeService>()),
     );
     gh.lazySingleton<_i636.AdminDoctorDetailsService>(
       () => _i636.AdminDoctorDetailsServiceImpl(gh<_i454.SupabaseClient>()),
@@ -135,10 +158,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i347.UserRepo>(
       () => _i597.UserRepoImpl(gh<_i208.UserLocalService>()),
     );
+    gh.factory<_i656.PatientHomeBloc>(
+      () => _i656.PatientHomeBloc(gh<_i356.PatientHomeRepo>()),
+    );
     gh.lazySingleton<_i648.AdminDoctorDetailsRepo>(
       () => _i648.AdminDoctorDetailsRepoImpl(
         gh<_i636.AdminDoctorDetailsService>(),
       ),
+    );
+    gh.factory<_i461.PatientDoctorsListBloc>(
+      () => _i461.PatientDoctorsListBloc(gh<_i356.PatientHomeRepo>()),
     );
     gh.factory<_i378.ForgetPasswordBloc>(
       () => _i378.ForgetPasswordBloc(gh<_i619.AuthRepo>()),
@@ -147,6 +176,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i1039.GoogleBloc(gh<_i619.AuthRepo>()),
     );
     gh.factory<_i672.LoginBloc>(() => _i672.LoginBloc(gh<_i619.AuthRepo>()));
+    gh.factory<_i357.LogoutBloc>(() => _i357.LogoutBloc(gh<_i619.AuthRepo>()));
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );

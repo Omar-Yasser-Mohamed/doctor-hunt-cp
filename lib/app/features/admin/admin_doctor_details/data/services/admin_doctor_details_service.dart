@@ -13,10 +13,11 @@ class AdminDoctorDetailsServiceImpl implements AdminDoctorDetailsService {
   final SupabaseClient _supabaseClient;
 
   @override
-  Future<DoctorModel> getDoctorDetails({required String doctorId}) async{
+  Future<DoctorModel> getDoctorDetails({required String doctorId}) async {
+    final adminId = _supabaseClient.auth.currentUser?.id;
     final response = await _supabaseClient
         .from(SupabaseConstants.doctorsTable)
-        .select()
+        .select('*, admins (*)')
         .eq('id', doctorId)
         .single();
     return DoctorModel.fromJson(response);

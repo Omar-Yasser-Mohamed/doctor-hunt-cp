@@ -52,7 +52,7 @@ final class DoctorManagementServiceImpl implements DoctorManagementService {
     UpdateDoctorRequest request,
   ) async {
     final Map<String, dynamic> body = {'doctor_id': request.id};
-    if (request.name != null) body['name'] = request.name!;
+    if (request.name != null) body['name'] = request.name;
     if (request.specialty != null) body['specialty'] = request.specialty!.name;
     if (request.fees != null) body['fees'] = request.fees;
     if (request.isActive != null) body['is_active'] = request.isActive;

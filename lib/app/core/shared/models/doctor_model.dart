@@ -49,8 +49,8 @@ class DoctorModel extends Equatable {
       reviewsCount: (json['reviews_count'] as num?)?.toInt() ?? 0,
       rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
       createdAt: DateTime.parse(json['created_at'] as String),
-      admin: json['admin'] != null
-          ? AdminModel.fromJson(json['admin'] as Map<String, dynamic>)
+      admin: json['admins'] != null
+          ? AdminModel.fromJson(json['admins'] as Map<String, dynamic>)
           : null,
     );
   }

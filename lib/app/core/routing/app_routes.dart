@@ -14,9 +14,11 @@ import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/screens/create_doctor_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/screens/admin_edit_profile_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_settings/presentation/screens/admin_settings_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/logout_bloc/logout_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/register_screen.dart';
@@ -24,10 +26,14 @@ import 'package:doctor_hunt/app/features/common/choose_role/presentation/control
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/screens/choose_role_screen.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
-import 'package:doctor_hunt/app/features/patient/appointment/presentation/screens/patient_appointment_screen.dart';
-import 'package:doctor_hunt/app/features/patient/doctor_details/presentation/screens/patient_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointment/presentation/screens/patient_appointment_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/screens/patient_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_doctors_list_bloc/patient_doctors_list_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/params/doctors_filter.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_doctors_list_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_home_screen.dart';
-import 'package:doctor_hunt/app/features/patient/search/presentation/screens/patient_find_doctors_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/screens/patient_find_doctors_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -133,7 +139,11 @@ class PatientShellRouteData extends StatefulShellRouteData {
     GoRouterState state,
     StatefulNavigationShell navigationShell,
   ) {
-    return PatientNavBar(navigationShell: navigationShell);
+    return BlocProvider(
+      create: (context) =>
+          getIt<PatientHomeBloc>()..add(const GetHomeDoctors()),
+      child: PatientNavBar(navigationShell: navigationShell),
+    );
   }
 }
 
@@ -231,6 +241,22 @@ class PatientAppointmentRoute extends GoRouteData
       const PatientAppointmentScreen();
 }
 
+@TypedGoRoute<PatientDoctorsListRoute>(
+  path: '/patientDoctorsList',
+)
+class PatientDoctorsListRoute extends GoRouteData
+    with $PatientDoctorsListRoute {
+  const PatientDoctorsListRoute({required this.$extra});
+  final DoctorsFilter $extra;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<PatientDoctorsListBloc>()
+      ..add(GetDoctorsList(doctorsFilter: $extra)),
+    child: const PatientDoctorsListScreen(),
+  );
+}
+
 /// Admin Routes
 @TypedStatefulShellRoute<AdminShellRouteData>(
   branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
@@ -304,8 +330,10 @@ class AdminSettingsRoute extends GoRouteData with $AdminSettingsRoute {
   const AdminSettingsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const AdminSettingsScreen();
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<LogoutBloc>(),
+    child: const AdminSettingsScreen(),
+  );
 }
 
 @TypedGoRoute<AdminDoctorDetailsRoute>(path: '/adminDoctorDetails')
@@ -361,4 +389,13 @@ class AdminDoctorAvailabilityRoute extends GoRouteData
           ..add(GetDoctorAvailabilityEvent($extra.id)),
     child: const AdminDoctorAvailabilityScreen(),
   );
+}
+
+@TypedGoRoute<AdminEditProfileRoute>(path: '/adminEditProfile')
+class AdminEditProfileRoute extends GoRouteData with $AdminEditProfileRoute {
+  const AdminEditProfileRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AdminEditProfileScreen();
 }

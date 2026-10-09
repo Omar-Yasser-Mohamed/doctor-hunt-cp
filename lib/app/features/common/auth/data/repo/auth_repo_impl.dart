@@ -77,4 +77,15 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ErrorHandler.handle(e));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> logout() async {
+    try {
+      await _authService.logout();
+      await userLocalService.removeUser();
+      return const Right(null);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e));
+    }
+  }
 }
