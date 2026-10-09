@@ -206,6 +206,9 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get myAppointments => 'المواعيد الخاصة بي';
 	@override String get Specialist => 'أخصائي';
 	@override String get noDoctorsSearchDescription => 'لم نتمكن من العثور على أي أطباء يطابقون بحثك. حاول البحث باسم أو تخصص آخر.';
+	@override String get startSearchTitle => 'ابحث عن طبيبك';
+	@override String get startSearchDescription => 'ابحث بالاسم للعثور على الطبيب المناسب لك.';
+	@override String get noSearchResultsDescription => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.';
 }
 
 // Path: validations
@@ -475,6 +478,9 @@ extension on TranslationsAr {
 			'myAppointments' => 'المواعيد الخاصة بي',
 			'Specialist' => 'أخصائي',
 			'noDoctorsSearchDescription' => 'لم نتمكن من العثور على أي أطباء يطابقون بحثك. حاول البحث باسم أو تخصص آخر.',
+			'startSearchTitle' => 'ابحث عن طبيبك',
+			'startSearchDescription' => 'ابحث بالاسم للعثور على الطبيب المناسب لك.',
+			'noSearchResultsDescription' => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.',
 			_ => null,
 		};
 	}

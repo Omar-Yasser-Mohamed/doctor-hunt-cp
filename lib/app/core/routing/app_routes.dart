@@ -27,7 +27,9 @@ import 'package:doctor_hunt/app/features/common/choose_role/presentation/screens
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_appointment/presentation/screens/patient_appointment_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/screens/patient_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/controller/find_doctors_bloc/find_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_doctors_list_bloc/patient_doctors_list_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/params/doctors_filter.dart';
@@ -210,11 +212,16 @@ class PatientSettingsRoute extends GoRouteData with $PatientSettingsRoute {
 )
 class PatientDoctorDetailsRoute extends GoRouteData
     with $PatientDoctorDetailsRoute {
-  const PatientDoctorDetailsRoute();
+  const PatientDoctorDetailsRoute({required this.$extra});
+  final String $extra;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const PatientDoctorDetailsScreen();
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) =>
+        getIt<PatientDoctorDetailsBloc>()
+          ..add(GetPatientDoctorDetailsEvent(doctorId: $extra)),
+    child: const PatientDoctorDetailsScreen(),
+  );
 }
 
 @TypedGoRoute<PatientFindDoctorsRoute>(
@@ -225,8 +232,10 @@ class PatientFindDoctorsRoute extends GoRouteData
   const PatientFindDoctorsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const PatientFindDoctorsScreen();
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<FindDoctorsBloc>(),
+    child: const PatientFindDoctorsScreen(),
+  );
 }
 
 @TypedGoRoute<PatientAppointmentRoute>(
@@ -251,8 +260,9 @@ class PatientDoctorsListRoute extends GoRouteData
 
   @override
   Widget build(BuildContext context, GoRouterState state) => BlocProvider(
-    create: (context) => getIt<PatientDoctorsListBloc>()
-      ..add(GetDoctorsList(doctorsFilter: $extra)),
+    create: (context) =>
+        getIt<PatientDoctorsListBloc>()
+          ..add(GetDoctorsList(doctorsFilter: $extra)),
     child: const PatientDoctorsListScreen(),
   );
 }

@@ -539,6 +539,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'We couldn't find any doctors matching your search. Try searching with a different name or specialty.'
 	String get noDoctorsSearchDescription => 'We couldn\'t find any doctors matching your search. Try searching with a different name or specialty.';
+
+	/// en: 'Find Your Doctor'
+	String get startSearchTitle => 'Find Your Doctor';
+
+	/// en: 'Search by name to find the right doctor for you.'
+	String get startSearchDescription => 'Search by name to find the right doctor for you.';
+
+	/// en: 'No results found. Try a different name.'
+	String get noSearchResultsDescription => 'No results found. Try a different name.';
 }
 
 // Path: validations
@@ -884,6 +893,9 @@ extension on Translations {
 			'myAppointments' => 'My Appointments',
 			'Specialist' => 'Specialist',
 			'noDoctorsSearchDescription' => 'We couldn\'t find any doctors matching your search. Try searching with a different name or specialty.',
+			'startSearchTitle' => 'Find Your Doctor',
+			'startSearchDescription' => 'Search by name to find the right doctor for you.',
+			'noSearchResultsDescription' => 'No results found. Try a different name.',
 			_ => null,
 		};
 	}

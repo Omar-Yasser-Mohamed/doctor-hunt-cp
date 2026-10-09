@@ -306,23 +306,27 @@ RouteBase get $patientDoctorDetailsRoute => GoRouteData.$route(
 
 mixin $PatientDoctorDetailsRoute on GoRouteData {
   static PatientDoctorDetailsRoute _fromState(GoRouterState state) =>
-      const PatientDoctorDetailsRoute();
+      PatientDoctorDetailsRoute($extra: state.extra as String);
+
+  PatientDoctorDetailsRoute get _self => this as PatientDoctorDetailsRoute;
 
   @override
   String get location => GoRouteData.$location('/patientDoctorDetails');
 
   @override
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
   @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: _self.$extra);
 
   @override
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
 }
 
 RouteBase get $patientFindDoctorsRoute => GoRouteData.$route(

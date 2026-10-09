@@ -77,7 +77,7 @@ class PopularDoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        const PatientDoctorDetailsRoute().push(context);
+        PatientDoctorDetailsRoute($extra: doctor.id).push(context);
       },
       child: Container(
         width: 190.w,

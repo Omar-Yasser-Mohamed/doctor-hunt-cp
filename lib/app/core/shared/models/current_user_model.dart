@@ -19,7 +19,7 @@ class CurrentUserModel extends Equatable {
     return CurrentUserModel(
       user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       admin: json['admin'] != null
-          ? AdminModel.fromJson(json['admin'] as Map<String, dynamic>)
+          ? AdminModel.fromJson(json['admins'] as Map<String, dynamic>)
           : null,
     );
   }

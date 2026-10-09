@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/widgets/find_doctors_search_bar.dart';
-import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/widgets/patient_find_doctors_list_view.dart';
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/widgets/patient_find_doctors_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class PatientFindDoctorsScreenBody extends StatelessWidget {
@@ -16,7 +16,7 @@ class PatientFindDoctorsScreenBody extends StatelessWidget {
 
         8.height,
 
-        const Expanded(child: PatientFindDoctorsListView()),
+        const Expanded(child: PatientFindDoctorsBlocBuilder()),
       ],
     );
   }

@@ -23,7 +23,7 @@ class _DoctorCardState extends State<DoctorCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        const PatientDoctorDetailsRoute().push(context);
+        PatientDoctorDetailsRoute($extra: widget.doctor.id).push(context);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),

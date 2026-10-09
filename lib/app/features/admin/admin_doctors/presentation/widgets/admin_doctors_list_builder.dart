@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/widgets/admin_doctors_list_view.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/widgets/admin_doctors_shimmer.dart';
@@ -11,7 +12,12 @@ class AdminDoctorsListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminDoctorsBloc, AdminDoctorsState>(
+    return BlocConsumer<AdminDoctorsBloc, AdminDoctorsState>(
+      listener: (context, state) {
+        if (state is AdminDoctorsPaginationFailure) {
+          AppToasts.showError(context, state.failure.message);
+        }
+      },
       builder: (context, state) {
         if (state is AdminDoctorsSuccess ||
             state is AdminDoctorsPaginationFailure ||

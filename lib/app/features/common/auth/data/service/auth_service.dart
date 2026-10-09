@@ -120,15 +120,7 @@ class AuthServiceImpl implements AuthService {
 
     final response = await _supabase
         .from(SupabaseConstants.usersTable)
-        .select('''
-          *,
-          admins (
-            user_id,
-            address,
-            latitude,
-            longitude
-          )
-        ''')
+        .select('*, admins (*)')
         .eq('id', authUser.id)
         .single();
 

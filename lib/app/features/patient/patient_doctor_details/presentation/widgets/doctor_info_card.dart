@@ -1,16 +1,18 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorInfoCard extends StatefulWidget {
-  const DoctorInfoCard({super.key});
+  const DoctorInfoCard({super.key, required this.doctor});
+  final DoctorModel doctor;
 
   @override
   State<DoctorInfoCard> createState() => _DoctorInfoCardState();
@@ -37,15 +39,13 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
         children: [
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.r),
-                child: Image.asset(
-                  AppImages.doctorTest,
+              if (widget.doctor.photo != null)
+                CustomNetworkImage(
+                  imageUrl: widget.doctor.photo!,
                   height: 86.h,
                   width: 88.w,
-                  fit: BoxFit.cover,
+                  radius: 8.r,
                 ),
-              ),
 
               12.width,
 
@@ -58,7 +58,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
                       children: [
                         Expanded(
                           child: Text(
-                            "Dr. Pediatrician",
+                            widget.doctor.name,
                             style: context.medium18TextMain,
                           ),
                         ),
@@ -86,7 +86,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
                     4.height,
 
                     Text(
-                      "Specialist Cardiologist",
+                      "${t.Specialist} ${widget.doctor.specialty.title}",
                       style: context.light14TextSub,
                     ),
 
@@ -94,8 +94,8 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
 
                     Row(
                       children: [
-                        const DynamicRatingStars(
-                          rating: 4,
+                        DynamicRatingStars(
+                          rating: widget.doctor.rating,
                           size: 20,
                         ),
 
@@ -111,7 +111,7 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
                                   style: context.medium16Primary,
                                 ),
                                 TextSpan(
-                                  text: "25,00/ ${t.hour}",
+                                  text: "${widget.doctor.fees}/ ${t.hour}",
                                   style: context.light16TextSub,
                                 ),
                               ],

@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
 import 'package:doctor_hunt/app/core/widgets/app_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
@@ -15,7 +16,12 @@ class PatientHomeScreen extends StatelessWidget {
     return AppScaffold(
       topPos: 100.h,
       bottomPos: 10.h,
-      child: BlocBuilder<PatientHomeBloc, PatientHomeState>(
+      child: BlocConsumer<PatientHomeBloc, PatientHomeState>(
+        listener: (context, state) {
+          if (state is PatientHomePaginationFailure) {
+            AppToasts.showError(context, state.failure.message);
+          }
+        },
         builder: (context, state) {
           final bloc = context.read<PatientHomeBloc>();
           if (state is PatientHomeSuccess ||

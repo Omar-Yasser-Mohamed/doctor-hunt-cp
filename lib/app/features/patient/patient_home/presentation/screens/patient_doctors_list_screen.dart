@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
+import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
 import 'package:doctor_hunt/app/core/widgets/app_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/doctors_empty_state.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
@@ -19,7 +20,12 @@ class PatientDoctorsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBar: const PatientDoctorsListAppBar(),
-      child: BlocBuilder<PatientDoctorsListBloc, PatientDoctorsListState>(
+      child: BlocConsumer<PatientDoctorsListBloc, PatientDoctorsListState>(
+        listener: (context, state) {
+          if (state is PatientDoctorsListPaginationFailure) {
+            AppToasts.showError(context, state.failure.message);
+          }
+        },
         builder: (context, state) {
           final bloc = context.read<PatientDoctorsListBloc>();
           if (state is PatientDoctorsListSuccess ||

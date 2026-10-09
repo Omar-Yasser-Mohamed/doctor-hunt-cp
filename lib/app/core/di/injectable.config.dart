@@ -53,7 +53,7 @@ import 'package:doctor_hunt/app/features/admin/admin_profile/data/services/admin
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart'
     as _i619;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart'
-    as _i409;
+    as _i410;
 import 'package:doctor_hunt/app/features/common/auth/data/service/auth_service.dart'
     as _i722;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart'
@@ -76,6 +76,22 @@ import 'package:doctor_hunt/app/features/common/user/data/services/user_local_se
     as _i208;
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart'
     as _i716;
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/repos/patient_doctor_details_repo.dart'
+    as _i409;
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/repos/patient_doctor_details_repo_impl.dart'
+    as _i717;
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/services/patient_doctor_details_service.dart'
+    as _i307;
+import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart'
+    as _i36;
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/data/repo/patient_find_doctors_repo.dart'
+    as _i418;
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/data/repo/patient_find_doctors_repo_impl.dart'
+    as _i978;
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/data/service/patient_find_doctors_service.dart'
+    as _i739;
+import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/controller/find_doctors_bloc/find_doctors_bloc.dart'
+    as _i681;
 import 'package:doctor_hunt/app/features/patient/patient_home/data/repos/patient_home_repo.dart'
     as _i356;
 import 'package:doctor_hunt/app/features/patient/patient_home/data/repos/patient_home_repo_impl.dart'
@@ -115,6 +131,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i561.AdminProfileService>(
       () => _i561.AdminProfileServiceImpl(),
     );
+    gh.lazySingleton<_i307.PatientDoctorDetailsService>(
+      () => _i307.PatientDoctorDetailsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i356.PatientHomeRepo>(
       () => _i906.PatientHomeRepoImpl(gh<_i756.PatientHomeService>()),
     );
@@ -127,6 +146,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i562.AdminDoctorAvailabilityService>(
       () =>
           _i562.AdminDoctorAvailabilityServiceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i739.PatientFindDoctorsService>(
+      () => _i739.PatientFindDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
     );
     gh.lazySingleton<_i722.AuthService>(
       () => _i722.AuthServiceImpl(
@@ -143,14 +165,24 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i40.DoctorManagementService>(
       () => _i40.DoctorManagementServiceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i409.PatientDoctorDetailsRepo>(
+      () => _i717.PatientDoctorDetailsRepoImpl(
+        gh<_i307.PatientDoctorDetailsService>(),
+      ),
+    );
     gh.lazySingleton<_i488.DoctorManagementRepo>(
       () => _i528.DoctorManagementRepoImpl(gh<_i40.DoctorManagementService>()),
+    );
+    gh.lazySingleton<_i418.PatientFindDoctorsRepo>(
+      () => _i978.PatientFindDoctorsRepoImpl(
+        gh<_i739.PatientFindDoctorsService>(),
+      ),
     );
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
     );
     gh.lazySingleton<_i619.AuthRepo>(
-      () => _i409.AuthRepoImpl(
+      () => _i410.AuthRepoImpl(
         gh<_i722.AuthService>(),
         gh<_i208.UserLocalService>(),
       ),
@@ -180,6 +212,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );
+    gh.factory<_i36.PatientDoctorDetailsBloc>(
+      () => _i36.PatientDoctorDetailsBloc(gh<_i409.PatientDoctorDetailsRepo>()),
+    );
     gh.lazySingleton<_i563.AdminDoctorAvailabilityRepo>(
       () => _i198.AdminDoctorAvailabilityRepoImpl(
         gh<_i562.AdminDoctorAvailabilityService>(),
@@ -193,6 +228,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i892.AdminDoctorsRepo>(
       () => _i319.AdminDoctorsRepoImpl(gh<_i154.AdminDoctorsService>()),
+    );
+    gh.factory<_i681.FindDoctorsBloc>(
+      () => _i681.FindDoctorsBloc(gh<_i418.PatientFindDoctorsRepo>()),
     );
     gh.factory<_i248.DoctorManagementBloc>(
       () => _i248.DoctorManagementBloc(

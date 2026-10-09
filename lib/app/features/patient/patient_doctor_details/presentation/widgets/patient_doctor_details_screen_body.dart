@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
+import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/widgets/doctor_info_card.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/widgets/doctor_location_section.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/widgets/services_section.dart';
@@ -7,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PatientDoctorDetailsScreenBody extends StatelessWidget {
-  const PatientDoctorDetailsScreenBody({super.key});
+  const PatientDoctorDetailsScreenBody({required this.doctor, super.key});
+
+  final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class PatientDoctorDetailsScreenBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const DoctorInfoCard(),
+          DoctorInfoCard(doctor: doctor),
 
           32.height,
 
