@@ -6,9 +6,12 @@ import 'package:doctor_hunt/app/core/shared/models/current_user_model.dart';
 import 'package:doctor_hunt/app/core/shared/models/user_model.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/app_text_field.dart';
+import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/widgets/login_form.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_home_screen.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
@@ -21,15 +24,37 @@ import 'package:mocktail/mocktail.dart';
 class MockLoginBloc extends MockBloc<LoginEvent, LoginState>
     implements LoginBloc {}
 
+class MockUserBloc extends MockBloc<UserEvent, UserState>
+    implements UserBloc {}
+
+class MockPatientHomeBloc
+    extends MockBloc<PatientHomeEvent, PatientHomeState>
+    implements PatientHomeBloc {}
+
+class MockAdminDoctorsBloc
+    extends MockBloc<AdminDoctorsEvent, AdminDoctorsState>
+    implements AdminDoctorsBloc {}
+
 class FakeLoginRequest extends Fake implements LoginEvent {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockLoginBloc loginBloc;
+  late MockUserBloc userBloc;
+  late MockPatientHomeBloc patientHomeBloc;
+  late MockAdminDoctorsBloc adminDoctorsBloc;
   late GoRouter testRouter;
 
   setUp(() {
     loginBloc = MockLoginBloc();
+    userBloc = MockUserBloc();
+    patientHomeBloc = MockPatientHomeBloc();
+    adminDoctorsBloc = MockAdminDoctorsBloc();
+
+    when(() => loginBloc.state).thenReturn(LoginInitial());
+    when(() => userBloc.state).thenReturn(const UserInitial());
+    when(() => patientHomeBloc.state).thenReturn(PatientHomeInitial());
+    when(() => adminDoctorsBloc.state).thenReturn(AdminDoctorsInitial());
 
     testRouter = GoRouter(
       initialLocation: '/login',
@@ -37,8 +62,11 @@ void main() {
         GoRoute(
           path: '/login',
           builder: (context, state) {
-            return BlocProvider<LoginBloc>.value(
-              value: loginBloc,
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider<LoginBloc>.value(value: loginBloc),
+                BlocProvider<UserBloc>.value(value: userBloc),
+              ],
               child: const Scaffold(
                 body: LoginForm(),
               ),
@@ -49,20 +77,24 @@ void main() {
         GoRoute(
           path: '/patientHome',
           builder: (context, state) {
-            return const PatientHomeScreen();
+            return BlocProvider<PatientHomeBloc>.value(
+              value: patientHomeBloc,
+              child: const PatientHomeScreen(),
+            );
           },
         ),
 
         GoRoute(
           path: '/adminDoctors',
           builder: (context, state) {
-            return const AdminDoctorsScreen();
+            return BlocProvider<AdminDoctorsBloc>.value(
+              value: adminDoctorsBloc,
+              child: const AdminDoctorsScreen(),
+            );
           },
         ),
       ],
     );
-
-    when(() => loginBloc.state).thenReturn(LoginInitial());
   });
 
   setUpAll(() {
@@ -72,6 +104,9 @@ void main() {
 
   tearDown(() {
     loginBloc.close();
+    userBloc.close();
+    patientHomeBloc.close();
+    adminDoctorsBloc.close();
   });
 
   Widget makeTestableWidget({
@@ -230,8 +265,13 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
+      // Bounded pumps instead of pumpAndSettle: the destination screen
+      // shows a shimmer with an infinite animation that never settles.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pump(const Duration(seconds: 1));
 
+      verify(() => userBloc.add(const GetUserEvent())).called(1);
       expect(
         find.byType(PatientHomeScreen),
         findsOneWidget,
@@ -273,8 +313,13 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
+      // Bounded pumps instead of pumpAndSettle: the destination screen
+      // shows a shimmer with an infinite animation that never settles.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pump(const Duration(seconds: 1));
 
+      verify(() => userBloc.add(const GetUserEvent())).called(1);
       expect(
         find.byType(AdminDoctorsScreen),
         findsOneWidget,

@@ -14,7 +14,7 @@ class ChooseRoleSubmitting extends StatelessWidget {
       text: t.kContinue,
       onPressed: () {
         final role = context.read<ChooseRoleBloc>().state;
-        LoginRoute($extra: role).push(context);
+        const LoginRoute().push(context);
       },
     );
   }

@@ -112,7 +112,6 @@ void main() {
       test("register success", () async {
         final request = RegisterRequest(
           name: "name",
-          userRole: UserRole.admin,
           email: "omar@gmail.com",
           password: "Omar123!",
         );
@@ -121,7 +120,7 @@ void main() {
           user: UserModel(
             id: "1",
             name: "name",
-            userRole: UserRole.admin,
+            userRole: UserRole.patient,
             email: "omar@gmail.com",
             image: null,
             createdAt: DateTime.now(),
@@ -139,7 +138,6 @@ void main() {
       test("register failure", () async {
         final request = RegisterRequest(
           name: "name",
-          userRole: UserRole.admin,
           email: "omar@gmail.com",
           password: "Omar123!",
         );

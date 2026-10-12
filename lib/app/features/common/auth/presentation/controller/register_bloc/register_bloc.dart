@@ -21,7 +21,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     final result = await _authRepo.signUp(
       RegisterRequest(
         name: event.name,
-        userRole: event.userRole,
         email: event.email,
         password: event.password,
       ),

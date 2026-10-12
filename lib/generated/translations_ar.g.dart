@@ -95,6 +95,11 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get code => 'الرمز';
 	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
 	@override late final _Translations$errors$ar errors = _Translations$errors$ar._(_root);
+	@override String get pickLocation => 'تحديد الموقع';
+	@override String get searchPlaces => 'ابحث عن مكان...';
+	@override String get confirmLocation => 'تأكيد الموقع';
+	@override String get tapToSelectLocation => 'اضغط على الخريطة لتحديد الموقع';
+	@override String get loading => 'جاري التحميل...';
 	@override String hi({required Object name}) => 'مرحبا ${name}!';
 	@override String get findYourDoctor => 'ابحث عن طبيبك';
 	@override String get seeAll => 'عرض الكل';
@@ -209,6 +214,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get startSearchTitle => 'ابحث عن طبيبك';
 	@override String get startSearchDescription => 'ابحث بالاسم للعثور على الطبيب المناسب لك.';
 	@override String get noSearchResultsDescription => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.';
+	@override String get profileUpdatedSuccessfully => 'تم تحديث الملف الشخصي بنجاح!';
 }
 
 // Path: validations
@@ -265,6 +271,10 @@ class _Translations$errors$ar extends Translations$errors$en {
 	@override String get invalidRole => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى';
 	@override String get samePassword => 'كلمة المرور الجديدة نفس كلمة المرور القديمة';
 	@override String get imagePickerFailed => 'فشل اختيار الصورة، حاول مرة أخرى.';
+	@override String get locationPermissionDenied => 'تم رفض إذن الموقع، يرجى السماح بالوصول.';
+	@override String get locationPermissionPermanentlyDenied => 'تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.';
+	@override String get locationServiceDisabled => 'خدمات الموقع غير مفعلة في جهازك.';
+	@override String get geocodingFailed => 'تعذر العثور على عنوان لهذا الموقع.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -367,6 +377,15 @@ extension on TranslationsAr {
 			'errors.invalidRole' => 'الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى',
 			'errors.samePassword' => 'كلمة المرور الجديدة نفس كلمة المرور القديمة',
 			'errors.imagePickerFailed' => 'فشل اختيار الصورة، حاول مرة أخرى.',
+			'errors.locationPermissionDenied' => 'تم رفض إذن الموقع، يرجى السماح بالوصول.',
+			'errors.locationPermissionPermanentlyDenied' => 'تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.',
+			'errors.locationServiceDisabled' => 'خدمات الموقع غير مفعلة في جهازك.',
+			'errors.geocodingFailed' => 'تعذر العثور على عنوان لهذا الموقع.',
+			'pickLocation' => 'تحديد الموقع',
+			'searchPlaces' => 'ابحث عن مكان...',
+			'confirmLocation' => 'تأكيد الموقع',
+			'tapToSelectLocation' => 'اضغط على الخريطة لتحديد الموقع',
+			'loading' => 'جاري التحميل...',
 			'hi' => ({required Object name}) => 'مرحبا ${name}!',
 			'findYourDoctor' => 'ابحث عن طبيبك',
 			'seeAll' => 'عرض الكل',
@@ -481,6 +500,7 @@ extension on TranslationsAr {
 			'startSearchTitle' => 'ابحث عن طبيبك',
 			'startSearchDescription' => 'ابحث بالاسم للعثور على الطبيب المناسب لك.',
 			'noSearchResultsDescription' => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.',
+			'profileUpdatedSuccessfully' => 'تم تحديث الملف الشخصي بنجاح!',
 			_ => null,
 		};
 	}

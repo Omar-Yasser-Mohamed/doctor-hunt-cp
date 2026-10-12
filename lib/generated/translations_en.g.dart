@@ -207,6 +207,21 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$validations$en validations = Translations$validations$en.internal(_root);
 	late final Translations$errors$en errors = Translations$errors$en.internal(_root);
 
+	/// en: 'Pick Location'
+	String get pickLocation => 'Pick Location';
+
+	/// en: 'Search places...'
+	String get searchPlaces => 'Search places...';
+
+	/// en: 'Confirm Location'
+	String get confirmLocation => 'Confirm Location';
+
+	/// en: 'Tap on map to select location'
+	String get tapToSelectLocation => 'Tap on map to select location';
+
+	/// en: 'Loading...'
+	String get loading => 'Loading...';
+
 	/// en: 'Hi $name!'
 	String hi({required Object name}) => 'Hi ${name}!';
 
@@ -548,6 +563,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'No results found. Try a different name.'
 	String get noSearchResultsDescription => 'No results found. Try a different name.';
+
+	/// en: 'Profile updated successfully!'
+	String get profileUpdatedSuccessfully => 'Profile updated successfully!';
 }
 
 // Path: validations
@@ -680,6 +698,18 @@ class Translations$errors$en {
 
 	/// en: 'Failed to pick image, please try again.'
 	String get imagePickerFailed => 'Failed to pick image, please try again.';
+
+	/// en: 'Location permission denied, please allow access.'
+	String get locationPermissionDenied => 'Location permission denied, please allow access.';
+
+	/// en: 'Location permission permanently denied. Please enable it from settings.'
+	String get locationPermissionPermanentlyDenied => 'Location permission permanently denied. Please enable it from settings.';
+
+	/// en: 'Location services are disabled on your device.'
+	String get locationServiceDisabled => 'Location services are disabled on your device.';
+
+	/// en: 'Could not find address for this location.'
+	String get geocodingFailed => 'Could not find address for this location.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -782,6 +812,15 @@ extension on Translations {
 			'errors.invalidRole' => 'Invalid user role, please sign in again.',
 			'errors.samePassword' => 'New password is the same as the old password',
 			'errors.imagePickerFailed' => 'Failed to pick image, please try again.',
+			'errors.locationPermissionDenied' => 'Location permission denied, please allow access.',
+			'errors.locationPermissionPermanentlyDenied' => 'Location permission permanently denied. Please enable it from settings.',
+			'errors.locationServiceDisabled' => 'Location services are disabled on your device.',
+			'errors.geocodingFailed' => 'Could not find address for this location.',
+			'pickLocation' => 'Pick Location',
+			'searchPlaces' => 'Search places...',
+			'confirmLocation' => 'Confirm Location',
+			'tapToSelectLocation' => 'Tap on map to select location',
+			'loading' => 'Loading...',
 			'hi' => ({required Object name}) => 'Hi ${name}!',
 			'findYourDoctor' => 'Find Your Doctor',
 			'liveDoctors' => 'Live Doctors',
@@ -896,6 +935,7 @@ extension on Translations {
 			'startSearchTitle' => 'Find Your Doctor',
 			'startSearchDescription' => 'Search by name to find the right doctor for you.',
 			'noSearchResultsDescription' => 'No results found. Try a different name.',
+			'profileUpdatedSuccessfully' => 'Profile updated successfully!',
 			_ => null,
 		};
 	}

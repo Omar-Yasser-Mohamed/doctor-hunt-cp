@@ -5,3 +5,11 @@ class NoInternetException implements Exception {
 class InvalidRoleException implements Exception {
   const InvalidRoleException();
 }
+
+class LocationPermissionPermanentlyDeniedException implements Exception {
+  const LocationPermissionPermanentlyDeniedException();
+}
+
+class GeocodingException implements Exception {
+  const GeocodingException();
+}

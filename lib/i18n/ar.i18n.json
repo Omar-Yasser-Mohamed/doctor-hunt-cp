@@ -99,8 +99,18 @@
     "googleSignInFailed": "فشل تسجيل الدخول، حاول مرة أخرى.",
     "invalidRole": "الدور غير صحيح، يرجى تسجيل الدخول مرة أخرى",
     "samePassword": "كلمة المرور الجديدة نفس كلمة المرور القديمة",
-    "imagePickerFailed": "فشل اختيار الصورة، حاول مرة أخرى."
+    "imagePickerFailed": "فشل اختيار الصورة، حاول مرة أخرى.",
+    "locationPermissionDenied": "تم رفض إذن الموقع، يرجى السماح بالوصول.",
+    "locationPermissionPermanentlyDenied": "تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.",
+    "locationServiceDisabled": "خدمات الموقع غير مفعلة في جهازك.",
+    "geocodingFailed": "تعذر العثور على عنوان لهذا الموقع."
   },
+
+  "pickLocation": "تحديد الموقع",
+  "searchPlaces": "ابحث عن مكان...",
+  "confirmLocation": "تأكيد الموقع",
+  "tapToSelectLocation": "اضغط على الخريطة لتحديد الموقع",
+  "loading": "جاري التحميل...",
 
   "hi": "مرحبا $name!",
   "findYourDoctor": "ابحث عن طبيبك",
@@ -215,5 +225,6 @@
   "noDoctorsSearchDescription": "لم نتمكن من العثور على أي أطباء يطابقون بحثك. حاول البحث باسم أو تخصص آخر.",
   "startSearchTitle": "ابحث عن طبيبك",
   "startSearchDescription": "ابحث بالاسم للعثور على الطبيب المناسب لك.",
-  "noSearchResultsDescription": "لم يتم العثور على نتائج. جرّب اسمًا آخر."
+  "noSearchResultsDescription": "لم يتم العثور على نتائج. جرّب اسمًا آخر.",
+  "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح!"
 }

@@ -30,7 +30,7 @@ class LoginFooter extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 final userRole = context.extra<UserRole>();
-                RegisterRoute($extra: userRole).push(context);
+                const RegisterRoute().push(context);
               },
           ),
         ],

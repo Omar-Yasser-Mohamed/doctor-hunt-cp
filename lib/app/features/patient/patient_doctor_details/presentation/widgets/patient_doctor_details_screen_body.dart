@@ -31,7 +31,11 @@ class PatientDoctorDetailsScreenBody extends StatelessWidget {
 
           32.height,
 
-          const DoctorLocationSection(),
+          if (doctor.latitude != null && doctor.longitude != null)
+            DoctorLocationSection(
+              latitude: doctor.latitude!,
+              longitude: doctor.longitude!,
+            ),
         ],
       ),
     );

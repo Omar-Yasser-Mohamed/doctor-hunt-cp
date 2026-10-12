@@ -1,5 +1,4 @@
 import 'package:doctor_hunt/app/core/di/injectable.dart';
-import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
@@ -14,6 +13,7 @@ import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/screens/admin_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_doctor_manager/presentation/screens/create_doctor_screen.dart';
+import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/controller/admin_edit_profile_bloc/admin_edit_profile_bloc.dart';
 import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/screens/admin_edit_profile_screen.dart';
 import 'package:doctor_hunt/app/features/admin/admin_settings/presentation/screens/admin_settings_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
@@ -24,8 +24,11 @@ import 'package:doctor_hunt/app/features/common/auth/presentation/screens/login_
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/register_screen.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/controller/choose_role_bloc/choose_role_bloc.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/screens/choose_role_screen.dart';
+import 'package:doctor_hunt/app/features/common/location/presentation/controller/location_picker_bloc/location_picker_bloc.dart';
+import 'package:doctor_hunt/app/features/common/location/presentation/screens/location_picker_screen.dart';
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_appointment/presentation/screens/patient_appointment_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/screens/patient_doctor_details_screen.dart';
@@ -75,8 +78,7 @@ class ChooseRoleRoute extends GoRouteData with $ChooseRoleRoute {
 
 @TypedGoRoute<LoginRoute>(path: '/login')
 class LoginRoute extends GoRouteData with $LoginRoute {
-  const LoginRoute({required this.$extra});
-  final UserRole $extra;
+  const LoginRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) => MultiBlocProvider(
@@ -90,8 +92,7 @@ class LoginRoute extends GoRouteData with $LoginRoute {
 
 @TypedGoRoute<RegisterRoute>(path: '/register')
 class RegisterRoute extends GoRouteData with $RegisterRoute {
-  const RegisterRoute({required this.$extra});
-  final UserRole $extra;
+  const RegisterRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) => MultiBlocProvider(
@@ -406,6 +407,25 @@ class AdminEditProfileRoute extends GoRouteData with $AdminEditProfileRoute {
   const AdminEditProfileRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const AdminEditProfileScreen();
+  Widget build(BuildContext context, GoRouterState state) {
+    final currentUser = context.read<UserBloc>().user;
+
+    return BlocProvider(
+      create: (context) =>
+          getIt<AdminEditProfileBloc>()
+            ..add(AdminEditProfileInitialized(currentUser!)),
+      child: const AdminEditProfileScreen(),
+    );
+  }
+}
+
+@TypedGoRoute<LocationPickerRoute>(path: '/locationPicker')
+class LocationPickerRoute extends GoRouteData with $LocationPickerRoute {
+  const LocationPickerRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<LocationPickerBloc>(),
+    child: const LocationPickerScreen(),
+  );
 }

@@ -7,6 +7,7 @@ import 'package:doctor_hunt/app/core/error/failure_code.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -27,7 +28,7 @@ class ErrorHandler {
       );
     }
 
-    if (error is PlatformException){
+    if (error is PlatformException) {
       return AppFailure(
         code: FailureCode.imagePickerFailed,
         message: t.errors.imagePickerFailed,
@@ -54,6 +55,34 @@ class ErrorHandler {
       return AppFailure(
         code: FailureCode.invalidRole,
         message: t.errors.invalidRole,
+      );
+    }
+
+    if (error is PermissionDeniedException) {
+      return AppFailure(
+        code: FailureCode.locationPermissionDenied,
+        message: t.errors.locationPermissionDenied,
+      );
+    }
+
+    if (error is LocationPermissionPermanentlyDeniedException) {
+      return AppFailure(
+        code: FailureCode.locationPermissionPermanentlyDenied,
+        message: t.errors.locationPermissionPermanentlyDenied,
+      );
+    }
+
+    if (error is LocationServiceDisabledException) {
+      return AppFailure(
+        code: FailureCode.locationServiceDisabled,
+        message: t.errors.locationServiceDisabled,
+      );
+    }
+
+    if (error is GeocodingException) {
+      return AppFailure(
+        code: FailureCode.geocodingFailed,
+        message: t.errors.geocodingFailed,
       );
     }
 

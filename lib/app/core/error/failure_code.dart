@@ -33,4 +33,10 @@ enum FailureCode {
 
   // Google
   googleSignInFailed,
+
+  // Location
+  locationPermissionDenied,
+  locationPermissionPermanentlyDenied,
+  locationServiceDisabled,
+  geocodingFailed,
 }

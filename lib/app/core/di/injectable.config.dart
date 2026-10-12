@@ -48,8 +48,14 @@ import 'package:doctor_hunt/app/features/admin/admin_doctors/data/services/admin
     as _i154;
 import 'package:doctor_hunt/app/features/admin/admin_doctors/presentation/controller/admin_doctors_bloc/admin_doctors_bloc.dart'
     as _i325;
+import 'package:doctor_hunt/app/features/admin/admin_profile/data/repos/admin_profile_repo.dart'
+    as _i953;
+import 'package:doctor_hunt/app/features/admin/admin_profile/data/repos/admin_profile_repo_impl.dart'
+    as _i795;
 import 'package:doctor_hunt/app/features/admin/admin_profile/data/services/admin_profile_service.dart'
     as _i561;
+import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/controller/admin_edit_profile_bloc/admin_edit_profile_bloc.dart'
+    as _i490;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart'
     as _i619;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart'
@@ -63,11 +69,23 @@ import 'package:doctor_hunt/app/features/common/auth/presentation/controller/goo
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart'
     as _i672;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/logout_bloc/logout_bloc.dart'
-    as _i357;
+    as _i358;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart'
     as _i525;
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/controller/choose_role_bloc/choose_role_bloc.dart'
     as _i737;
+import 'package:doctor_hunt/app/features/common/location/data/repos/location_repo.dart'
+    as _i829;
+import 'package:doctor_hunt/app/features/common/location/data/repos/location_repo_impl.dart'
+    as _i542;
+import 'package:doctor_hunt/app/features/common/location/data/services/gps_service.dart'
+    as _i357;
+import 'package:doctor_hunt/app/features/common/location/data/services/location_permission_service.dart'
+    as _i135;
+import 'package:doctor_hunt/app/features/common/location/data/services/location_service.dart'
+    as _i862;
+import 'package:doctor_hunt/app/features/common/location/presentation/controller/location_picker_bloc/location_picker_bloc.dart'
+    as _i302;
 import 'package:doctor_hunt/app/features/common/user/data/repos/user_repo.dart'
     as _i347;
 import 'package:doctor_hunt/app/features/common/user/data/repos/user_repo_impl.dart'
@@ -125,11 +143,20 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i755.StorageService.create(),
       preResolve: true,
     );
+    gh.lazySingleton<_i561.AdminProfileService>(
+      () => _i561.AdminProfileServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i756.PatientHomeService>(
       () => _i756.PatientHomeServiceImpl(gh<_i454.SupabaseClient>()),
     );
-    gh.lazySingleton<_i561.AdminProfileService>(
-      () => _i561.AdminProfileServiceImpl(),
+    gh.lazySingleton<_i135.LocationPermissionService>(
+      () => const _i135.LocationPermissionServiceImpl(),
+    );
+    gh.lazySingleton<_i862.LocationService>(
+      () => const _i862.LocationServiceImpl(),
+    );
+    gh.lazySingleton<_i357.GpsService>(
+      () => _i357.GpsServiceImpl(gh<_i135.LocationPermissionService>()),
     );
     gh.lazySingleton<_i307.PatientDoctorDetailsService>(
       () => _i307.PatientDoctorDetailsServiceImpl(gh<_i454.SupabaseClient>()),
@@ -162,6 +189,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i155.SupabaseStorageService>(
       () => _i155.SupabaseStorageService(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i953.AdminProfileRepo>(
+      () => _i795.AdminProfileRepoImpl(
+        gh<_i561.AdminProfileService>(),
+        gh<_i208.UserLocalService>(),
+      ),
+    );
     gh.lazySingleton<_i40.DoctorManagementService>(
       () => _i40.DoctorManagementServiceImpl(gh<_i454.SupabaseClient>()),
     );
@@ -173,6 +206,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i488.DoctorManagementRepo>(
       () => _i528.DoctorManagementRepoImpl(gh<_i40.DoctorManagementService>()),
     );
+    gh.lazySingleton<_i829.LocationRepo>(
+      () => _i542.LocationRepoImpl(
+        gh<_i357.GpsService>(),
+        gh<_i862.LocationService>(),
+      ),
+    );
     gh.lazySingleton<_i418.PatientFindDoctorsRepo>(
       () => _i978.PatientFindDoctorsRepoImpl(
         gh<_i739.PatientFindDoctorsService>(),
@@ -180,6 +219,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
+    );
+    gh.factory<_i302.LocationPickerBloc>(
+      () => _i302.LocationPickerBloc(gh<_i829.LocationRepo>()),
     );
     gh.lazySingleton<_i619.AuthRepo>(
       () => _i410.AuthRepoImpl(
@@ -208,7 +250,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i1039.GoogleBloc(gh<_i619.AuthRepo>()),
     );
     gh.factory<_i672.LoginBloc>(() => _i672.LoginBloc(gh<_i619.AuthRepo>()));
-    gh.factory<_i357.LogoutBloc>(() => _i357.LogoutBloc(gh<_i619.AuthRepo>()));
+    gh.factory<_i358.LogoutBloc>(() => _i358.LogoutBloc(gh<_i619.AuthRepo>()));
     gh.factory<_i525.RegisterBloc>(
       () => _i525.RegisterBloc(gh<_i619.AuthRepo>()),
     );
@@ -218,6 +260,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i563.AdminDoctorAvailabilityRepo>(
       () => _i198.AdminDoctorAvailabilityRepoImpl(
         gh<_i562.AdminDoctorAvailabilityService>(),
+      ),
+    );
+    gh.factory<_i490.AdminEditProfileBloc>(
+      () => _i490.AdminEditProfileBloc(
+        gh<_i953.AdminProfileRepo>(),
+        gh<_i183.ImagePicker>(),
       ),
     );
     gh.factory<_i1051.AdminDoctorDetailsBloc>(

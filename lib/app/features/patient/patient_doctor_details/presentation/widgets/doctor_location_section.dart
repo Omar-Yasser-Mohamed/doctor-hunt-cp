@@ -1,10 +1,16 @@
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
+import 'package:doctor_hunt/app/core/widgets/location_map_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorLocationSection extends StatelessWidget {
-  const DoctorLocationSection({super.key});
+  const DoctorLocationSection({
+    super.key,
+    required this.latitude,
+    required this.longitude,
+  });
+  final double latitude;
+  final double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +27,11 @@ class DoctorLocationSection extends StatelessWidget {
           ),
         ],
       ),
-      child: ClipRRect(
+      child: LocationMapView(
+        latitude: latitude,
+        longitude: longitude,
+        height: 190.h,
         borderRadius: BorderRadius.circular(10.r),
-        child: Image.asset( /// TODO:: Add map using Open street map API
-          AppImages.mapTest,
-          width: double.infinity,
-          height: 190.h,
-          fit: BoxFit.cover,
-        ),
       ),
     );
   }

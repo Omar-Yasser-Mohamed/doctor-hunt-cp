@@ -23,6 +23,7 @@ List<RouteBase> get $appRoutes => [
   $editDoctorRoute,
   $adminDoctorAvailabilityRoute,
   $adminEditProfileRoute,
+  $locationPickerRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -112,28 +113,23 @@ RouteBase get $loginRoute => GoRouteData.$route(
 );
 
 mixin $LoginRoute on GoRouteData {
-  static LoginRoute _fromState(GoRouterState state) =>
-      LoginRoute($extra: state.extra as UserRole);
-
-  LoginRoute get _self => this as LoginRoute;
+  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
 
   @override
   String get location => GoRouteData.$location('/login');
 
   @override
-  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+  void go(BuildContext context) => context.go(location);
 
   @override
-  Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: _self.$extra);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: _self.$extra);
+      context.pushReplacement(location);
 
   @override
-  void replace(BuildContext context) =>
-      context.replace(location, extra: _self.$extra);
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $registerRoute => GoRouteData.$route(
@@ -143,28 +139,23 @@ RouteBase get $registerRoute => GoRouteData.$route(
 );
 
 mixin $RegisterRoute on GoRouteData {
-  static RegisterRoute _fromState(GoRouterState state) =>
-      RegisterRoute($extra: state.extra as UserRole);
-
-  RegisterRoute get _self => this as RegisterRoute;
+  static RegisterRoute _fromState(GoRouterState state) => const RegisterRoute();
 
   @override
   String get location => GoRouteData.$location('/register');
 
   @override
-  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+  void go(BuildContext context) => context.go(location);
 
   @override
-  Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: _self.$extra);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: _self.$extra);
+      context.pushReplacement(location);
 
   @override
-  void replace(BuildContext context) =>
-      context.replace(location, extra: _self.$extra);
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $patientShellRouteData => StatefulShellRouteData.$route(
@@ -648,6 +639,33 @@ mixin $AdminEditProfileRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/adminEditProfile');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $locationPickerRoute => GoRouteData.$route(
+  path: '/locationPicker',
+  hasOverriddenOnExit: false,
+  factory: $LocationPickerRoute._fromState,
+);
+
+mixin $LocationPickerRoute on GoRouteData {
+  static LocationPickerRoute _fromState(GoRouterState state) =>
+      const LocationPickerRoute();
+
+  @override
+  String get location => GoRouteData.$location('/locationPicker');
 
   @override
   void go(BuildContext context) => context.go(location);

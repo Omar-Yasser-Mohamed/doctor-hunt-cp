@@ -4,7 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class AppBackButton extends StatelessWidget {
-  const AppBackButton({super.key});
+  final double? size;
+  final EdgeInsetsGeometry? margin;
+
+  const AppBackButton({
+    super.key,
+    this.size,
+    this.margin,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +22,9 @@ class AppBackButton extends StatelessWidget {
           context.pop();
         },
         child: Container(
-          margin: EdgeInsetsDirectional.only(start: 20.w),
-          width: 30.w,
-          height: 30.w,
+          margin: margin ?? EdgeInsetsDirectional.only(start: 20.w),
+          width: size ?? 30.w,
+          height: size ?? 30.w,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),

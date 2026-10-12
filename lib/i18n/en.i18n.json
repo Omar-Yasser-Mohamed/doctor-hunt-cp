@@ -99,8 +99,18 @@
     "googleSignInFailed": "Google sign-in failed, please try again.",
     "invalidRole": "Invalid user role, please sign in again.",
     "samePassword": "New password is the same as the old password",
-    "imagePickerFailed": "Failed to pick image, please try again."
+    "imagePickerFailed": "Failed to pick image, please try again.",
+    "locationPermissionDenied": "Location permission denied, please allow access.",
+    "locationPermissionPermanentlyDenied": "Location permission permanently denied. Please enable it from settings.",
+    "locationServiceDisabled": "Location services are disabled on your device.",
+    "geocodingFailed": "Could not find address for this location."
   },
+
+  "pickLocation": "Pick Location",
+  "searchPlaces": "Search places...",
+  "confirmLocation": "Confirm Location",
+  "tapToSelectLocation": "Tap on map to select location",
+  "loading": "Loading...",
 
   "hi": "Hi $name!",
   "findYourDoctor": "Find Your Doctor",
@@ -215,5 +225,6 @@
   "noDoctorsSearchDescription": "We couldn't find any doctors matching your search. Try searching with a different name or specialty.",
   "startSearchTitle": "Find Your Doctor",
   "startSearchDescription": "Search by name to find the right doctor for you.",
-  "noSearchResultsDescription": "No results found. Try a different name."
+  "noSearchResultsDescription": "No results found. Try a different name.",
+  "profileUpdatedSuccessfully": "Profile updated successfully!"
 }
