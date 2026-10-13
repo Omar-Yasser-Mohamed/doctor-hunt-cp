@@ -120,6 +120,14 @@ import 'package:doctor_hunt/app/features/patient/patient_home/presentation/contr
     as _i461;
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart'
     as _i656;
+import 'package:doctor_hunt/app/features/patient/patient_profile/data/repos/patient_profile_repo.dart'
+    as _i534;
+import 'package:doctor_hunt/app/features/patient/patient_profile/data/repos/patient_profile_repo_impl.dart'
+    as _i9;
+import 'package:doctor_hunt/app/features/patient/patient_profile/data/service/patient_profile_service.dart'
+    as _i855;
+import 'package:doctor_hunt/app/features/patient/patient_profile/presentation/controller/patient_update_profile_bloc/patient_update_profile_bloc.dart'
+    as _i305;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
 import 'package:image_picker/image_picker.dart' as _i183;
@@ -194,6 +202,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i561.AdminProfileService>(),
         gh<_i208.UserLocalService>(),
       ),
+    );
+    gh.lazySingleton<_i855.PatientProfileService>(
+      () => _i855.PatientProfileServiceImpl(gh<_i454.SupabaseClient>()),
     );
     gh.lazySingleton<_i40.DoctorManagementService>(
       () => _i40.DoctorManagementServiceImpl(gh<_i454.SupabaseClient>()),
@@ -280,11 +291,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i681.FindDoctorsBloc>(
       () => _i681.FindDoctorsBloc(gh<_i418.PatientFindDoctorsRepo>()),
     );
+    gh.lazySingleton<_i534.PatientProfileRepo>(
+      () => _i9.PatientProfileRepoImpl(gh<_i855.PatientProfileService>()),
+    );
     gh.factory<_i248.DoctorManagementBloc>(
       () => _i248.DoctorManagementBloc(
         gh<_i488.DoctorManagementRepo>(),
         gh<_i873.ImagePickerService>(),
         gh<_i275.AppEventBus>(),
+      ),
+    );
+    gh.factory<_i305.PatientUpdateProfileBloc>(
+      () => _i305.PatientUpdateProfileBloc(
+        gh<_i534.PatientProfileRepo>(),
+        gh<_i873.ImagePickerService>(),
       ),
     );
     gh.lazySingleton<_i716.UserBloc>(

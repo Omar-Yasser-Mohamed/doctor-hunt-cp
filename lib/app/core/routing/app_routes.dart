@@ -39,6 +39,10 @@ import 'package:doctor_hunt/app/features/patient/patient_home/presentation/param
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_doctors_list_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/screens/patient_home_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/screens/patient_find_doctors_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_profile/presentation/controller/patient_update_profile_bloc/patient_update_profile_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_profile/presentation/screens/patient_profile_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_settings/presentation/screens/patient_settings_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_settings/presentation/screens/privacy_policy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -200,11 +204,8 @@ class PatientSettingsRoute extends GoRouteData with $PatientSettingsRoute {
   const PatientSettingsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const AppScaffold(
-    child: Center(
-      child: Text("Settings"),
-    ),
-  );
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PatientSettingsScreen();
 }
 
 // other app routes
@@ -428,4 +429,30 @@ class LocationPickerRoute extends GoRouteData with $LocationPickerRoute {
     create: (context) => getIt<LocationPickerBloc>(),
     child: const LocationPickerScreen(),
   );
+}
+
+@TypedGoRoute<PrivacyPolicyRoute>(path: '/privacyPolicy')
+class PrivacyPolicyRoute extends GoRouteData with $PrivacyPolicyRoute {
+  const PrivacyPolicyRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PrivacyPolicyScreen();
+}
+
+@TypedGoRoute<PatientProfileRoute>(path: '/patientProfile')
+class PatientProfileRoute extends GoRouteData with $PatientProfileRoute {
+  const PatientProfileRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    final currentUser = context.read<UserBloc>().user;
+
+    return BlocProvider(
+      create: (context) =>
+          getIt<PatientUpdateProfileBloc>()
+            ..add(UpdatePatientProfileInitialized(currentUser!)),
+      child: const PatientProfileScreen(),
+    );
+  }
 }

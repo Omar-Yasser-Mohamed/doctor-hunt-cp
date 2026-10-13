@@ -563,6 +563,54 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'No results found. Try a different name.'
 	String get noSearchResultsDescription => 'No results found. Try a different name.';
+
+	/// en: 'Profile updated successfully!'
+	String get profileUpdatedSuccessfully => 'Profile updated successfully!';
+
+	/// en: 'Account settings'
+	String get accountSettings => 'Account settings';
+
+	/// en: 'Notifications'
+	String get notifications => 'Notifications';
+
+	/// en: 'Privacy Policy'
+	String get privacyPolicy => 'Privacy Policy';
+
+	/// en: 'More options'
+	String get moreOptions => 'More options';
+
+	/// en: 'Languages'
+	String get languages => 'Languages';
+
+	/// en: 'Doctor Hunt Apps Privacy Policy'
+	String get doctorHuntPrivacyPolicyTitle => 'Doctor Hunt Apps Privacy Policy';
+
+	/// en: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words believable. It is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more '
+	String get privacyPolicyIntro => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words believable. It is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more ';
+
+	/// en: 'The standard chunk of lorem Ipsum used since 1500s is reproduced below for those interested.'
+	String get privacyPolicyPoint1 => 'The standard chunk of lorem Ipsum used since 1500s is reproduced below for those interested.';
+
+	/// en: 'Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum. The point of using.'
+	String get privacyPolicyPoint2 => 'Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum. The point of using.';
+
+	/// en: 'Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.'
+	String get privacyPolicyPoint3 => 'Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.';
+
+	/// en: 'The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.'
+	String get privacyPolicyPoint4 => 'The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.';
+
+	/// en: 'It is a long established fact that reader distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established.'
+	String get privacyPolicyOutro => 'It is a long established fact that reader distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established.';
+
+	/// en: 'Profile'
+	String get profile => 'Profile';
+
+	/// en: 'Personal information'
+	String get personalInformation => 'Personal information';
+
+	/// en: 'Continue'
+	String get continueButton => 'Continue';
 }
 
 // Path: validations
@@ -932,6 +980,22 @@ extension on Translations {
 			'startSearchTitle' => 'Find Your Doctor',
 			'startSearchDescription' => 'Search by name to find the right doctor for you.',
 			'noSearchResultsDescription' => 'No results found. Try a different name.',
+			'profileUpdatedSuccessfully' => 'Profile updated successfully!',
+			'accountSettings' => 'Account settings',
+			'notifications' => 'Notifications',
+			'privacyPolicy' => 'Privacy Policy',
+			'moreOptions' => 'More options',
+			'languages' => 'Languages',
+			'doctorHuntPrivacyPolicyTitle' => 'Doctor Hunt Apps Privacy Policy',
+			'privacyPolicyIntro' => 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words believable. It is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more ',
+			'privacyPolicyPoint1' => 'The standard chunk of lorem Ipsum used since 1500s is reproduced below for those interested.',
+			'privacyPolicyPoint2' => 'Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum. The point of using.',
+			'privacyPolicyPoint3' => 'Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.',
+			'privacyPolicyPoint4' => 'The point of using Lorem Ipsum is that it has a moreIt is a long established fact that reader will distracted.',
+			'privacyPolicyOutro' => 'It is a long established fact that reader distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established.',
+			'profile' => 'Profile',
+			'personalInformation' => 'Personal information',
+			'continueButton' => 'Continue',
 			_ => null,
 		};
 	}

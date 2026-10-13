@@ -77,6 +77,7 @@ class HomeHeader extends StatelessWidget {
               BlocBuilder<UserBloc, UserState>(
                 builder: (context, state) {
                   if (state is UserSuccess) {
+                    final hasImage = state.user.user.image != null;
                     return GestureDetector(
                       onTap: () {
                         DrawerControllerProvider.of(context).showDrawer();
@@ -86,16 +87,20 @@ class HomeHeader extends StatelessWidget {
                         imageUrl: state.user.user.image,
                         size: 60.r,
                         backgroundColor: AppColors.successLight,
-                        border: Border.all(
-                          color: AppColors.borderGreenSoft,
-                          width: 2,
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: AppColors.white,
-                            spreadRadius: 4,
-                          ),
-                        ],
+                        border: hasImage
+                            ? null
+                            : Border.all(
+                                color: AppColors.borderGreenSoft,
+                                width: 2,
+                              ),
+                        boxShadow: hasImage
+                            ? null
+                            : const [
+                                BoxShadow(
+                                  color: AppColors.white,
+                                  spreadRadius: 4,
+                                ),
+                              ],
                         avatarTextStyle: context.bold20Primary,
                       ),
                     );

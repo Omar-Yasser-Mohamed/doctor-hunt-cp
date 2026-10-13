@@ -24,6 +24,8 @@ List<RouteBase> get $appRoutes => [
   $adminDoctorAvailabilityRoute,
   $adminEditProfileRoute,
   $locationPickerRoute,
+  $privacyPolicyRoute,
+  $patientProfileRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -666,6 +668,60 @@ mixin $LocationPickerRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/locationPicker');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $privacyPolicyRoute => GoRouteData.$route(
+  path: '/privacyPolicy',
+  hasOverriddenOnExit: false,
+  factory: $PrivacyPolicyRoute._fromState,
+);
+
+mixin $PrivacyPolicyRoute on GoRouteData {
+  static PrivacyPolicyRoute _fromState(GoRouterState state) =>
+      const PrivacyPolicyRoute();
+
+  @override
+  String get location => GoRouteData.$location('/privacyPolicy');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $patientProfileRoute => GoRouteData.$route(
+  path: '/patientProfile',
+  hasOverriddenOnExit: false,
+  factory: $PatientProfileRoute._fromState,
+);
+
+mixin $PatientProfileRoute on GoRouteData {
+  static PatientProfileRoute _fromState(GoRouterState state) =>
+      const PatientProfileRoute();
+
+  @override
+  String get location => GoRouteData.$location('/patientProfile');
 
   @override
   void go(BuildContext context) => context.go(location);

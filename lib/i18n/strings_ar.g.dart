@@ -213,6 +213,22 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get startSearchTitle => 'ابحث عن طبيبك';
 	@override String get startSearchDescription => 'ابحث بالاسم للعثور على الطبيب المناسب لك.';
 	@override String get noSearchResultsDescription => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.';
+	@override String get profileUpdatedSuccessfully => 'تم تحديث الملف الشخصي بنجاح!';
+	@override String get accountSettings => 'إعدادات الحساب';
+	@override String get notifications => 'الإشعارات';
+	@override String get privacyPolicy => 'سياسة الخصوصية';
+	@override String get moreOptions => 'المزيد من الخيارات';
+	@override String get languages => 'اللغات';
+	@override String get doctorHuntPrivacyPolicyTitle => 'سياسة الخصوصية لتطبيقات Doctor Hunt';
+	@override String get privacyPolicyIntro => 'هناك العديد من الأشكال المختلفة لنصوص لوريم إيبسوم المتاحة، ولكن غالبيتها خضعت للتعديل بشكل ما، عن طريق إدخال روح الدعابة أو كلمات عشوائية مقبولة. إنها حقيقة مثبتة منذ زمن طويل أن القارئ سيتشتت انتباهه بالمحتوى المقروء للصفحة عند النظر إلى تصميمها.';
+	@override String get privacyPolicyPoint1 => 'تمت إعادة إنتاج الجزء القياسي من لوريم إيبسوم المستخدم منذ القرن السادس عشر أدناه للمهتمين بذلك.';
+	@override String get privacyPolicyPoint2 => 'الأقسام 1.10.32 و 1.10.33 من كتاب "عن أقصى درجات الخير والشر". الغرض من الاستخدام.';
+	@override String get privacyPolicyPoint3 => 'حقيقة مثبتة منذ زمن طويل أن القارئ سيتشتت انتباهه بالمحتوى المقروء للصفحة.';
+	@override String get privacyPolicyPoint4 => 'الهدف من استخدام لوريم إيبسوم هو توفير نص يشبه النص الطبيعي دون تشتيت الانتباه.';
+	@override String get privacyPolicyOutro => 'إنها حقيقة مثبتة منذ وقت طويل أن القارئ سيتشتت بالمحتوى المقروء للصفحة عند النظر إلى تصميمها العام.';
+	@override String get profile => 'الملف الشخصي';
+	@override String get personalInformation => 'المعلومات الشخصية';
+	@override String get continueButton => 'متابعة';
 }
 
 // Path: validations
@@ -498,6 +514,22 @@ extension on TranslationsAr {
 			'startSearchTitle' => 'ابحث عن طبيبك',
 			'startSearchDescription' => 'ابحث بالاسم للعثور على الطبيب المناسب لك.',
 			'noSearchResultsDescription' => 'لم يتم العثور على نتائج. جرّب اسمًا آخر.',
+			'profileUpdatedSuccessfully' => 'تم تحديث الملف الشخصي بنجاح!',
+			'accountSettings' => 'إعدادات الحساب',
+			'notifications' => 'الإشعارات',
+			'privacyPolicy' => 'سياسة الخصوصية',
+			'moreOptions' => 'المزيد من الخيارات',
+			'languages' => 'اللغات',
+			'doctorHuntPrivacyPolicyTitle' => 'سياسة الخصوصية لتطبيقات Doctor Hunt',
+			'privacyPolicyIntro' => 'هناك العديد من الأشكال المختلفة لنصوص لوريم إيبسوم المتاحة، ولكن غالبيتها خضعت للتعديل بشكل ما، عن طريق إدخال روح الدعابة أو كلمات عشوائية مقبولة. إنها حقيقة مثبتة منذ زمن طويل أن القارئ سيتشتت انتباهه بالمحتوى المقروء للصفحة عند النظر إلى تصميمها.',
+			'privacyPolicyPoint1' => 'تمت إعادة إنتاج الجزء القياسي من لوريم إيبسوم المستخدم منذ القرن السادس عشر أدناه للمهتمين بذلك.',
+			'privacyPolicyPoint2' => 'الأقسام 1.10.32 و 1.10.33 من كتاب "عن أقصى درجات الخير والشر". الغرض من الاستخدام.',
+			'privacyPolicyPoint3' => 'حقيقة مثبتة منذ زمن طويل أن القارئ سيتشتت انتباهه بالمحتوى المقروء للصفحة.',
+			'privacyPolicyPoint4' => 'الهدف من استخدام لوريم إيبسوم هو توفير نص يشبه النص الطبيعي دون تشتيت الانتباه.',
+			'privacyPolicyOutro' => 'إنها حقيقة مثبتة منذ وقت طويل أن القارئ سيتشتت بالمحتوى المقروء للصفحة عند النظر إلى تصميمها العام.',
+			'profile' => 'الملف الشخصي',
+			'personalInformation' => 'المعلومات الشخصية',
+			'continueButton' => 'متابعة',
 			_ => null,
 		};
 	}

@@ -23,4 +23,5 @@ abstract final class SupabaseConstants {
   static const String updateDoctorEdgeFunction = 'update-doctor';
   static const String deleteDoctorEdgeFunction = 'delete-doctor';
   static const String updateAdminProfileEdgeFunction = 'update-admin-profile';
+  static const String updatePatientProfileEdgeFunction = 'update-patient-profile';
 }
