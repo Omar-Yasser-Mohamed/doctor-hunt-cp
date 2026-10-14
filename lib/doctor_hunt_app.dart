@@ -2,6 +2,7 @@ import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_theme.dart';
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/controller/patient_favorite_doctors_bloc/patient_favorite_doctors_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +19,9 @@ class DoctorHuntApp extends StatelessWidget {
         BlocProvider(
           lazy: false,
           create: (context) => getIt<UserBloc>()..add(const GetUserEvent()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<PatientFavoriteDoctorsBloc>(),
         ),
       ],
       child: ScreenUtilInit(

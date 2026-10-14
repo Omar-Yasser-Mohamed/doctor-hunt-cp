@@ -241,7 +241,6 @@
   "privacyPolicyOutro": "It is a long established fact that reader distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moreIt is a long established.",
   "profile": "Profile",
   "personalInformation": "Personal information",
-  "name": "Name",
-  "email": "Email",
-  "continueButton": "Continue"
+  "continueButton": "Continue",
+  "favouriteDoctors": "Favourite Doctors"
 }

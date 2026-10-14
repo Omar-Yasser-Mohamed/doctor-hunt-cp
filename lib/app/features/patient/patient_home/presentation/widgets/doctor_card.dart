@@ -4,26 +4,21 @@ import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
+import 'package:doctor_hunt/app/core/widgets/doctor_favorite_icon_button.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorCard extends StatefulWidget {
+class DoctorCard extends StatelessWidget {
   const DoctorCard({super.key, required this.doctor});
   final DoctorModel doctor;
 
   @override
-  State<DoctorCard> createState() => _DoctorCardState();
-}
-
-class _DoctorCardState extends State<DoctorCard> {
-  bool isFav = false;
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        PatientDoctorDetailsRoute($extra: widget.doctor.id).push(context);
+        PatientDoctorDetailsRoute($extra: doctor.id).push(context);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),
@@ -44,7 +39,7 @@ class _DoctorCardState extends State<DoctorCard> {
             Row(
               children: [
                 CustomNetworkImage(
-                  imageUrl: widget.doctor.photo!,
+                  imageUrl: doctor.photo!,
                   radius: 8,
                   width: 82.w,
                   height: 82.w,
@@ -61,33 +56,20 @@ class _DoctorCardState extends State<DoctorCard> {
                         children: [
                           Expanded(
                             child: Text(
-                              widget.doctor.name,
+                              doctor.name,
                               style: context.medium18TextMain,
                             ),
                           ),
 
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isFav = !isFav;
-                              });
-                            },
-                            child: AnimatedSwitcher(
-                              duration: const Duration(milliseconds: 200),
-                              child: Icon(
-                                key: ValueKey(isFav),
-                                isFav ? Icons.favorite : Icons.favorite_border,
-                                color: isFav
-                                    ? Colors.red
-                                    : AppColors.unselectedIcon,
-                              ),
-                            ),
+                          DoctorFavoriteIconButton(
+                            doctor: doctor,
+                            iconSize: 24,
                           ),
                         ],
                       ),
 
                       Text(
-                        "${t.Specialist} ${widget.doctor.specialty.title}",
+                        "${t.Specialist} ${doctor.specialty.title}",
                         style: context.light14TextSub,
                       ),
 
@@ -97,7 +79,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           DynamicRatingStars(
-                            rating: widget.doctor.rating,
+                            rating: doctor.rating,
                             size: 20,
                           ),
 
@@ -105,12 +87,12 @@ class _DoctorCardState extends State<DoctorCard> {
                             TextSpan(
                               children: [
                                 TextSpan(
-                                  text: widget.doctor.rating.toStringAsFixed(1),
+                                  text: doctor.rating.toStringAsFixed(1),
                                   style: context.medium16TextMain,
                                 ),
                                 TextSpan(
                                   text:
-                                      " (${widget.doctor.reviewsCount} ${t.reviews})",
+                                      " (${doctor.reviewsCount} ${t.reviews})",
                                   style: context.regular12.copyWith(
                                     color: AppColors.textSub.withValues(
                                       alpha: .8,

@@ -1,9 +1,11 @@
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/controller/patient_favorite_doctors_bloc/patient_favorite_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/patient_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +21,14 @@ class PatientNavBar extends StatefulWidget {
 
 class _PatientNavBarState extends State<PatientNavBar> {
   final _drawerController = AdvancedDrawerController();
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<PatientFavoriteDoctorsBloc>().add(
+      const GetMyFavoriteDoctorsEvent(),
+    );
+  }
 
   @override
   void dispose() {
@@ -47,7 +57,7 @@ class _PatientNavBarState extends State<PatientNavBar> {
       child: AdvancedDrawer(
         controller: _drawerController,
         backdrop: Container(
-          decoration:const  BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

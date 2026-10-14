@@ -611,6 +611,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Continue'
 	String get continueButton => 'Continue';
+
+	/// en: 'Favourite Doctors'
+	String get favouriteDoctors => 'Favourite Doctors';
 }
 
 // Path: validations
@@ -996,6 +999,7 @@ extension on Translations {
 			'profile' => 'Profile',
 			'personalInformation' => 'Personal information',
 			'continueButton' => 'Continue',
+			'favouriteDoctors' => 'Favourite Doctors',
 			_ => null,
 		};
 	}

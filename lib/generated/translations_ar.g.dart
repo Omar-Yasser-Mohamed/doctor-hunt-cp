@@ -230,6 +230,7 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get profile => 'الملف الشخصي';
 	@override String get personalInformation => 'المعلومات الشخصية';
 	@override String get continueButton => 'متابعة';
+	@override String get favouriteDoctors => 'الأطباء المفضلين';
 }
 
 // Path: validations
@@ -531,6 +532,7 @@ extension on TranslationsAr {
 			'profile' => 'الملف الشخصي',
 			'personalInformation' => 'المعلومات الشخصية',
 			'continueButton' => 'متابعة',
+			'favouriteDoctors' => 'الأطباء المفضلين',
 			_ => null,
 		};
 	}

@@ -32,6 +32,7 @@ import 'package:doctor_hunt/app/features/common/user/presentation/controller/blo
 import 'package:doctor_hunt/app/features/patient/patient_appointment/presentation/screens/patient_appointment_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/screens/patient_doctor_details_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/screens/patient_favorites_doctors_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_find_doctors/presentation/controller/find_doctors_bloc/find_doctors_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_doctors_list_bloc/patient_doctors_list_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
@@ -146,9 +147,13 @@ class PatientShellRouteData extends StatefulShellRouteData {
     GoRouterState state,
     StatefulNavigationShell navigationShell,
   ) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<PatientHomeBloc>()..add(const GetHomeDoctors()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<PatientHomeBloc>()..add(const GetHomeDoctors()),
+        ),
+      ],
       child: PatientNavBar(navigationShell: navigationShell),
     );
   }
@@ -174,11 +179,8 @@ class PatientFavoriteRoute extends GoRouteData with $PatientFavoriteRoute {
   const PatientFavoriteRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const AppScaffold(
-    child: Center(
-      child: Text("Favorites"),
-    ),
-  );
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PatientFavoriteDoctorsScreen();
 }
 
 class PatientBookingBranchData extends StatefulShellBranchData {

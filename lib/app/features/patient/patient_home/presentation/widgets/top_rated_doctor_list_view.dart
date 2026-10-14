@@ -3,6 +3,7 @@ import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
+import 'package:doctor_hunt/app/core/widgets/doctor_favorite_icon_button.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/shimmers/patient_home_shimmer.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/controller/patient_home_bloc/patient_home_bloc.dart';
@@ -15,7 +16,8 @@ class TopRatedDoctorsListView extends StatefulWidget {
   final List<DoctorModel> doctors;
 
   @override
-  State<TopRatedDoctorsListView> createState() => _TopRatedDoctorsListViewState();
+  State<TopRatedDoctorsListView> createState() =>
+      _TopRatedDoctorsListViewState();
 }
 
 class _TopRatedDoctorsListViewState extends State<TopRatedDoctorsListView> {
@@ -68,21 +70,15 @@ class _TopRatedDoctorsListViewState extends State<TopRatedDoctorsListView> {
   }
 }
 
-class TopRatedDoctorCard extends StatefulWidget {
+class TopRatedDoctorCard extends StatelessWidget {
   const TopRatedDoctorCard({super.key, required this.doctor});
   final DoctorModel doctor;
 
   @override
-  State<TopRatedDoctorCard> createState() => _TopRatedDoctorCardState();
-}
-
-class _TopRatedDoctorCardState extends State<TopRatedDoctorCard> {
-  bool isFav = false;
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        PatientDoctorDetailsRoute($extra: widget.doctor.id).push(context);
+        PatientDoctorDetailsRoute($extra: doctor.id).push(context);
       },
       child: Container(
         width: 96.w,
@@ -104,22 +100,7 @@ class _TopRatedDoctorCardState extends State<TopRatedDoctorCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isFav = !isFav;
-                    });
-                  },
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    child: Icon(
-                      key: ValueKey(isFav),
-                      isFav ? Icons.favorite : Icons.favorite_border,
-                      color: isFav ? Colors.red : AppColors.unselectedIcon,
-                      size: 16,
-                    ),
-                  ),
-                ),
+                DoctorFavoriteIconButton(doctor: doctor),
 
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -133,7 +114,7 @@ class _TopRatedDoctorCardState extends State<TopRatedDoctorCard> {
                     3.width,
 
                     Text(
-                      widget.doctor.rating.toStringAsFixed(1),
+                      doctor.rating.toStringAsFixed(1),
                       style: context.medium11Black.copyWith(
                         fontSize: 10.sp,
                       ),
@@ -146,7 +127,7 @@ class _TopRatedDoctorCardState extends State<TopRatedDoctorCard> {
             8.height,
 
             CustomNetworkImage(
-              imageUrl: widget.doctor.photo!,
+              imageUrl: doctor.photo!,
               height: 54.w,
               width: 54.w,
               fit: BoxFit.cover,
@@ -156,7 +137,7 @@ class _TopRatedDoctorCardState extends State<TopRatedDoctorCard> {
             12.height,
 
             Text(
-              widget.doctor.name,
+              doctor.name,
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

@@ -102,6 +102,14 @@ import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/ser
     as _i307;
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart'
     as _i36;
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/data/repos/patient_favorite_doctors_repo.dart'
+    as _i727;
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/data/repos/patient_favorite_doctors_repo_impl.dart'
+    as _i841;
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/data/service/patient_favorite_doctors_service.dart'
+    as _i22;
+import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/controller/patient_favorite_doctors_bloc/patient_favorite_doctors_bloc.dart'
+    as _i985;
 import 'package:doctor_hunt/app/features/patient/patient_find_doctors/data/repo/patient_find_doctors_repo.dart'
     as _i418;
 import 'package:doctor_hunt/app/features/patient/patient_find_doctors/data/repo/patient_find_doctors_repo_impl.dart'
@@ -185,6 +193,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i739.PatientFindDoctorsService>(
       () => _i739.PatientFindDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i22.PatientFavoriteDoctorsService>(
+      () => _i22.PatientFavoriteDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i722.AuthService>(
       () => _i722.AuthServiceImpl(
         gh<_i454.SupabaseClient>(),
@@ -251,6 +262,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i636.AdminDoctorDetailsService>(),
       ),
     );
+    gh.lazySingleton<_i727.PatientFavoriteDoctorsRepo>(
+      () => _i841.PatientFavoriteDoctorsRepoImpl(
+        gh<_i22.PatientFavoriteDoctorsService>(),
+      ),
+    );
     gh.factory<_i461.PatientDoctorsListBloc>(
       () => _i461.PatientDoctorsListBloc(gh<_i356.PatientHomeRepo>()),
     );
@@ -313,6 +329,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i804.DoctorAvailabilityBloc>(
       () =>
           _i804.DoctorAvailabilityBloc(gh<_i563.AdminDoctorAvailabilityRepo>()),
+    );
+    gh.factory<_i985.PatientFavoriteDoctorsBloc>(
+      () => _i985.PatientFavoriteDoctorsBloc(
+        gh<_i727.PatientFavoriteDoctorsRepo>(),
+      ),
     );
     gh.factory<_i325.AdminDoctorsBloc>(
       () => _i325.AdminDoctorsBloc(

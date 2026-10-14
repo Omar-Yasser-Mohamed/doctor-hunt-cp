@@ -5,6 +5,7 @@ import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
+import 'package:doctor_hunt/app/core/widgets/doctor_favorite_icon_button.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
@@ -63,22 +64,9 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
                           ),
                         ),
 
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isFav = !isFav;
-                            });
-                          },
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 200),
-                            child: Icon(
-                              key: ValueKey(isFav),
-                              isFav ? Icons.favorite : Icons.favorite_border,
-                              color: isFav
-                                  ? Colors.red
-                                  : AppColors.unselectedIcon,
-                            ),
-                          ),
+                        DoctorFavoriteIconButton(
+                          doctor: widget.doctor,
+                          iconSize: 24,
                         ),
                       ],
                     ),
