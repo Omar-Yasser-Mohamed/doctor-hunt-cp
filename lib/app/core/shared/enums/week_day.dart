@@ -47,3 +47,18 @@ enum WeekDay {
     return days.map((e) => e.value).toList();
   }
 }
+
+extension DateTimeWorkWeekDay on DateTime {
+  WeekDay get workWeekDay {
+    return switch (weekday) {
+      DateTime.monday => WeekDay.monday,
+      DateTime.tuesday => WeekDay.tuesday,
+      DateTime.wednesday => WeekDay.wednesday,
+      DateTime.thursday => WeekDay.thursday,
+      DateTime.friday => WeekDay.friday,
+      DateTime.saturday => WeekDay.saturday,
+      DateTime.sunday => WeekDay.sunday,
+      _ => throw StateError('Invalid weekday'),
+    };
+  }
+}

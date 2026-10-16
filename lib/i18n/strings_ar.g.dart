@@ -115,7 +115,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get yearsExperience => 'سنوات الخبرة';
 	@override String get patientStories => 'قصص المرضى';
 	@override String get appointment => 'موعد';
-	@override String get availableTime => 'الوقت المتاح';
+	@override String get availableTimes => 'المواعيد المتاحة';
 	@override String get reminderMeBefore => 'تذكيري قبل الموعد';
 	@override String get minit => 'دقيقة';
 	@override String get noSlotsAvailable => 'لا توجد أوقات متاحة';
@@ -123,7 +123,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get contactClinic => 'اتصل بالعيادة';
 	@override String get appointmentSuccessful => 'تم حجز موعدك بنجاح';
 	@override String get thankYou => 'شكرا لك !';
-	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}';
+	@override String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع ${doctorName} في ${date}، الساعة ${time}';
 	@override String get editYourAppointment => 'تعديل الموعد الخاص بك';
 	@override String get passwordResetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
 	@override String get doctors => 'الأطباء';
@@ -230,6 +230,16 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get personalInformation => 'المعلومات الشخصية';
 	@override String get continueButton => 'متابعة';
 	@override String get favouriteDoctors => 'الأطباء المفضلين';
+	@override String get upcoming => 'القادم';
+	@override String get completed => 'اكتمل';
+	@override String get cancelled => 'ألغيت';
+	@override String get pleaseSelectAnAppointmentSlot => 'يرجى اختيار موعد';
+	@override String get selectLanguage => 'اختر اللغة';
+	@override String get choosePreferredLanguage => 'اختر لغتك المفضلة';
+	@override String get arabic => 'العربية';
+	@override String get english => 'English';
+	@override String get arabicSubtitle => 'العربية';
+	@override String get englishSubtitle => 'الإنجليزية';
 }
 
 // Path: validations
@@ -290,6 +300,9 @@ class _Translations$errors$ar implements Translations$errors$en {
 	@override String get locationPermissionPermanentlyDenied => 'تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.';
 	@override String get locationServiceDisabled => 'خدمات الموقع غير مفعلة في جهازك.';
 	@override String get geocodingFailed => 'تعذر العثور على عنوان لهذا الموقع.';
+	@override String get slotUnavailable => 'الموعد ده لم يعد متاحًا.';
+	@override String get doctorUnavailable => 'الدكتور غير متاح حاليًا.';
+	@override String get invalidAppointmentTime => 'من فضلك اختار موعدًا صحيحًا.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -396,6 +409,9 @@ extension on TranslationsAr {
 			'errors.locationPermissionPermanentlyDenied' => 'تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.',
 			'errors.locationServiceDisabled' => 'خدمات الموقع غير مفعلة في جهازك.',
 			'errors.geocodingFailed' => 'تعذر العثور على عنوان لهذا الموقع.',
+			'errors.slotUnavailable' => 'الموعد ده لم يعد متاحًا.',
+			'errors.doctorUnavailable' => 'الدكتور غير متاح حاليًا.',
+			'errors.invalidAppointmentTime' => 'من فضلك اختار موعدًا صحيحًا.',
 			'pickLocation' => 'تحديد الموقع',
 			'searchPlaces' => 'ابحث عن مكان...',
 			'confirmLocation' => 'تأكيد الموقع',
@@ -417,7 +433,7 @@ extension on TranslationsAr {
 			'yearsExperience' => 'سنوات الخبرة',
 			'patientStories' => 'قصص المرضى',
 			'appointment' => 'موعد',
-			'availableTime' => 'الوقت المتاح',
+			'availableTimes' => 'المواعيد المتاحة',
 			'reminderMeBefore' => 'تذكيري قبل الموعد',
 			'minit' => 'دقيقة',
 			'noSlotsAvailable' => 'لا توجد أوقات متاحة',
@@ -425,7 +441,7 @@ extension on TranslationsAr {
 			'contactClinic' => 'اتصل بالعيادة',
 			'appointmentSuccessful' => 'تم حجز موعدك بنجاح',
 			'thankYou' => 'شكرا لك !',
-			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع الدكتور ${doctorName} في ${date}، الساعة ${time}',
+			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'لقد حجزت موعدًا مع ${doctorName} في ${date}، الساعة ${time}',
 			'editYourAppointment' => 'تعديل الموعد الخاص بك',
 			'passwordResetSuccess' => 'تم إعادة تعيين كلمة المرور بنجاح',
 			'doctors' => 'الأطباء',
@@ -532,6 +548,16 @@ extension on TranslationsAr {
 			'personalInformation' => 'المعلومات الشخصية',
 			'continueButton' => 'متابعة',
 			'favouriteDoctors' => 'الأطباء المفضلين',
+			'upcoming' => 'القادم',
+			'completed' => 'اكتمل',
+			'cancelled' => 'ألغيت',
+			'pleaseSelectAnAppointmentSlot' => 'يرجى اختيار موعد',
+			'selectLanguage' => 'اختر اللغة',
+			'choosePreferredLanguage' => 'اختر لغتك المفضلة',
+			'arabic' => 'العربية',
+			'english' => 'English',
+			'arabicSubtitle' => 'العربية',
+			'englishSubtitle' => 'الإنجليزية',
 			_ => null,
 		};
 	}

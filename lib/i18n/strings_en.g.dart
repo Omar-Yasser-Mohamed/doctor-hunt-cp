@@ -270,8 +270,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Appointment'
 	String get appointment => 'Appointment';
 
-	/// en: 'Available Time'
-	String get availableTime => 'Available Time';
+	/// en: 'Available Times'
+	String get availableTimes => 'Available Times';
 
 	/// en: 'Reminder Me Before'
 	String get reminderMeBefore => 'Reminder Me Before';
@@ -294,8 +294,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Thank You !'
 	String get thankYou => 'Thank You !';
 
-	/// en: 'You booked an appointment with Dr. $doctorName on $date, at $time'
-	String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}';
+	/// en: 'You booked an appointment with $doctorName on $date, at $time'
+	String appointmentSuccessfulDescription({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with ${doctorName} on ${date}, at ${time}';
 
 	/// en: 'Edit your appointment'
 	String get editYourAppointment => 'Edit your appointment';
@@ -614,6 +614,36 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Favourite Doctors'
 	String get favouriteDoctors => 'Favourite Doctors';
+
+	/// en: 'Upcoming'
+	String get upcoming => 'Upcoming';
+
+	/// en: 'Completed'
+	String get completed => 'Completed';
+
+	/// en: 'Cancelled'
+	String get cancelled => 'Cancelled';
+
+	/// en: 'Please select an appointment slot'
+	String get pleaseSelectAnAppointmentSlot => 'Please select an appointment slot';
+
+	/// en: 'Select Language'
+	String get selectLanguage => 'Select Language';
+
+	/// en: 'Choose your preferred language'
+	String get choosePreferredLanguage => 'Choose your preferred language';
+
+	/// en: 'العربية'
+	String get arabic => 'العربية';
+
+	/// en: 'English'
+	String get english => 'English';
+
+	/// en: 'Arabic'
+	String get arabicSubtitle => 'Arabic';
+
+	/// en: 'English'
+	String get englishSubtitle => 'English';
 }
 
 // Path: validations
@@ -758,6 +788,15 @@ class Translations$errors$en {
 
 	/// en: 'Could not find address for this location.'
 	String get geocodingFailed => 'Could not find address for this location.';
+
+	/// en: 'This time slot is no longer available.'
+	String get slotUnavailable => 'This time slot is no longer available.';
+
+	/// en: 'This doctor is currently unavailable.'
+	String get doctorUnavailable => 'This doctor is currently unavailable.';
+
+	/// en: 'Please select a valid appointment time.'
+	String get invalidAppointmentTime => 'Please select a valid appointment time.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -864,6 +903,9 @@ extension on Translations {
 			'errors.locationPermissionPermanentlyDenied' => 'Location permission permanently denied. Please enable it from settings.',
 			'errors.locationServiceDisabled' => 'Location services are disabled on your device.',
 			'errors.geocodingFailed' => 'Could not find address for this location.',
+			'errors.slotUnavailable' => 'This time slot is no longer available.',
+			'errors.doctorUnavailable' => 'This doctor is currently unavailable.',
+			'errors.invalidAppointmentTime' => 'Please select a valid appointment time.',
 			'pickLocation' => 'Pick Location',
 			'searchPlaces' => 'Search places...',
 			'confirmLocation' => 'Confirm Location',
@@ -885,7 +927,7 @@ extension on Translations {
 			'yearsExperience' => 'Years experience',
 			'patientStories' => 'Patient Stories',
 			'appointment' => 'Appointment',
-			'availableTime' => 'Available Time',
+			'availableTimes' => 'Available Times',
 			'reminderMeBefore' => 'Reminder Me Before',
 			'minit' => 'Minit',
 			'noSlotsAvailable' => 'No Slots Available',
@@ -893,7 +935,7 @@ extension on Translations {
 			'contactClinic' => 'Contact Clinic',
 			'appointmentSuccessful' => 'Your Appointment Successful',
 			'thankYou' => 'Thank You !',
-			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with Dr. ${doctorName} on ${date}, at ${time}',
+			'appointmentSuccessfulDescription' => ({required Object doctorName, required Object date, required Object time}) => 'You booked an appointment with ${doctorName} on ${date}, at ${time}',
 			'editYourAppointment' => 'Edit your appointment',
 			'passwordResetSuccess' => 'Password reset successfully',
 			'doctors' => 'Doctors',
@@ -1000,6 +1042,16 @@ extension on Translations {
 			'personalInformation' => 'Personal information',
 			'continueButton' => 'Continue',
 			'favouriteDoctors' => 'Favourite Doctors',
+			'upcoming' => 'Upcoming',
+			'completed' => 'Completed',
+			'cancelled' => 'Cancelled',
+			'pleaseSelectAnAppointmentSlot' => 'Please select an appointment slot',
+			'selectLanguage' => 'Select Language',
+			'choosePreferredLanguage' => 'Choose your preferred language',
+			'arabic' => 'العربية',
+			'english' => 'English',
+			'arabicSubtitle' => 'Arabic',
+			'englishSubtitle' => 'English',
 			_ => null,
 		};
 	}

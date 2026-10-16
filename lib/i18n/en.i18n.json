@@ -103,7 +103,11 @@
     "locationPermissionDenied": "Location permission denied, please allow access.",
     "locationPermissionPermanentlyDenied": "Location permission permanently denied. Please enable it from settings.",
     "locationServiceDisabled": "Location services are disabled on your device.",
-    "geocodingFailed": "Could not find address for this location."
+    "geocodingFailed": "Could not find address for this location.",
+
+    "slotUnavailable": "This time slot is no longer available.",
+    "doctorUnavailable": "This doctor is currently unavailable.",
+    "invalidAppointmentTime": "Please select a valid appointment time."
   },
 
   "pickLocation": "Pick Location",
@@ -122,13 +126,16 @@
   "runing": "Runing",
   "ongoing": "Ongoing",
   "services": "Services",
+  "doctorService1": "Patient care should be the number one priority.",
+  "doctorService2": "If you run your practice you know how frustrating.",
+  "doctorService3": "That’s why some of appointment reminder system.",
   "findDoctors": "Find Doctors",
   "nextAvailable": "Next Available",
   "tomorrow": "Tomorrow",
   "yearsExperience": "Years experience",
   "patientStories": "Patient Stories",
   "appointment": "Appointment",
-  "availableTime": "Available Time",
+  "availableTimes": "Available Times",
   "reminderMeBefore": "Reminder Me Before",
   "minit": "Minit",
   "noSlotsAvailable": "No Slots Available",
@@ -136,7 +143,7 @@
   "contactClinic": "Contact Clinic",
   "appointmentSuccessful": "Your Appointment Successful",
   "thankYou": "Thank You !",
-  "appointmentSuccessfulDescription": "You booked an appointment with Dr. $doctorName on $date, at $time",
+  "appointmentSuccessfulDescription": "You booked an appointment with $doctorName on $date, at $time",
   "editYourAppointment": "Edit your appointment",
   "passwordResetSuccess": "Password reset successfully",
   "doctors": "Doctors",
@@ -242,5 +249,15 @@
   "profile": "Profile",
   "personalInformation": "Personal information",
   "continueButton": "Continue",
-  "favouriteDoctors": "Favourite Doctors"
+  "favouriteDoctors": "Favourite Doctors",
+  "upcoming": "Upcoming",
+  "completed": "Completed",
+  "cancelled": "Cancelled",
+  "pleaseSelectAnAppointmentSlot": "Please select an appointment slot",
+  "selectLanguage": "Select Language",
+  "choosePreferredLanguage": "Choose your preferred language",
+  "arabic": "العربية",
+  "english": "English",
+  "arabicSubtitle": "Arabic",
+  "englishSubtitle": "English"
 }

@@ -68,7 +68,6 @@ void main() {
             email: userModel.email,
             name: userModel.name,
             password: password,
-            userRole: userModel.userRole,
           ),
         );
       },
@@ -99,7 +98,6 @@ void main() {
             email: userModel.email,
             name: userModel.name,
             password: password,
-            userRole: userModel.userRole,
           ),
         );
       },

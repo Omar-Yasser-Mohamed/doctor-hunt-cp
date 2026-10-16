@@ -1,8 +1,6 @@
-import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/snake_bar_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
-import 'package:doctor_hunt/app/core/shared/enums/user_role.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_validators.dart';
@@ -130,11 +128,9 @@ class _RegisterFormState extends State<RegisterForm> {
                       ? null
                       : () {
                           if (_formKey.currentState!.validate()) {
-                            final userRole = context.extra<UserRole>();
                             context.read<RegisterBloc>().add(
                               RegisterSubmitted(
                                 name: _nameController.text.trim(),
-                                userRole: userRole,
                                 email: _emailController.text.trim(),
                                 password: _passwordController.text.trim(),
                               ),

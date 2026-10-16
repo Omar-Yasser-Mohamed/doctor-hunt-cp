@@ -11,6 +11,7 @@ abstract final class SupabaseConstants {
   static const String doctorsTable = 'doctors';
   static const String doctorAvailabilityTable = 'doctor_availability';
   static const String favoritesTable = 'favorites';
+  static const String appointmentsTable = 'appointments';
 
   // Storage bucket
   static const String doctorPhotosBucket = 'doctor-photos';
@@ -18,6 +19,7 @@ abstract final class SupabaseConstants {
   // Procedures
   static const String getDoctorStatsProcedure = 'get_doctor_stats';
   static const String getDoctorSpecialtyCountsProcedure = 'get_doctor_specialty_counts';
+  static const String bookAppointmentProcedure = 'book_appointment';
 
   // Edge Functions
   static const String createDoctorEdgeFunction = 'create-doctor';

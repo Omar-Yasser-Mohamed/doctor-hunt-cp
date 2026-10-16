@@ -1,11 +1,13 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/params/doctors_filter.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/home_section_title.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/widgets/popular_doctors_list_view.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopularDoctorsSection extends StatelessWidget {
@@ -19,12 +21,16 @@ class PopularDoctorsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionTitle(
-          title: t.popularDoctors,
-          onSeeAll: () {
-            const PatientDoctorsListRoute(
-              $extra: DoctorsFilter(type: DoctorsListType.popular),
-            ).push(context);
+        BlocBuilder<LocaleBloc, LocaleState>(
+          builder: (context, state) {
+            return HomeSectionTitle(
+              title: t.popularDoctors,
+              onSeeAll: () {
+                const PatientDoctorsListRoute(
+                  $extra: DoctorsFilter(type: DoctorsListType.popular),
+                ).push(context);
+              },
+            );
           },
         ),
 
@@ -32,7 +38,7 @@ class PopularDoctorsSection extends StatelessWidget {
 
         SizedBox(
           height: 250.h,
-          child:  PopularDoctorsListView(doctors: doctors),
+          child: PopularDoctorsListView(doctors: doctors),
         ),
       ],
     );

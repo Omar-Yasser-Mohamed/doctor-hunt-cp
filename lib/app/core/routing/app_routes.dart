@@ -29,7 +29,8 @@ import 'package:doctor_hunt/app/features/common/location/presentation/screens/lo
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointment/presentation/screens/patient_appointment_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/controller/patient_booking_bloc/patient_booking_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/screens/patient_booking_appointment_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/screens/patient_doctor_details_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/screens/patient_favorites_doctors_screen.dart';
@@ -128,7 +129,7 @@ class RegisterRoute extends GoRouteData with $RegisterRoute {
     ),
     TypedStatefulShellBranch<PatientBookingBranchData>(
       routes: <TypedRoute<RouteData>>[
-        TypedGoRoute<PatientBookingRoute>(path: '/patientBooking'),
+        TypedGoRoute<PatientBookingRoute>(path: '/patientAppointments'),
       ],
     ),
     TypedStatefulShellBranch<PatientSettingsBranchData>(
@@ -193,7 +194,7 @@ class PatientBookingRoute extends GoRouteData with $PatientBookingRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) => const AppScaffold(
     child: Center(
-      child: Text("Bookings"),
+      child: Text("Appointments"),
     ),
   );
 }
@@ -206,8 +207,10 @@ class PatientSettingsRoute extends GoRouteData with $PatientSettingsRoute {
   const PatientSettingsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const PatientSettingsScreen();
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) => getIt<LogoutBloc>(),
+    child: const PatientSettingsScreen(),
+  );
 }
 
 // other app routes
@@ -242,16 +245,21 @@ class PatientFindDoctorsRoute extends GoRouteData
   );
 }
 
-@TypedGoRoute<PatientAppointmentRoute>(
-  path: '/patientAppointment',
+@TypedGoRoute<PatientBookingAppointmentRoute>(
+  path: '/patientBookingAppointment',
 )
-class PatientAppointmentRoute extends GoRouteData
-    with $PatientAppointmentRoute {
-  const PatientAppointmentRoute();
+class PatientBookingAppointmentRoute extends GoRouteData
+    with $PatientBookingAppointmentRoute {
+  const PatientBookingAppointmentRoute({required this.$extra});
+  final DoctorModel $extra;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const PatientAppointmentScreen();
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) =>
+        getIt<PatientBookingBloc>()
+          ..add(GetDoctorAvailabilityAndAppointments(doctorId: $extra.id)),
+    child: const PatientBookingAppointmentScreen(),
+  );
 }
 
 @TypedGoRoute<PatientDoctorsListRoute>(

@@ -158,18 +158,30 @@ class ErrorHandler {
     PostgrestException error,
   ) {
     return switch (error.code) {
-      // PostgreSQL: insufficient privilege
       '42501' => AppFailure(
         code: FailureCode.permissionDenied,
         message: t.errors.permissionDenied,
       ),
-
-      // PostgreSQL: unique violation
       '23505' => AppFailure(
         code: FailureCode.conflict,
         message: t.errors.conflict,
       ),
-
+      'P1001' => AppFailure(
+        code: FailureCode.slotUnavailable,
+        message: t.errors.slotUnavailable,
+      ),
+      'P1002' => AppFailure(
+        code: FailureCode.doctorUnavailable,
+        message: t.errors.doctorUnavailable,
+      ),
+      'P1003' => AppFailure(
+        code: FailureCode.invalidAppointmentTime,
+        message: t.errors.invalidAppointmentTime,
+      ),
+      'P1004' => AppFailure(
+        code: FailureCode.unauthorized,
+        message: t.errors.unauthorized,
+      ),
       _ => _handleStatusCode(error.code),
     };
   }

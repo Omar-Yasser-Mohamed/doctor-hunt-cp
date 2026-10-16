@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/theme/app_theme.dart';
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart';
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presentation/controller/patient_favorite_doctors_bloc/patient_favorite_doctors_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
@@ -21,22 +22,32 @@ class DoctorHuntApp extends StatelessWidget {
           create: (context) => getIt<UserBloc>()..add(const GetUserEvent()),
         ),
         BlocProvider(
+          create: (context) =>
+              getIt<LocaleBloc>()..add(const GetInitialLocaleEvent()),
+        ),
+        BlocProvider(
           create: (context) => getIt<PatientFavoriteDoctorsBloc>(),
         ),
       ],
-      child: ScreenUtilInit(
-        designSize: const Size(375, 812),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return MaterialApp.router(
-            title: 'Doctor Hunt',
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            routerConfig: router,
-            localizationsDelegates: GlobalMaterialLocalizations.delegates,
-            supportedLocales: AppLocaleUtils.supportedLocales,
-            locale: TranslationProvider.of(context).flutterLocale,
+      child: BlocBuilder<LocaleBloc, LocaleState>(
+        builder: (context, state) {
+          return TranslationProvider(
+            child: ScreenUtilInit(
+              designSize: const Size(375, 812),
+              minTextAdapt: true,
+              splitScreenMode: true,
+              builder: (context, child) {
+                return MaterialApp.router(
+                  title: 'Doctor Hunt',
+                  debugShowCheckedModeBanner: false,
+                  theme: AppTheme.lightTheme,
+                  routerConfig: router,
+                  localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                  supportedLocales: AppLocaleUtils.supportedLocales,
+                  locale: state.locale.flutterLocale,
+                );
+              },
+            ),
           );
         },
       ),

@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/profile_image.dart';
@@ -136,23 +137,27 @@ class _HomeSearchButton extends StatelessWidget {
             ),
           ],
         ),
-        child: AppTextField(
-          hintText: t.search,
-          readOnly: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6.r),
-            borderSide: BorderSide.none,
-          ),
-          suffixIcon: const Icon(
-            Icons.close,
-            color: AppColors.textSub,
-          ),
-          prefixIcon: const Icon(
-            Icons.search_rounded,
-            color: AppColors.textSub,
-          ),
-          onTap: () {
-            const PatientFindDoctorsRoute().push(context);
+        child: BlocBuilder<LocaleBloc, LocaleState>(
+          builder: (context, state) {
+            return AppTextField(
+              hintText: t.search,
+              readOnly: true,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6.r),
+                borderSide: BorderSide.none,
+              ),
+              suffixIcon: const Icon(
+                Icons.close,
+                color: AppColors.textSub,
+              ),
+              prefixIcon: const Icon(
+                Icons.search_rounded,
+                color: AppColors.textSub,
+              ),
+              onTap: () {
+                const PatientFindDoctorsRoute().push(context);
+              },
+            );
           },
         ),
       ),

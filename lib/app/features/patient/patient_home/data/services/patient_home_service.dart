@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doctor_hunt/app/core/constants/supabase_constants.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/patient/patient_home/presentation/params/doctors_filter.dart';
@@ -53,8 +51,6 @@ class PatientHomeServiceImpl implements PatientHomeService {
             .eq('specialty', filter.category!.name)
             .range(from, to),
     };
-    log("from ${filter.type.name}");
-    log("response: ${response.length}");
 
     return response
         .map(

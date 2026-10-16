@@ -12,6 +12,8 @@
 
 import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart' as _i275;
 import 'package:doctor_hunt/app/core/di/di_module.dart' as _i984;
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart'
+    as _i196;
 import 'package:doctor_hunt/app/core/shared/services/image_picker_service.dart'
     as _i873;
 import 'package:doctor_hunt/app/core/shared/services/storage_service.dart'
@@ -94,6 +96,16 @@ import 'package:doctor_hunt/app/features/common/user/data/services/user_local_se
     as _i208;
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart'
     as _i716;
+import 'package:doctor_hunt/app/features/patient/patient_booking/data/repos/patient_booking_repo.dart'
+    as _i1059;
+import 'package:doctor_hunt/app/features/patient/patient_booking/data/repos/patient_booking_repo_impl.dart'
+    as _i753;
+import 'package:doctor_hunt/app/features/patient/patient_booking/data/service/appointment_slots_generator.dart'
+    as _i169;
+import 'package:doctor_hunt/app/features/patient/patient_booking/data/service/patient_booking_service.dart'
+    as _i122;
+import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/controller/patient_booking_bloc/patient_booking_bloc.dart'
+    as _i757;
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/repos/patient_doctor_details_repo.dart'
     as _i409;
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/data/repos/patient_doctor_details_repo_impl.dart'
@@ -159,6 +171,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i755.StorageService.create(),
       preResolve: true,
     );
+    gh.lazySingleton<_i169.AppointmentSlotsGenerator>(
+      () => _i169.AppointmentSlotsGenerator(),
+    );
     gh.lazySingleton<_i561.AdminProfileService>(
       () => _i561.AdminProfileServiceImpl(gh<_i454.SupabaseClient>()),
     );
@@ -192,6 +207,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i739.PatientFindDoctorsService>(
       () => _i739.PatientFindDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i196.LocaleBloc>(
+      () => _i196.LocaleBloc(gh<_i755.StorageService>()),
     );
     gh.lazySingleton<_i22.PatientFavoriteDoctorsService>(
       () => _i22.PatientFavoriteDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
@@ -241,6 +259,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
+    );
+    gh.lazySingleton<_i122.PatientBookingService>(
+      () => _i122.PatientBookingServiceImpl(gh<_i454.SupabaseClient>()),
     );
     gh.factory<_i302.LocationPickerBloc>(
       () => _i302.LocationPickerBloc(gh<_i829.LocationRepo>()),
@@ -307,6 +328,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i681.FindDoctorsBloc>(
       () => _i681.FindDoctorsBloc(gh<_i418.PatientFindDoctorsRepo>()),
     );
+    gh.lazySingleton<_i1059.PatientBookingRepo>(
+      () => _i753.PatientBookingRepoImpl(gh<_i122.PatientBookingService>()),
+    );
     gh.lazySingleton<_i534.PatientProfileRepo>(
       () => _i9.PatientProfileRepoImpl(gh<_i855.PatientProfileService>()),
     );
@@ -333,6 +357,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i985.PatientFavoriteDoctorsBloc>(
       () => _i985.PatientFavoriteDoctorsBloc(
         gh<_i727.PatientFavoriteDoctorsRepo>(),
+      ),
+    );
+    gh.factory<_i757.PatientBookingBloc>(
+      () => _i757.PatientBookingBloc(
+        gh<_i1059.PatientBookingRepo>(),
+        gh<_i169.AppointmentSlotsGenerator>(),
       ),
     );
     gh.factory<_i325.AdminDoctorsBloc>(

@@ -30,6 +30,9 @@ enum FailureCode {
   // Supabase Database
   databaseError,
   permissionDenied,
+  slotUnavailable,
+  doctorUnavailable,
+  invalidAppointmentTime,
 
   // Google
   googleSignInFailed,

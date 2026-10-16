@@ -192,7 +192,6 @@ void main() {
             email: "omar@gmail.com",
             name: "Omar",
             password: 'Omar123!',
-            userRole: UserRole.patient,
           ),
         ),
       ).called(1);

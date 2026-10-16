@@ -15,7 +15,7 @@ List<RouteBase> get $appRoutes => [
   $patientShellRouteData,
   $patientDoctorDetailsRoute,
   $patientFindDoctorsRoute,
-  $patientAppointmentRoute,
+  $patientBookingAppointmentRoute,
   $patientDoctorsListRoute,
   $adminShellRouteData,
   $adminDoctorDetailsRoute,
@@ -184,7 +184,7 @@ RouteBase get $patientShellRouteData => StatefulShellRouteData.$route(
     StatefulShellBranchData.$branch(
       routes: [
         GoRouteData.$route(
-          path: '/patientBooking',
+          path: '/patientAppointments',
           hasOverriddenOnExit: false,
           factory: $PatientBookingRoute._fromState,
         ),
@@ -254,7 +254,7 @@ mixin $PatientBookingRoute on GoRouteData {
       const PatientBookingRoute();
 
   @override
-  String get location => GoRouteData.$location('/patientBooking');
+  String get location => GoRouteData.$location('/patientAppointments');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -349,31 +349,36 @@ mixin $PatientFindDoctorsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $patientAppointmentRoute => GoRouteData.$route(
-  path: '/patientAppointment',
+RouteBase get $patientBookingAppointmentRoute => GoRouteData.$route(
+  path: '/patientBookingAppointment',
   hasOverriddenOnExit: false,
-  factory: $PatientAppointmentRoute._fromState,
+  factory: $PatientBookingAppointmentRoute._fromState,
 );
 
-mixin $PatientAppointmentRoute on GoRouteData {
-  static PatientAppointmentRoute _fromState(GoRouterState state) =>
-      const PatientAppointmentRoute();
+mixin $PatientBookingAppointmentRoute on GoRouteData {
+  static PatientBookingAppointmentRoute _fromState(GoRouterState state) =>
+      PatientBookingAppointmentRoute($extra: state.extra as DoctorModel);
+
+  PatientBookingAppointmentRoute get _self =>
+      this as PatientBookingAppointmentRoute;
 
   @override
-  String get location => GoRouteData.$location('/patientAppointment');
+  String get location => GoRouteData.$location('/patientBookingAppointment');
 
   @override
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
   @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: _self.$extra);
 
   @override
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
 }
 
 RouteBase get $patientDoctorsListRoute => GoRouteData.$route(

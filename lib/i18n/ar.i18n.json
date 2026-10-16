@@ -103,7 +103,11 @@
     "locationPermissionDenied": "تم رفض إذن الموقع، يرجى السماح بالوصول.",
     "locationPermissionPermanentlyDenied": "تم رفض إذن الموقع نهائياً. يرجى تفعيله من الإعدادات.",
     "locationServiceDisabled": "خدمات الموقع غير مفعلة في جهازك.",
-    "geocodingFailed": "تعذر العثور على عنوان لهذا الموقع."
+    "geocodingFailed": "تعذر العثور على عنوان لهذا الموقع.",
+
+    "slotUnavailable": "الموعد ده لم يعد متاحًا.",
+    "doctorUnavailable": "الدكتور غير متاح حاليًا.",
+    "invalidAppointmentTime": "من فضلك اختار موعدًا صحيحًا."
   },
 
   "pickLocation": "تحديد الموقع",
@@ -122,13 +126,16 @@
   "runing": "مباشر",
   "ongoing": "مستمر",
   "services": "الخدمات",
+  "doctorService1": "يجب أن تكون رعاية المريض هي الأولوية الأولى.",
+  "doctorService2": "إذا كنت تدير عيادتك، فأنت تعلم كم قد يكون الأمر محبطًا.",
+  "doctorService3": "لهذا السبب تم تصميم نظام تذكير المواعيد.",
   "findDoctors": "ابحث عن طبيبك",
   "nextAvailable": "التالي المتاح",
   "tomorrow": "غدا",
   "yearsExperience": "سنوات الخبرة",
   "patientStories": "قصص المرضى",
   "appointment": "موعد",
-  "availableTime": "الوقت المتاح",
+  "availableTimes": "المواعيد المتاحة",
   "reminderMeBefore": "تذكيري قبل الموعد",
   "minit": "دقيقة",
   "noSlotsAvailable": "لا توجد أوقات متاحة",
@@ -136,7 +143,7 @@
   "contactClinic": "اتصل بالعيادة",
   "appointmentSuccessful": "تم حجز موعدك بنجاح",
   "thankYou": "شكرا لك !",
-  "appointmentSuccessfulDescription": "لقد حجزت موعدًا مع الدكتور $doctorName في $date، الساعة $time",
+  "appointmentSuccessfulDescription": "لقد حجزت موعدًا مع $doctorName في $date، الساعة $time",
   "editYourAppointment": "تعديل الموعد الخاص بك",
   "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
   "doctors": "الأطباء",
@@ -242,5 +249,15 @@
   "profile": "الملف الشخصي",
   "personalInformation": "المعلومات الشخصية",
   "continueButton": "متابعة",
-  "favouriteDoctors": "الأطباء المفضلين"
+  "favouriteDoctors": "الأطباء المفضلين",
+  "upcoming": "القادم",
+  "completed": "اكتمل",
+  "cancelled": "ألغيت",
+  "pleaseSelectAnAppointmentSlot": "يرجى اختيار موعد",
+  "selectLanguage": "اختر اللغة",
+  "choosePreferredLanguage": "اختر لغتك المفضلة",
+  "arabic": "العربية",
+  "english": "English",
+  "arabicSubtitle": "العربية",
+  "englishSubtitle": "الإنجليزية"
 }
