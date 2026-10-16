@@ -9,6 +9,7 @@ abstract class PatientFavoriteDoctorsService {
     required String doctorId,
     required bool isFavorite,
   });
+  Future<List<DoctorModel>> searchMyFavoriteDoctors(String? query);
 }
 
 @LazySingleton(as: PatientFavoriteDoctorsService)
@@ -23,10 +24,13 @@ class PatientFavoriteDoctorsServiceImpl
 
     final response = await _supabaseClient
         .from(SupabaseConstants.favoritesTable)
-        .select('doctors(*)')
+        .select('doctors!inner(*)')
         .eq('patient_id', userId);
 
-    return response.map((e) => DoctorModel.fromJson(e['doctors'])).toList();
+    return response
+        .where((e) => e['doctors'] != null)
+        .map((e) => DoctorModel.fromJson(e['doctors'] as Map<String, dynamic>))
+        .toList();
   }
 
   @override
@@ -48,5 +52,22 @@ class PatientFavoriteDoctorsServiceImpl
         'doctor_id': doctorId,
       });
     }
+  }
+
+  @override
+  Future<List<DoctorModel>> searchMyFavoriteDoctors(String? query) async {
+    final userId = _supabaseClient.auth.currentUser!.id;
+    final trimmedQuery = query?.trim() ?? '';
+
+    final response = await _supabaseClient
+        .from(SupabaseConstants.favoritesTable)
+        .select('doctors!inner(*)')
+        .eq('patient_id', userId)
+        .ilike('doctors.name', '%$trimmedQuery%');
+
+    return response
+        .where((e) => e['doctors'] != null)
+        .map((e) => DoctorModel.fromJson(e['doctors'] as Map<String, dynamic>))
+        .toList();
   }
 }

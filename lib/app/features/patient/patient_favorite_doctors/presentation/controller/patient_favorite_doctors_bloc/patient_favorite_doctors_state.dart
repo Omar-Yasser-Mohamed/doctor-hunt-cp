@@ -34,3 +34,7 @@ final class GetMyFavoriteDoctorsFailure extends PatientFavoriteDoctorsState {
   @override
   List<Object> get props => [failure];
 }
+
+final class EmptyFavoriteDoctors extends PatientFavoriteDoctorsState {}
+
+final class EmptySearchedFavoriteDoctors extends PatientFavoriteDoctorsState {}

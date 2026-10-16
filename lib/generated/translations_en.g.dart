@@ -653,6 +653,12 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'English'
 	String get englishSubtitle => 'English';
+
+	/// en: 'No Favorite Doctors'
+	String get noFavoriteDoctors => 'No Favorite Doctors';
+
+	/// en: 'You haven't added any favorite doctors yet.'
+	String get noFavoriteDoctorsDescription => 'You haven\'t added any favorite doctors yet.';
 }
 
 // Path: validations
@@ -1064,6 +1070,8 @@ extension on Translations {
 			'english' => 'English',
 			'arabicSubtitle' => 'Arabic',
 			'englishSubtitle' => 'English',
+			'noFavoriteDoctors' => 'No Favorite Doctors',
+			'noFavoriteDoctorsDescription' => 'You haven\'t added any favorite doctors yet.',
 			_ => null,
 		};
 	}

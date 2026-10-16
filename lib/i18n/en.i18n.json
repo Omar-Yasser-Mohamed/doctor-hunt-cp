@@ -259,5 +259,7 @@
   "arabic": "العربية",
   "english": "English",
   "arabicSubtitle": "Arabic",
-  "englishSubtitle": "English"
+  "englishSubtitle": "English",
+  "noFavoriteDoctors": "No Favorite Doctors",
+  "noFavoriteDoctorsDescription": "You haven't added any favorite doctors yet."
 }

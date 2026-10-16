@@ -33,3 +33,11 @@ final class SearchInMyFavoriteDoctorsEvent extends PatientFavoriteDoctorsEvent {
   @override
   List<Object> get props => [query];
 }
+
+final class ClearSearchEvent extends PatientFavoriteDoctorsEvent {
+  const ClearSearchEvent();
+
+  @override
+  List<Object> get props => [];
+}
+

@@ -11,11 +11,13 @@ class DoctorsEmptyState extends StatelessWidget {
     super.key,
     this.iconSvg,
     this.icon,
+    this.iconSecondary,
     required this.title,
     required this.description,
   });
   final String? iconSvg;
   final IconData? icon;
+  final IconData? iconSecondary;
   final String title;
   final String description;
 
@@ -79,8 +81,8 @@ class DoctorsEmptyState extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Icon(
-                    Icons.search_off_rounded,
+                  child: Icon(
+                    iconSecondary ?? Icons.search_off_rounded,
                     size: 24,
                     color: AppColors.white,
                   ),

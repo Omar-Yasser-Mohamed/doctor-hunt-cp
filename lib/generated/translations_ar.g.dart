@@ -244,6 +244,8 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get english => 'English';
 	@override String get arabicSubtitle => 'العربية';
 	@override String get englishSubtitle => 'الإنجليزية';
+	@override String get noFavoriteDoctors => 'لا يوجد أطباء مفضلين';
+	@override String get noFavoriteDoctorsDescription => 'لم تقم بإضافة أي أطباء مفضلين بعد.';
 }
 
 // Path: validations
@@ -565,6 +567,8 @@ extension on TranslationsAr {
 			'english' => 'English',
 			'arabicSubtitle' => 'العربية',
 			'englishSubtitle' => 'الإنجليزية',
+			'noFavoriteDoctors' => 'لا يوجد أطباء مفضلين',
+			'noFavoriteDoctorsDescription' => 'لم تقم بإضافة أي أطباء مفضلين بعد.',
 			_ => null,
 		};
 	}

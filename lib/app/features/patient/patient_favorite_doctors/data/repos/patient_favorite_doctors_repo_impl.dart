@@ -36,4 +36,16 @@ class PatientFavoriteDoctorsRepoImpl implements PatientFavoriteDoctorsRepo {
       return Left(ErrorHandler.handle(e));
     }
   }
+
+  @override
+  Future<Either<Failure, List<DoctorModel>>> searchMyFavoriteDoctors(
+    String? query,
+  ) async {
+    try {
+      final result = await _service.searchMyFavoriteDoctors(query);
+      return Right(result);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e));
+    }
+  }
 }

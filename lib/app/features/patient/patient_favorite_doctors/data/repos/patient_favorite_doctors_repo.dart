@@ -8,4 +8,5 @@ abstract class PatientFavoriteDoctorsRepo {
     required String doctorId,
     required bool isFavorite,
   });
+  Future<Either<Failure, List<DoctorModel>>> searchMyFavoriteDoctors(String? query);
 }

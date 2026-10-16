@@ -18,16 +18,28 @@ class PatientFavoriteDoctorsBlocBuilder extends StatelessWidget {
         if (state is GetMyFavoriteDoctorsSuccess ||
             state is ToggleDoctorInFavoritesFailure) {
           final bloc = context.read<PatientFavoriteDoctorsBloc>();
-          if (bloc.doctors.isEmpty) {
-            return Center(
-              child: DoctorsEmptyState(
-                iconSvg: AppIcons.medical,
-                title: t.noDoctorsFound,
-                description: t.noSearchResultsDescription,
-              ),
-            );
-          }
-          return PatientFavoriteDoctorsGridView(doctors: bloc.doctors);
+          final query = bloc.query?.trim();
+          final doctors = query != null && query.isNotEmpty
+              ? bloc.searchedDoctors
+              : bloc.doctors;
+          return PatientFavoriteDoctorsGridView(doctors: doctors);
+        } else if (state is EmptyFavoriteDoctors) {
+          return Center(
+            child: DoctorsEmptyState(
+              icon: Icons.favorite_border_rounded,
+              iconSecondary: Icons.close_rounded,
+              title: t.noFavoriteDoctors,
+              description: t.noFavoriteDoctorsDescription,
+            ),
+          );
+        } else if (state is EmptySearchedFavoriteDoctors) {
+          return Center(
+            child: DoctorsEmptyState(
+              iconSvg: AppIcons.medical,
+              title: t.noDoctorsFound,
+              description: t.noSearchResultsDescription,
+            ),
+          );
         } else if (state is GetMyFavoriteDoctorsFailure) {
           return AppErrorWidget(
             failure: state.failure,
