@@ -124,7 +124,7 @@ class _DrawerNavigationSection extends StatelessWidget {
           title: t.myAppointments,
           icon: AppIcons.drawerAppointments,
           onTap: () {
-            const PatientBookingRoute().go(context);
+            const PatientAppointmentsRoute().go(context);
             _hideDrawer(context);
           },
         ),

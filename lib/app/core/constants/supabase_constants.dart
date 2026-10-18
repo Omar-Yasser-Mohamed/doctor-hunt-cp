@@ -12,6 +12,7 @@ abstract final class SupabaseConstants {
   static const String doctorAvailabilityTable = 'doctor_availability';
   static const String favoritesTable = 'favorites';
   static const String appointmentsTable = 'appointments';
+  static const String appointmentReviewsTable = 'appointment_reviews';
 
   // Storage bucket
   static const String doctorPhotosBucket = 'doctor-photos';

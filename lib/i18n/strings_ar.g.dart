@@ -109,6 +109,9 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get runing => 'مباشر';
 	@override String get ongoing => 'مستمر';
 	@override String get services => 'الخدمات';
+	@override String get doctorService1 => 'يجب أن تكون رعاية المريض هي الأولوية الأولى.';
+	@override String get doctorService2 => 'إذا كنت تدير عيادتك، فأنت تعلم كم قد يكون الأمر محبطًا.';
+	@override String get doctorService3 => 'لهذا السبب تم تصميم نظام تذكير المواعيد.';
 	@override String get findDoctors => 'ابحث عن طبيبك';
 	@override String get nextAvailable => 'التالي المتاح';
 	@override String get tomorrow => 'غدا';
@@ -240,6 +243,14 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get english => 'English';
 	@override String get arabicSubtitle => 'العربية';
 	@override String get englishSubtitle => 'الإنجليزية';
+	@override String get noFavoriteDoctors => 'لا يوجد أطباء مفضلين';
+	@override String get noFavoriteDoctorsDescription => 'لم تقم بإضافة أي أطباء مفضلين بعد.';
+	@override String get appointmentDate => 'تاريخ الموعد';
+	@override String get appointmentTime => 'وقت الموعد';
+	@override String get viewDetails => 'عرض التفاصيل';
+	@override String get cancelAppointment => 'إلغاء الموعد';
+	@override String get tapToRateYourVisit => 'اضغط لتقييم زيارتك';
+	@override String get rateDoctor => 'تقييم الطبيب';
 }
 
 // Path: validations
@@ -427,6 +438,9 @@ extension on TranslationsAr {
 			'runing' => 'مباشر',
 			'ongoing' => 'مستمر',
 			'services' => 'الخدمات',
+			'doctorService1' => 'يجب أن تكون رعاية المريض هي الأولوية الأولى.',
+			'doctorService2' => 'إذا كنت تدير عيادتك، فأنت تعلم كم قد يكون الأمر محبطًا.',
+			'doctorService3' => 'لهذا السبب تم تصميم نظام تذكير المواعيد.',
 			'findDoctors' => 'ابحث عن طبيبك',
 			'nextAvailable' => 'التالي المتاح',
 			'tomorrow' => 'غدا',
@@ -558,6 +572,14 @@ extension on TranslationsAr {
 			'english' => 'English',
 			'arabicSubtitle' => 'العربية',
 			'englishSubtitle' => 'الإنجليزية',
+			'noFavoriteDoctors' => 'لا يوجد أطباء مفضلين',
+			'noFavoriteDoctorsDescription' => 'لم تقم بإضافة أي أطباء مفضلين بعد.',
+			'appointmentDate' => 'تاريخ الموعد',
+			'appointmentTime' => 'وقت الموعد',
+			'viewDetails' => 'عرض التفاصيل',
+			'cancelAppointment' => 'إلغاء الموعد',
+			'tapToRateYourVisit' => 'اضغط لتقييم زيارتك',
+			'rateDoctor' => 'تقييم الطبيب',
 			_ => null,
 		};
 	}

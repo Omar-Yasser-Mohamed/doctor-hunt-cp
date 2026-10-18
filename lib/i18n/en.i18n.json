@@ -261,5 +261,13 @@
   "arabicSubtitle": "Arabic",
   "englishSubtitle": "English",
   "noFavoriteDoctors": "No Favorite Doctors",
-  "noFavoriteDoctorsDescription": "You haven't added any favorite doctors yet."
+  "noFavoriteDoctorsDescription": "You haven't added any favorite doctors yet.",
+  "appointmentDate": "Appointment Date",
+  "appointmentTime": "Appointment Time",
+  "viewDetails": "View Details",
+  "cancelAppointment": "Cancel Appointment",
+  "tapToRateYourVisit": "Tap to rate your visit",
+  "rateDoctor": "Rate Doctor",
+  "noAppointmentsYet": "No Appointments Yet",
+  "youHaventBookedAnyAppointmentsYet": "You haven't booked any appointments yet." 
 }

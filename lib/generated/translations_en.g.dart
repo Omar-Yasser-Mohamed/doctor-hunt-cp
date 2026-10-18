@@ -659,6 +659,30 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'You haven't added any favorite doctors yet.'
 	String get noFavoriteDoctorsDescription => 'You haven\'t added any favorite doctors yet.';
+
+	/// en: 'Appointment Date'
+	String get appointmentDate => 'Appointment Date';
+
+	/// en: 'Appointment Time'
+	String get appointmentTime => 'Appointment Time';
+
+	/// en: 'View Details'
+	String get viewDetails => 'View Details';
+
+	/// en: 'Cancel Appointment'
+	String get cancelAppointment => 'Cancel Appointment';
+
+	/// en: 'Tap to rate your visit'
+	String get tapToRateYourVisit => 'Tap to rate your visit';
+
+	/// en: 'Rate Doctor'
+	String get rateDoctor => 'Rate Doctor';
+
+	/// en: 'No Appointments Yet'
+	String get noAppointmentsYet => 'No Appointments Yet';
+
+	/// en: 'You haven't booked any appointments yet.'
+	String get youHaventBookedAnyAppointmentsYet => 'You haven\'t booked any appointments yet.';
 }
 
 // Path: validations
@@ -1072,6 +1096,14 @@ extension on Translations {
 			'englishSubtitle' => 'English',
 			'noFavoriteDoctors' => 'No Favorite Doctors',
 			'noFavoriteDoctorsDescription' => 'You haven\'t added any favorite doctors yet.',
+			'appointmentDate' => 'Appointment Date',
+			'appointmentTime' => 'Appointment Time',
+			'viewDetails' => 'View Details',
+			'cancelAppointment' => 'Cancel Appointment',
+			'tapToRateYourVisit' => 'Tap to rate your visit',
+			'rateDoctor' => 'Rate Doctor',
+			'noAppointmentsYet' => 'No Appointments Yet',
+			'youHaventBookedAnyAppointmentsYet' => 'You haven\'t booked any appointments yet.',
 			_ => null,
 		};
 	}

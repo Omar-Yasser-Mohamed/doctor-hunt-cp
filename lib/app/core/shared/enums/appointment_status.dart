@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 
 enum AppointmentStatus {
@@ -39,4 +42,16 @@ enum AppointmentStatus {
         return AppointmentStatus.upcoming;
     }
   }
+
+  Color get backgroundColor => switch (this) {
+    AppointmentStatus.upcoming => AppColors.activeLight,
+    AppointmentStatus.completed => AppColors.activeLight,
+    AppointmentStatus.cancelled => AppColors.inactiveLight,
+  };
+
+  Color get color => switch (this) {
+    AppointmentStatus.upcoming => AppColors.primary,
+    AppointmentStatus.completed => AppColors.primary,
+    AppointmentStatus.cancelled => AppColors.inactive,
+  };
 }

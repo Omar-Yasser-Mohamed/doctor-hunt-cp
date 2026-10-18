@@ -49,10 +49,9 @@ class PatientFavoriteDoctorsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final config = configFor(context.screenWidth);
     return GridView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16),
+      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 16, bottom: 100.h),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: config.crossAxisCount,
         crossAxisSpacing: config.crossAxisSpacing,

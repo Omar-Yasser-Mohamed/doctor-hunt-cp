@@ -261,5 +261,13 @@
   "arabicSubtitle": "العربية",
   "englishSubtitle": "الإنجليزية",
   "noFavoriteDoctors": "لا يوجد أطباء مفضلين",
-  "noFavoriteDoctorsDescription": "لم تقم بإضافة أي أطباء مفضلين بعد."
+  "noFavoriteDoctorsDescription": "لم تقم بإضافة أي أطباء مفضلين بعد.",
+  "appointmentDate": "تاريخ الموعد",
+  "appointmentTime": "وقت الموعد",
+  "viewDetails": "عرض التفاصيل",
+  "cancelAppointment": "إلغاء الموعد",
+  "tapToRateYourVisit": "اضغط لتقييم زيارتك",
+  "rateDoctor": "تقييم الطبيب",
+  "noAppointmentsYet": "لا يوجد مواعيد",
+  "youHaventBookedAnyAppointmentsYet": "لم تحجز أي مواعيد حتى الآن"
 }

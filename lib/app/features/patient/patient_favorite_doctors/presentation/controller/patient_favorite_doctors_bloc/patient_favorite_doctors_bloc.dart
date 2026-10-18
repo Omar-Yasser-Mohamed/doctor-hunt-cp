@@ -45,14 +45,19 @@ class PatientFavoriteDoctorsBloc
 
     result.fold(
       (failure) => emit(GetMyFavoriteDoctorsFailure(failure: failure)),
-      (doctors) {
+      (newDoctors) {
         _doctors.clear();
 
-        for (var doctor in doctors) {
+        if (newDoctors.isEmpty) {
+          emit(EmptyFavoriteDoctors());
+          return;
+        }
+
+        for (var doctor in newDoctors) {
           _doctors[doctor.id] = doctor;
         }
 
-        emit(GetMyFavoriteDoctorsSuccess(doctors: doctors));
+        emit(GetMyFavoriteDoctorsSuccess(doctors: newDoctors));
       },
     );
   }

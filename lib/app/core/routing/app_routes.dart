@@ -1,6 +1,5 @@
 import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/core/widgets/patient_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/patient_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_nav_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/admin_scaffold.dart';
@@ -29,6 +28,8 @@ import 'package:doctor_hunt/app/features/common/location/presentation/screens/lo
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/screens/patient_appointments_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/controller/patient_booking_bloc/patient_booking_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/screens/patient_booking_appointment_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';
@@ -127,9 +128,9 @@ class RegisterRoute extends GoRouteData with $RegisterRoute {
         TypedGoRoute<PatientFavoriteRoute>(path: '/patientFavorite'),
       ],
     ),
-    TypedStatefulShellBranch<PatientBookingBranchData>(
+    TypedStatefulShellBranch<PatientAppointmentsBranchData>(
       routes: <TypedRoute<RouteData>>[
-        TypedGoRoute<PatientBookingRoute>(path: '/patientAppointments'),
+        TypedGoRoute<PatientAppointmentsRoute>(path: '/patientAppointments'),
       ],
     ),
     TypedStatefulShellBranch<PatientSettingsBranchData>(
@@ -184,18 +185,20 @@ class PatientFavoriteRoute extends GoRouteData with $PatientFavoriteRoute {
       const PatientFavoriteDoctorsScreen();
 }
 
-class PatientBookingBranchData extends StatefulShellBranchData {
-  const PatientBookingBranchData();
+class PatientAppointmentsBranchData extends StatefulShellBranchData {
+  const PatientAppointmentsBranchData();
 }
 
-class PatientBookingRoute extends GoRouteData with $PatientBookingRoute {
-  const PatientBookingRoute();
+class PatientAppointmentsRoute extends GoRouteData
+    with $PatientAppointmentsRoute {
+  const PatientAppointmentsRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const AppScaffold(
-    child: Center(
-      child: Text("Appointments"),
-    ),
+  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
+    create: (context) =>
+        getIt<PatientAppointmentsBloc>()
+          ..add(const GetPatientAppointmentsEvent()),
+    child: const PatientAppointmentsScreen(),
   );
 }
 

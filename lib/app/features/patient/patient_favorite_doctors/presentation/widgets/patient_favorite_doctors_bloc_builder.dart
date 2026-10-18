@@ -7,6 +7,7 @@ import 'package:doctor_hunt/app/features/patient/patient_favorite_doctors/presen
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PatientFavoriteDoctorsBlocBuilder extends StatelessWidget {
   const PatientFavoriteDoctorsBlocBuilder({super.key});
@@ -25,19 +26,25 @@ class PatientFavoriteDoctorsBlocBuilder extends StatelessWidget {
           return PatientFavoriteDoctorsGridView(doctors: doctors);
         } else if (state is EmptyFavoriteDoctors) {
           return Center(
-            child: DoctorsEmptyState(
-              icon: Icons.favorite_border_rounded,
-              iconSecondary: Icons.close_rounded,
-              title: t.noFavoriteDoctors,
-              description: t.noFavoriteDoctorsDescription,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 100.h),
+              child: DoctorsEmptyState(
+                icon: Icons.favorite_border_rounded,
+                iconSecondary: Icons.close_rounded,
+                title: t.noFavoriteDoctors,
+                description: t.noFavoriteDoctorsDescription,
+              ),
             ),
           );
         } else if (state is EmptySearchedFavoriteDoctors) {
           return Center(
-            child: DoctorsEmptyState(
-              iconSvg: AppIcons.medical,
-              title: t.noDoctorsFound,
-              description: t.noSearchResultsDescription,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 100.h),
+              child: DoctorsEmptyState(
+                iconSvg: AppIcons.medical,
+                title: t.noDoctorsFound,
+                description: t.noSearchResultsDescription,
+              ),
             ),
           );
         } else if (state is GetMyFavoriteDoctorsFailure) {

@@ -186,7 +186,7 @@ RouteBase get $patientShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/patientAppointments',
           hasOverriddenOnExit: false,
-          factory: $PatientBookingRoute._fromState,
+          factory: $PatientAppointmentsRoute._fromState,
         ),
       ],
     ),
@@ -249,9 +249,9 @@ mixin $PatientFavoriteRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin $PatientBookingRoute on GoRouteData {
-  static PatientBookingRoute _fromState(GoRouterState state) =>
-      const PatientBookingRoute();
+mixin $PatientAppointmentsRoute on GoRouteData {
+  static PatientAppointmentsRoute _fromState(GoRouterState state) =>
+      const PatientAppointmentsRoute();
 
   @override
   String get location => GoRouteData.$location('/patientAppointments');

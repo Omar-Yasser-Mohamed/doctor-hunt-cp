@@ -246,6 +246,14 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get englishSubtitle => 'الإنجليزية';
 	@override String get noFavoriteDoctors => 'لا يوجد أطباء مفضلين';
 	@override String get noFavoriteDoctorsDescription => 'لم تقم بإضافة أي أطباء مفضلين بعد.';
+	@override String get appointmentDate => 'تاريخ الموعد';
+	@override String get appointmentTime => 'وقت الموعد';
+	@override String get viewDetails => 'عرض التفاصيل';
+	@override String get cancelAppointment => 'إلغاء الموعد';
+	@override String get tapToRateYourVisit => 'اضغط لتقييم زيارتك';
+	@override String get rateDoctor => 'تقييم الطبيب';
+	@override String get noAppointmentsYet => 'لا يوجد مواعيد';
+	@override String get youHaventBookedAnyAppointmentsYet => 'لم تحجز أي مواعيد حتى الآن';
 }
 
 // Path: validations
@@ -569,6 +577,14 @@ extension on TranslationsAr {
 			'englishSubtitle' => 'الإنجليزية',
 			'noFavoriteDoctors' => 'لا يوجد أطباء مفضلين',
 			'noFavoriteDoctorsDescription' => 'لم تقم بإضافة أي أطباء مفضلين بعد.',
+			'appointmentDate' => 'تاريخ الموعد',
+			'appointmentTime' => 'وقت الموعد',
+			'viewDetails' => 'عرض التفاصيل',
+			'cancelAppointment' => 'إلغاء الموعد',
+			'tapToRateYourVisit' => 'اضغط لتقييم زيارتك',
+			'rateDoctor' => 'تقييم الطبيب',
+			'noAppointmentsYet' => 'لا يوجد مواعيد',
+			'youHaventBookedAnyAppointmentsYet' => 'لم تحجز أي مواعيد حتى الآن',
 			_ => null,
 		};
 	}

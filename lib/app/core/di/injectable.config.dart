@@ -96,6 +96,14 @@ import 'package:doctor_hunt/app/features/common/user/data/services/user_local_se
     as _i208;
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart'
     as _i716;
+import 'package:doctor_hunt/app/features/patient/patient_appointments/data/repos/patient_appointments_repo.dart'
+    as _i444;
+import 'package:doctor_hunt/app/features/patient/patient_appointments/data/repos/patient_appointments_repo_impl.dart'
+    as _i438;
+import 'package:doctor_hunt/app/features/patient/patient_appointments/data/service/patient_appointments_service.dart'
+    as _i228;
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart'
+    as _i147;
 import 'package:doctor_hunt/app/features/patient/patient_booking/data/repos/patient_booking_repo.dart'
     as _i1059;
 import 'package:doctor_hunt/app/features/patient/patient_booking/data/repos/patient_booking_repo_impl.dart'
@@ -260,6 +268,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i873.ImagePickerService>(
       () => _i873.ImagePickerService(gh<_i183.ImagePicker>()),
     );
+    gh.lazySingleton<_i228.PatientAppointmentsService>(
+      () => _i228.PatientAppointmentsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i122.PatientBookingService>(
       () => _i122.PatientBookingServiceImpl(gh<_i454.SupabaseClient>()),
     );
@@ -316,6 +327,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i183.ImagePicker>(),
       ),
     );
+    gh.lazySingleton<_i444.PatientAppointmentsRepo>(
+      () => _i438.PatientAppointmentsRepoImpl(
+        gh<_i228.PatientAppointmentsService>(),
+      ),
+    );
     gh.factory<_i1051.AdminDoctorDetailsBloc>(
       () => _i1051.AdminDoctorDetailsBloc(
         gh<_i648.AdminDoctorDetailsRepo>(),
@@ -333,6 +349,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i534.PatientProfileRepo>(
       () => _i9.PatientProfileRepoImpl(gh<_i855.PatientProfileService>()),
+    );
+    gh.factory<_i147.PatientAppointmentsBloc>(
+      () => _i147.PatientAppointmentsBloc(gh<_i444.PatientAppointmentsRepo>()),
     );
     gh.factory<_i248.DoctorManagementBloc>(
       () => _i248.DoctorManagementBloc(

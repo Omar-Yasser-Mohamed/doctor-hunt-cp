@@ -252,6 +252,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Services'
 	String get services => 'Services';
 
+	/// en: 'Patient care should be the number one priority.'
+	String get doctorService1 => 'Patient care should be the number one priority.';
+
+	/// en: 'If you run your practice you know how frustrating.'
+	String get doctorService2 => 'If you run your practice you know how frustrating.';
+
+	/// en: 'That’s why some of appointment reminder system.'
+	String get doctorService3 => 'That’s why some of appointment reminder system.';
+
 	/// en: 'Find Doctors'
 	String get findDoctors => 'Find Doctors';
 
@@ -644,6 +653,30 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'English'
 	String get englishSubtitle => 'English';
+
+	/// en: 'No Favorite Doctors'
+	String get noFavoriteDoctors => 'No Favorite Doctors';
+
+	/// en: 'You haven't added any favorite doctors yet.'
+	String get noFavoriteDoctorsDescription => 'You haven\'t added any favorite doctors yet.';
+
+	/// en: 'Appointment Date'
+	String get appointmentDate => 'Appointment Date';
+
+	/// en: 'Appointment Time'
+	String get appointmentTime => 'Appointment Time';
+
+	/// en: 'View Details'
+	String get viewDetails => 'View Details';
+
+	/// en: 'Cancel Appointment'
+	String get cancelAppointment => 'Cancel Appointment';
+
+	/// en: 'Tap to rate your visit'
+	String get tapToRateYourVisit => 'Tap to rate your visit';
+
+	/// en: 'Rate Doctor'
+	String get rateDoctor => 'Rate Doctor';
 }
 
 // Path: validations
@@ -921,6 +954,9 @@ extension on Translations {
 			'runing' => 'Runing',
 			'ongoing' => 'Ongoing',
 			'services' => 'Services',
+			'doctorService1' => 'Patient care should be the number one priority.',
+			'doctorService2' => 'If you run your practice you know how frustrating.',
+			'doctorService3' => 'That’s why some of appointment reminder system.',
 			'findDoctors' => 'Find Doctors',
 			'nextAvailable' => 'Next Available',
 			'tomorrow' => 'Tomorrow',
@@ -1052,6 +1088,14 @@ extension on Translations {
 			'english' => 'English',
 			'arabicSubtitle' => 'Arabic',
 			'englishSubtitle' => 'English',
+			'noFavoriteDoctors' => 'No Favorite Doctors',
+			'noFavoriteDoctorsDescription' => 'You haven\'t added any favorite doctors yet.',
+			'appointmentDate' => 'Appointment Date',
+			'appointmentTime' => 'Appointment Time',
+			'viewDetails' => 'View Details',
+			'cancelAppointment' => 'Cancel Appointment',
+			'tapToRateYourVisit' => 'Tap to rate your visit',
+			'rateDoctor' => 'Rate Doctor',
 			_ => null,
 		};
 	}
