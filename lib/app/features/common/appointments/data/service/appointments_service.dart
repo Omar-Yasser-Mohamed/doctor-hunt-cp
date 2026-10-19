@@ -8,6 +8,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract class AppointmentsService {
   Future<AppointmentModel> getAppointmentDetails(String appointmentId);
   Future<void> cancelAppointment(String appointmentId);
+  Future<void> markAppointmentAsCompleted(String appointmentId);
 }
 
 @LazySingleton(as: AppointmentsService)
@@ -47,5 +48,15 @@ class AppointmentsServiceImpl implements AppointmentsService {
     if (response == null || response['status'] != 'cancelled') {
       throw const AppointmentCouldNotBeCancelledException();
     }
+  }
+
+  @override
+  Future<void> markAppointmentAsCompleted(String appointmentId) async {
+    await _client.rpc(
+      SupabaseConstants.completeAppointmentProcedure,
+      params: {
+        'p_appointment_id': appointmentId,
+      },
+    );
   }
 }

@@ -716,6 +716,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Appointment canceled successfully'
 	String get appointmentCanceledSuccess => 'Appointment canceled successfully';
+
+	/// en: 'Mark Appointment as Completed?'
+	String get markAppointmentAsCompletedTitle => 'Mark Appointment as Completed?';
+
+	/// en: 'Confirm that this appointment has been completed.'
+	String get markAppointmentAsCompletedDescription => 'Confirm that this appointment has been completed.';
+
+	/// en: 'Appointment marked as completed successfully'
+	String get appointmentCompletedSuccess => 'Appointment marked as completed successfully';
 }
 
 // Path: validations
@@ -872,6 +881,18 @@ class Translations$errors$en {
 
 	/// en: 'Appointment could not be cancelled.'
 	String get appointmentCouldNotBeCancelled => 'Appointment could not be cancelled.';
+
+	/// en: 'Appointment not found or access denied.'
+	String get appointmentNotFound => 'Appointment not found or access denied.';
+
+	/// en: 'You're not authorized to perform this action.'
+	String get appointmentActionUnauthorized => 'You\'re not authorized to perform this action.';
+
+	/// en: 'This appointment can't be marked as completed.'
+	String get appointmentNotUpcoming => 'This appointment can\'t be marked as completed.';
+
+	/// en: 'You can't complete an appointment before its scheduled time.'
+	String get appointmentNotStarted => 'You can\'t complete an appointment before its scheduled time.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -982,6 +1003,10 @@ extension on Translations {
 			'errors.doctorUnavailable' => 'This doctor is currently unavailable.',
 			'errors.invalidAppointmentTime' => 'Please select a valid appointment time.',
 			'errors.appointmentCouldNotBeCancelled' => 'Appointment could not be cancelled.',
+			'errors.appointmentNotFound' => 'Appointment not found or access denied.',
+			'errors.appointmentActionUnauthorized' => 'You\'re not authorized to perform this action.',
+			'errors.appointmentNotUpcoming' => 'This appointment can\'t be marked as completed.',
+			'errors.appointmentNotStarted' => 'You can\'t complete an appointment before its scheduled time.',
 			'pickLocation' => 'Pick Location',
 			'searchPlaces' => 'Search places...',
 			'confirmLocation' => 'Confirm Location',
@@ -1152,6 +1177,9 @@ extension on Translations {
 			'yesCancel' => 'Yes, Cancel',
 			'cancelAppointmentConfirmation' => 'Are you sure you want to cancel this appointment?',
 			'appointmentCanceledSuccess' => 'Appointment canceled successfully',
+			'markAppointmentAsCompletedTitle' => 'Mark Appointment as Completed?',
+			'markAppointmentAsCompletedDescription' => 'Confirm that this appointment has been completed.',
+			'appointmentCompletedSuccess' => 'Appointment marked as completed successfully',
 			_ => null,
 		};
 	}

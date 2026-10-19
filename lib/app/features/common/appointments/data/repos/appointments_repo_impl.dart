@@ -32,4 +32,16 @@ class AppointmentsRepoImpl implements AppointmentsRepo {
       return Left(ErrorHandler.handle(e));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> markAppointmentAsCompleted(
+    String appointmentId,
+  ) async {
+    try {
+      await _service.markAppointmentAsCompleted(appointmentId);
+      return const Right(null);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e));
+    }
+  }
 }

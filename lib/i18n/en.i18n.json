@@ -108,7 +108,11 @@
     "slotUnavailable": "This time slot is no longer available.",
     "doctorUnavailable": "This doctor is currently unavailable.",
     "invalidAppointmentTime": "Please select a valid appointment time.",
-    "appointmentCouldNotBeCancelled": "Appointment could not be cancelled."
+    "appointmentCouldNotBeCancelled": "Appointment could not be cancelled.",
+    "appointmentNotFound": "Appointment not found or access denied.",
+    "appointmentActionUnauthorized": "You're not authorized to perform this action.",
+    "appointmentNotUpcoming": "This appointment can't be marked as completed.",
+    "appointmentNotStarted": "You can't complete an appointment before its scheduled time."
   },
 
   "pickLocation": "Pick Location",
@@ -281,5 +285,8 @@
   "doctor": "Doctor",
   "yesCancel": "Yes, Cancel",
   "cancelAppointmentConfirmation": "Are you sure you want to cancel this appointment?",
-  "appointmentCanceledSuccess": "Appointment canceled successfully"
+  "appointmentCanceledSuccess": "Appointment canceled successfully",
+  "markAppointmentAsCompletedTitle": "Mark Appointment as Completed?",
+  "markAppointmentAsCompletedDescription": "Confirm that this appointment has been completed.",
+  "appointmentCompletedSuccess": "Appointment marked as completed successfully"
 }

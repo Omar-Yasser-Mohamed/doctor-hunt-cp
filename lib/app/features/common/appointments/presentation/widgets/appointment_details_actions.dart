@@ -31,8 +31,13 @@ class AppointmentDetailsActions extends StatelessWidget {
           AppToasts.showSuccess(context, t.appointmentCanceledSuccess);
           context.pop();
           context.pop();
+        } else if (state is AppointmentCompletedSuccess) {
+          AppToasts.showSuccess(context, t.appointmentCompletedSuccess);
+          context.pop();
+          context.pop();
         } else if (state is AppointmentDetailsActionFailure) {
           AppToasts.showError(context, state.failure.message);
+          context.pop();
         }
       },
       builder: (context, state) {
@@ -55,9 +60,18 @@ class AppointmentDetailsActions extends StatelessWidget {
             ),
 
             if (isAdmin)
-              const Expanded(
+              Expanded(
                 child: MarkAsCompletedButton(
+                  appointmentId: appointment.id,
+                  isLoading: state is AppointmentDetailsActionLoading,
                   showIcon: true,
+                  onMarkCompleted: () {
+                    bloc.add(
+                      CompleteAppointmentFromDetailsEvent(
+                        appointmentId: appointment.id,
+                      ),
+                    );
+                  },
                 ),
               ),
           ],

@@ -20,6 +20,7 @@ class AppointmentDetailsBloc
     : super(AppointmentDetailsInitial()) {
     on<GetAppointmentDetailsEvent>(_getAppointmentDetails);
     on<CancelAppointmentFromDetailsEvent>(_onCancelAppointment);
+    on<CompleteAppointmentFromDetailsEvent>(_onCompleteAppointment);
   }
 
   late AppointmentModel _appointment;
@@ -57,8 +58,31 @@ class AppointmentDetailsBloc
     result.fold(
       (failure) => emit(AppointmentDetailsActionFailure(failure: failure)),
       (appointmentDetails) {
-        _appEventBus.fire(CancelAppointmentEvent(appointmentId: event.appointmentId));
+        _appEventBus.fire(
+          CancelAppointmentEvent(appointmentId: event.appointmentId),
+        );
         emit(AppointmentCanceledSuccess());
+      },
+    );
+  }
+
+  Future<void> _onCompleteAppointment(
+    CompleteAppointmentFromDetailsEvent event,
+    Emitter<AppointmentDetailsState> emit,
+  ) async {
+    emit(AppointmentDetailsActionLoading());
+
+    final result = await _appointmentsRepo.markAppointmentAsCompleted(
+      event.appointmentId,
+    );
+
+    result.fold(
+      (failure) => emit(AppointmentDetailsActionFailure(failure: failure)),
+      (appointmentDetails) {
+        _appEventBus.fire(
+          CompleteAppointmentEvent(appointmentId: event.appointmentId),
+        );
+        emit(AppointmentCompletedSuccess());
       },
     );
   }

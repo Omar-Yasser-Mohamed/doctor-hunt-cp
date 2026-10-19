@@ -19,9 +19,12 @@ class PatientAppointmentsBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is PatientAppointmentsActionFailure) {
           AppToasts.showError(context, state.failure.message);
+          context.pop();
         } else if (state is PatientAppointmentsCanceledSuccess) {
           AppToasts.showSuccess(context, t.appointmentCanceledSuccess);
           context.pop();
+        } else if (state is GetPatientAppointmentsPaginationFailure) {
+          AppToasts.showError(context, state.failure.message);
         }
       },
       builder: (context, state) {

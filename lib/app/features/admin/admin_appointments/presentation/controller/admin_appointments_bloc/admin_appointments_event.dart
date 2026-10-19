@@ -41,3 +41,10 @@ class AdminCancelAppointmentEvent extends AdminAppointmentsEvent {
   @override
   List<Object> get props => [appointmentId];
 }
+
+class AdminCompleteAppointmentEvent extends AdminAppointmentsEvent {
+  final String appointmentId;
+  const AdminCompleteAppointmentEvent({required this.appointmentId});
+  @override
+  List<Object> get props => [appointmentId];
+}

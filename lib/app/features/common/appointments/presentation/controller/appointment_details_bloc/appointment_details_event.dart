@@ -22,3 +22,11 @@ class CancelAppointmentFromDetailsEvent extends AppointmentDetailsEvent {
   @override
   List<Object> get props => [appointmentId];
 }
+
+class CompleteAppointmentFromDetailsEvent extends AppointmentDetailsEvent {
+  const CompleteAppointmentFromDetailsEvent({required this.appointmentId});
+  final String appointmentId;
+
+  @override
+  List<Object> get props => [appointmentId];
+}

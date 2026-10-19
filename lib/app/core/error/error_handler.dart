@@ -189,6 +189,22 @@ class ErrorHandler {
         code: FailureCode.unauthorized,
         message: t.errors.unauthorized,
       ),
+      'P2001' => AppFailure(
+        code: FailureCode.notFound,
+        message: t.errors.appointmentNotFound,
+      ),
+      'P2002' => AppFailure(
+        code: FailureCode.unauthorized,
+        message: t.errors.appointmentActionUnauthorized,
+      ),
+      'P2003' => AppFailure(
+        code: FailureCode.conflict,
+        message: t.errors.appointmentNotUpcoming,
+      ),
+      'P2004' => AppFailure(
+        code: FailureCode.invalidAppointmentTime,
+        message: t.errors.appointmentNotStarted,
+      ),
       _ => _handleStatusCode(error.code),
     };
   }

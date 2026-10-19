@@ -24,28 +24,41 @@ class _AdminAppointmentCardUpcomingActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: BlocBuilder<AdminAppointmentsBloc, AdminAppointmentsState>(
-            builder: (context, state) {
-              return CancelAppointmentButton(
+    return BlocBuilder<AdminAppointmentsBloc, AdminAppointmentsState>(
+      builder: (context, state) {
+        final bloc = context.read<AdminAppointmentsBloc>();
+        final isLoading = state is AdminAppointmentsActionLoading;
+
+        return Row(
+          children: [
+            Expanded(
+              child: CancelAppointmentButton(
                 appointmentId: appointmentId,
-                isLoading: state is AdminAppointmentsActionLoading,
+                isLoading: isLoading,
                 onCancel: () {
-                  context.read<AdminAppointmentsBloc>().add(
+                  bloc.add(
                     AdminCancelAppointmentEvent(appointmentId: appointmentId),
                   );
                 },
-              );
-            },
-          ),
-        ),
+              ),
+            ),
 
-        8.width,
+            8.width,
 
-        const Expanded(child: MarkAsCompletedButton()),
-      ],
+            Expanded(
+              child: MarkAsCompletedButton(
+                appointmentId: appointmentId,
+                isLoading: isLoading,
+                onMarkCompleted: () {
+                  bloc.add(
+                    AdminCompleteAppointmentEvent(appointmentId: appointmentId),
+                  );
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

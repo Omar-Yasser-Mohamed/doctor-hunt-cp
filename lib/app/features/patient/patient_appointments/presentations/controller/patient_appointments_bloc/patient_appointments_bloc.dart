@@ -124,7 +124,7 @@ class PatientAppointmentsBloc
     result.fold(
       (failure) {
         emit(
-          PatientAppointmentsActionFailure(
+          GetPatientAppointmentsPaginationFailure(
             failure: failure,
           ),
         );

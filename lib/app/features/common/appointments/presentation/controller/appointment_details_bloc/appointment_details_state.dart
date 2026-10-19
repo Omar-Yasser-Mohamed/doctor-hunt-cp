@@ -29,6 +29,8 @@ final class AppointmentDetailsActionLoading extends AppointmentDetailsState {}
 
 final class AppointmentCanceledSuccess extends AppointmentDetailsState {}
 
+final class AppointmentCompletedSuccess extends AppointmentDetailsState {}
+
 final class AppointmentDetailsActionFailure extends AppointmentDetailsState {
   final Failure failure;
   const AppointmentDetailsActionFailure({required this.failure});

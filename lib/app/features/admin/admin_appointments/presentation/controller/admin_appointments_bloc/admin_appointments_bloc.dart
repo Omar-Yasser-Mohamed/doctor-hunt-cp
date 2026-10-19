@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart';
 import 'package:doctor_hunt/app/core/app_events/app_events.dart';
@@ -39,8 +38,9 @@ class AdminAppointmentsBloc
       _onChangeAppointmentStatus,
       transformer: restartable(),
     );
-    on<CancelAppointmentFromDetailsEvent>(_onCancelAppointmentFromDetails);
+    on<CancelAppointmentFromDetailsEvent>(_onCancelOrCompleteAppointmentFromDetails);
     on<AdminCancelAppointmentEvent>(_onCancelAppointment);
+    on<AdminCompleteAppointmentEvent>(_onCompleteAppointment);
 
     _cancelAppointmentSubscription = _appEventBus
         .on<CancelAppointmentEvent>()
@@ -51,10 +51,20 @@ class AdminAppointmentsBloc
             ),
           ),
         );
+
+    _completeAppointmentSubscription = _appEventBus
+        .on<CompleteAppointmentEvent>()
+        .listen(
+          (event) => add(
+            CancelAppointmentFromDetailsEvent(
+              appointmentId: event.appointmentId,
+            ),
+          ),
+        );
   }
 
-  late final StreamSubscription<CancelAppointmentEvent>
-  _cancelAppointmentSubscription;
+  late final StreamSubscription<CancelAppointmentEvent> _cancelAppointmentSubscription;
+  late final StreamSubscription<CompleteAppointmentEvent> _completeAppointmentSubscription;
 
   AppointmentStatus _status = AppointmentStatus.upcoming;
   AppointmentStatus get status => _status;
@@ -124,7 +134,7 @@ class AdminAppointmentsBloc
     result.fold(
       (failure) {
         emit(
-          AdminAppointmentsActionFailure(
+          GetAdminAppointmentsPaginationFailure(
             failure: failure,
           ),
         );
@@ -167,7 +177,28 @@ class AdminAppointmentsBloc
     );
   }
 
-  void _onCancelAppointmentFromDetails(
+  Future<void> _onCompleteAppointment(
+    AdminCompleteAppointmentEvent event,
+    Emitter<AdminAppointmentsState> emit,
+  ) async {
+    emit(AdminAppointmentsActionLoading());
+
+    final result = await _appointmentsRepo.markAppointmentAsCompleted(
+      event.appointmentId,
+    );
+
+    result.fold(
+      (failure) {
+        emit(AdminAppointmentsActionFailure(failure: failure));
+      },
+      (_) {
+        _appointments.remove(event.appointmentId);
+        emit(AdminAppointmentsCompletedSuccess());
+      },
+    );
+  }
+
+  void _onCancelOrCompleteAppointmentFromDetails(
     CancelAppointmentFromDetailsEvent event,
     Emitter<AdminAppointmentsState> emit,
   ) {
@@ -179,6 +210,7 @@ class AdminAppointmentsBloc
   @override
   Future<void> close() {
     _cancelAppointmentSubscription.cancel();
+    _completeAppointmentSubscription.cancel();
     return super.close();
   }
 }

@@ -25,6 +25,13 @@ final class GetAdminAppointmentsFailure extends AdminAppointmentsState {
   List<Object> get props => [failure];
 }
 
+final class GetAdminAppointmentsPaginationFailure extends AdminAppointmentsState {
+  final Failure failure;
+  const GetAdminAppointmentsPaginationFailure({required this.failure});
+  @override
+  List<Object> get props => [failure];
+}
+
 final class GetAdminAppointmentsPaginationLoading
     extends AdminAppointmentsState {}
 
@@ -38,3 +45,5 @@ final class AdminAppointmentsActionFailure extends AdminAppointmentsState {
 final class AdminAppointmentsActionLoading extends AdminAppointmentsState {}
 
 final class AdminAppointmentsCanceledSuccess extends AdminAppointmentsState {}
+
+final class AdminAppointmentsCompletedSuccess extends AdminAppointmentsState {}

@@ -21,3 +21,8 @@ class CancelAppointmentEvent implements AppEvent{
   final String appointmentId;
   CancelAppointmentEvent({required this.appointmentId});
 }
+
+class CompleteAppointmentEvent implements AppEvent{
+  final String appointmentId;
+  CompleteAppointmentEvent({required this.appointmentId});
+}

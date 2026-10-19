@@ -265,6 +265,9 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get yesCancel => 'نعم، إلغاء';
 	@override String get cancelAppointmentConfirmation => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟';
 	@override String get appointmentCanceledSuccess => 'تم إلغاء الموعد بنجاح';
+	@override String get markAppointmentAsCompletedTitle => 'تحديد الموعد كمكتمل؟';
+	@override String get markAppointmentAsCompletedDescription => 'تأكيد اكتمال هذا الموعد.';
+	@override String get appointmentCompletedSuccess => 'تم تحديد الموعد كمكتمل بنجاح';
 }
 
 // Path: validations
@@ -329,6 +332,10 @@ class _Translations$errors$ar extends Translations$errors$en {
 	@override String get doctorUnavailable => 'الدكتور غير متاح حاليًا.';
 	@override String get invalidAppointmentTime => 'من فضلك اختار موعدًا صحيحًا.';
 	@override String get appointmentCouldNotBeCancelled => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.';
+	@override String get appointmentNotFound => 'الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.';
+	@override String get appointmentActionUnauthorized => 'ليس لديك صلاحية لتنفيذ هذا الإجراء.';
+	@override String get appointmentNotUpcoming => 'لا يمكن تحديد هذا الموعد كمكتمل.';
+	@override String get appointmentNotStarted => 'لا يمكن إكمال الموعد قبل موعده المحدد.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -439,6 +446,10 @@ extension on TranslationsAr {
 			'errors.doctorUnavailable' => 'الدكتور غير متاح حاليًا.',
 			'errors.invalidAppointmentTime' => 'من فضلك اختار موعدًا صحيحًا.',
 			'errors.appointmentCouldNotBeCancelled' => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.',
+			'errors.appointmentNotFound' => 'الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.',
+			'errors.appointmentActionUnauthorized' => 'ليس لديك صلاحية لتنفيذ هذا الإجراء.',
+			'errors.appointmentNotUpcoming' => 'لا يمكن تحديد هذا الموعد كمكتمل.',
+			'errors.appointmentNotStarted' => 'لا يمكن إكمال الموعد قبل موعده المحدد.',
 			'pickLocation' => 'تحديد الموقع',
 			'searchPlaces' => 'ابحث عن مكان...',
 			'confirmLocation' => 'تأكيد الموقع',
@@ -609,6 +620,9 @@ extension on TranslationsAr {
 			'yesCancel' => 'نعم، إلغاء',
 			'cancelAppointmentConfirmation' => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟',
 			'appointmentCanceledSuccess' => 'تم إلغاء الموعد بنجاح',
+			'markAppointmentAsCompletedTitle' => 'تحديد الموعد كمكتمل؟',
+			'markAppointmentAsCompletedDescription' => 'تأكيد اكتمال هذا الموعد.',
+			'appointmentCompletedSuccess' => 'تم تحديد الموعد كمكتمل بنجاح',
 			_ => null,
 		};
 	}

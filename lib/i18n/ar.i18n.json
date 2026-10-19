@@ -108,7 +108,11 @@
     "slotUnavailable": "الموعد ده لم يعد متاحًا.",
     "doctorUnavailable": "الدكتور غير متاح حاليًا.",
     "invalidAppointmentTime": "من فضلك اختار موعدًا صحيحًا.",
-    "appointmentCouldNotBeCancelled": "تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى."
+    "appointmentCouldNotBeCancelled": "تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.",
+    "appointmentNotFound": "الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.",
+    "appointmentActionUnauthorized": "ليس لديك صلاحية لتنفيذ هذا الإجراء.",
+    "appointmentNotUpcoming": "لا يمكن تحديد هذا الموعد كمكتمل.",
+    "appointmentNotStarted": "لا يمكن إكمال الموعد قبل موعده المحدد."
   },
 
   "pickLocation": "تحديد الموقع",
@@ -281,5 +285,8 @@
   "doctor": "الطبيب",
   "yesCancel": "نعم، إلغاء",
   "cancelAppointmentConfirmation": "هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟",
-  "appointmentCanceledSuccess": "تم إلغاء الموعد بنجاح"
+  "appointmentCanceledSuccess": "تم إلغاء الموعد بنجاح",
+  "markAppointmentAsCompletedTitle": "تحديد الموعد كمكتمل؟",
+  "markAppointmentAsCompletedDescription": "تأكيد اكتمال هذا الموعد.",
+  "appointmentCompletedSuccess": "تم تحديد الموعد كمكتمل بنجاح"
 }
