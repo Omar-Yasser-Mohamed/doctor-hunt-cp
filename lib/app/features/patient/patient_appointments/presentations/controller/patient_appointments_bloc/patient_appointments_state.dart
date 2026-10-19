@@ -46,3 +46,10 @@ final class PatientAppointmentsActionLoading extends PatientAppointmentsState {}
 
 final class PatientAppointmentsCanceledSuccess
     extends PatientAppointmentsState {}
+
+final class SubmitAppointmentReviewSuccess extends PatientAppointmentsState {
+  final AppointmentModel appointment;
+  const SubmitAppointmentReviewSuccess({required this.appointment});
+  @override
+  List<Object> get props => [appointment];
+}

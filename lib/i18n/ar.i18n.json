@@ -53,6 +53,10 @@
   "resetPasswordDescription": "أدخل كلمة المرور الجديدة لحسابك.",
   "updatePassword": "تحديث كلمة المرور",
   "code": "الرمز",
+  "currentPassword": "كلمة المرور الحالية",
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+  "changePasswordDescription": "أدخل كلمة المرور الحالية واختر كلمة مرور جديدة قوية.",
+  "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح",
 
   "validations": {
     "required": "حقل $fieldName مطلوب",
@@ -112,7 +116,12 @@
     "appointmentNotFound": "الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.",
     "appointmentActionUnauthorized": "ليس لديك صلاحية لتنفيذ هذا الإجراء.",
     "appointmentNotUpcoming": "لا يمكن تحديد هذا الموعد كمكتمل.",
-    "appointmentNotStarted": "لا يمكن إكمال الموعد قبل موعده المحدد."
+    "appointmentNotStarted": "لا يمكن إكمال الموعد قبل موعده المحدد.",
+    "reviewUnauthorized": "سجّل الدخول بحساب مريض للمتابعة.",
+    "reviewAppointmentNotCompleted": "يمكنك تقييم الطبيب بعد اكتمال الموعد.",
+    "reviewAlreadyExists": "لقد قمت بتقييم هذا الموعد بالفعل.",
+    "reviewInvalidRating": "اختر تقييمًا من نجمة إلى 5 نجوم.",
+    "reviewSubmitFailed": "تعذر إرسال تقييمك. حاول مرة أخرى."
   },
 
   "pickLocation": "تحديد الموقع",
@@ -288,5 +297,16 @@
   "appointmentCanceledSuccess": "تم إلغاء الموعد بنجاح",
   "markAppointmentAsCompletedTitle": "تحديد الموعد كمكتمل؟",
   "markAppointmentAsCompletedDescription": "تأكيد اكتمال هذا الموعد.",
-  "appointmentCompletedSuccess": "تم تحديد الموعد كمكتمل بنجاح"
+  "appointmentCompletedSuccess": "تم تحديد الموعد كمكتمل بنجاح",
+  "reviewSubmittedSuccess": "تم إرسال تقييمك بنجاح.",
+  "rateYourVisit": "تقييم زيارتك",
+  "rateDoctorTitle": "تقييم $name",
+  "howWasYourExperience": "كيف كانت تجربتك؟",
+  "writeAReviewOptional": "اكتب تقييماً (اختياري)",
+  "shareYourExperienceHint": "شارك تجربتك مع الطبيب...",
+  "submitReview": "إرسال التقييم",
+  "thankYouForRating": "شكرا لتقييمك",
+  "showMyReview": "عرض تقييمي",
+  "patientNotReviewedYet": "المريض لم يقيم بعد",
+  "appointmentReview": "تقييم الموعد"
 }

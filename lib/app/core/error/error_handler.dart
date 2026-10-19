@@ -205,6 +205,30 @@ class ErrorHandler {
         code: FailureCode.invalidAppointmentTime,
         message: t.errors.appointmentNotStarted,
       ),
+      'P3001' => AppFailure(
+        code: FailureCode.unauthorized,
+        message: t.errors.reviewUnauthorized,
+      ),
+      'P3002' => AppFailure(
+        code: FailureCode.notFound,
+        message: t.errors.appointmentNotFound,
+      ),
+      'P3003' => AppFailure(
+        code: FailureCode.reviewAppointmentNotCompleted,
+        message: t.errors.reviewAppointmentNotCompleted,
+      ),
+      'P3004' => AppFailure(
+        code: FailureCode.reviewAlreadyExists,
+        message: t.errors.reviewAlreadyExists,
+      ),
+      'P3005' => AppFailure(
+        code: FailureCode.reviewInvalidRating,
+        message: t.errors.reviewInvalidRating,
+      ),
+      'P3006' => AppFailure(
+        code: FailureCode.databaseError,
+        message: t.errors.reviewSubmitFailed,
+      ),
       _ => _handleStatusCode(error.code),
     };
   }

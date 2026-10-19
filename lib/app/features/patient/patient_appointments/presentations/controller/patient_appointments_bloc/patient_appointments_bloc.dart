@@ -4,6 +4,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart';
 import 'package:doctor_hunt/app/core/app_events/app_events.dart';
 import 'package:doctor_hunt/app/features/common/appointments/data/repos/appointments_repo.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/data/models/create_appointment_review.dart';
 import 'package:doctor_hunt/app/features/patient/patient_appointments/data/repos/patient_appointments_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
@@ -41,6 +42,7 @@ class PatientAppointmentsBloc
     );
     on<PatientCancelAppointmentEvent>(_onCancelAppointment);
     on<CancelAppointmentFromDetailsEvent>(_onCancelAppointmentFromDetails);
+    on<SubmitAppointmentReviewEvent>(_onSubmitAppointmentReview);
 
     _cancelAppointmentSubscription = _appEventBus
         .on<CancelAppointmentEvent>()
@@ -163,6 +165,31 @@ class PatientAppointmentsBloc
       (_) {
         _appointments.remove(event.appointmentId);
         emit(PatientAppointmentsCanceledSuccess());
+      },
+    );
+  }
+
+  Future<void> _onSubmitAppointmentReview(
+    SubmitAppointmentReviewEvent event,
+    Emitter<PatientAppointmentsState> emit,
+  ) async {
+    emit(PatientAppointmentsActionLoading());
+
+    final result = await _patientAppointmentsRepo.createAppointmentReview(
+      CreateAppointmentReviewRequest(
+        appointmentId: event.appointmentId,
+        rating: event.rating,
+        review: event.review,
+      ),
+    );
+
+    result.fold(
+      (failure) {
+        emit(PatientAppointmentsActionFailure(failure: failure));
+      },
+      (appointment) {
+        _appointments[appointment.id] = appointment;
+        emit(SubmitAppointmentReviewSuccess(appointment: appointment));
       },
     );
   }

@@ -80,6 +80,8 @@ import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.da
     as _i410;
 import 'package:doctor_hunt/app/features/common/auth/data/service/auth_service.dart'
     as _i722;
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/change_password_bloc/change_password_bloc.dart'
+    as _i74;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/forget_password_bloc/forget_password_bloc.dart'
     as _i378;
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart'
@@ -330,6 +332,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i66.AppointmentsRepo>(
       () => _i768.AppointmentsRepoImpl(gh<_i836.AppointmentsService>()),
+    );
+    gh.factory<_i74.ChangePasswordBloc>(
+      () => _i74.ChangePasswordBloc(gh<_i619.AuthRepo>()),
     );
     gh.factory<_i378.ForgetPasswordBloc>(
       () => _i378.ForgetPasswordBloc(gh<_i619.AuthRepo>()),

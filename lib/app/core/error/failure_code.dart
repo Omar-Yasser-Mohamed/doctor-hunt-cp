@@ -34,6 +34,11 @@ enum FailureCode {
   doctorUnavailable,
   invalidAppointmentTime,
   appointmentCouldNotBeCancelled,
+  reviewUnauthorized,
+  reviewAppointmentNotCompleted,
+  reviewAlreadyExists,
+  reviewInvalidRating,
+  reviewSubmitFailed,
 
   // Google
   googleSignInFailed,

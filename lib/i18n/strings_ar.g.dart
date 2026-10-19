@@ -92,6 +92,10 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get resetPasswordDescription => 'أدخل كلمة المرور الجديدة لحسابك.';
 	@override String get updatePassword => 'تحديث كلمة المرور';
 	@override String get code => 'الرمز';
+	@override String get currentPassword => 'كلمة المرور الحالية';
+	@override String get confirmNewPassword => 'تأكيد كلمة المرور الجديدة';
+	@override String get changePasswordDescription => 'أدخل كلمة المرور الحالية واختر كلمة مرور جديدة قوية.';
+	@override String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح';
 	@override late final _Translations$validations$ar validations = _Translations$validations$ar._(_root);
 	@override late final _Translations$errors$ar errors = _Translations$errors$ar._(_root);
 	@override String get pickLocation => 'تحديد الموقع';
@@ -263,6 +267,21 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override String get doctor => 'الطبيب';
 	@override String get yesCancel => 'نعم، إلغاء';
 	@override String get cancelAppointmentConfirmation => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟';
+	@override String get appointmentCanceledSuccess => 'تم إلغاء الموعد بنجاح';
+	@override String get markAppointmentAsCompletedTitle => 'تحديد الموعد كمكتمل؟';
+	@override String get markAppointmentAsCompletedDescription => 'تأكيد اكتمال هذا الموعد.';
+	@override String get appointmentCompletedSuccess => 'تم تحديد الموعد كمكتمل بنجاح';
+	@override String get reviewSubmittedSuccess => 'تم إرسال تقييمك بنجاح.';
+	@override String get rateYourVisit => 'تقييم زيارتك';
+	@override String rateDoctorTitle({required Object name}) => 'تقييم ${name}';
+	@override String get howWasYourExperience => 'كيف كانت تجربتك؟';
+	@override String get writeAReviewOptional => 'اكتب تقييماً (اختياري)';
+	@override String get shareYourExperienceHint => 'شارك تجربتك مع الطبيب...';
+	@override String get submitReview => 'إرسال التقييم';
+	@override String get thankYouForRating => 'شكرا لتقييمك';
+	@override String get showMyReview => 'عرض تقييمي';
+	@override String get patientNotReviewedYet => 'المريض لم يقيم بعد';
+	@override String get appointmentReview => 'تقييم الموعد';
 }
 
 // Path: validations
@@ -327,6 +346,15 @@ class _Translations$errors$ar implements Translations$errors$en {
 	@override String get doctorUnavailable => 'الدكتور غير متاح حاليًا.';
 	@override String get invalidAppointmentTime => 'من فضلك اختار موعدًا صحيحًا.';
 	@override String get appointmentCouldNotBeCancelled => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.';
+	@override String get appointmentNotFound => 'الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.';
+	@override String get appointmentActionUnauthorized => 'ليس لديك صلاحية لتنفيذ هذا الإجراء.';
+	@override String get appointmentNotUpcoming => 'لا يمكن تحديد هذا الموعد كمكتمل.';
+	@override String get appointmentNotStarted => 'لا يمكن إكمال الموعد قبل موعده المحدد.';
+	@override String get reviewUnauthorized => 'سجّل الدخول بحساب مريض للمتابعة.';
+	@override String get reviewAppointmentNotCompleted => 'يمكنك تقييم الطبيب بعد اكتمال الموعد.';
+	@override String get reviewAlreadyExists => 'لقد قمت بتقييم هذا الموعد بالفعل.';
+	@override String get reviewInvalidRating => 'اختر تقييمًا من نجمة إلى 5 نجوم.';
+	@override String get reviewSubmitFailed => 'تعذر إرسال تقييمك. حاول مرة أخرى.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -391,6 +419,10 @@ extension on TranslationsAr {
 			'resetPasswordDescription' => 'أدخل كلمة المرور الجديدة لحسابك.',
 			'updatePassword' => 'تحديث كلمة المرور',
 			'code' => 'الرمز',
+			'currentPassword' => 'كلمة المرور الحالية',
+			'confirmNewPassword' => 'تأكيد كلمة المرور الجديدة',
+			'changePasswordDescription' => 'أدخل كلمة المرور الحالية واختر كلمة مرور جديدة قوية.',
+			'passwordChangedSuccessfully' => 'تم تغيير كلمة المرور بنجاح',
 			'validations.required' => ({required Object fieldName}) => 'حقل ${fieldName} مطلوب',
 			'validations.emailRequired' => 'البريد الإلكتروني مطلوب',
 			'validations.invalidEmail' => 'يرجى إدخال بريد إلكتروني صالح',
@@ -437,6 +469,15 @@ extension on TranslationsAr {
 			'errors.doctorUnavailable' => 'الدكتور غير متاح حاليًا.',
 			'errors.invalidAppointmentTime' => 'من فضلك اختار موعدًا صحيحًا.',
 			'errors.appointmentCouldNotBeCancelled' => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.',
+			'errors.appointmentNotFound' => 'الموعد غير موجود أو ليس لديك صلاحية للوصول إليه.',
+			'errors.appointmentActionUnauthorized' => 'ليس لديك صلاحية لتنفيذ هذا الإجراء.',
+			'errors.appointmentNotUpcoming' => 'لا يمكن تحديد هذا الموعد كمكتمل.',
+			'errors.appointmentNotStarted' => 'لا يمكن إكمال الموعد قبل موعده المحدد.',
+			'errors.reviewUnauthorized' => 'سجّل الدخول بحساب مريض للمتابعة.',
+			'errors.reviewAppointmentNotCompleted' => 'يمكنك تقييم الطبيب بعد اكتمال الموعد.',
+			'errors.reviewAlreadyExists' => 'لقد قمت بتقييم هذا الموعد بالفعل.',
+			'errors.reviewInvalidRating' => 'اختر تقييمًا من نجمة إلى 5 نجوم.',
+			'errors.reviewSubmitFailed' => 'تعذر إرسال تقييمك. حاول مرة أخرى.',
 			'pickLocation' => 'تحديد الموقع',
 			'searchPlaces' => 'ابحث عن مكان...',
 			'confirmLocation' => 'تأكيد الموقع',
@@ -606,6 +647,21 @@ extension on TranslationsAr {
 			'doctor' => 'الطبيب',
 			'yesCancel' => 'نعم، إلغاء',
 			'cancelAppointmentConfirmation' => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟',
+			'appointmentCanceledSuccess' => 'تم إلغاء الموعد بنجاح',
+			'markAppointmentAsCompletedTitle' => 'تحديد الموعد كمكتمل؟',
+			'markAppointmentAsCompletedDescription' => 'تأكيد اكتمال هذا الموعد.',
+			'appointmentCompletedSuccess' => 'تم تحديد الموعد كمكتمل بنجاح',
+			'reviewSubmittedSuccess' => 'تم إرسال تقييمك بنجاح.',
+			'rateYourVisit' => 'تقييم زيارتك',
+			'rateDoctorTitle' => ({required Object name}) => 'تقييم ${name}',
+			'howWasYourExperience' => 'كيف كانت تجربتك؟',
+			'writeAReviewOptional' => 'اكتب تقييماً (اختياري)',
+			'shareYourExperienceHint' => 'شارك تجربتك مع الطبيب...',
+			'submitReview' => 'إرسال التقييم',
+			'thankYouForRating' => 'شكرا لتقييمك',
+			'showMyReview' => 'عرض تقييمي',
+			'patientNotReviewedYet' => 'المريض لم يقيم بعد',
+			'appointmentReview' => 'تقييم الموعد',
 			_ => null,
 		};
 	}

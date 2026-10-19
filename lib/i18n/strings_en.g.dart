@@ -204,6 +204,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Code'
 	String get code => 'Code';
 
+	/// en: 'Current Password'
+	String get currentPassword => 'Current Password';
+
+	/// en: 'Confirm New Password'
+	String get confirmNewPassword => 'Confirm New Password';
+
+	/// en: 'Enter your current password and choose a strong new password.'
+	String get changePasswordDescription => 'Enter your current password and choose a strong new password.';
+
+	/// en: 'Password changed successfully'
+	String get passwordChangedSuccessfully => 'Password changed successfully';
+
 	late final Translations$validations$en validations = Translations$validations$en._(_root);
 	late final Translations$errors$en errors = Translations$errors$en._(_root);
 
@@ -713,6 +725,51 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Are you sure you want to cancel this appointment?'
 	String get cancelAppointmentConfirmation => 'Are you sure you want to cancel this appointment?';
+
+	/// en: 'Appointment canceled successfully'
+	String get appointmentCanceledSuccess => 'Appointment canceled successfully';
+
+	/// en: 'Mark Appointment as Completed?'
+	String get markAppointmentAsCompletedTitle => 'Mark Appointment as Completed?';
+
+	/// en: 'Confirm that this appointment has been completed.'
+	String get markAppointmentAsCompletedDescription => 'Confirm that this appointment has been completed.';
+
+	/// en: 'Appointment marked as completed successfully'
+	String get appointmentCompletedSuccess => 'Appointment marked as completed successfully';
+
+	/// en: 'Your review has been submitted successfully.'
+	String get reviewSubmittedSuccess => 'Your review has been submitted successfully.';
+
+	/// en: 'Rate Your Visit'
+	String get rateYourVisit => 'Rate Your Visit';
+
+	/// en: 'Rate $name'
+	String rateDoctorTitle({required Object name}) => 'Rate ${name}';
+
+	/// en: 'How was your experience?'
+	String get howWasYourExperience => 'How was your experience?';
+
+	/// en: 'Write a review (optional)'
+	String get writeAReviewOptional => 'Write a review (optional)';
+
+	/// en: 'Share your experience with the doctor...'
+	String get shareYourExperienceHint => 'Share your experience with the doctor...';
+
+	/// en: 'Submit Review'
+	String get submitReview => 'Submit Review';
+
+	/// en: 'Thank you for rating'
+	String get thankYouForRating => 'Thank you for rating';
+
+	/// en: 'Show my review'
+	String get showMyReview => 'Show my review';
+
+	/// en: 'Patient Not Reviewed Yet'
+	String get patientNotReviewedYet => 'Patient Not Reviewed Yet';
+
+	/// en: 'Appointment Review'
+	String get appointmentReview => 'Appointment Review';
 }
 
 // Path: validations
@@ -869,6 +926,33 @@ class Translations$errors$en {
 
 	/// en: 'Appointment could not be cancelled.'
 	String get appointmentCouldNotBeCancelled => 'Appointment could not be cancelled.';
+
+	/// en: 'Appointment not found or access denied.'
+	String get appointmentNotFound => 'Appointment not found or access denied.';
+
+	/// en: 'You're not authorized to perform this action.'
+	String get appointmentActionUnauthorized => 'You\'re not authorized to perform this action.';
+
+	/// en: 'This appointment can't be marked as completed.'
+	String get appointmentNotUpcoming => 'This appointment can\'t be marked as completed.';
+
+	/// en: 'You can't complete an appointment before its scheduled time.'
+	String get appointmentNotStarted => 'You can\'t complete an appointment before its scheduled time.';
+
+	/// en: 'Please sign in with a patient account.'
+	String get reviewUnauthorized => 'Please sign in with a patient account.';
+
+	/// en: 'You can review the doctor after the appointment is completed.'
+	String get reviewAppointmentNotCompleted => 'You can review the doctor after the appointment is completed.';
+
+	/// en: 'You have already reviewed this appointment.'
+	String get reviewAlreadyExists => 'You have already reviewed this appointment.';
+
+	/// en: 'Please select a rating from 1 to 5 stars.'
+	String get reviewInvalidRating => 'Please select a rating from 1 to 5 stars.';
+
+	/// en: 'Couldn't submit your review. Please try again.'
+	String get reviewSubmitFailed => 'Couldn\'t submit your review. Please try again.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -933,6 +1017,10 @@ extension on Translations {
 			'updatePassword' => 'Update Password',
 			'resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
 			'code' => 'Code',
+			'currentPassword' => 'Current Password',
+			'confirmNewPassword' => 'Confirm New Password',
+			'changePasswordDescription' => 'Enter your current password and choose a strong new password.',
+			'passwordChangedSuccessfully' => 'Password changed successfully',
 			'validations.required' => ({required Object fieldName}) => '${fieldName} is required',
 			'validations.emailRequired' => 'Email is required',
 			'validations.invalidEmail' => 'Please enter a valid email',
@@ -979,6 +1067,15 @@ extension on Translations {
 			'errors.doctorUnavailable' => 'This doctor is currently unavailable.',
 			'errors.invalidAppointmentTime' => 'Please select a valid appointment time.',
 			'errors.appointmentCouldNotBeCancelled' => 'Appointment could not be cancelled.',
+			'errors.appointmentNotFound' => 'Appointment not found or access denied.',
+			'errors.appointmentActionUnauthorized' => 'You\'re not authorized to perform this action.',
+			'errors.appointmentNotUpcoming' => 'This appointment can\'t be marked as completed.',
+			'errors.appointmentNotStarted' => 'You can\'t complete an appointment before its scheduled time.',
+			'errors.reviewUnauthorized' => 'Please sign in with a patient account.',
+			'errors.reviewAppointmentNotCompleted' => 'You can review the doctor after the appointment is completed.',
+			'errors.reviewAlreadyExists' => 'You have already reviewed this appointment.',
+			'errors.reviewInvalidRating' => 'Please select a rating from 1 to 5 stars.',
+			'errors.reviewSubmitFailed' => 'Couldn\'t submit your review. Please try again.',
 			'pickLocation' => 'Pick Location',
 			'searchPlaces' => 'Search places...',
 			'confirmLocation' => 'Confirm Location',
@@ -1148,6 +1245,21 @@ extension on Translations {
 			'doctor' => 'Doctor',
 			'yesCancel' => 'Yes, Cancel',
 			'cancelAppointmentConfirmation' => 'Are you sure you want to cancel this appointment?',
+			'appointmentCanceledSuccess' => 'Appointment canceled successfully',
+			'markAppointmentAsCompletedTitle' => 'Mark Appointment as Completed?',
+			'markAppointmentAsCompletedDescription' => 'Confirm that this appointment has been completed.',
+			'appointmentCompletedSuccess' => 'Appointment marked as completed successfully',
+			'reviewSubmittedSuccess' => 'Your review has been submitted successfully.',
+			'rateYourVisit' => 'Rate Your Visit',
+			'rateDoctorTitle' => ({required Object name}) => 'Rate ${name}',
+			'howWasYourExperience' => 'How was your experience?',
+			'writeAReviewOptional' => 'Write a review (optional)',
+			'shareYourExperienceHint' => 'Share your experience with the doctor...',
+			'submitReview' => 'Submit Review',
+			'thankYouForRating' => 'Thank you for rating',
+			'showMyReview' => 'Show my review',
+			'patientNotReviewedYet' => 'Patient Not Reviewed Yet',
+			'appointmentReview' => 'Appointment Review',
 			_ => null,
 		};
 	}

@@ -10,6 +10,7 @@ import 'package:doctor_hunt/app/features/common/appointments/presentation/widget
 import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/appointment_view_details_button.dart';
 import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/cancel_appointment_button.dart';
 import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/mark_as_completed_button.dart';
+import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/show_review_dailog.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 part 'admin_appointment_card_actions.dart';
+part 'admin_appointment_card_review_section.dart';
 
 class AdminAppointmentCard extends StatelessWidget {
   const AdminAppointmentCard({super.key, required this.appointment});
@@ -60,6 +62,11 @@ class AdminAppointmentCard extends StatelessWidget {
             _PatientAppointmentCardDetails(appointment: appointment),
 
             14.height,
+
+            if (appointment.status == AppointmentStatus.completed) ...[
+              AdminAppointmentCardReviewSection(appointment: appointment),
+              14.height,
+            ],
 
             _AdminAppointmentCardActions(appointment: appointment),
           ],

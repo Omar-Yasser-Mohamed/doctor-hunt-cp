@@ -4,38 +4,52 @@ sealed class PatientAppointmentsEvent extends Equatable {
   const PatientAppointmentsEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class ChangeAppointmentStatusTabEvent extends PatientAppointmentsEvent {
   final AppointmentStatus status;
   const ChangeAppointmentStatusTabEvent({required this.status});
   @override
-  List<Object> get props => [status];
+  List<Object?> get props => [status];
 }
 
 class GetPatientAppointmentsEvent extends PatientAppointmentsEvent {
   const GetPatientAppointmentsEvent();
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class GetMorePatientAppointmentsEvent extends PatientAppointmentsEvent {
   const GetMorePatientAppointmentsEvent();
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
-class CancelAppointmentFromDetailsEvent extends PatientAppointmentsEvent { //form details screen
+class CancelAppointmentFromDetailsEvent extends PatientAppointmentsEvent {
+  //form details screen
   final String appointmentId;
   const CancelAppointmentFromDetailsEvent({required this.appointmentId});
   @override
-  List<Object> get props => [appointmentId];
+  List<Object?> get props => [appointmentId];
 }
 
 class PatientCancelAppointmentEvent extends PatientAppointmentsEvent {
   final String appointmentId;
   const PatientCancelAppointmentEvent({required this.appointmentId});
   @override
-  List<Object> get props => [appointmentId];
+  List<Object?> get props => [appointmentId];
+}
+
+class SubmitAppointmentReviewEvent extends PatientAppointmentsEvent {
+  final String appointmentId;
+  final int rating;
+  final String? review;
+  const SubmitAppointmentReviewEvent({
+    required this.appointmentId,
+    required this.rating,
+    this.review,
+  });
+  @override
+  List<Object?> get props => [appointmentId, rating, review];
 }

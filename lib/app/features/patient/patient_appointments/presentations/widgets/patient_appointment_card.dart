@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart';
 import 'package:doctor_hunt/app/core/shared/enums/appointment_status.dart';
 import 'package:doctor_hunt/app/core/shared/models/appointment_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
@@ -11,6 +12,8 @@ import 'package:doctor_hunt/app/features/common/appointments/presentation/widget
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
 import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/appointment_rate_doctor_dialog.dart';
+import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/show_review_dailog.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,26 +50,26 @@ class PatientAppointmentCard extends StatelessWidget {
         child: Column(
           children: [
             _PatientAppointmentCardDoctorInfo(appointment: appointment),
-      
+
             10.height,
-      
+
             const Divider(
               height: 1,
               thickness: 1,
               color: AppColors.grayLight,
             ),
-      
+
             10.height,
-      
+
             _PatientAppointmentCardDetails(appointment: appointment),
-      
+
             10.height,
-      
+
             if (appointment.status == AppointmentStatus.completed) ...[
-              const _PatientAppointmentRatingSection(),
+              _PatientAppointmentRatingSection(appointment: appointment),
               10.height,
             ],
-      
+
             _PatientAppointmentCardActions(appointment: appointment),
           ],
         ),
@@ -131,40 +134,46 @@ class _PatientAppointmentCardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final locale = LocaleSettings.currentLocale.languageCode;
-    return Column(
-      children: [
-        Row(
+    return BlocBuilder<LocaleBloc, LocaleState>(
+      builder: (context, state) {
+        final locale = LocaleSettings.currentLocale.languageCode;
+        return Column(
           children: [
-            Expanded(
-              child: _AppointmentDetailsTile(
-                icon: Icons.calendar_month_outlined,
-                title: t.appointmentDate,
-                value: DateFormat(
-                  "dd MMM yyyy",
-                  locale,
-                ).format(appointment.appointmentAt),
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: _AppointmentDetailsTile(
+                    icon: Icons.calendar_month_outlined,
+                    title: t.appointmentDate,
+                    value: DateFormat(
+                      "dd MMM yyyy",
+                      locale,
+                    ).format(appointment.appointmentAt),
+                  ),
+                ),
+
+                8.width,
+
+                Expanded(
+                  child: _AppointmentDetailsTile(
+                    icon: Icons.access_time_rounded,
+                    title: t.appointmentTime,
+                    value: DateFormat.jm(
+                      locale,
+                    ).format(appointment.appointmentAt),
+                  ),
+                ),
+              ],
             ),
-
-            8.width,
-
-            Expanded(
-              child: _AppointmentDetailsTile(
-                icon: Icons.access_time_rounded,
-                title: t.appointmentTime,
-                value: DateFormat.jm(locale).format(appointment.appointmentAt),
-              ),
+            8.height,
+            _AppointmentDetailsTile(
+              icon: Icons.attach_money_rounded,
+              title: t.consultationFee,
+              value: "\$${appointment.doctor?.fees}",
             ),
           ],
-        ),
-        8.height,
-        _AppointmentDetailsTile(
-          icon: Icons.attach_money_rounded,
-          title: t.consultationFee,
-          value: "\$${appointment.doctor?.fees}",
-        ),
-      ],
+        );
+      },
     );
   }
 }

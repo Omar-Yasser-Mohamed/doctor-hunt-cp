@@ -22,6 +22,7 @@ abstract final class SupabaseConstants {
   static const String getDoctorSpecialtyCountsProcedure = 'get_doctor_specialty_counts';
   static const String bookAppointmentProcedure = 'book_appointment';
   static const String completeAppointmentProcedure = 'complete_appointment';
+  static const String submitAppointmentReviewProcedure = 'submit_appointment_review';
 
   // Edge Functions
   static const String createDoctorEdgeFunction = 'create-doctor';

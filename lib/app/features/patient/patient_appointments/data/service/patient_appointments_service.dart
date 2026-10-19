@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/constants/supabase_constants.dart';
 import 'package:doctor_hunt/app/core/shared/enums/appointment_status.dart';
 import 'package:doctor_hunt/app/core/shared/models/appointment_model.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/data/models/create_appointment_review.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -10,6 +11,9 @@ abstract class PatientAppointmentsService {
     int? page,
     int? limit,
   });
+  Future<AppointmentModel> createAppointmentReview(
+    CreateAppointmentReviewRequest request,
+  );
 }
 
 @LazySingleton(as: PatientAppointmentsService)
@@ -49,5 +53,16 @@ class PatientAppointmentsServiceImpl implements PatientAppointmentsService {
         .order('created_at', ascending: false)
         .range(from, to);
     return response.map((json) => AppointmentModel.fromJson(json)).toList();
+  }
+
+  @override
+  Future<AppointmentModel> createAppointmentReview(
+    CreateAppointmentReviewRequest request,
+  ) async {
+    final response = await _supabaseClient.rpc(
+      SupabaseConstants.submitAppointmentReviewProcedure,
+      params: request.toRpcParams(),
+    );
+    return AppointmentModel.fromJson(response);
   }
 }

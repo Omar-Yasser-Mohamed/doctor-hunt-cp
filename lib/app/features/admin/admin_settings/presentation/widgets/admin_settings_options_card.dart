@@ -49,7 +49,7 @@ class AdminSettingsOptionsCard extends StatelessWidget {
             icon: Icons.lock_reset_rounded,
             title: t.changePassword,
             subtitle: t.changePasswordSubtitle,
-            onTap: () {},
+            onTap: () => const ChangePasswordRoute().push(context),
           ),
 
           _buildDivider(),

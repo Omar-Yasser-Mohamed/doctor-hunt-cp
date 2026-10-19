@@ -53,7 +53,11 @@
   "updatePassword": "Update Password",
   "resetPasswordDescription": "Set the new password for your account so you can login and access all the features.",
   "code": "Code",
-  
+  "currentPassword": "Current Password",
+  "confirmNewPassword": "Confirm New Password",
+  "changePasswordDescription": "Enter your current password and choose a strong new password.",
+  "passwordChangedSuccessfully": "Password changed successfully",
+
   "validations": {
     "required": "$fieldName is required",
     "emailRequired": "Email is required",
@@ -112,7 +116,12 @@
     "appointmentNotFound": "Appointment not found or access denied.",
     "appointmentActionUnauthorized": "You're not authorized to perform this action.",
     "appointmentNotUpcoming": "This appointment can't be marked as completed.",
-    "appointmentNotStarted": "You can't complete an appointment before its scheduled time."
+    "appointmentNotStarted": "You can't complete an appointment before its scheduled time.",
+    "reviewUnauthorized": "Please sign in with a patient account.",
+    "reviewAppointmentNotCompleted": "You can review the doctor after the appointment is completed.",
+    "reviewAlreadyExists": "You have already reviewed this appointment.",
+    "reviewInvalidRating": "Please select a rating from 1 to 5 stars.",
+    "reviewSubmitFailed": "Couldn't submit your review. Please try again."
   },
 
   "pickLocation": "Pick Location",
@@ -288,5 +297,16 @@
   "appointmentCanceledSuccess": "Appointment canceled successfully",
   "markAppointmentAsCompletedTitle": "Mark Appointment as Completed?",
   "markAppointmentAsCompletedDescription": "Confirm that this appointment has been completed.",
-  "appointmentCompletedSuccess": "Appointment marked as completed successfully"
+  "appointmentCompletedSuccess": "Appointment marked as completed successfully",
+  "reviewSubmittedSuccess": "Your review has been submitted successfully.",
+  "rateYourVisit": "Rate Your Visit",
+  "rateDoctorTitle": "Rate $name",
+  "howWasYourExperience": "How was your experience?",
+  "writeAReviewOptional": "Write a review (optional)",
+  "shareYourExperienceHint": "Share your experience with the doctor...",
+  "submitReview": "Submit Review",
+  "thankYouForRating": "Thank you for rating",
+  "showMyReview": "Show my review",
+  "patientNotReviewedYet": "Patient Not Reviewed Yet",
+  "appointmentReview": "Appointment Review"
 }

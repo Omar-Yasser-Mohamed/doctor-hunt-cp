@@ -18,10 +18,12 @@ import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/screen
 import 'package:doctor_hunt/app/features/admin/admin_settings/presentation/screens/admin_settings_screen.dart';
 import 'package:doctor_hunt/app/features/common/appointments/presentation/controller/appointment_details_bloc/appointment_details_bloc.dart';
 import 'package:doctor_hunt/app/features/common/appointments/presentation/screens/appointment_details_screen.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/controller/change_password_bloc/change_password_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/google_bloc/google_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/login_bloc/login_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/logout_bloc/logout_bloc.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/register_bloc/register_bloc.dart';
+import 'package:doctor_hunt/app/features/common/auth/presentation/screens/change_password_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/screens/register_screen.dart';
 import 'package:doctor_hunt/app/features/common/choose_role/presentation/controller/choose_role_bloc/choose_role_bloc.dart';
@@ -485,6 +487,19 @@ class AppointmentDetailsRoute extends GoRouteData
           getIt<AppointmentDetailsBloc>()
             ..add(GetAppointmentDetailsEvent(appointmentId: $extra)),
       child: const AppointmentDetailsScreen(),
+    );
+  }
+}
+
+@TypedGoRoute<ChangePasswordRoute>(path: '/changePassword')
+class ChangePasswordRoute extends GoRouteData with $ChangePasswordRoute {
+  const ChangePasswordRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider(
+      create: (context) => getIt<ChangePasswordBloc>(),
+      child: const ChangePasswordScreen(),
     );
   }
 }

@@ -34,7 +34,7 @@ class _PatientAccountSettingsSectionState
           leadingIcon: Icons.lock_rounded,
           iconBackgroundColor: Colors.red,
           title: t.changePassword,
-          onTap: () {},
+          onTap: () => const ChangePasswordRoute().push(context),
         ),
 
         PatientSettingsTile(

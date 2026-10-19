@@ -67,23 +67,35 @@ class _PatientAppointmentCardCompletedActions extends StatelessWidget {
           child: AppointmentViewDetailsButton(appointmentId: appointment.id),
         ),
         8.width,
-        const Expanded(child: _RateDoctorButton()),
+        Expanded(child: _RateDoctorButton(appointment: appointment)),
       ],
     );
   }
 }
 
 class _RateDoctorButton extends StatelessWidget {
-  const _RateDoctorButton();
+  const _RateDoctorButton({required this.appointment});
+  final AppointmentModel appointment;
 
   @override
   Widget build(BuildContext context) {
+    final showRateButton = appointment.review == null;
     return AppButton(
       height: 36.h,
       radius: 6.r,
       textStyle: context.medium11White,
-      text: t.rateDoctor,
-      onPressed: () {},
+      text: showRateButton ? t.rateDoctor : t.showMyReview,
+      onPressed: () {
+        showRateButton
+            ? AppointmentRateDoctorDialog.show(
+                context: context,
+                appointment: appointment,
+              )
+            : ShowReviewDailog.show(
+                context,
+                review: appointment.review!,
+              );
+      },
     );
   }
 }
