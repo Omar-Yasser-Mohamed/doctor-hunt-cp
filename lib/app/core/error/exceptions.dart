@@ -13,3 +13,7 @@ class LocationPermissionPermanentlyDeniedException implements Exception {
 class GeocodingException implements Exception {
   const GeocodingException();
 }
+
+class AppointmentCouldNotBeCancelledException implements Exception {
+  const AppointmentCouldNotBeCancelledException();
+}

@@ -86,6 +86,13 @@ class ErrorHandler {
       );
     }
 
+    if (error is AppointmentCouldNotBeCancelledException) {
+      return AppFailure(
+        code: FailureCode.appointmentCouldNotBeCancelled,
+        message: t.errors.appointmentCouldNotBeCancelled,
+      );
+    }
+
     // Supabase Auth
     if (error is AuthException) {
       return _handleAuthException(error);

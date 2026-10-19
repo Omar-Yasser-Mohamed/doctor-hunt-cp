@@ -25,3 +25,17 @@ class GetMorePatientAppointmentsEvent extends PatientAppointmentsEvent {
   @override
   List<Object> get props => [];
 }
+
+class CancelAppointmentFromDetailsEvent extends PatientAppointmentsEvent { //form details screen
+  final String appointmentId;
+  const CancelAppointmentFromDetailsEvent({required this.appointmentId});
+  @override
+  List<Object> get props => [appointmentId];
+}
+
+class PatientCancelAppointmentEvent extends PatientAppointmentsEvent {
+  final String appointmentId;
+  const PatientCancelAppointmentEvent({required this.appointmentId});
+  @override
+  List<Object> get props => [appointmentId];
+}

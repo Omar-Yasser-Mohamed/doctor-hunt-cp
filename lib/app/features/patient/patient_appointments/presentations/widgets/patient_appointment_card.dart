@@ -1,16 +1,19 @@
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
+import 'package:doctor_hunt/app/core/routing/app_routes.dart';
 import 'package:doctor_hunt/app/core/shared/enums/appointment_status.dart';
 import 'package:doctor_hunt/app/core/shared/models/appointment_model.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/app_button.dart';
-import 'package:doctor_hunt/app/core/widgets/app_outline_button.dart';
-import 'package:doctor_hunt/app/core/widgets/appointment_status_badge.dart';
-import 'package:doctor_hunt/app/core/widgets/cancel_appointment_button.dart';
+import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/appointment_status_badge.dart';
+import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/appointment_view_details_button.dart';
+import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/cancel_appointment_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
@@ -23,45 +26,50 @@ class PatientAppointmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(10.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
-            blurRadius: 20,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          _PatientAppointmentCardDoctorInfo(appointment: appointment),
-
-          10.height,
-
-          const Divider(
-            height: 1,
-            thickness: 1,
-            color: AppColors.grayLight,
-          ),
-
-          10.height,
-
-          _PatientAppointmentCardDetails(appointment: appointment),
-
-          10.height,
-
-          if (appointment.status == AppointmentStatus.completed) ...[
-            const _PatientAppointmentRatingSection(),
-            10.height,
+    return GestureDetector(
+      onTap: () {
+        AppointmentDetailsRoute($extra: appointment.id).push(context);
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(10.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.08),
+              blurRadius: 20,
+              offset: const Offset(0, 0),
+            ),
           ],
-
-          _PatientAppointmentCardActions(appointment: appointment),
-        ],
+        ),
+        child: Column(
+          children: [
+            _PatientAppointmentCardDoctorInfo(appointment: appointment),
+      
+            10.height,
+      
+            const Divider(
+              height: 1,
+              thickness: 1,
+              color: AppColors.grayLight,
+            ),
+      
+            10.height,
+      
+            _PatientAppointmentCardDetails(appointment: appointment),
+      
+            10.height,
+      
+            if (appointment.status == AppointmentStatus.completed) ...[
+              const _PatientAppointmentRatingSection(),
+              10.height,
+            ],
+      
+            _PatientAppointmentCardActions(appointment: appointment),
+          ],
+        ),
       ),
     );
   }

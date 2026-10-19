@@ -26,6 +26,7 @@ List<RouteBase> get $appRoutes => [
   $locationPickerRoute,
   $privacyPolicyRoute,
   $patientProfileRoute,
+  $appointmentDetailsRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -740,4 +741,35 @@ mixin $PatientProfileRoute on GoRouteData {
 
   @override
   void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $appointmentDetailsRoute => GoRouteData.$route(
+  path: '/appointmentDetails',
+  hasOverriddenOnExit: false,
+  factory: $AppointmentDetailsRoute._fromState,
+);
+
+mixin $AppointmentDetailsRoute on GoRouteData {
+  static AppointmentDetailsRoute _fromState(GoRouterState state) =>
+      AppointmentDetailsRoute($extra: state.extra as String);
+
+  AppointmentDetailsRoute get _self => this as AppointmentDetailsRoute;
+
+  @override
+  String get location => GoRouteData.$location('/appointmentDetails');
+
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+
+  @override
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: _self.$extra);
+
+  @override
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
 }

@@ -19,6 +19,7 @@ class AppButton extends StatelessWidget {
     this.shape,
     this.indicatorColor,
     this.isDisabled = false,
+    this.padding,
   });
   final String text;
   final Widget? child;
@@ -32,6 +33,7 @@ class AppButton extends StatelessWidget {
   final OutlinedBorder? shape;
   final Color? indicatorColor;
   final bool isDisabled;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +53,7 @@ class AppButton extends StatelessWidget {
         elevation: 0,
         shadowColor: Colors.transparent,
         minimumSize: Size(width ?? context.screenWidth, height ?? 54.h),
+        padding: padding,
       ),
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),

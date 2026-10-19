@@ -20,6 +20,14 @@ import 'package:doctor_hunt/app/core/shared/services/storage_service.dart'
     as _i755;
 import 'package:doctor_hunt/app/core/shared/services/supabase_storage_service.dart'
     as _i155;
+import 'package:doctor_hunt/app/features/admin/admin_appointments/data/repos/admin_appointments_repo.dart'
+    as _i119;
+import 'package:doctor_hunt/app/features/admin/admin_appointments/data/repos/admin_appointments_repo_impl.dart'
+    as _i934;
+import 'package:doctor_hunt/app/features/admin/admin_appointments/data/service/admin_appointments_service.dart'
+    as _i825;
+import 'package:doctor_hunt/app/features/admin/admin_appointments/presentation/controller/admin_appointments_bloc/admin_appointments_bloc.dart'
+    as _i442;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/data/repos/admin_doctor_availability_repo.dart'
     as _i563;
 import 'package:doctor_hunt/app/features/admin/admin_doctor_availability/data/repos/admin_doctor_availability_repo_impl.dart'
@@ -58,6 +66,14 @@ import 'package:doctor_hunt/app/features/admin/admin_profile/data/services/admin
     as _i561;
 import 'package:doctor_hunt/app/features/admin/admin_profile/presentation/controller/admin_edit_profile_bloc/admin_edit_profile_bloc.dart'
     as _i490;
+import 'package:doctor_hunt/app/features/common/appointments/data/repos/appointments_repo.dart'
+    as _i66;
+import 'package:doctor_hunt/app/features/common/appointments/data/repos/appointments_repo_impl.dart'
+    as _i768;
+import 'package:doctor_hunt/app/features/common/appointments/data/service/appointments_service.dart'
+    as _i836;
+import 'package:doctor_hunt/app/features/common/appointments/presentation/controller/appointment_details_bloc/appointment_details_bloc.dart'
+    as _i160;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo.dart'
     as _i619;
 import 'package:doctor_hunt/app/features/common/auth/data/repo/auth_repo_impl.dart'
@@ -219,6 +235,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i196.LocaleBloc>(
       () => _i196.LocaleBloc(gh<_i755.StorageService>()),
     );
+    gh.lazySingleton<_i825.AdminAppointmentsService>(
+      () => _i825.AdminAppointmentsServiceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i22.PatientFavoriteDoctorsService>(
       () => _i22.PatientFavoriteDoctorsServiceImpl(gh<_i454.SupabaseClient>()),
     );
@@ -239,6 +258,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i561.AdminProfileService>(),
         gh<_i208.UserLocalService>(),
       ),
+    );
+    gh.lazySingleton<_i836.AppointmentsService>(
+      () => _i836.AppointmentsServiceImpl(gh<_i454.SupabaseClient>()),
     );
     gh.lazySingleton<_i855.PatientProfileService>(
       () => _i855.PatientProfileServiceImpl(gh<_i454.SupabaseClient>()),
@@ -274,6 +296,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i122.PatientBookingService>(
       () => _i122.PatientBookingServiceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i119.AdminAppointmentsRepo>(
+      () =>
+          _i934.AdminAppointmentsRepoImpl(gh<_i825.AdminAppointmentsService>()),
+    );
     gh.factory<_i302.LocationPickerBloc>(
       () => _i302.LocationPickerBloc(gh<_i829.LocationRepo>()),
     );
@@ -301,6 +327,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i461.PatientDoctorsListBloc>(
       () => _i461.PatientDoctorsListBloc(gh<_i356.PatientHomeRepo>()),
+    );
+    gh.lazySingleton<_i66.AppointmentsRepo>(
+      () => _i768.AppointmentsRepoImpl(gh<_i836.AppointmentsService>()),
     );
     gh.factory<_i378.ForgetPasswordBloc>(
       () => _i378.ForgetPasswordBloc(gh<_i619.AuthRepo>()),
@@ -341,6 +370,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i892.AdminDoctorsRepo>(
       () => _i319.AdminDoctorsRepoImpl(gh<_i154.AdminDoctorsService>()),
     );
+    gh.factory<_i160.AppointmentDetailsBloc>(
+      () => _i160.AppointmentDetailsBloc(
+        gh<_i66.AppointmentsRepo>(),
+        gh<_i275.AppEventBus>(),
+      ),
+    );
     gh.factory<_i681.FindDoctorsBloc>(
       () => _i681.FindDoctorsBloc(gh<_i418.PatientFindDoctorsRepo>()),
     );
@@ -350,14 +385,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i534.PatientProfileRepo>(
       () => _i9.PatientProfileRepoImpl(gh<_i855.PatientProfileService>()),
     );
-    gh.factory<_i147.PatientAppointmentsBloc>(
-      () => _i147.PatientAppointmentsBloc(gh<_i444.PatientAppointmentsRepo>()),
-    );
     gh.factory<_i248.DoctorManagementBloc>(
       () => _i248.DoctorManagementBloc(
         gh<_i488.DoctorManagementRepo>(),
         gh<_i873.ImagePickerService>(),
         gh<_i275.AppEventBus>(),
+      ),
+    );
+    gh.factory<_i147.PatientAppointmentsBloc>(
+      () => _i147.PatientAppointmentsBloc(
+        gh<_i444.PatientAppointmentsRepo>(),
+        gh<_i275.AppEventBus>(),
+        gh<_i66.AppointmentsRepo>(),
       ),
     );
     gh.factory<_i305.PatientUpdateProfileBloc>(
@@ -376,6 +415,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i985.PatientFavoriteDoctorsBloc>(
       () => _i985.PatientFavoriteDoctorsBloc(
         gh<_i727.PatientFavoriteDoctorsRepo>(),
+      ),
+    );
+    gh.factory<_i442.AdminAppointmentsBloc>(
+      () => _i442.AdminAppointmentsBloc(
+        gh<_i119.AdminAppointmentsRepo>(),
+        gh<_i275.AppEventBus>(),
+        gh<_i66.AppointmentsRepo>(),
       ),
     );
     gh.factory<_i757.PatientBookingBloc>(

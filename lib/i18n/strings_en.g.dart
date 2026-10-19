@@ -677,6 +677,42 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Rate Doctor'
 	String get rateDoctor => 'Rate Doctor';
+
+	/// en: 'No Appointments Yet'
+	String get noAppointmentsYet => 'No Appointments Yet';
+
+	/// en: 'You haven't booked any appointments yet.'
+	String get youHaventBookedAnyAppointmentsYet => 'You haven\'t booked any appointments yet.';
+
+	/// en: 'No Appointments Found'
+	String get noAppointmentsFound => 'No Appointments Found';
+
+	/// en: 'No appointments are currently scheduled. Check back later for updates.'
+	String get noAppointmentsDescription => 'No appointments are currently scheduled. Check back later for updates.';
+
+	/// en: 'Date'
+	String get date => 'Date';
+
+	/// en: 'Time'
+	String get time => 'Time';
+
+	/// en: 'Fee'
+	String get fee => 'Fee';
+
+	/// en: 'Mark as Completed'
+	String get markAsCompleted => 'Mark as Completed';
+
+	/// en: 'Appointment Details'
+	String get appointmentDetails => 'Appointment Details';
+
+	/// en: 'Doctor'
+	String get doctor => 'Doctor';
+
+	/// en: 'Yes, Cancel'
+	String get yesCancel => 'Yes, Cancel';
+
+	/// en: 'Are you sure you want to cancel this appointment?'
+	String get cancelAppointmentConfirmation => 'Are you sure you want to cancel this appointment?';
 }
 
 // Path: validations
@@ -830,6 +866,9 @@ class Translations$errors$en {
 
 	/// en: 'Please select a valid appointment time.'
 	String get invalidAppointmentTime => 'Please select a valid appointment time.';
+
+	/// en: 'Appointment could not be cancelled.'
+	String get appointmentCouldNotBeCancelled => 'Appointment could not be cancelled.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -939,6 +978,7 @@ extension on Translations {
 			'errors.slotUnavailable' => 'This time slot is no longer available.',
 			'errors.doctorUnavailable' => 'This doctor is currently unavailable.',
 			'errors.invalidAppointmentTime' => 'Please select a valid appointment time.',
+			'errors.appointmentCouldNotBeCancelled' => 'Appointment could not be cancelled.',
 			'pickLocation' => 'Pick Location',
 			'searchPlaces' => 'Search places...',
 			'confirmLocation' => 'Confirm Location',
@@ -1096,6 +1136,18 @@ extension on Translations {
 			'cancelAppointment' => 'Cancel Appointment',
 			'tapToRateYourVisit' => 'Tap to rate your visit',
 			'rateDoctor' => 'Rate Doctor',
+			'noAppointmentsYet' => 'No Appointments Yet',
+			'youHaventBookedAnyAppointmentsYet' => 'You haven\'t booked any appointments yet.',
+			'noAppointmentsFound' => 'No Appointments Found',
+			'noAppointmentsDescription' => 'No appointments are currently scheduled. Check back later for updates.',
+			'date' => 'Date',
+			'time' => 'Time',
+			'fee' => 'Fee',
+			'markAsCompleted' => 'Mark as Completed',
+			'appointmentDetails' => 'Appointment Details',
+			'doctor' => 'Doctor',
+			'yesCancel' => 'Yes, Cancel',
+			'cancelAppointmentConfirmation' => 'Are you sure you want to cancel this appointment?',
 			_ => null,
 		};
 	}

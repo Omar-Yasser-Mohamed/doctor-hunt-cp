@@ -1,4 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:doctor_hunt/app/core/app_events/app_event_bus.dart';
+import 'package:doctor_hunt/app/core/app_events/app_events.dart';
+import 'package:doctor_hunt/app/features/common/appointments/data/repos/appointments_repo.dart';
 import 'package:doctor_hunt/app/features/patient/patient_appointments/data/repos/patient_appointments_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_hunt/app/core/error/failure.dart';
@@ -13,10 +18,15 @@ part 'patient_appointments_state.dart';
 @injectable
 class PatientAppointmentsBloc
     extends Bloc<PatientAppointmentsEvent, PatientAppointmentsState> {
-  final PatientAppointmentsRepo _appointmentsRepo;
+  final PatientAppointmentsRepo _patientAppointmentsRepo;
+  final AppointmentsRepo _appointmentsRepo;
+  final AppEventBus _appEventBus;
 
-  PatientAppointmentsBloc(this._appointmentsRepo)
-    : super(PatientAppointmentsInitial()) {
+  PatientAppointmentsBloc(
+    this._patientAppointmentsRepo,
+    this._appEventBus,
+    this._appointmentsRepo,
+  ) : super(PatientAppointmentsInitial()) {
     on<GetPatientAppointmentsEvent>(
       _onGetPatientAppointments,
       transformer: restartable(),
@@ -29,7 +39,22 @@ class PatientAppointmentsBloc
       _onChangeAppointmentStatus,
       transformer: restartable(),
     );
+    on<PatientCancelAppointmentEvent>(_onCancelAppointment);
+    on<CancelAppointmentFromDetailsEvent>(_onCancelAppointmentFromDetails);
+
+    _cancelAppointmentSubscription = _appEventBus
+        .on<CancelAppointmentEvent>()
+        .listen(
+          (event) => add(
+            CancelAppointmentFromDetailsEvent(
+              appointmentId: event.appointmentId,
+            ),
+          ),
+        );
   }
+
+  late final StreamSubscription<CancelAppointmentEvent>
+  _cancelAppointmentSubscription;
 
   AppointmentStatus _status = AppointmentStatus.upcoming;
   AppointmentStatus get status => _status;
@@ -61,7 +86,7 @@ class PatientAppointmentsBloc
   ) async {
     emit(GetPatientAppointmentsLoading());
 
-    final result = await _appointmentsRepo.getPatientAppointments(
+    final result = await _patientAppointmentsRepo.getPatientAppointments(
       status: status,
       limit: _limit,
       page: _page,
@@ -90,7 +115,7 @@ class PatientAppointmentsBloc
 
     emit(GetPatientAppointmentsPaginationLoading());
 
-    final result = await _appointmentsRepo.getPatientAppointments(
+    final result = await _patientAppointmentsRepo.getPatientAppointments(
       status: status,
       limit: _limit,
       page: nextPage,
@@ -99,7 +124,7 @@ class PatientAppointmentsBloc
     result.fold(
       (failure) {
         emit(
-          GetPatientAppointmentsPaginationFailure(
+          PatientAppointmentsActionFailure(
             failure: failure,
           ),
         );
@@ -119,5 +144,41 @@ class PatientAppointmentsBloc
         );
       },
     );
+  }
+
+  Future<void> _onCancelAppointment(
+    PatientCancelAppointmentEvent event,
+    Emitter<PatientAppointmentsState> emit,
+  ) async {
+    emit(PatientAppointmentsActionLoading());
+
+    final result = await _appointmentsRepo.cancelAppointment(
+      event.appointmentId,
+    );
+
+    result.fold(
+      (failure) {
+        emit(PatientAppointmentsActionFailure(failure: failure));
+      },
+      (_) {
+        _appointments.remove(event.appointmentId);
+        emit(PatientAppointmentsCanceledSuccess());
+      },
+    );
+  }
+
+  void _onCancelAppointmentFromDetails(
+    CancelAppointmentFromDetailsEvent event,
+    Emitter<PatientAppointmentsState> emit,
+  ) {
+    _appointments.remove(event.appointmentId);
+
+    emit(GetPatientAppointmentsSuccess(appointments: appointments));
+  }
+
+  @override
+  Future<void> close() {
+    _cancelAppointmentSubscription.cancel();
+    return super.close();
   }
 }

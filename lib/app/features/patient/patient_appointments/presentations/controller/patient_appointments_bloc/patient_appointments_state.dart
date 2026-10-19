@@ -25,11 +25,17 @@ final class GetPatientAppointmentsFailure extends PatientAppointmentsState {
   List<Object> get props => [failure];
 }
 
-final class GetPatientAppointmentsPaginationLoading extends PatientAppointmentsState {}
+final class GetPatientAppointmentsPaginationLoading
+    extends PatientAppointmentsState {}
 
-final class GetPatientAppointmentsPaginationFailure extends PatientAppointmentsState {
+final class PatientAppointmentsActionFailure extends PatientAppointmentsState {
   final Failure failure;
-  const GetPatientAppointmentsPaginationFailure({required this.failure});
+  const PatientAppointmentsActionFailure({required this.failure});
   @override
   List<Object> get props => [failure];
 }
+
+final class PatientAppointmentsActionLoading extends PatientAppointmentsState {}
+
+final class PatientAppointmentsCanceledSuccess
+    extends PatientAppointmentsState {}

@@ -8,6 +8,7 @@ import 'package:doctor_hunt/app/features/patient/patient_appointments/presentati
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class PatientAppointmentsBlocConsumer extends StatelessWidget {
   const PatientAppointmentsBlocConsumer({super.key});
@@ -16,15 +17,26 @@ class PatientAppointmentsBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<PatientAppointmentsBloc, PatientAppointmentsState>(
       listener: (context, state) {
-        if (state is GetPatientAppointmentsPaginationFailure) {
+        if (state is PatientAppointmentsActionFailure) {
           AppToasts.showError(context, state.failure.message);
+        } else if (state is PatientAppointmentsCanceledSuccess) {
+          AppToasts.showSuccess(context, t.appointmentCanceledSuccess);
+          context.pop();
         }
       },
       builder: (context, state) {
         final bloc = context.read<PatientAppointmentsBloc>();
-        if (state is GetPatientAppointmentsSuccess ||
-            state is GetPatientAppointmentsPaginationFailure ||
-            state is GetPatientAppointmentsPaginationLoading) {
+        if (state is GetPatientAppointmentsLoading ||
+            state is PatientAppointmentsInitial) {
+          return const PatientAppointmentsListSliverShimmer();
+        } else if (state is GetPatientAppointmentsFailure) {
+          return AppErrorSliver(
+            failure: state.failure,
+            onRetry: () {
+              bloc.add(const GetPatientAppointmentsEvent());
+            },
+          );
+        } else {
           if (bloc.appointments.isEmpty) {
             return SliverFillRemaining(
               hasScrollBody: false,
@@ -38,15 +50,7 @@ class PatientAppointmentsBlocConsumer extends StatelessWidget {
             );
           }
           return PatientAppointmentsListView(appointments: bloc.appointments);
-        } else if (state is GetPatientAppointmentsFailure) {
-          return AppErrorSliver(
-            failure: state.failure,
-            onRetry: () {
-              bloc.add(const GetPatientAppointmentsEvent());
-            },
-          );
         }
-        return const PatientAppointmentsListSliverShimmer();
       },
     );
   }

@@ -107,7 +107,8 @@
 
     "slotUnavailable": "الموعد ده لم يعد متاحًا.",
     "doctorUnavailable": "الدكتور غير متاح حاليًا.",
-    "invalidAppointmentTime": "من فضلك اختار موعدًا صحيحًا."
+    "invalidAppointmentTime": "من فضلك اختار موعدًا صحيحًا.",
+    "appointmentCouldNotBeCancelled": "تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى."
   },
 
   "pickLocation": "تحديد الموقع",
@@ -269,5 +270,16 @@
   "tapToRateYourVisit": "اضغط لتقييم زيارتك",
   "rateDoctor": "تقييم الطبيب",
   "noAppointmentsYet": "لا يوجد مواعيد",
-  "youHaventBookedAnyAppointmentsYet": "لم تحجز أي مواعيد حتى الآن"
+  "youHaventBookedAnyAppointmentsYet": "لم تحجز أي مواعيد حتى الآن",
+  "noAppointmentsFound": "لا يوجد مواعيد",
+  "noAppointmentsDescription": "لا يوجد مواعيد مجدولة حالياً. تحقق لاحقاً من وجود تحديثات",
+  "date": "التاريخ",
+  "time": "الوقت",
+  "fee": "الرسوم",
+  "markAsCompleted": "تحديد كمكتمل",
+  "appointmentDetails": "تفاصيل الموعد",
+  "doctor": "الطبيب",
+  "yesCancel": "نعم، إلغاء",
+  "cancelAppointmentConfirmation": "هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟",
+  "appointmentCanceledSuccess": "تم إلغاء الموعد بنجاح"
 }

@@ -8,53 +8,64 @@ class _PatientAppointmentCardActions extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (appointment.status) {
       case AppointmentStatus.upcoming:
-        return const _PatientAppointmentCardUpcomingActions();
+        return _PatientAppointmentCardUpcomingActions(appointment: appointment);
       case AppointmentStatus.completed:
-        return const _PatientAppointmentCardCompletedActions();
+        return _PatientAppointmentCardCompletedActions(
+          appointment: appointment,
+        );
       case AppointmentStatus.cancelled:
-        return const AppointmentViewDetailsButton();
+        return AppointmentViewDetailsButton(appointmentId: appointment.id);
     }
   }
 }
 
-class AppointmentViewDetailsButton extends StatelessWidget {
-  const AppointmentViewDetailsButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppOutlineButton(
-      height: 36.h,
-      radius: 6.r,
-      textStyle: context.medium11Primary,
-      text: t.viewDetails,
-      onPressed: () {},
-    );
-  }
-}
-
 class _PatientAppointmentCardUpcomingActions extends StatelessWidget {
-  const _PatientAppointmentCardUpcomingActions();
+  const _PatientAppointmentCardUpcomingActions({required this.appointment});
+  final AppointmentModel appointment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(child: AppointmentViewDetailsButton()),
+        Expanded(
+          child: AppointmentViewDetailsButton(appointmentId: appointment.id),
+        ),
+
         8.width,
-        const Expanded(child: CancelAppointmentButton()),
+
+        Expanded(
+          child: BlocBuilder<PatientAppointmentsBloc, PatientAppointmentsState>(
+            builder: (context, state) {
+              return CancelAppointmentButton(
+                appointmentId: appointment.id,
+                isLoading: state is PatientAppointmentsActionLoading,
+                onCancel: () {
+                  context.read<PatientAppointmentsBloc>().add(
+                    PatientCancelAppointmentEvent(
+                      appointmentId: appointment.id,
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
       ],
     );
   }
 }
 
 class _PatientAppointmentCardCompletedActions extends StatelessWidget {
-  const _PatientAppointmentCardCompletedActions();
+  const _PatientAppointmentCardCompletedActions({required this.appointment});
+  final AppointmentModel appointment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(child: AppointmentViewDetailsButton()),
+        Expanded(
+          child: AppointmentViewDetailsButton(appointmentId: appointment.id),
+        ),
         8.width,
         const Expanded(child: _RateDoctorButton()),
       ],

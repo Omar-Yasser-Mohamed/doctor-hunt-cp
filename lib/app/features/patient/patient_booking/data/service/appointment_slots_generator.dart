@@ -12,7 +12,6 @@ class AppointmentSlotsGenerator {
     required List<AppointmentModel> appointments,
     required DateTime date,
   }) {
-    // check the day
     if (!availability.workingDays.contains(date.workWeekDay)) {
       return [];
     }

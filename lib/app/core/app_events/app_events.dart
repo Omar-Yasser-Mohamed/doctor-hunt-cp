@@ -16,3 +16,8 @@ class DoctorDeletedEvent implements AppEvent {
   final String doctorId;
   DoctorDeletedEvent({required this.doctorId});
 }
+
+class CancelAppointmentEvent implements AppEvent{
+  final String appointmentId;
+  CancelAppointmentEvent({required this.appointmentId});
+}

@@ -33,6 +33,7 @@ enum FailureCode {
   slotUnavailable,
   doctorUnavailable,
   invalidAppointmentTime,
+  appointmentCouldNotBeCancelled,
 
   // Google
   googleSignInFailed,

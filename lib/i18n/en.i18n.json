@@ -107,7 +107,8 @@
 
     "slotUnavailable": "This time slot is no longer available.",
     "doctorUnavailable": "This doctor is currently unavailable.",
-    "invalidAppointmentTime": "Please select a valid appointment time."
+    "invalidAppointmentTime": "Please select a valid appointment time.",
+    "appointmentCouldNotBeCancelled": "Appointment could not be cancelled."
   },
 
   "pickLocation": "Pick Location",
@@ -269,5 +270,16 @@
   "tapToRateYourVisit": "Tap to rate your visit",
   "rateDoctor": "Rate Doctor",
   "noAppointmentsYet": "No Appointments Yet",
-  "youHaventBookedAnyAppointmentsYet": "You haven't booked any appointments yet." 
+  "youHaventBookedAnyAppointmentsYet": "You haven't booked any appointments yet.",
+  "noAppointmentsFound": "No Appointments Found",
+  "noAppointmentsDescription": "No appointments are currently scheduled. Check back later for updates.",
+  "date": "Date",
+  "time": "Time",
+  "fee": "Fee",
+  "markAsCompleted": "Mark as Completed",
+  "appointmentDetails": "Appointment Details",
+  "doctor": "Doctor",
+  "yesCancel": "Yes, Cancel",
+  "cancelAppointmentConfirmation": "Are you sure you want to cancel this appointment?",
+  "appointmentCanceledSuccess": "Appointment canceled successfully"
 }

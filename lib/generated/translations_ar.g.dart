@@ -254,6 +254,17 @@ class TranslationsAr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get rateDoctor => 'تقييم الطبيب';
 	@override String get noAppointmentsYet => 'لا يوجد مواعيد';
 	@override String get youHaventBookedAnyAppointmentsYet => 'لم تحجز أي مواعيد حتى الآن';
+	@override String get noAppointmentsFound => 'لا يوجد مواعيد';
+	@override String get noAppointmentsDescription => 'لا يوجد مواعيد مجدولة حالياً. تحقق لاحقاً من وجود تحديثات';
+	@override String get date => 'التاريخ';
+	@override String get time => 'الوقت';
+	@override String get fee => 'الرسوم';
+	@override String get markAsCompleted => 'تحديد كمكتمل';
+	@override String get appointmentDetails => 'تفاصيل الموعد';
+	@override String get doctor => 'الطبيب';
+	@override String get yesCancel => 'نعم، إلغاء';
+	@override String get cancelAppointmentConfirmation => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟';
+	@override String get appointmentCanceledSuccess => 'تم إلغاء الموعد بنجاح';
 }
 
 // Path: validations
@@ -317,6 +328,7 @@ class _Translations$errors$ar extends Translations$errors$en {
 	@override String get slotUnavailable => 'الموعد ده لم يعد متاحًا.';
 	@override String get doctorUnavailable => 'الدكتور غير متاح حاليًا.';
 	@override String get invalidAppointmentTime => 'من فضلك اختار موعدًا صحيحًا.';
+	@override String get appointmentCouldNotBeCancelled => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -426,6 +438,7 @@ extension on TranslationsAr {
 			'errors.slotUnavailable' => 'الموعد ده لم يعد متاحًا.',
 			'errors.doctorUnavailable' => 'الدكتور غير متاح حاليًا.',
 			'errors.invalidAppointmentTime' => 'من فضلك اختار موعدًا صحيحًا.',
+			'errors.appointmentCouldNotBeCancelled' => 'تعذر إلغاء الموعد، يرجى المحاولة مرة أخرى.',
 			'pickLocation' => 'تحديد الموقع',
 			'searchPlaces' => 'ابحث عن مكان...',
 			'confirmLocation' => 'تأكيد الموقع',
@@ -585,6 +598,17 @@ extension on TranslationsAr {
 			'rateDoctor' => 'تقييم الطبيب',
 			'noAppointmentsYet' => 'لا يوجد مواعيد',
 			'youHaventBookedAnyAppointmentsYet' => 'لم تحجز أي مواعيد حتى الآن',
+			'noAppointmentsFound' => 'لا يوجد مواعيد',
+			'noAppointmentsDescription' => 'لا يوجد مواعيد مجدولة حالياً. تحقق لاحقاً من وجود تحديثات',
+			'date' => 'التاريخ',
+			'time' => 'الوقت',
+			'fee' => 'الرسوم',
+			'markAsCompleted' => 'تحديد كمكتمل',
+			'appointmentDetails' => 'تفاصيل الموعد',
+			'doctor' => 'الطبيب',
+			'yesCancel' => 'نعم، إلغاء',
+			'cancelAppointmentConfirmation' => 'هل أنت متأكد من رغبتك في إلغاء هذا الموعد؟',
+			'appointmentCanceledSuccess' => 'تم إلغاء الموعد بنجاح',
 			_ => null,
 		};
 	}
