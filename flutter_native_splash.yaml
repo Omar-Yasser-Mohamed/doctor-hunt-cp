@@ -1,0 +1,7 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/doctor_hunt_native_splash.png
+
+  android_12:
+    color: "#FFFFFF"
+    image: assets/images/doctor_hunt_native_splash.png

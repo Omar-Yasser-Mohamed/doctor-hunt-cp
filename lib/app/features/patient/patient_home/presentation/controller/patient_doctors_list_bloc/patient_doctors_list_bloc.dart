@@ -10,10 +10,12 @@ part 'patient_doctors_list_event.dart';
 part 'patient_doctors_list_state.dart';
 
 @injectable
-class PatientDoctorsListBloc extends Bloc<PatientDoctorsListEvent, PatientDoctorsListState> {
+class PatientDoctorsListBloc
+    extends Bloc<PatientDoctorsListEvent, PatientDoctorsListState> {
   final PatientHomeRepo _patientHomeRepo;
 
-  PatientDoctorsListBloc(this._patientHomeRepo) : super(PatientDoctorsListInitial()) {
+  PatientDoctorsListBloc(this._patientHomeRepo)
+    : super(PatientDoctorsListInitial()) {
     on<GetDoctorsList>(_onGetDoctorsList);
     on<GetMoreDoctors>(_onGetMoreDoctors);
   }
@@ -37,12 +39,11 @@ class PatientDoctorsListBloc extends Bloc<PatientDoctorsListEvent, PatientDoctor
     _doctors.clear();
 
     emit(PatientDoctorsListLoading());
-    final result =
-        await _patientHomeRepo.getDoctors(
-        filter: event.doctorsFilter,
-        page: _page,
-        limit: _limit,
-      );
+    final result = await _patientHomeRepo.getDoctors(
+      filter: event.doctorsFilter,
+      page: _page,
+      limit: _limit,
+    );
     result.fold(
       (failure) => emit(PatientDoctorsListFailure(failure: failure)),
       (doctors) {
@@ -58,19 +59,16 @@ class PatientDoctorsListBloc extends Bloc<PatientDoctorsListEvent, PatientDoctor
     GetMoreDoctors event,
     Emitter<PatientDoctorsListState> emit,
   ) async {
-    if (_hasMore) {
-      return;
-    }
+    if (!_hasMore) return;
 
     final nextPage = _page + 1;
 
     emit(PatientDoctorsListPaginationLoading());
-    final result =
-        await _patientHomeRepo.getDoctors(
-        filter: _currentFilter!,
-        page: nextPage,
-        limit: _limit,
-      );
+    final result = await _patientHomeRepo.getDoctors(
+      filter: _currentFilter!,
+      page: nextPage,
+      limit: _limit,
+    );
     result.fold(
       (failure) => emit(PatientDoctorsListPaginationFailure(failure: failure)),
       (doctors) {

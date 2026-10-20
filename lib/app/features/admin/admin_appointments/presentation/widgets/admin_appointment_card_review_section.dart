@@ -21,6 +21,7 @@ class AdminAppointmentCardReviewSection extends StatelessWidget {
           : null,
       behavior: HitTestBehavior.opaque,
       child: Container(
+        width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
         decoration: BoxDecoration(
           color: AppColors.reviewLight,
