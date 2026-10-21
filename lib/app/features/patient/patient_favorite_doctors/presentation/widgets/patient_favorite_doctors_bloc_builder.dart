@@ -31,8 +31,8 @@ class PatientFavoriteDoctorsBlocBuilder extends StatelessWidget {
               child: DoctorsEmptyState(
                 icon: Icons.favorite_border_rounded,
                 iconSecondary: Icons.close_rounded,
-                title: t.noFavoriteDoctors,
-                description: t.noFavoriteDoctorsDescription,
+                title: context.t.noFavoriteDoctors,
+                description: context.t.noFavoriteDoctorsDescription,
               ),
             ),
           );
@@ -42,8 +42,8 @@ class PatientFavoriteDoctorsBlocBuilder extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 100.h),
               child: DoctorsEmptyState(
                 iconSvg: AppIcons.medical,
-                title: t.noDoctorsFound,
-                description: t.noSearchResultsDescription,
+                title: context.t.noDoctorsFound,
+                description: context.t.noSearchResultsDescription,
               ),
             ),
           );

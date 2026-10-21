@@ -109,6 +109,8 @@ class _PatientProfileFormState extends State<PatientProfileForm> {
               ),
             ),
 
+            16.height,
+
             const Spacer(),
 
             BlocConsumer<PatientUpdateProfileBloc, PatientUpdateProfileState>(

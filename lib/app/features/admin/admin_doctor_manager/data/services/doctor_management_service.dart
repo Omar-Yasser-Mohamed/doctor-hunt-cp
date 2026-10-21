@@ -51,11 +51,21 @@ final class DoctorManagementServiceImpl implements DoctorManagementService {
   Future<DoctorModel> updateDoctor(
     UpdateDoctorRequest request,
   ) async {
-    final Map<String, dynamic> body = {'doctor_id': request.id};
-    if (request.name != null) body['name'] = request.name;
-    if (request.specialty != null) body['specialty'] = request.specialty!.name;
-    if (request.fees != null) body['fees'] = request.fees;
-    if (request.isActive != null) body['is_active'] = request.isActive;
+    final Map<String, String> body = {
+      'doctor_id': request.id,
+    };
+    if (request.name != null) {
+      body['name'] = request.name!;
+    }
+    if (request.specialty != null) {
+      body['specialty'] = request.specialty!.name;
+    }
+    if (request.fees != null) {
+      body['fees'] = request.fees.toString();
+    }
+    if (request.isActive != null) {
+      body['is_active'] = request.isActive.toString();
+    }
 
     final response = await _supabaseClient.functions.invoke(
       SupabaseConstants.updateDoctorEdgeFunction,

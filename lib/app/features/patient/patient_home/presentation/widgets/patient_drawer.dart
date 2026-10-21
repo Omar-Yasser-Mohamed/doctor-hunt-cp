@@ -2,6 +2,7 @@ import 'package:doctor_hunt/app/core/di/injectable.dart';
 import 'package:doctor_hunt/app/core/extensions/context_extentions.dart';
 import 'package:doctor_hunt/app/core/extensions/sized_box_extentions.dart';
 import 'package:doctor_hunt/app/core/routing/app_routes.dart';
+import 'package:doctor_hunt/app/core/shared/controllers/locale_bloc/locale_bloc.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
 import 'package:doctor_hunt/app/core/widgets/logout_dialog.dart';
@@ -100,44 +101,48 @@ class _DrawerNavigationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _DrawerItem(
-          title: t.home,
-          icon: AppIcons.drawerprofile,
-          onTap: () {
-            const PatientHomeRoute().go(context);
-            _hideDrawer(context);
-          },
-        ),
+    return BlocBuilder<LocaleBloc, LocaleState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            _DrawerItem(
+              title: t.home,
+              icon: AppIcons.drawerprofile,
+              onTap: () {
+                const PatientHomeRoute().go(context);
+                _hideDrawer(context);
+              },
+            ),
 
-        _DrawerItem(
-          title: t.favorites,
-          icon: AppIcons.drawerFavorite,
-          onTap: () {
-            const PatientFavoriteRoute().go(context);
-            _hideDrawer(context);
-          },
-        ),
+            _DrawerItem(
+              title: t.favorites,
+              icon: AppIcons.drawerFavorite,
+              onTap: () {
+                const PatientFavoriteRoute().go(context);
+                _hideDrawer(context);
+              },
+            ),
 
-        _DrawerItem(
-          title: t.myAppointments,
-          icon: AppIcons.drawerAppointments,
-          onTap: () {
-            const PatientAppointmentsRoute().go(context);
-            _hideDrawer(context);
-          },
-        ),
+            _DrawerItem(
+              title: t.myAppointments,
+              icon: AppIcons.drawerAppointments,
+              onTap: () {
+                const PatientAppointmentsRoute().go(context);
+                _hideDrawer(context);
+              },
+            ),
 
-        _DrawerItem(
-          title: t.settings,
-          icon: AppIcons.drawerSettings,
-          onTap: () {
-            const PatientSettingsRoute().go(context);
-            _hideDrawer(context);
-          },
-        ),
-      ],
+            _DrawerItem(
+              title: t.settings,
+              icon: AppIcons.drawerSettings,
+              onTap: () {
+                const PatientSettingsRoute().go(context);
+                _hideDrawer(context);
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 

@@ -16,6 +16,8 @@ class PatientProfileScreen extends StatelessWidget {
       backgroundColor: AppColors.lightGray,
       appBar: AppBar(
         backgroundColor: AppColors.primary,
+        scrolledUnderElevation: 0,
+        bottomOpacity: 0,
         leading: const AppBackButton(),
         title: Text(
           t.profile,

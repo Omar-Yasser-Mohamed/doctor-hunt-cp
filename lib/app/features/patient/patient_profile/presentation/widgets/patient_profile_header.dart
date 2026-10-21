@@ -45,7 +45,7 @@ class PatientProfileHeader extends StatelessWidget {
                   final currentUserImage = user?.user.image;
                   final bloc = context.read<PatientUpdateProfileBloc>();
                   final imageFile = bloc.pickedImage;
-                  final String name = user?.user.name ?? 'Patient';
+                  final String name = user?.user.name ?? '';
 
                   if (imageFile != null) {
                     return ClipOval(

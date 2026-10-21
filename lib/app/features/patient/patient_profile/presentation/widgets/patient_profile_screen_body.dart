@@ -14,7 +14,6 @@ class PatientProfileScreenBody extends StatelessWidget {
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
             child: const IntrinsicHeight(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   PatientProfileHeader(),
                   Expanded(

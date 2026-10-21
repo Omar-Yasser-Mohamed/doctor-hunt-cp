@@ -46,8 +46,8 @@ class PatientAppointmentsBlocConsumer extends StatelessWidget {
               child: Center(
                 child: DoctorsEmptyState(
                   iconSvg: AppIcons.medical,
-                  title: t.noAppointmentsYet,
-                  description: t.youHaventBookedAnyAppointmentsYet,
+                  title: context.t.noAppointmentsYet,
+                  description: context.t.youHaventBookedAnyAppointmentsYet,
                 ),
               ),
             );
