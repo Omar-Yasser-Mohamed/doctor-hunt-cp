@@ -59,7 +59,7 @@ class PatientDoctorsListBloc
     GetMoreDoctors event,
     Emitter<PatientDoctorsListState> emit,
   ) async {
-    if (!_hasMore) return;
+    if (!_hasMore || state is PatientDoctorsListPaginationLoading) return;
 
     final nextPage = _page + 1;
 

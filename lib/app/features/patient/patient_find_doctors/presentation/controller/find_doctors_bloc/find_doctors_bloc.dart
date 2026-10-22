@@ -80,7 +80,7 @@ class FindDoctorsBloc extends Bloc<FindDoctorsEvent, FindDoctorsState> {
     LoadMoreDoctorsEvent event,
     Emitter<FindDoctorsState> emit,
   ) async {
-    if (!_hasMore || _query == null) {
+    if (!_hasMore || _query == null || state is FindDoctorsPaginationLoading) {
       return;
     }
 

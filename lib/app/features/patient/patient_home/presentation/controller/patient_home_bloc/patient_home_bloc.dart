@@ -92,9 +92,7 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
     LoadMorePopularDoctors event,
     Emitter<PatientHomeState> emit,
   ) async {
-    if (!_hasMorePopular) {
-      return;
-    }
+    if (!_hasMorePopular || state is PatientMorePopularLoading) return;
 
     final nextPage = _popularPage + 1;
 
@@ -125,9 +123,7 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
     LoadMoreTopRatedDoctors event,
     Emitter<PatientHomeState> emit,
   ) async {
-    if (!_hasMoreTopRated) {
-      return;
-    }
+    if (!_hasMoreTopRated || state is PatientMoreTopRatedLoading) return;
 
     final nextPage = _topRatedPage + 1;
 

@@ -120,7 +120,7 @@ class AdminAppointmentsBloc
     GetMoreAdminAppointmentsEvent event,
     Emitter<AdminAppointmentsState> emit,
   ) async {
-    if (!_hasMore) return;
+    if (!_hasMore || state is GetAdminAppointmentsPaginationLoading) return;
     final nextPage = _page + 1;
 
     emit(GetAdminAppointmentsPaginationLoading());

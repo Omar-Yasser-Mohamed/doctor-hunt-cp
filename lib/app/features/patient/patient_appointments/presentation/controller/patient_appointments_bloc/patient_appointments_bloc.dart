@@ -112,7 +112,7 @@ class PatientAppointmentsBloc
     GetMorePatientAppointmentsEvent event,
     Emitter<PatientAppointmentsState> emit,
   ) async {
-    if (!_hasMore) return;
+    if (!_hasMore || state is GetPatientAppointmentsPaginationLoading) return;
     final nextPage = _page + 1;
 
     emit(GetPatientAppointmentsPaginationLoading());

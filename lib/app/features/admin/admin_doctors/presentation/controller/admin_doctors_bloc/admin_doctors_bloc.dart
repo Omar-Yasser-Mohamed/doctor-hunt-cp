@@ -194,7 +194,7 @@ class AdminDoctorsBloc extends Bloc<AdminDoctorsEvent, AdminDoctorsState> {
     LoadMoreDoctorsEvent event,
     Emitter<AdminDoctorsState> emit,
   ) async {
-    if (!_hasMore) return;
+    if (!_hasMore || state is AdminDoctorsPaginationLoading) return;
     final nextPage = _page + 1;
 
     emit(AdminDoctorsPaginationLoading());
