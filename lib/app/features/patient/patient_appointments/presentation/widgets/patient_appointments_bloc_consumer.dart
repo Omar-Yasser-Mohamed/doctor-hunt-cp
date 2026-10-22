@@ -1,10 +1,10 @@
 import 'package:doctor_hunt/app/core/utils/app_icons.dart';
 import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/patient_appointments_shimmer.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/widgets/patient_appointments_shimmer.dart';
 import 'package:doctor_hunt/app/core/widgets/app_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/doctors_empty_state.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/patient_appointments_list_view.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/widgets/patient_appointments_list_view.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

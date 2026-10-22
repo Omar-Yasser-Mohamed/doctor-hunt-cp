@@ -1,7 +1,7 @@
 import 'package:doctor_hunt/app/core/shared/enums/appointment_status.dart';
 import 'package:doctor_hunt/app/core/theme/app_colors.dart';
 import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

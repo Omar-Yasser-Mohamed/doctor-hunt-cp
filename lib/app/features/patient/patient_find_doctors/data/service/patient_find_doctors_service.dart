@@ -25,6 +25,7 @@ class PatientFindDoctorsServiceImpl implements PatientFindDoctorsService {
     final response = await _supabaseClient
         .from(SupabaseConstants.doctorsTable)
         .select()
+        .eq('is_active', true)
         .ilike('name', '%${query.trim()}%')
         .range((page - 1) * limit, page * limit - 1);
 

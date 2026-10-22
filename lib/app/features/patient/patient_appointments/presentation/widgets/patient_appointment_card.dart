@@ -11,8 +11,8 @@ import 'package:doctor_hunt/app/features/common/appointments/presentation/widget
 import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/cancel_appointment_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_network_image.dart';
 import 'package:doctor_hunt/app/core/widgets/dynamic_rating_stars.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/appointment_rate_doctor_dialog.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/widgets/appointment_rate_doctor_dialog.dart';
 import 'package:doctor_hunt/app/features/common/appointments/presentation/widgets/show_review_dailog.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';

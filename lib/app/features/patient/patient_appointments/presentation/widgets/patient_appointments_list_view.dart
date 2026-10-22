@@ -1,7 +1,7 @@
 import 'package:doctor_hunt/app/core/shared/models/appointment_model.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/patient_appointments_shimmer.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/widgets/patient_appointment_card.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/widgets/patient_appointments_shimmer.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/widgets/patient_appointment_card.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

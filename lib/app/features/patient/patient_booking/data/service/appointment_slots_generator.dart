@@ -46,6 +46,8 @@ class AppointmentSlotsGenerator {
         mins % 60,
       );
 
+      if (slotDate.isBefore(DateTime.now())) continue;
+
       final isBooked = bookedTimes.any(
         (bookedAt) => bookedAt.isAtSameMomentAs(slotDate),
       );

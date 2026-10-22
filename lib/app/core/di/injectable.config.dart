@@ -120,7 +120,7 @@ import 'package:doctor_hunt/app/features/patient/patient_appointments/data/repos
     as _i438;
 import 'package:doctor_hunt/app/features/patient/patient_appointments/data/service/patient_appointments_service.dart'
     as _i228;
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart'
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart'
     as _i147;
 import 'package:doctor_hunt/app/features/patient/patient_booking/data/repos/patient_booking_repo.dart'
     as _i1059;

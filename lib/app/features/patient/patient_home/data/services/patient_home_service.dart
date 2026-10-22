@@ -32,7 +32,7 @@ class PatientHomeServiceImpl implements PatientHomeService {
             .from(SupabaseConstants.doctorsTable)
             .select()
             .eq('is_active', true)
-            .order('created_at', ascending: false)
+            .order('reviews_count', ascending: false)
             .range(from, to),
 
       DoctorsListType.topRated =>

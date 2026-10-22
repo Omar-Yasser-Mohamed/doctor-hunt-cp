@@ -33,8 +33,8 @@ import 'package:doctor_hunt/app/features/common/location/presentation/screens/lo
 import 'package:doctor_hunt/app/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/app/features/common/splash/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
-import 'package:doctor_hunt/app/features/patient/patient_appointments/presentations/screens/patient_appointments_screen.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/controller/patient_appointments_bloc/patient_appointments_bloc.dart';
+import 'package:doctor_hunt/app/features/patient/patient_appointments/presentation/screens/patient_appointments_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/controller/patient_booking_bloc/patient_booking_bloc.dart';
 import 'package:doctor_hunt/app/features/patient/patient_booking/presentation/screens/patient_booking_appointment_screen.dart';
 import 'package:doctor_hunt/app/features/patient/patient_doctor_details/presentation/controller/patient_doctor_details_bloc/patient_doctor_details_bloc.dart';

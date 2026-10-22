@@ -59,7 +59,7 @@ class DoctorModel extends Equatable {
     'id': id,
     'admin_id': adminId,
     'name': name,
-    'specialty': specialty,
+    'specialty': specialty.name,
     'photo': photo,
     'title': title,
     'fees': fees,

@@ -5,6 +5,7 @@ import 'package:doctor_hunt/app/core/theme/app_text_styles.dart';
 import 'package:doctor_hunt/app/core/utils/app_toasts.dart';
 import 'package:doctor_hunt/app/core/widgets/app_circular_indicator.dart';
 import 'package:doctor_hunt/app/features/common/auth/presentation/controller/logout_bloc/logout_bloc.dart';
+import 'package:doctor_hunt/app/features/common/user/presentation/controller/bloc/user_bloc.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +34,7 @@ class LogoutDialog extends StatelessWidget {
         if (state is LogoutFailure) {
           AppToasts.showError(context, state.failure.message);
         } else if (state is LogoutSuccess) {
+          context.read<UserBloc>().add(const RemoveUserEvent());
           context.pop();
           const ChooseRoleRoute().go(context);
         }
