@@ -80,7 +80,7 @@ Find Doctor ➔ Doctor Details ➔ Select Date & Slot ➔ Instant Booking ➔ Po
 
 | 📱 Patient Demo | 🖥️ Admin Demo |
 | :---: | :---: |
-| `<!-- paste patient demo video link here -->` | `<!-- paste admin demo video link here -->` |
+| https://github.com/user-attachments/assets/c8cf23c0-be22-4244-91d0-bc5b4d34bb6d | https://github.com/user-attachments/assets/3ee3731a-634e-496d-9bf7-d6c97c2a3d38 |
 | *Doctor discovery, live search, 1-tap favorites, real-time slot booking, rating & review.* | *Doctor management, working hours & availability setup, clinic map location, appointment control.* |
 
 </div>
