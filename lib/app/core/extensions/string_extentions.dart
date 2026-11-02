@@ -16,10 +16,13 @@ extension IntExtention on int {
   String toLocaleDigits(BuildContext context) {
     if (context.isArabic) {
       const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-      return toString().split('').map((char) {
-        final digit = int.tryParse(char);
-        return digit != null ? arabicDigits[digit] : char;
-      }).join('');
+      return toString()
+          .split('')
+          .map((char) {
+            final digit = int.tryParse(char);
+            return digit != null ? arabicDigits[digit] : char;
+          })
+          .join('');
     }
     return toString();
   }

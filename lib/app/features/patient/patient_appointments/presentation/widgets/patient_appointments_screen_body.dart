@@ -12,10 +12,12 @@ class PatientAppointmentsScreenBody extends StatefulWidget {
   const PatientAppointmentsScreenBody({super.key});
 
   @override
-  State<PatientAppointmentsScreenBody> createState() => _PatientAppointmentsScreenBodyState();
+  State<PatientAppointmentsScreenBody> createState() =>
+      _PatientAppointmentsScreenBodyState();
 }
 
-class _PatientAppointmentsScreenBodyState extends State<PatientAppointmentsScreenBody> {
+class _PatientAppointmentsScreenBodyState
+    extends State<PatientAppointmentsScreenBody> {
   late final ScrollController _scrollController;
 
   @override
@@ -29,7 +31,9 @@ class _PatientAppointmentsScreenBodyState extends State<PatientAppointmentsScree
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
-      context.read<PatientAppointmentsBloc>().add(const GetMorePatientAppointmentsEvent());
+      context.read<PatientAppointmentsBloc>().add(
+        const GetMorePatientAppointmentsEvent(),
+      );
     }
   }
 

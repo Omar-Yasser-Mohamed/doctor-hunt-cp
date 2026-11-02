@@ -42,80 +42,87 @@ class _OnboardingContentState extends State<OnboardingContent>
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    
+
     // 1. Image drops from top, scales slightly, and fades in
-    _imageSlideAnimation = Tween<Offset>(
-      begin: const Offset(0, -0.3),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.0, 0.55, curve: Curves.easeOutCubic),
-      ),
-    );
-    
-    _imageFadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.0, 0.50, curve: Curves.easeOut),
-      ),
-    );
-    
-    _imageScaleAnimation = Tween<double>(
-      begin: 0.92,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.0, 0.55, curve: Curves.easeOutCubic),
-      ),
-    );
-    
+    _imageSlideAnimation =
+        Tween<Offset>(
+          begin: const Offset(0, -0.3),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.0, 0.55, curve: Curves.easeOutCubic),
+          ),
+        );
+
+    _imageFadeAnimation =
+        Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.0, 0.50, curve: Curves.easeOut),
+          ),
+        );
+
+    _imageScaleAnimation =
+        Tween<double>(
+          begin: 0.92,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.0, 0.55, curve: Curves.easeOutCubic),
+          ),
+        );
+
     // 2. Title slides up from down and fades in
-    _titleSlideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.4),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.35, 0.75, curve: Curves.easeOutCubic),
-      ),
-    );
-    
-    _titleFadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.35, 0.70, curve: Curves.easeOut),
-      ),
-    );
-    
+    _titleSlideAnimation =
+        Tween<Offset>(
+          begin: const Offset(0, 0.4),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.35, 0.75, curve: Curves.easeOutCubic),
+          ),
+        );
+
+    _titleFadeAnimation =
+        Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.35, 0.70, curve: Curves.easeOut),
+          ),
+        );
+
     // 3. Description follows the title: slides up from down and fades in
-    _descSlideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.4),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.55, 0.95, curve: Curves.easeOutCubic),
-      ),
-    );
-    
-    _descFadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.55, 0.90, curve: Curves.easeOut),
-      ),
-    );
-    
+    _descSlideAnimation =
+        Tween<Offset>(
+          begin: const Offset(0, 0.4),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.55, 0.95, curve: Curves.easeOutCubic),
+          ),
+        );
+
+    _descFadeAnimation =
+        Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.55, 0.90, curve: Curves.easeOut),
+          ),
+        );
+
     _controller.forward();
   }
 

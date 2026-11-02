@@ -8,7 +8,8 @@ part 'forget_password_event.dart';
 part 'forget_password_state.dart';
 
 @injectable
-class ForgetPasswordBloc extends Bloc<ForgetPasswordEvent, ForgetPasswordState> {
+class ForgetPasswordBloc
+    extends Bloc<ForgetPasswordEvent, ForgetPasswordState> {
   ForgetPasswordBloc(this._authRepo) : super(ForgetPasswordInitial()) {
     on<ForgetPasswordRequested>(_onForgetPasswordRequested);
     on<OtpVerified>(_onOtpVerified);

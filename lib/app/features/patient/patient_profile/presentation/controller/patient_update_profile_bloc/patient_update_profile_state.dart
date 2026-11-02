@@ -35,7 +35,8 @@ final class PatientUpdateProfileChangeImage extends PatientUpdateProfileState {
   List<Object> get props => [image];
 }
 
-final class PatientUpdateProfileFormDirtyChanged extends PatientUpdateProfileState {
+final class PatientUpdateProfileFormDirtyChanged
+    extends PatientUpdateProfileState {
   final bool isDirty;
 
   const PatientUpdateProfileFormDirtyChanged({required this.isDirty});

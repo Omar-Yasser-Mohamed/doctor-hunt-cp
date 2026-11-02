@@ -11,7 +11,7 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
-  AuthRepoImpl(this._authService,this.userLocalService);
+  AuthRepoImpl(this._authService, this.userLocalService);
   final AuthService _authService;
   final UserLocalService userLocalService;
 
@@ -27,7 +27,9 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, CurrentUserModel>> signUp(RegisterRequest request) async {
+  Future<Either<Failure, CurrentUserModel>> signUp(
+    RegisterRequest request,
+  ) async {
     try {
       final user = await _authService.signUp(request);
       await userLocalService.saveUser(user);

@@ -24,11 +24,9 @@ import 'package:mocktail/mocktail.dart';
 class MockRegisterBloc extends MockBloc<RegisterEvent, RegisterState>
     implements RegisterBloc {}
 
-class MockUserBloc extends MockBloc<UserEvent, UserState>
-    implements UserBloc {}
+class MockUserBloc extends MockBloc<UserEvent, UserState> implements UserBloc {}
 
-class MockPatientHomeBloc
-    extends MockBloc<PatientHomeEvent, PatientHomeState>
+class MockPatientHomeBloc extends MockBloc<PatientHomeEvent, PatientHomeState>
     implements PatientHomeBloc {}
 
 class MockAdminDoctorsBloc

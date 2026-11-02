@@ -12,7 +12,7 @@ class UserRepoImpl implements UserRepo {
   final UserLocalService _userLocalService;
 
   @override
-  Future<Either<Failure,void>> saveUser(CurrentUserModel user) async {
+  Future<Either<Failure, void>> saveUser(CurrentUserModel user) async {
     try {
       await _userLocalService.saveUser(user);
       return const Right(null);
@@ -22,7 +22,7 @@ class UserRepoImpl implements UserRepo {
   }
 
   @override
-  Future<Either<Failure,CurrentUserModel?>> getUser() async {
+  Future<Either<Failure, CurrentUserModel?>> getUser() async {
     try {
       return Right(_userLocalService.getUser());
     } catch (e) {
@@ -31,7 +31,7 @@ class UserRepoImpl implements UserRepo {
   }
 
   @override
-  Future<Either<Failure,void>> removeUser() async {
+  Future<Either<Failure, void>> removeUser() async {
     try {
       await _userLocalService.removeUser();
       return const Right(null);

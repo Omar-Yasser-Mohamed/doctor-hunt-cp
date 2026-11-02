@@ -146,7 +146,6 @@ void main() {
     testWidgets(
       'keeps ForgetPasswordView when forget password fails',
       (tester) async {
-        
         setTestViewport(tester);
 
         final controller = StreamController<ForgetPasswordState>();

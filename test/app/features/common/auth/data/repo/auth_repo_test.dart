@@ -132,7 +132,10 @@ void main() {
           () => mockAuthService.signUp(request),
         ).thenAnswer((_) async => user);
 
-        expect(await authRepo.signUp(request), Right<Failure, CurrentUserModel>(user));
+        expect(
+          await authRepo.signUp(request),
+          Right<Failure, CurrentUserModel>(user),
+        );
       });
 
       test("register failure", () async {

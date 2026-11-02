@@ -19,4 +19,3 @@ final class RegisterSubmitted extends RegisterEvent {
     password,
   ];
 }
-  

@@ -65,7 +65,9 @@ void main() {
       );
       await tester.enterText(find.byType(Pinput), "123456");
       await tester.tap(find.byType(AppButton));
-      verify(() => forgetPasswordBloc.add(OtpVerified(otp: "123456"))).called(1);
+      verify(
+        () => forgetPasswordBloc.add(OtpVerified(otp: "123456")),
+      ).called(1);
     });
 
     testWidgets("invalid form validation", (tester) async {

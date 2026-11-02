@@ -3,8 +3,7 @@ import 'package:doctor_hunt/generated/translations.g.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-
-  setUpAll((){
+  setUpAll(() {
     LocaleSettings.setLocale(AppLocale.en);
   });
   group('AppValidators Test', () {
@@ -15,7 +14,10 @@ void main() {
       });
 
       test('return message when email is invalid', () {
-        expect(AppValidators.email('omargmail.com'), t.validations.invalidEmail);
+        expect(
+          AppValidators.email('omargmail.com'),
+          t.validations.invalidEmail,
+        );
       });
 
       test('return null when email is valid', () {
@@ -37,7 +39,7 @@ void main() {
         expect(AppValidators.name('Omar'), null);
       });
     });
-    
+
     //Password
     group('Password test', () {
       test('invalid password (required)', () {
@@ -45,23 +47,38 @@ void main() {
       });
 
       test('invalid password (less than min length)', () {
-        expect(AppValidators.password('123457'), t.validations.passwordMinLength);
+        expect(
+          AppValidators.password('123457'),
+          t.validations.passwordMinLength,
+        );
       });
 
       test('invalid password (no uppercase)', () {
-        expect(AppValidators.password('omar123!'), t.validations.passwordRequiresUppercase);
+        expect(
+          AppValidators.password('omar123!'),
+          t.validations.passwordRequiresUppercase,
+        );
       });
 
       test('invalid password (no lowercase)', () {
-        expect(AppValidators.password('OMAR123!'), t.validations.passwordRequiresLowercase);
+        expect(
+          AppValidators.password('OMAR123!'),
+          t.validations.passwordRequiresLowercase,
+        );
       });
 
       test('invalid password (no number)', () {
-        expect(AppValidators.password('omarABC!'), t.validations.passwordRequiresNumber);
+        expect(
+          AppValidators.password('omarABC!'),
+          t.validations.passwordRequiresNumber,
+        );
       });
 
       test('invalid password (no special character)', () {
-        expect(AppValidators.password('Omar1234'), t.validations.passwordRequiresSpecialCharacter);
+        expect(
+          AppValidators.password('Omar1234'),
+          t.validations.passwordRequiresSpecialCharacter,
+        );
       });
 
       test('valid password', () {
@@ -72,11 +89,17 @@ void main() {
     //Confirm Password
     group('Confirm Password test', () {
       test('return message when confirm password is empty', () {
-        expect(AppValidators.confirmPassword('', 'Omar123!'), t.validations.confirmPasswordRequired);
+        expect(
+          AppValidators.confirmPassword('', 'Omar123!'),
+          t.validations.confirmPasswordRequired,
+        );
       });
 
       test('return message when confirm password is not equal to password', () {
-        expect(AppValidators.confirmPassword('omar123!', 'omar123'), t.validations.passwordsDoNotMatch);
+        expect(
+          AppValidators.confirmPassword('omar123!', 'omar123'),
+          t.validations.passwordsDoNotMatch,
+        );
       });
 
       test('return null when confirm password is valid', () {

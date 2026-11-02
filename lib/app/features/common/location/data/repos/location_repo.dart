@@ -5,6 +5,9 @@ import 'package:latlong2/latlong.dart';
 
 abstract class LocationRepo {
   Future<Either<Failure, LatLng>> getCurrentPosition();
-  Future<Either<Failure, String>> getAddressFromCoordinates(double lat, double lng);
+  Future<Either<Failure, String>> getAddressFromCoordinates(
+    double lat,
+    double lng,
+  );
   Future<Either<Failure, List<LocationModel>>> searchPlaces(String query);
 }

@@ -62,11 +62,7 @@ class _StatusTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<AdminAppointmentsBloc>();
-    return BlocSelector<
-      AdminAppointmentsBloc,
-      AdminAppointmentsState,
-      bool
-    >(
+    return BlocSelector<AdminAppointmentsBloc, AdminAppointmentsState, bool>(
       selector: (state) => status == bloc.status,
       builder: (context, isSelected) {
         return GestureDetector(

@@ -39,7 +39,9 @@ class AdminDoctorsSearchBar extends StatelessWidget {
           borderSide: const BorderSide(color: AppColors.border),
         ),
         onChanged: (value) {
-          context.read<AdminDoctorsBloc>().add(SearchDoctorsEvent(search: value));
+          context.read<AdminDoctorsBloc>().add(
+            SearchDoctorsEvent(search: value),
+          );
         },
       ),
     );

@@ -38,8 +38,9 @@ class EditDoctorPhotoPicker extends StatelessWidget {
               children: [
                 BlocBuilder<DoctorManagementBloc, DoctorManagementState>(
                   builder: (context, state) {
-                    final imageFile =
-                        context.read<DoctorManagementBloc>().doctorImage;
+                    final imageFile = context
+                        .read<DoctorManagementBloc>()
+                        .doctorImage;
                     if (imageFile != null) {
                       return ClipOval(
                         child: Image.file(

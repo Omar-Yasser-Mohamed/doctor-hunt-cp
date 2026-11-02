@@ -30,9 +30,9 @@ class AppointmentDateSelection extends StatelessWidget {
             minDate: DateTime.now(),
             selectedDate: bloc.selectedDate,
             onDateSelected: (date) {
-                    if (date == bloc.selectedDate) return;
-                    bloc.add(GetDoctorAppointmentsRequested(date: date));
-                  },
+              if (date == bloc.selectedDate) return;
+              bloc.add(GetDoctorAppointmentsRequested(date: date));
+            },
             theme: DatePickerPlusTheme(
               locale: Locale(LocaleSettings.currentLocale.languageCode),
               headerTheme: HeaderTheme(

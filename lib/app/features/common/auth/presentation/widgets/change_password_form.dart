@@ -25,8 +25,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
 
   final TextEditingController _currentPasswordController =
       TextEditingController();
-  final TextEditingController _newPasswordController =
-      TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 

@@ -15,7 +15,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
   final AuthRepo _authRepo;
 
-  Future<void> _onRegister(RegisterSubmitted event, Emitter<RegisterState> emit) async {
+  Future<void> _onRegister(
+    RegisterSubmitted event,
+    Emitter<RegisterState> emit,
+  ) async {
     emit(RegisterLoading());
     final result = await _authRepo.signUp(
       RegisterRequest(

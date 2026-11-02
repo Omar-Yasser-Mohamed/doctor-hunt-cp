@@ -1,33 +1,46 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 abstract final class SupabaseConstants {
-  static const String supabaseUrl = 'https://fzevizojhpbupiopjhpq.supabase.co';
-  static const String supabaseAnonKey =
-      'sb_publishable_M74z5LSTPTOgADLxapq6ig_BZU3JFvS';
-  static const String googleWebClientId = '785921823102-005jtf2tqdrhe8g9rupmc15i7d93nsuh.apps.googleusercontent.com';
-  static const String iosClientId = '785921823102-005jtf2tqdrhe8g9rupmc15i7d93nsuh.apps.googleusercontent.com';
+  static String get supabaseUrl => dotenv.env['SUPABASE_URL']!;
+  static String get supabaseAnonKey => dotenv.env['SUPABASE_ANON_KEY']!;
+  static String get googleWebClientId => dotenv.env['GOOGLE_WEB_CLIENT_ID']!;
+  static String get iosClientId => dotenv.env['IOS_CLIENT_ID']!;
 
   // tables name
-  static const String usersTable = 'users';
-  static const String adminsTable = 'admins';
-  static const String doctorsTable = 'doctors';
-  static const String doctorAvailabilityTable = 'doctor_availability';
-  static const String favoritesTable = 'favorites';
-  static const String appointmentsTable = 'appointments';
-  static const String appointmentReviewsTable = 'appointment_reviews';
+  static String get usersTable => dotenv.env['USERS_TABLE']!;
+  static String get adminsTable => dotenv.env['ADMINS_TABLE']!;
+  static String get doctorsTable => dotenv.env['DOCTORS_TABLE']!;
+  static String get doctorAvailabilityTable =>
+      dotenv.env['DOCTOR_AVAILABILITY_TABLE']!;
+  static String get favoritesTable => dotenv.env['FAVORITES_TABLE']!;
+  static String get appointmentsTable => dotenv.env['APPOINTMENTS_TABLE']!;
+  static String get appointmentReviewsTable =>
+      dotenv.env['APPOINTMENT_REVIEWS_TABLE']!;
 
   // Storage bucket
-  static const String doctorPhotosBucket = 'doctor-photos';
+  static String get doctorPhotosBucket => dotenv.env['DOCTOR_PHOTOS_BUCKET']!;
 
   // Procedures
-  static const String getDoctorStatsProcedure = 'get_doctor_stats';
-  static const String getDoctorSpecialtyCountsProcedure = 'get_doctor_specialty_counts';
-  static const String bookAppointmentProcedure = 'book_appointment';
-  static const String completeAppointmentProcedure = 'complete_appointment';
-  static const String submitAppointmentReviewProcedure = 'submit_appointment_review';
+  static String get getDoctorStatsProcedure =>
+      dotenv.env['GET_DOCTOR_STATS_PROCEDURE']!;
+  static String get getDoctorSpecialtyCountsProcedure =>
+      dotenv.env['GET_DOCTOR_SPECIALTY_COUNTS_PROCEDURE']!;
+  static String get bookAppointmentProcedure =>
+      dotenv.env['BOOK_APPOINTMENT_PROCEDURE']!;
+  static String get completeAppointmentProcedure =>
+      dotenv.env['COMPLETE_APPOINTMENT_PROCEDURE']!;
+  static String get submitAppointmentReviewProcedure =>
+      dotenv.env['SUBMIT_APPOINTMENT_REVIEW_PROCEDURE']!;
 
   // Edge Functions
-  static const String createDoctorEdgeFunction = 'create-doctor';
-  static const String updateDoctorEdgeFunction = 'update-doctor';
-  static const String deleteDoctorEdgeFunction = 'delete-doctor';
-  static const String updateAdminProfileEdgeFunction = 'update-admin-profile';
-  static const String updatePatientProfileEdgeFunction = 'update-patient-profile';
+  static String get createDoctorEdgeFunction =>
+      dotenv.env['CREATE_DOCTOR_EDGE_FUNCTION']!;
+  static String get updateDoctorEdgeFunction =>
+      dotenv.env['UPDATE_DOCTOR_EDGE_FUNCTION']!;
+  static String get deleteDoctorEdgeFunction =>
+      dotenv.env['DELETE_DOCTOR_EDGE_FUNCTION']!;
+  static String get updateAdminProfileEdgeFunction =>
+      dotenv.env['UPDATE_ADMIN_PROFILE_EDGE_FUNCTION']!;
+  static String get updatePatientProfileEdgeFunction =>
+      dotenv.env['UPDATE_PATIENT_PROFILE_EDGE_FUNCTION']!;
 }

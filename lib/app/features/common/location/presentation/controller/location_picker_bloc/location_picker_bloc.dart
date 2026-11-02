@@ -26,8 +26,7 @@ class LocationPickerBloc
     extends Bloc<LocationPickerEvent, LocationPickerState> {
   final LocationRepo _locationRepo;
 
-  LocationPickerBloc(this._locationRepo)
-      : super(const LocationPickerState()) {
+  LocationPickerBloc(this._locationRepo) : super(const LocationPickerState()) {
     on<MapTappedEvent>(_onMapTapped);
     on<GetCurrentLocationEvent>(_onGetCurrentLocation);
     on<SearchPlacesEvent>(
@@ -41,13 +40,15 @@ class LocationPickerBloc
     MapTappedEvent event,
     Emitter<LocationPickerState> emit,
   ) async {
-    emit(state.copyWith(
-      latitude: event.latitude,
-      longitude: event.longitude,
-      isLoadingAddress: true,
-      clearFailure: true,
-      shouldAnimateMap: false,
-    ));
+    emit(
+      state.copyWith(
+        latitude: event.latitude,
+        longitude: event.longitude,
+        isLoadingAddress: true,
+        clearFailure: true,
+        shouldAnimateMap: false,
+      ),
+    );
 
     final result = await _locationRepo.getAddressFromCoordinates(
       event.latitude,
@@ -55,14 +56,18 @@ class LocationPickerBloc
     );
 
     result.fold(
-      (failure) => emit(state.copyWith(
-        isLoadingAddress: false,
-        failure: failure,
-      )),
-      (address) => emit(state.copyWith(
-        address: address,
-        isLoadingAddress: false,
-      )),
+      (failure) => emit(
+        state.copyWith(
+          isLoadingAddress: false,
+          failure: failure,
+        ),
+      ),
+      (address) => emit(
+        state.copyWith(
+          address: address,
+          isLoadingAddress: false,
+        ),
+      ),
     );
   }
 
@@ -70,29 +75,35 @@ class LocationPickerBloc
     GetCurrentLocationEvent event,
     Emitter<LocationPickerState> emit,
   ) async {
-    emit(state.copyWith(
-      isLoadingLocation: true,
-      clearFailure: true,
-      shouldAnimateMap: false,
-    ));
+    emit(
+      state.copyWith(
+        isLoadingLocation: true,
+        clearFailure: true,
+        shouldAnimateMap: false,
+      ),
+    );
 
     final posResult = await _locationRepo.getCurrentPosition();
 
     await posResult.fold(
       (failure) async {
-        emit(state.copyWith(
-          isLoadingLocation: false,
-          failure: failure,
-        ));
+        emit(
+          state.copyWith(
+            isLoadingLocation: false,
+            failure: failure,
+          ),
+        );
       },
       (coords) async {
-        emit(state.copyWith(
-          latitude: coords.latitude,
-          longitude: coords.longitude,
-          isLoadingLocation: false,
-          isLoadingAddress: true,
-          shouldAnimateMap: true,
-        ));
+        emit(
+          state.copyWith(
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+            isLoadingLocation: false,
+            isLoadingAddress: true,
+            shouldAnimateMap: true,
+          ),
+        );
 
         final addressResult = await _locationRepo.getAddressFromCoordinates(
           coords.latitude,
@@ -100,14 +111,18 @@ class LocationPickerBloc
         );
 
         addressResult.fold(
-          (failure) => emit(state.copyWith(
-            isLoadingAddress: false,
-            failure: failure,
-          )),
-          (address) => emit(state.copyWith(
-            address: address,
-            isLoadingAddress: false,
-          )),
+          (failure) => emit(
+            state.copyWith(
+              isLoadingAddress: false,
+              failure: failure,
+            ),
+          ),
+          (address) => emit(
+            state.copyWith(
+              address: address,
+              isLoadingAddress: false,
+            ),
+          ),
         );
       },
     );
@@ -119,30 +134,38 @@ class LocationPickerBloc
   ) async {
     final query = event.query.trim();
     if (query.isEmpty) {
-      emit(state.copyWith(
-        searchResults: const [],
-        isSearching: false,
-      ));
+      emit(
+        state.copyWith(
+          searchResults: const [],
+          isSearching: false,
+        ),
+      );
       return;
     }
 
-    emit(state.copyWith(
-      isSearching: true,
-      clearFailure: true,
-      shouldAnimateMap: false,
-    ));
+    emit(
+      state.copyWith(
+        isSearching: true,
+        clearFailure: true,
+        shouldAnimateMap: false,
+      ),
+    );
 
     final result = await _locationRepo.searchPlaces(query);
 
     result.fold(
-      (failure) => emit(state.copyWith(
-        isSearching: false,
-        failure: failure,
-      )),
-      (results) => emit(state.copyWith(
-        searchResults: results,
-        isSearching: false,
-      )),
+      (failure) => emit(
+        state.copyWith(
+          isSearching: false,
+          failure: failure,
+        ),
+      ),
+      (results) => emit(
+        state.copyWith(
+          searchResults: results,
+          isSearching: false,
+        ),
+      ),
     );
   }
 
@@ -150,13 +173,15 @@ class LocationPickerBloc
     SelectSearchResultEvent event,
     Emitter<LocationPickerState> emit,
   ) {
-    emit(state.copyWith(
-      latitude: event.location.latitude,
-      longitude: event.location.longitude,
-      address: event.location.address,
-      searchResults: const [],
-      clearFailure: true,
-      shouldAnimateMap: true,
-    ));
+    emit(
+      state.copyWith(
+        latitude: event.location.latitude,
+        longitude: event.location.longitude,
+        address: event.location.address,
+        searchResults: const [],
+        clearFailure: true,
+        shouldAnimateMap: true,
+      ),
+    );
   }
 }

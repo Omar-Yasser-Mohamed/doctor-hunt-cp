@@ -140,14 +140,16 @@ class _AppointmentRateDoctorDialogState
                     final isSelected = starIndex <= _selectedRating;
 
                     return GestureDetector(
-                      onTap: isLoading ? null : () {
-                        setState(() {
-                          _selectedRating =
-                              (_selectedRating == 1 && starIndex == 1)
-                              ? 0
-                              : starIndex;
-                        });
-                      },
+                      onTap: isLoading
+                          ? null
+                          : () {
+                              setState(() {
+                                _selectedRating =
+                                    (_selectedRating == 1 && starIndex == 1)
+                                    ? 0
+                                    : starIndex;
+                              });
+                            },
                       behavior: HitTestBehavior.opaque,
                       child: Icon(
                         isSelected

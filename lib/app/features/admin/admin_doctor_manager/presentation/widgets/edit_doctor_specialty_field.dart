@@ -35,8 +35,7 @@ class _EditDoctorSpecialtyFieldState extends State<EditDoctorSpecialtyField> {
           alignmentOffset: const Offset(0, 4),
           style: MenuStyle(
             backgroundColor: const WidgetStatePropertyAll(AppColors.white),
-            surfaceTintColor:
-                const WidgetStatePropertyAll(Colors.transparent),
+            surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
             elevation: const WidgetStatePropertyAll(4),
             minimumSize: WidgetStatePropertyAll(Size(menuWidth, 0)),
             maximumSize: WidgetStatePropertyAll(

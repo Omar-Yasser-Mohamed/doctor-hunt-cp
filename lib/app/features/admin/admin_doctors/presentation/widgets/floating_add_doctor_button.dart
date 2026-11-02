@@ -44,9 +44,9 @@ class FloatingAddDoctorBotton extends StatelessWidget {
               size: 20,
               color: Colors.white,
             ),
-    
+
             6.width,
-    
+
             Text(
               t.addDoctor,
               style: context.regular12White,

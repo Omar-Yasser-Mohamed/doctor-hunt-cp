@@ -13,9 +13,7 @@ class AdminDoctorsFiltersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalDoctors = context
-        .read<AdminDoctorsBloc>()
-        .stats.totalDoctors;
+    final totalDoctors = context.read<AdminDoctorsBloc>().stats.totalDoctors;
 
     return ListView.builder(
       padding: EdgeInsetsDirectional.only(start: 20.w, end: 12.w),

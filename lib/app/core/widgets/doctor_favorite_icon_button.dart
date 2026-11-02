@@ -16,10 +16,7 @@ class DoctorFavoriteIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<
-      PatientFavoriteDoctorsBloc,
-      PatientFavoriteDoctorsState
-    >(
+    return BlocBuilder<PatientFavoriteDoctorsBloc, PatientFavoriteDoctorsState>(
       builder: (context, state) {
         final bloc = context.read<PatientFavoriteDoctorsBloc>();
         final bool isFav = bloc.isDoctorInFavorites(doctor.id);

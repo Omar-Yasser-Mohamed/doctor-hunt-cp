@@ -38,7 +38,9 @@ class AdminAppointmentsBloc
       _onChangeAppointmentStatus,
       transformer: restartable(),
     );
-    on<CancelAppointmentFromDetailsEvent>(_onCancelOrCompleteAppointmentFromDetails);
+    on<CancelAppointmentFromDetailsEvent>(
+      _onCancelOrCompleteAppointmentFromDetails,
+    );
     on<AdminCancelAppointmentEvent>(_onCancelAppointment);
     on<AdminCompleteAppointmentEvent>(_onCompleteAppointment);
 
@@ -63,8 +65,10 @@ class AdminAppointmentsBloc
         );
   }
 
-  late final StreamSubscription<CancelAppointmentEvent> _cancelAppointmentSubscription;
-  late final StreamSubscription<CompleteAppointmentEvent> _completeAppointmentSubscription;
+  late final StreamSubscription<CancelAppointmentEvent>
+  _cancelAppointmentSubscription;
+  late final StreamSubscription<CompleteAppointmentEvent>
+  _completeAppointmentSubscription;
 
   AppointmentStatus _status = AppointmentStatus.upcoming;
   AppointmentStatus get status => _status;

@@ -71,4 +71,3 @@ class DoctorDeletedBlocEvent extends AdminDoctorsEvent {
   @override
   List<Object?> get props => [doctorId];
 }
-

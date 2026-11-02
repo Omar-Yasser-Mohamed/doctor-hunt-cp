@@ -32,12 +32,12 @@ class PatientFindDoctorsBlocBuilder extends StatelessWidget {
             state is FindDoctorsPaginationFailure ||
             state is FindDoctorsPaginationLoading) {
           if (bloc.doctors.isEmpty) {
-              return DoctorsEmptyState(
-                iconSvg: AppIcons.medical,
-                title: t.noDoctorsFound,
-                description: t.noSearchResultsDescription,
-              );
-            }
+            return DoctorsEmptyState(
+              iconSvg: AppIcons.medical,
+              title: t.noDoctorsFound,
+              description: t.noSearchResultsDescription,
+            );
+          }
           return PatientFindDoctorsListView(doctors: bloc.doctors);
         } else if (state is FindDoctorsFailure) {
           return AppErrorWidget(

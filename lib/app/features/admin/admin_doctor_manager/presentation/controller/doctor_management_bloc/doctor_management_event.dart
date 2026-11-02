@@ -57,4 +57,3 @@ class DeleteDoctor extends DoctorManagementEvent {
   @override
   List<Object> get props => [doctorId];
 }
-

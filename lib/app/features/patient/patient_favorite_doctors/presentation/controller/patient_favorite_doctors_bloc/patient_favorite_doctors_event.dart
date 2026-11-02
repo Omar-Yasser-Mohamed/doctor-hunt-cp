@@ -40,4 +40,3 @@ final class ClearSearchEvent extends PatientFavoriteDoctorsEvent {
   @override
   List<Object> get props => [];
 }
-

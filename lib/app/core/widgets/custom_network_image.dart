@@ -36,7 +36,10 @@ class CustomNetworkImage extends StatelessWidget {
     final double iconSize;
     if (width != null && height != null) {
       final minDimension = width! < height!;
-      iconSize = (minDimension ? width! * 0.35 : height! * 0.35).clamp(16.0, 36.0);
+      iconSize = (minDimension ? width! * 0.35 : height! * 0.35).clamp(
+        16.0,
+        36.0,
+      );
     } else if (width != null) {
       iconSize = (width! * 0.35).clamp(16.0, 36.0);
     } else if (height != null) {

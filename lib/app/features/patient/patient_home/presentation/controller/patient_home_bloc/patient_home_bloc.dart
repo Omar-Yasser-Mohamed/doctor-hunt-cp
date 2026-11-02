@@ -41,10 +41,10 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
     _topRatedPage = 1;
     _hasMorePopular = true;
     _hasMoreTopRated = true;
-    
+
     emit(PatientHomeLoading());
 
-     final results = await Future.wait([
+    final results = await Future.wait([
       _repo.getDoctors(
         page: _popularPage,
         limit: _limit,
@@ -82,10 +82,12 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
       return emit(PatientHomeFailure(failure!));
     }
 
-    emit(PatientHomeSuccess(
-      popularDoctors: popularDoctors,
-      topRatedDoctors: topRatedDoctors,
-    ));
+    emit(
+      PatientHomeSuccess(
+        popularDoctors: popularDoctors,
+        topRatedDoctors: topRatedDoctors,
+      ),
+    );
   }
 
   Future<void> _onLoadMorePopularDoctors(
@@ -108,13 +110,17 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
       (failure) => emit(PatientHomePaginationFailure(failure)),
       (newDoctors) {
         _popularPage++;
-        _popularDoctors.addAll({for (var doctor in newDoctors) doctor.id: doctor});
+        _popularDoctors.addAll({
+          for (var doctor in newDoctors) doctor.id: doctor,
+        });
         _hasMorePopular = newDoctors.length == _limit;
 
-        emit(PatientHomeSuccess(
-          popularDoctors: popularDoctors,
-          topRatedDoctors: topRatedDoctors,
-        ));
+        emit(
+          PatientHomeSuccess(
+            popularDoctors: popularDoctors,
+            topRatedDoctors: topRatedDoctors,
+          ),
+        );
       },
     );
   }
@@ -139,16 +145,18 @@ class PatientHomeBloc extends Bloc<PatientHomeEvent, PatientHomeState> {
       (failure) => emit(PatientHomePaginationFailure(failure)),
       (newDoctors) {
         _topRatedPage++;
-        _topRatedDoctors.addAll({for (var doctor in newDoctors) doctor.id: doctor});
+        _topRatedDoctors.addAll({
+          for (var doctor in newDoctors) doctor.id: doctor,
+        });
         _hasMoreTopRated = newDoctors.length == _limit;
 
-        emit(PatientHomeSuccess(
-          popularDoctors: popularDoctors,
-          topRatedDoctors: topRatedDoctors,
-        ));
+        emit(
+          PatientHomeSuccess(
+            popularDoctors: popularDoctors,
+            topRatedDoctors: topRatedDoctors,
+          ),
+        );
       },
     );
   }
-
-
 }

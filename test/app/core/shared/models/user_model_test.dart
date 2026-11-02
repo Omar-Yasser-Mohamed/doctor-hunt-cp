@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final DateTime dateTime = DateTime.now();
-  
+
   final UserModel userModel = UserModel(
     id: '1',
     email: 'omar@gmail.com',
@@ -26,12 +26,12 @@ void main() {
   };
 
   group('User Model test', () {
-      test('valid user model from json', () {
-        expect(UserModel.fromJson(json), userModel);
-      });
+    test('valid user model from json', () {
+      expect(UserModel.fromJson(json), userModel);
+    });
 
-      test("vaild to json", () {
-        expect(userModel.toJson(), json);
-      });
+    test("vaild to json", () {
+      expect(userModel.toJson(), json);
+    });
   });
 }

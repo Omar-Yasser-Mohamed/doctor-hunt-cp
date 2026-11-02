@@ -69,4 +69,3 @@ class _CancelAppointmentButtonState extends State<CancelAppointmentButton> {
     );
   }
 }
-

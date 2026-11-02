@@ -19,12 +19,12 @@ class AdminAppointmentsAppBar extends StatelessWidget {
         t.appointments,
         style: context.bold18TextMain,
       ),
-    
+
       actions: [
         const NotificationButton(),
-    
+
         8.width,
-    
+
         BlocBuilder<UserBloc, UserState>(
           builder: (context, state) {
             if (state is UserSuccess) {
@@ -37,7 +37,7 @@ class AdminAppointmentsAppBar extends StatelessWidget {
             return const SizedBox.shrink();
           },
         ),
-    
+
         (20.w).width,
       ],
     );

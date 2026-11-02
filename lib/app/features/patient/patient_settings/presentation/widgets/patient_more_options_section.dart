@@ -54,4 +54,3 @@ class PatientMoreOptionsSection extends StatelessWidget {
     );
   }
 }
-

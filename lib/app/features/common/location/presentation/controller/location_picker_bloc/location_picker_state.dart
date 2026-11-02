@@ -61,14 +61,14 @@ class LocationPickerState extends Equatable {
 
   @override
   List<Object?> get props => [
-        latitude,
-        longitude,
-        address,
-        isLoadingAddress,
-        isLoadingLocation,
-        searchResults,
-        isSearching,
-        failure,
-        shouldAnimateMap,
-      ];
+    latitude,
+    longitude,
+    address,
+    isLoadingAddress,
+    isLoadingLocation,
+    searchResults,
+    isSearching,
+    failure,
+    shouldAnimateMap,
+  ];
 }

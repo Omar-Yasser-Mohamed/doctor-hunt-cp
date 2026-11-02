@@ -83,13 +83,9 @@ class AppTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: contentPadding,
         labelText: labelText,
-        labelStyle:
-            labelStyle ??
-            context.regular16TextSub,
+        labelStyle: labelStyle ?? context.regular16TextSub,
         hintText: hintText,
-        hintStyle:
-            hintStyle ??
-            context.regular16TextSub,
+        hintStyle: hintStyle ?? context.regular16TextSub,
         border: border,
         focusedBorder: border,
         enabledBorder: border,
@@ -100,7 +96,7 @@ class AppTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
         suffixIconConstraints: suffixIconConstraints,
         visualDensity: visualDensity,
-        isDense: isDense, 
+        isDense: isDense,
       ),
     );
   }

@@ -32,7 +32,8 @@ class ProfileImage extends StatelessWidget {
       height: size ?? 36.w,
       width: size ?? 36.w,
       alignment: Alignment.center,
-      decoration: decoration ??
+      decoration:
+          decoration ??
           BoxDecoration(
             color: backgroundColor ?? AppColors.primary,
             shape: BoxShape.circle,

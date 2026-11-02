@@ -71,4 +71,3 @@ final class DoctorManagementDeleteSuccess extends DoctorManagementState {
   @override
   List<Object> get props => [];
 }
-

@@ -79,24 +79,24 @@ class _LocationSearchBarState extends State<LocationSearchBar> {
                         ),
                       )
                     : _controller.text.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(
-                              Icons.close_rounded,
-                              color: AppColors.secondary,
-                              size: 18,
-                            ),
-                            onPressed: () {
-                              _controller.clear();
-                              context.read<LocationPickerBloc>().add(
-                                    const SearchPlacesEvent(query: ''),
-                                  );
-                            },
-                          )
-                        : null,
+                    ? IconButton(
+                        icon: const Icon(
+                          Icons.close_rounded,
+                          color: AppColors.secondary,
+                          size: 18,
+                        ),
+                        onPressed: () {
+                          _controller.clear();
+                          context.read<LocationPickerBloc>().add(
+                            const SearchPlacesEvent(query: ''),
+                          );
+                        },
+                      )
+                    : null,
                 onChanged: (query) {
                   context.read<LocationPickerBloc>().add(
-                        SearchPlacesEvent(query: query),
-                      );
+                    SearchPlacesEvent(query: query),
+                  );
                 },
               ),
             ),
@@ -142,8 +142,8 @@ class _LocationSearchBarState extends State<LocationSearchBar> {
                         _controller.text = place.address;
                         FocusScope.of(context).unfocus();
                         context.read<LocationPickerBloc>().add(
-                              SelectSearchResultEvent(location: place),
-                            );
+                          SelectSearchResultEvent(location: place),
+                        );
                       },
                     );
                   },

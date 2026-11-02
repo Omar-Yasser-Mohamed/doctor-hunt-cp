@@ -12,5 +12,5 @@ abstract class AppModule {
   GoogleSignIn get googleSignIn => GoogleSignIn.instance;
 
   @lazySingleton
-  ImagePicker get imagePicker => ImagePicker(); 
+  ImagePicker get imagePicker => ImagePicker();
 }

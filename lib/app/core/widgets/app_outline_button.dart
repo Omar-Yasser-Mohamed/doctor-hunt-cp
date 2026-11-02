@@ -64,15 +64,15 @@ class AppOutlineButton extends StatelessWidget {
                 height: 24,
                 width: 24,
                 child: CircularProgressIndicator(
-                  color: loadingIndicatorColor?? AppColors.primary,
+                  color: loadingIndicatorColor ?? AppColors.primary,
                   strokeWidth: 3,
                 ),
               )
             : child ??
-                Text(
-                  text,
-                  style: textStyle ?? context.medium18Primary,
-                ),
+                  Text(
+                    text,
+                    style: textStyle ?? context.medium18Primary,
+                  ),
       ),
     );
   }

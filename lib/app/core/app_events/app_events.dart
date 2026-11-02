@@ -17,12 +17,12 @@ class DoctorDeletedEvent implements AppEvent {
   DoctorDeletedEvent({required this.doctorId});
 }
 
-class CancelAppointmentEvent implements AppEvent{
+class CancelAppointmentEvent implements AppEvent {
   final String appointmentId;
   CancelAppointmentEvent({required this.appointmentId});
 }
 
-class CompleteAppointmentEvent implements AppEvent{
+class CompleteAppointmentEvent implements AppEvent {
   final String appointmentId;
   CompleteAppointmentEvent({required this.appointmentId});
 }

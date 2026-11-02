@@ -27,6 +27,5 @@ class UserLocalServiceImpl implements UserLocalService {
   }
 
   @override
-  Future<void> removeUser() =>
-      _storageService.remove(HiveConstants.userKey);
+  Future<void> removeUser() => _storageService.remove(HiveConstants.userKey);
 }

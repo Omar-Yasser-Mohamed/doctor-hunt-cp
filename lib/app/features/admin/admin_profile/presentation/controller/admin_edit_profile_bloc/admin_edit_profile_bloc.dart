@@ -13,7 +13,8 @@ part 'admin_edit_profile_event.dart';
 part 'admin_edit_profile_state.dart';
 
 @injectable
-class AdminEditProfileBloc extends Bloc<AdminEditProfileEvent, AdminEditProfileState> {
+class AdminEditProfileBloc
+    extends Bloc<AdminEditProfileEvent, AdminEditProfileState> {
   final AdminProfileRepo _adminProfileRepo;
   final ImagePicker _imagePicker;
 
@@ -39,7 +40,8 @@ class AdminEditProfileBloc extends Bloc<AdminEditProfileEvent, AdminEditProfileS
 
   bool get isFormDirty {
     final initialName = _currentUser?.user.name;
-    final bool nameChanged = (_currentName ?? '').trim() != (initialName ?? '').trim();
+    final bool nameChanged =
+        (_currentName ?? '').trim() != (initialName ?? '').trim();
     final bool imageChanged = _pickedImage != null;
     final bool locationChanged = _isLocationChanged();
 
@@ -52,7 +54,8 @@ class AdminEditProfileBloc extends Bloc<AdminEditProfileEvent, AdminEditProfileS
     final initialLatitude = _currentUser?.admin?.latitude;
     final initialLongitude = _currentUser?.admin?.longitude;
 
-    final bool addressChanged = _currentLocation!.address.trim() != (initialAddress ?? '').trim();
+    final bool addressChanged =
+        _currentLocation!.address.trim() != (initialAddress ?? '').trim();
     final bool latChanged = _currentLocation!.latitude != initialLatitude;
     final bool lngChanged = _currentLocation!.longitude != initialLongitude;
     return addressChanged || latChanged || lngChanged;

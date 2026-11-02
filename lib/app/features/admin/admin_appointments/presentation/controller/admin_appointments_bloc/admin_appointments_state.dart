@@ -25,7 +25,8 @@ final class GetAdminAppointmentsFailure extends AdminAppointmentsState {
   List<Object> get props => [failure];
 }
 
-final class GetAdminAppointmentsPaginationFailure extends AdminAppointmentsState {
+final class GetAdminAppointmentsPaginationFailure
+    extends AdminAppointmentsState {
   final Failure failure;
   const GetAdminAppointmentsPaginationFailure({required this.failure});
   @override

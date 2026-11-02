@@ -31,7 +31,10 @@ class LocationRepoImpl implements LocationRepo {
     double lng,
   ) async {
     try {
-      final address = await _locationService.getAddressFromCoordinates(lat, lng);
+      final address = await _locationService.getAddressFromCoordinates(
+        lat,
+        lng,
+      );
       return Right(address);
     } catch (e) {
       return Left(ErrorHandler.handle(e));

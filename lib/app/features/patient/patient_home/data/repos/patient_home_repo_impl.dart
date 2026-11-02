@@ -18,7 +18,7 @@ class PatientHomeRepoImpl implements PatientHomeRepo {
     required int page,
     required int limit,
     required DoctorsFilter filter,
-  }) async{
+  }) async {
     try {
       final data = await _service.getDoctors(
         page: page,

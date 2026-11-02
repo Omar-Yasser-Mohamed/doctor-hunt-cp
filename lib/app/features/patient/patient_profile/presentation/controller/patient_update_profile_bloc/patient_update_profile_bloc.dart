@@ -36,7 +36,8 @@ class PatientUpdateProfileBloc
 
   bool get isFormDirty {
     final initialName = _currentUser?.user.name;
-    final bool nameChanged = (_currentName ?? '').trim() != (initialName ?? '').trim();
+    final bool nameChanged =
+        (_currentName ?? '').trim() != (initialName ?? '').trim();
     final bool imageChanged = _profileImage != null;
     return nameChanged || imageChanged;
   }

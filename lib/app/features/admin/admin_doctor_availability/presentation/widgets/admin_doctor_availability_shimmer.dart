@@ -40,9 +40,17 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppShimmerBox(width: 120.w, height: 16.h, borderRadius: 4.r),
+                      AppShimmerBox(
+                        width: 120.w,
+                        height: 16.h,
+                        borderRadius: 4.r,
+                      ),
                       6.height,
-                      AppShimmerBox(width: 160.w, height: 12.h, borderRadius: 4.r),
+                      AppShimmerBox(
+                        width: 160.w,
+                        height: 12.h,
+                        borderRadius: 4.r,
+                      ),
                     ],
                   ),
                 ),
@@ -51,9 +59,9 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
               ],
             ),
           ),
-      
+
           14.height,
-      
+
           // Working days section shimmer
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,9 +70,9 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
               AppShimmerBox(width: 80.w, height: 12.h, borderRadius: 4.r),
             ],
           ),
-      
+
           8.height,
-      
+
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             decoration: BoxDecoration(
@@ -80,7 +88,11 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          const AppShimmerBox(width: 28, height: 28, borderRadius: 8),
+                          const AppShimmerBox(
+                            width: 28,
+                            height: 28,
+                            borderRadius: 8,
+                          ),
                           10.width,
                           AppShimmerBox(
                             width: 80.w,
@@ -89,21 +101,25 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const AppShimmerBox(width: 36, height: 20, borderRadius: 9999),
+                      const AppShimmerBox(
+                        width: 36,
+                        height: 20,
+                        borderRadius: 9999,
+                      ),
                     ],
                   ),
                 );
               }),
             ),
           ),
-      
+
           14.height,
-      
+
           // Working hours section shimmer
           AppShimmerBox(width: 100.w, height: 14.h, borderRadius: 4.r),
-      
+
           8.height,
-      
+
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
@@ -129,9 +145,9 @@ class AdminDoctorAvailabilityShimmer extends StatelessWidget {
               ],
             ),
           ),
-      
+
           18.height,
-      
+
           // Save button shimmer
           AppShimmerBox(height: 52.h, borderRadius: 12.r),
         ],

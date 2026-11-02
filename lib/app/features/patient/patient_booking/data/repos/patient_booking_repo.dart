@@ -14,5 +14,7 @@ abstract class PatientBookingRepo {
     required DateTime date,
   });
 
-  Future<Either<Failure, void>> bookAppointment(BookAppointment bookAppointment);
+  Future<Either<Failure, void>> bookAppointment(
+    BookAppointment bookAppointment,
+  );
 }

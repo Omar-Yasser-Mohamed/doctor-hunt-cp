@@ -23,7 +23,9 @@ class AdminProfileRepoImpl implements AdminProfileRepo {
     UpdateAdminProfileRequest request,
   ) async {
     try {
-      final updatedUser = await _adminProfileService.updateAdminProfile(request);
+      final updatedUser = await _adminProfileService.updateAdminProfile(
+        request,
+      );
       await _userLocalService.saveUser(updatedUser);
       return Right(updatedUser);
     } catch (e) {

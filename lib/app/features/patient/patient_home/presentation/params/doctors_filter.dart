@@ -1,11 +1,7 @@
 import 'package:doctor_hunt/app/core/shared/enums/doctor_specialty.dart';
 import 'package:doctor_hunt/generated/translations.g.dart';
 
-enum DoctorsListType {
-  popular,
-  topRated,
-  category;
-}
+enum DoctorsListType { popular, topRated, category }
 
 class DoctorsFilter {
   final DoctorsListType type;

@@ -11,11 +11,13 @@ class AdminAppointmentsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLoadingMore = context.watch<AdminAppointmentsBloc>().state is GetAdminAppointmentsPaginationLoading;
+    final isLoadingMore =
+        context.watch<AdminAppointmentsBloc>().state
+            is GetAdminAppointmentsPaginationLoading;
     return SliverList.builder(
-      itemCount: appointments.length + (isLoadingMore? 1 : 0),
+      itemCount: appointments.length + (isLoadingMore ? 1 : 0),
       itemBuilder: (context, index) {
-        if (isLoadingMore && index == appointments.length){
+        if (isLoadingMore && index == appointments.length) {
           return const AdminAppointmentCardShimmer();
         }
         return AdminAppointmentCard(appointment: appointments[index]);

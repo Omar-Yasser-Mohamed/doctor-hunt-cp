@@ -123,7 +123,9 @@ class _DoctorInfoCardState extends State<DoctorInfoCard> {
             width: 140.w,
             textStyle: context.medium14White,
             onPressed: () {
-              PatientBookingAppointmentRoute($extra: widget.doctor).push(context);
+              PatientBookingAppointmentRoute(
+                $extra: widget.doctor,
+              ).push(context);
             },
           ),
         ],
